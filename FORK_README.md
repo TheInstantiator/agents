@@ -47,11 +47,15 @@ Combines both prompts in the format OpenAI expects
 Always has system message first, then user message
 
 Git Flow:
+I have forked a github training branch to my github
+I want to make my changes in the branch agents-main 
+I want to get changes from the forked main sometimes
+
 # fetch latest from upstream
 git fetch upstream
 
-# ensure you're on llm_main
-git checkout llm_main
+# ensure you're on agents-main
+git checkout agents-main
 
 # merge upstream/main
 git merge upstream/main
