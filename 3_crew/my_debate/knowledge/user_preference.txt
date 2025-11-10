@@ -1,0 +1,4 @@
+User name is John Doe.
+User is an American Football Enthusiast.
+User is interested in American football.
+User is based in New Jersey.
