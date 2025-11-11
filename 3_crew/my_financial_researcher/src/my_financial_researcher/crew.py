@@ -1,10 +1,21 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
-import os  # Add this import if using environment variables for API key
+from crewai_tools import SerperDevTool
+
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from the main project's .env file
+# This goes up from: my_financial_researcher/src/my_financial_researcher/crew.py
+# to: agents/.env
+project_root = Path(__file__).parent.parent.parent.parent.parent
+env_path = project_root / '.env'
+load_dotenv(dotenv_path=env_path)
 
 @CrewBase
-class Debate():
-    """Debate crew"""
+class ResearchCrew():
+    """Financial Research crew"""
 
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
@@ -15,10 +26,10 @@ class Debate():
         print("GROK_API_KEY:", grok_key[:4])
         print("GROK_BASE_URL:", grok_base_url)
 
-        gemini_key = os.getenv("GOOGLE_API_KEY")
-        gemini_base_url = os.getenv("GOOGLE_BASE_URL")
-        print("GOOGLE_API_KEY:", gemini_key[:4])
-        print("GOOGLE_BASE_URL:", gemini_base_url)
+        gemini_key = os.getenv("GEMINI_API_KEY")
+        gemini_base_url = os.getenv("GEMINI_BASE_URL")
+        print("GEMINI_API_KEY:", gemini_key[:4])
+        print("GEMINI_BASE_URL:", gemini_base_url)
 
         if not grok_key:
             raise ValueError("GROK_API_KEY environment variable is not set.")
@@ -55,37 +66,32 @@ class Debate():
         )
 
     @agent
-    def debater(self) -> Agent:
+    def researcher(self) -> Agent:
         return Agent(
-            config=self.agents_config['debater'],
-            llm=self.llm_grok,  # Assign the Grok LLM here
-            verbose=True
+            config=self.agents_config['researcher'],
+            llm=self.llm_grok,
+            verbose=True,
+            tools=[SerperDevTool()]
         )
 
     @agent
-    def judge(self) -> Agent:
+    def analyst(self) -> Agent:
         return Agent(
-            config=self.agents_config['judge'],
+            config=self.agents_config['analyst'],
             llm=self.llm_gemini,  # Assign the Grok LLM here
             verbose=True
         )
 
     @task
-    def propose(self) -> Task:
+    def research_task(self) -> Task:
         return Task(
-            config=self.tasks_config['propose'],
+            config=self.tasks_config['research_task'],
         )
 
     @task
-    def oppose(self) -> Task:
+    def analysis_task(self) -> Task:
         return Task(
-            config=self.tasks_config['oppose'],
-        )
-
-    @task
-    def decide(self) -> Task:
-        return Task(
-            config=self.tasks_config['decide'],
+            config=self.tasks_config['analysis_task'],
         )
 
     @crew
