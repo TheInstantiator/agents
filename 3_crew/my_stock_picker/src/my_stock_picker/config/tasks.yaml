@@ -1,0 +1,49 @@
+find_trending_companies_grok:
+  description: >
+    Find the top trending PUBLICLY TRADED companies in {sector} by searching the latest news with a focus on fundamentals and long-term trends.
+    IMPORTANT: Only include companies that have stock ticker symbols (are publicly traded).
+    Do not include private companies or startups without tickers.
+    Find new companies that you've not found before.
+    For each company provide: company name, ticker symbol, current stock price (if available), projected price in 5 years (if available), and reason for trending.
+  expected_output: >
+    A list of 2-3 publicly traded trending companies in {sector}, each with a valid stock ticker symbol, from a fundamental analysis perspective.
+  agent: trending_company_finder_grok
+  output_file: output/trending_companies_grok.json
+
+find_trending_companies_gemini:
+  description: >
+    Find the top trending PUBLICLY TRADED companies in {sector} by searching the latest news with a focus on momentum and short-term catalysts.
+    IMPORTANT: Only include companies that have stock ticker symbols (are publicly traded).
+    Do not include private companies or startups without tickers.
+    Find new companies that you've not found before. Try to find DIFFERENT companies than the other analyst.
+    For each company provide: company name, ticker symbol, current stock price (if available), projected price in 5 years (if available), and reason for trending.
+  expected_output: >
+    A list of 2-3 publicly traded trending companies in {sector}, each with a valid stock ticker symbol, from a momentum/catalyst perspective.
+  agent: trending_company_finder_gemini
+  output_file: output/trending_companies_gemini.json
+
+research_trending_companies:
+  description: >
+    Given TWO LISTS of trending companies (one from fundamental analysis, one from momentum analysis),
+    provide detailed analysis of EACH UNIQUE company from BOTH lists in a comprehensive report by searching online.
+    Combine the companies from both lists, remove duplicates, and research all of them thoroughly.
+  expected_output: >
+    A comprehensive report containing detailed analysis of each unique company from both input lists.
+  agent: financial_researcher
+  context:
+    - find_trending_companies_grok
+    - find_trending_companies_gemini
+  output_file: output/research_report.json
+
+rate_trending_companies:
+  description: >
+    Analyze the research findings and pick rate the companies in terms of investment potential.
+    Use a scale from 1 to 100, one being you should just light your money on fire instead, and 100 being this company needs to be invested in NOW.
+    List the companies given followed by there ratings followed by a brief reason for your rating.
+    List the companies highest to lowest in order of your rankings.
+  expected_output: >
+    I have researched the following companies and rated them on a scale from 1 to 100
+  agent: stock_rater
+  context:
+    - research_trending_companies
+  output_file: output/decision.md
