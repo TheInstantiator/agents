@@ -1,11 +1,21 @@
 """
-Example: Running a crew with LLM fallback logic
-This can be imported and used in any crew project
+Run a crew with LLM fallback logic for improved resilience.
+
+This runner provides automatic failover between different LLM configurations,
+useful for handling service outages or general API failures.
+
+Note: For rate limiting, use the max_rpm parameter on Agent objects instead.
+See USING_MAX_RPM.md for details.
 """
 
 def run_crew_with_fallback(crew_class, llm_configs, inputs=None, max_retries=3):
     """
     Run a crew with automatic fallback to different LLM configurations if one fails.
+
+    This is useful for:
+    - Handling service outages (e.g., Grok API down)
+    - Testing different LLM combinations
+    - Ensuring availability through fallback chains
 
     Args:
         crew_class: The crew class to instantiate (e.g., MyStockPicker)
@@ -107,9 +117,14 @@ def run_crew_with_fallback(crew_class, llm_configs, inputs=None, max_retries=3):
                 error_msg = str(e).lower()
                 last_error = e
 
-                # Check if it's a rate limit / overuse error
-                if any(keyword in error_msg for keyword in ['rate limit', 'quota', 'overloaded', '429', 'too many requests']):
-                    logger.warning(f"Rate limit hit on {config_name} (attempt {attempt + 1}/{max_retries}): {e}")
+                # Check if it's a potentially transient error worth retrying
+                is_transient = any(keyword in error_msg for keyword in [
+                    'rate limit', 'quota', 'overloaded', '429', 'too many requests',
+                    '503', 'service unavailable', 'timeout', 'connection'
+                ])
+
+                if is_transient:
+                    logger.warning(f"Transient error on {config_name} (attempt {attempt + 1}/{max_retries}): {e}")
 
                     if attempt < max_retries - 1:
                         # Wait before retry (exponential backoff)
@@ -121,7 +136,7 @@ def run_crew_with_fallback(crew_class, llm_configs, inputs=None, max_retries=3):
                         logger.error(f"Max retries reached for {config_name}, moving to next config")
                         break
                 else:
-                    # Non-rate-limit error, move to next config immediately
+                    # Non-transient error, move to next config immediately
                     logger.error(f"Error with {config_name}: {e}")
                     break
 

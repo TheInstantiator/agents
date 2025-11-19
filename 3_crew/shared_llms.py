@@ -36,35 +36,25 @@ def list_available_llms():
     """
     return AVAILABLE_LLMS.copy()
 
-def build_llms(llm_list, requests_per_minute=0):
+def build_llms(llm_list):
     """
     Build LLM instances based on a list of model configuration names.
 
     Args:
         llm_list: List of model config names like ['grok-4-fast', 'gemini-2.5-flash', 'ollama-deepseek32b']
-        requests_per_minute: Optional rate limit (requests per minute). If 0, no rate limiting.
-                            If > 0, applies to ALL non-ollama models in llm_list.
-
-                            Examples:
-                            - 10 = 10 requests/min (1 request every 6 seconds)
-                            - 2 = 2 requests/min (1 request every 30 seconds)
-                            - 0 = No limit (default, backward compatible)
 
     Returns:
         Dictionary of LLM instances with same keys as input list
 
     Example:
-        # No rate limiting
-        llms = build_llms(['grok-4-fast', 'gemini-2.5-flash'])
-
-        # Rate limit all models to 10 req/min
-        llms = build_llms(['grok-4-fast', 'gemini-2.5-flash'], requests_per_minute=10)
-
-        # Rate limit to 2 req/min (gemini free tier)
-        llms = build_llms(['gemini-2.5-pro'], requests_per_minute=2)
+        llms = build_llms(['grok-4-fast', 'gemini-2.5-flash', 'ollama-gemma27b'])
 
     Raises:
         ValueError: If an unknown LLM configuration is requested
+
+    Note:
+        For rate limiting, use the max_rpm parameter on Agent objects.
+        See USING_MAX_RPM.md for details.
     """
     load_project_env()
 
@@ -89,7 +79,8 @@ def build_llms(llm_list, requests_per_minute=0):
             model="grok-4",
             base_url=grok_base_url,
             api_key=grok_key,
-            temperature=0.7
+            temperature=0.7,
+            max_retries=10
         )
 
     if 'grok-4-fast' in llm_list:
@@ -101,7 +92,8 @@ def build_llms(llm_list, requests_per_minute=0):
             model="grok-4-fast",
             base_url=grok_base_url,
             api_key=grok_key,
-            temperature=0.7
+            temperature=0.7,
+            max_retries=10
         )
 
     # Gemini models
@@ -114,7 +106,8 @@ def build_llms(llm_list, requests_per_minute=0):
             model="gemini-2.5-flash",
             base_url=gemini_base_url,
             api_key=gemini_key,
-            temperature=0.7
+            temperature=0.7,
+            max_retries=10
         )
 
     if 'gemini-2.5-pro' in llm_list:
@@ -126,7 +119,8 @@ def build_llms(llm_list, requests_per_minute=0):
             model="gemini-2.5-pro",
             base_url=gemini_base_url,
             api_key=gemini_key,
-            temperature=0.7
+            temperature=0.7,
+            max_retries=10
         )
 
     # Ollama models
@@ -135,7 +129,8 @@ def build_llms(llm_list, requests_per_minute=0):
             model="deepseek-r1:32b",
             base_url="http://localhost:11434/v1",
             api_key="ollama",
-            temperature=0.7
+            temperature=0.7,
+            max_retries=2
         )
 
     if 'ollama-gemma27b' in llm_list:
@@ -143,20 +138,8 @@ def build_llms(llm_list, requests_per_minute=0):
             model="gemma3:27B",
             base_url="http://localhost:11434/v1",
             api_key="ollama",
-            temperature=0.7
+            temperature=0.7,
+            max_retries=2
         )
-
-    # Apply rate limiting if requested
-    if requests_per_minute > 0:
-        from rate_limited_llm import RateLimitedLLM
-
-        logger.info(f"Applying rate limiting: {requests_per_minute} requests/minute to non-ollama models")
-
-        # Wrap all non-ollama LLMs with rate limiting
-        for model_name, llm_instance in llms.items():
-            # Skip ollama models (they're local, no rate limits needed)
-            if not model_name.startswith('ollama-'):
-                llms[model_name] = RateLimitedLLM(llm_instance, requests_per_minute)
-                logger.info(f"  - {model_name}: rate limited to {requests_per_minute} req/min")
 
     return llms
