@@ -1,8 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 
-
-
 @CrewBase
 class Coder():
     """Coder crew"""
@@ -23,7 +21,6 @@ class Coder():
             max_execution_time=30, 
             max_retry_limit=3 
     )
-
 
     @task
     def coding_task(self) -> Task:

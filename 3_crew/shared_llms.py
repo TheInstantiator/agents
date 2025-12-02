@@ -10,10 +10,13 @@ logger = logging.getLogger(__name__)
 AVAILABLE_LLMS = [
     'grok-4',
     'grok-4-fast',
+    'grok-code-fast-1',
     'gemini-2.5-flash',
     'gemini-2.5-pro',
     'ollama-deepseek32b',
     'ollama-gemma27b',
+    'ollama-deepseek-coder',
+    'ollama-qwen-coder'
 ]
 
 # Load environment variables from the main project's .env file
@@ -36,25 +39,35 @@ def list_available_llms():
     """
     return AVAILABLE_LLMS.copy()
 
-def build_llms(llm_list):
+def build_llms(llm_list, requests_per_minute=0):
     """
     Build LLM instances based on a list of model configuration names.
 
     Args:
         llm_list: List of model config names like ['grok-4-fast', 'gemini-2.5-flash', 'ollama-deepseek32b']
+        requests_per_minute: Optional rate limit (requests per minute). If 0, no rate limiting.
+                            If > 0, applies to ALL non-ollama models in llm_list.
+
+                            Examples:
+                            - 10 = 10 requests/min (1 request every 6 seconds)
+                            - 2 = 2 requests/min (1 request every 30 seconds)
+                            - 0 = No limit (default, backward compatible)
 
     Returns:
         Dictionary of LLM instances with same keys as input list
 
     Example:
-        llms = build_llms(['grok-4-fast', 'gemini-2.5-flash', 'ollama-gemma27b'])
+        # No rate limiting
+        llms = build_llms(['grok-4-fast', 'gemini-2.5-flash'])
+
+        # Rate limit all models to 10 req/min
+        llms = build_llms(['grok-4-fast', 'gemini-2.5-flash'], requests_per_minute=10)
+
+        # Rate limit to 2 req/min (gemini free tier)
+        llms = build_llms(['gemini-2.5-pro'], requests_per_minute=2)
 
     Raises:
         ValueError: If an unknown LLM configuration is requested
-
-    Note:
-        For rate limiting, use the max_rpm parameter on Agent objects.
-        See USING_MAX_RPM.md for details.
     """
     load_project_env()
 
@@ -79,8 +92,7 @@ def build_llms(llm_list):
             model="grok-4",
             base_url=grok_base_url,
             api_key=grok_key,
-            temperature=0.7,
-            max_retries=10
+            temperature=0.7
         )
 
     if 'grok-4-fast' in llm_list:
@@ -92,8 +104,19 @@ def build_llms(llm_list):
             model="grok-4-fast",
             base_url=grok_base_url,
             api_key=grok_key,
-            temperature=0.7,
-            max_retries=10
+            temperature=0.7
+        )
+
+    if 'grok-code-fast-1' in llm_list:
+        grok_key = os.getenv("GROK_API_KEY")
+        grok_base_url = os.getenv("GROK_BASE_URL")
+        if not grok_key or not grok_base_url:
+            raise ValueError("GROK_API_KEY or GROK_BASE_URL not set")
+        llms['grok-code-fast-1'] = LLM(
+            model="grok-code-fast-1",
+            base_url=grok_base_url,
+            api_key=grok_key,
+            temperature=0.7
         )
 
     # Gemini models
@@ -106,8 +129,7 @@ def build_llms(llm_list):
             model="gemini-2.5-flash",
             base_url=gemini_base_url,
             api_key=gemini_key,
-            temperature=0.7,
-            max_retries=10
+            temperature=0.7
         )
 
     if 'gemini-2.5-pro' in llm_list:
@@ -119,8 +141,7 @@ def build_llms(llm_list):
             model="gemini-2.5-pro",
             base_url=gemini_base_url,
             api_key=gemini_key,
-            temperature=0.7,
-            max_retries=10
+            temperature=0.7
         )
 
     # Ollama models
@@ -129,8 +150,7 @@ def build_llms(llm_list):
             model="deepseek-r1:32b",
             base_url="http://localhost:11434/v1",
             api_key="ollama",
-            temperature=0.7,
-            max_retries=2
+            temperature=0.7
         )
 
     if 'ollama-gemma27b' in llm_list:
@@ -138,8 +158,36 @@ def build_llms(llm_list):
             model="gemma3:27B",
             base_url="http://localhost:11434/v1",
             api_key="ollama",
-            temperature=0.7,
-            max_retries=2
+            temperature=0.7
         )
+
+    if 'ollama-deepseek-coder' in llm_list:
+        llms['ollama-deepseek-coder'] = LLM(
+            model="deepseek-coder-v2:16b",
+            base_url="http://localhost:11434/v1",
+            api_key="ollama",
+            temperature=0.7
+        )
+
+    if 'ollama-qwen-coder' in llm_list:
+        llms['ollama-qwen-coder'] = LLM(
+            model="qwen3-coder:30b",
+            base_url="http://localhost:11434/v1",
+            api_key="ollama",
+            temperature=0.7
+        )
+
+    # Apply rate limiting if requested
+    if requests_per_minute > 0:
+        from rate_limited_llm import RateLimitedLLM
+
+        logger.info(f"Applying rate limiting: {requests_per_minute} requests/minute to non-ollama models")
+
+        # Wrap all non-ollama LLMs with rate limiting
+        for model_name, llm_instance in llms.items():
+            # Skip ollama models (they're local, no rate limits needed)
+            if not model_name.startswith('ollama-'):
+                llms[model_name] = RateLimitedLLM(llm_instance, requests_per_minute)
+                logger.info(f"  - {model_name}: rate limited to {requests_per_minute} req/min")
 
     return llms

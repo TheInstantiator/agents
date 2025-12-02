@@ -1,0 +1,9 @@
+Code:
+sum_series = 0
+for n in range(10000):
+    term = ((-1)**n) / (2*n + 1)
+    sum_series += term
+pi_approx = sum_series * 4
+print(pi_approx)
+
+Output: 3.1414926535900345

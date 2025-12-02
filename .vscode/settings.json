@@ -1,5 +1,7 @@
 {
     "python.analysis.extraPaths": [
         "${workspaceFolder}/my-utils"
-    ]
+    ],
+    "window.zoomLevel": 1,
+    "terminal.integrated.fontSize": 14
 }

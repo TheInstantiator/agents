@@ -1,0 +1,23 @@
+[project]
+name = "my_coder"
+version = "0.1.0"
+description = "my_coder using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[google-genai,tools]==1.4.1"
+]
+
+[project.scripts]
+my_coder = "my_coder.main:run"
+run_crew = "my_coder.main:run"
+train = "my_coder.main:train"
+replay = "my_coder.main:replay"
+test = "my_coder.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
