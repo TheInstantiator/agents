@@ -1,0 +1,38 @@
+model_list:
+  # --- xAI (Grok) ---
+  - model_name: grok-agent
+    litellm_params:
+      model: xai/grok-4-1-fast-reasoning
+      api_key: "os.environ/GROK_API_KEY"
+
+  # --- Google (Gemini) ---
+  - model_name: gemini-agent
+    litellm_params:
+      model: gemini/gemini-2.5-flash
+      api_key: "os.environ/GEMINI_API_KEY"
+
+  # --- Ollama (Local) ---
+  - model_name: qwen-agent
+    litellm_params:
+      model: ollama/qwen3:32b
+      api_base: "http://localhost:11434"
+
+  - model_name: gemma-agent
+    litellm_params:
+      model: ollama/gemma3:27b
+      api_base: "http://localhost:11434"
+
+  - model_name: deepseek-agent
+    litellm_params:
+      model: ollama/deepseek-r1:32b
+      api_base: "http://localhost:11434"
+
+  - model_name: llama-agent
+    litellm_params:
+      model: ollama/llama3.1:8b
+      api_base: "http://localhost:11434"
+
+  - model_name: phi-agent
+    litellm_params:
+      model: ollama/phi4:latest
+      api_base: "http://localhost:11434"

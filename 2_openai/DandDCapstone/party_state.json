@@ -1,0 +1,127 @@
+[
+    {
+        "identity": {
+            "name": "Elara Thorne",
+            "species": "Human",
+            "background": "Acolyte",
+            "classic_role": "HEALER",
+            "actual_class": "Cleric",
+            "backstory": "Elara grew up in a remote temple dedicated to the god of healing, where she learned the arts of mending wounds and banishing disease. After a plague ravaged her village, she set out to bring her divine gifts to the wider world. She seeks a party of adventurers to protect and heal as they face greater evils."
+        },
+        "stats": {
+            "STR": 14,
+            "DEX": 8,
+            "CON": 13,
+            "INT": 10,
+            "WIS": 15,
+            "CHA": 12
+        },
+        "hp": 9,
+        "ac": 9,
+        "level": 1,
+        "xp": 0,
+        "proficiency_bonus": 2,
+        "inventory": [],
+        "is_alive": true
+    },
+    {
+        "identity": {
+            "name": "Grom Ironfist",
+            "species": "Dwarf",
+            "background": "Soldier",
+            "classic_role": "FRONTLINE",
+            "actual_class": "Fighter",
+            "backstory": "Grom hails from the rugged mountain clans of Khazadun, where he spent years defending his kin against relentless goblin incursions. Seeking fame and fortune beyond the forge-lit halls, he now wields his greataxe for worthy allies. His unbreakable spirit and stout frame make him an ideal vanguard for any band of heroes."
+        },
+        "stats": {
+            "STR": 15,
+            "DEX": 14,
+            "CON": 13,
+            "INT": 8,
+            "WIS": 10,
+            "CHA": 12
+        },
+        "hp": 11,
+        "ac": 12,
+        "level": 1,
+        "xp": 0,
+        "proficiency_bonus": 2,
+        "inventory": [],
+        "is_alive": true
+    },
+    {
+        "identity": {
+            "name": "Lirael Nightshade",
+            "species": "Wood Elf",
+            "background": "Criminal",
+            "classic_role": "STEALTH/UTILITY",
+            "actual_class": "Rogue",
+            "backstory": "Born in the shadowed underbelly of a sprawling metropolis, Lirael learned the art of stealth and thievery from a young age to survive. A narrow escape from the city guard after a high-profile heist has driven her to seek fortune and redemption among adventurers."
+        },
+        "stats": {
+            "STR": 12,
+            "DEX": 15,
+            "CON": 13,
+            "INT": 14,
+            "WIS": 10,
+            "CHA": 8
+        },
+        "hp": 9,
+        "ac": 12,
+        "level": 1,
+        "xp": 0,
+        "proficiency_bonus": 2,
+        "inventory": [],
+        "is_alive": true
+    },
+    {
+        "identity": {
+            "name": "Thalorien Starsong",
+            "species": "High Elf",
+            "background": "Sage",
+            "classic_role": "ARCANE",
+            "actual_class": "Wizard",
+            "backstory": "Raised in the arcane academies of the elven spires, Thalorien mastered the weave of magic through years of rigorous study. A catastrophic experiment gone wrong killed his mentors and scarred him, fueling his drive to perfect his craft. He joins adventuring parties to apply his knowledge in the field and uncover lost magical secrets."
+        },
+        "stats": {
+            "STR": 8,
+            "DEX": 12,
+            "CON": 13,
+            "INT": 15,
+            "WIS": 14,
+            "CHA": 10
+        },
+        "hp": 7,
+        "ac": 11,
+        "level": 1,
+        "xp": 0,
+        "proficiency_bonus": 2,
+        "inventory": [],
+        "is_alive": true
+    },
+    {
+        "identity": {
+            "name": "Finnegan Quickwit",
+            "species": "Halfling",
+            "background": "Entertainer",
+            "classic_role": "Utility",
+            "actual_class": "Bard",
+            "backstory": "Finnegan Quickwit, a cheerful halfling from the pastoral hills of the Southdowns, discovered his bardic talents while entertaining travelers at roadside inns and secretly spying on shady dealings. When bandits razed his hometown, his rousing songs and clever illusions rallied the survivors to victory. Eager for grander adventures, he now seeks a party where his music can inspire heroes to greatness."
+        },
+        "stats": {
+            "STR": 8,
+            "DEX": 14,
+            "CON": 12,
+            "INT": 13,
+            "WIS": 10,
+            "CHA": 15
+        },
+        "hp": 9,
+        "ac": 12,
+        "level": 1,
+        "xp": 0,
+        "proficiency_bonus": 2,
+        "inventory": [],
+        "is_alive": true
+    }
+]
