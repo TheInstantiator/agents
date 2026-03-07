@@ -1,15 +1,40 @@
 model_list:
   # --- xAI (Grok) ---
-  - model_name: grok-agent
+  - model_name: grok-agent-legacy
+    litellm_params:
+      model: xai/grok-3-mini
+      api_key: "os.environ/GROK_API_KEY"
+
+  - model_name: grok-agent-vanilla
+    litellm_params:
+      model: xai/grok-4-0709
+      api_key: "os.environ/GROK_API_KEY"
+
+  - model_name: grok-agent-tier1-think
     litellm_params:
       model: xai/grok-4-1-fast-reasoning
       api_key: "os.environ/GROK_API_KEY"
 
+  - model_name: grok-agent-tier1-nonthink
+    litellm_params:
+      model: xai/grok-4-1-fast-non-reasoning
+      api_key: "os.environ/GROK_API_KEY"
+
   # --- Google (Gemini) ---
-  - model_name: gemini-agent
+  - model_name: gemini-agent-vanilla
     litellm_params:
       model: gemini/gemini-2.5-flash
-      api_key: "os.environ/GEMINI_API_KEY"
+      api_key: "os.environ/GEMINI_API_KEYX"
+
+  - model_name: gemini-agent-tier1-nonthink
+    litellm_params:
+      model: gemini/gemini-3.1-flash-lite-preview
+      api_key: "os.environ/GEMINI_API_KEYX"
+
+  - model_name: gemini-agent-tier1-think
+    litellm_params:
+      model: gemini/gemini-3.1-pro-preview
+      api_key: "os.environ/GEMINI_API_KEYX"
 
   # --- Ollama (Local) ---
   - model_name: qwen-agent

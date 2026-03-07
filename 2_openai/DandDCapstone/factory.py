@@ -46,6 +46,7 @@ class PlayerCharacter(BaseModel):
     proficiency_bonus: int = 2
     inventory: List[str] = []
     is_alive: bool = True
+    played_by: str = ""
 
 
 # --- HELPERS ---
@@ -54,7 +55,7 @@ def get_modifier(score: int) -> int:
     """Calculates a D&D modifier from an attribute score. (Score 10 = +0, 12 = +1, etc.)"""
     return (score - 10) // 2
 
-def create_pc_from_choice(identity: CharacterIdentity, stats_dict: Dict) -> PlayerCharacter:
+def create_pc_from_choice(identity: CharacterIdentity, stats_dict: Dict, played_by: str = "") -> PlayerCharacter:
     """
     This function acts as the 'Factory'. It takes the raw identity (from the AI) 
     and stats (from constants.py) and calculates health and defense.
@@ -74,7 +75,8 @@ def create_pc_from_choice(identity: CharacterIdentity, stats_dict: Dict) -> Play
         identity=identity,
         stats=Stats(**stats_dict),
         hp=base_hp + con_mod,
-        ac=base_ac
+        ac=base_ac,
+        played_by=played_by
     )
 
 
