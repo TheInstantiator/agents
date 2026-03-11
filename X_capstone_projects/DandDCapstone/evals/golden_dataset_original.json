@@ -1,0 +1,1136 @@
+[
+  {
+    "question": "How much does a Longsword cost and what damage does it deal?",
+    "expected_answer": "15 gp, 1d8 slashing",
+    "keywords": [
+      "longsword",
+      "15",
+      "1d8",
+      "slashing"
+    ],
+    "category": "table_retrieval"
+  },
+  {
+    "question": "If my ability score is 18, what is my modifier?",
+    "expected_answer": "+4",
+    "keywords": [
+      "18",
+      "+4",
+      "modifier"
+    ],
+    "category": "ghost_table_retrieval"
+  },
+  {
+    "question": "What modifier do I get for an ability score of 1 or 11?",
+    "expected_answer": "1 is -5, 11 is +0",
+    "keywords": [
+      "-5",
+      "+0",
+      "11"
+    ],
+    "category": "ghost_table_retrieval"
+  },
+  {
+    "question": "Does an Adult Red Dragon have Legendary Resistance? How many times?",
+    "expected_answer": "Yes, it has Legendary Resistance. It can use it 3/Day, or 4/Day in its Lair.",
+    "keywords": [
+      "legendary",
+      "resistance",
+      "3/day",
+      "lair"
+    ],
+    "category": "monster_stat"
+  },
+  {
+    "question": "Can I cast two spells in the same turn?",
+    "expected_answer": "If you cast a spell as a bonus action, you can't cast another spell during the same turn, except for a cantrip with a casting time of 1 action.",
+    "keywords": [
+      "bonus action",
+      "cantrip",
+      "1 action"
+    ],
+    "category": "nuanced_rule"
+  },
+  {
+    "question": "What does the 'Invisibility' spell do?",
+    "expected_answer": "A creature you touch becomes invisible until the spell ends. The spell ends if the target attacks or casts a spell.",
+    "keywords": [
+      "invisible",
+      "attacks",
+      "casts a spell"
+    ],
+    "category": "spell_description"
+  },
+  {
+    "question": "How do death saving throws work?",
+    "expected_answer": "Whenever you start your turn with 0 hit points, you must make a special saving throw. Roll a d20: 10 or higher is a success, 9 or lower is a failure. On your third success, you become stable. On your third failure, you die.",
+    "keywords": [
+      "0 hit points",
+      "d20",
+      "10 or higher",
+      "failure",
+      "stable"
+    ],
+    "category": "core_mechanic"
+  },
+  {
+    "question": "If I am a level 4 Ranger and level 3 Sorcerer multiclass character, how many level 3 spell slots do I have?",
+    "expected_answer": "You count as a level 5 spellcaster (all 3 Sorcerer levels + half of 4 Ranger levels, which is 2), giving you two level 3 spell slots.",
+    "keywords": [
+      "Multiclassing",
+      "Spell Slots",
+      "Ranger",
+      "Sorcerer"
+    ],
+    "category": "Character Creation"
+  },
+  {
+    "question": "How long does it take to don and doff Medium Armor?",
+    "expected_answer": "It takes 5 minutes to don and 1 minute to doff Medium Armor.",
+    "keywords": [
+      "Medium Armor",
+      "Don",
+      "Doff",
+      "Time"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "What happens if a creature reaches Exhaustion level 6?",
+    "expected_answer": "The creature dies.",
+    "keywords": [
+      "Exhaustion",
+      "Condition",
+      "Death"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "What is the effect of the Sap weapon mastery property?",
+    "expected_answer": "If you hit a creature with a weapon that has the Sap property, that creature has Disadvantage on its next attack roll before the start of your next turn.",
+    "keywords": [
+      "Weapon Mastery",
+      "Sap",
+      "Disadvantage"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "At what level does a Barbarian gain the Relentless Rage feature, and what is the starting DC for its saving throw?",
+    "expected_answer": "A Barbarian gains Relentless Rage at level 11, and the initial Constitution saving throw DC is 10.",
+    "keywords": [
+      "Barbarian",
+      "Relentless Rage",
+      "DC",
+      "Level 11"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What is the effect of the Indigo layer of a Prismatic Wall, and what can destroy it?",
+    "expected_answer": "A creature failing the save against the Indigo layer is Restrained and must make Constitution saves to avoid being Petrified. The layer is destroyed by Bright Light shed by the Daylight spell.",
+    "keywords": [
+      "Prismatic Wall",
+      "Indigo",
+      "Petrified",
+      "Daylight"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What happens if you roll a 96-00 on the Bag of Beans effect table?",
+    "expected_answer": "A giant beanstalk sprouts, growing to a height of the GM's choice, leading to a destination such as a cloud giant's castle or another plane of existence.",
+    "keywords": [
+      "Bag of Beans",
+      "96-00",
+      "Beanstalk"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "How does the Tarrasque's Reflective Carapace interact with the Magic Missile spell?",
+    "expected_answer": "When targeted by Magic Missile, roll a 1d6. On a 1-5, the Tarrasque is unaffected. On a 6, it is unaffected and reflects the spell back at the caster.",
+    "keywords": [
+      "Tarrasque",
+      "Reflective Carapace",
+      "Magic Missile"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "How many Exhaustion levels does a creature automatically gain after eating nothing for 5 days?",
+    "expected_answer": "The creature automatically gains 1 Exhaustion level at the end of the fifth day, plus an additional level at the end of each subsequent day without food.",
+    "keywords": [
+      "Malnutrition",
+      "Exhaustion",
+      "Food"
+    ],
+    "category": "Gameplay Toolbox"
+  },
+  {
+    "question": "How many Focus Points does a level 15 Monk have?",
+    "expected_answer": "A level 15 Monk has 15 Focus Points.",
+    "keywords": [
+      "Monk",
+      "Focus Points",
+      "Level 15"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What does the Discord effect of the Symbol spell do to a target that fails its saving throw?",
+    "expected_answer": "The target argues with other creatures for 1 minute, is incapable of meaningful communication, and has Disadvantage on attack rolls and ability checks.",
+    "keywords": [
+      "Symbol",
+      "Discord",
+      "Disadvantage"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What is the requirement to use the Iron Horn of Valhalla without being attacked by the summoned spirits?",
+    "expected_answer": "You must have proficiency with all Martial weapons.",
+    "keywords": [
+      "Horn of Valhalla",
+      "Iron",
+      "Requirement",
+      "Martial weapons"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What is the Dexterity saving throw DC to avoid the effects of Caltrops, and what happens on a failure?",
+    "expected_answer": "The DC is 15. On a failure, the creature takes 1 Piercing damage and its Speed is reduced to 0 until the start of its next turn.",
+    "keywords": [
+      "Caltrops",
+      "Dexterity",
+      "Speed 0"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "What are the four Vampire Weaknesses listed in the vampire stat block?",
+    "expected_answer": "Forbiddance, Running Water, Stake to the Heart, and Sunlight.",
+    "keywords": [
+      "Vampire",
+      "Weakness",
+      "Forbiddance",
+      "Sunlight"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "How does the Paralyzed condition affect incoming attack rolls and hits?",
+    "expected_answer": "Attack rolls against the paralyzed creature have Advantage, and any attack roll that hits is a Critical Hit if the attacker is within 5 feet.",
+    "keywords": [
+      "Paralyzed",
+      "Advantage",
+      "Critical Hit"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "What is the Sneak Attack die cost for the Rogue's Knock Out Cunning Strike effect?",
+    "expected_answer": "The cost is 6d6.",
+    "keywords": [
+      "Rogue",
+      "Knock Out",
+      "Cunning Strike",
+      "Cost"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What is the maximum Challenge Rating of a creature you can turn an object into using True Polymorph?",
+    "expected_answer": "You can turn an object into a creature with a Challenge Rating of 9 or lower.",
+    "keywords": [
+      "True Polymorph",
+      "Object to Creature",
+      "CR 9"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What activities will interrupt a Long Rest?",
+    "expected_answer": "Rolling Initiative, casting a spell other than a cantrip, taking any damage, or 1 hour of walking or other physical exertion.",
+    "keywords": [
+      "Long Rest",
+      "Interrupt",
+      "Initiative",
+      "Damage"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "How much acid damage does a creature swallowed by a Kraken take at the start of each of the Kraken's turns?",
+    "expected_answer": "The creature takes 24 (7d6) Acid damage.",
+    "keywords": [
+      "Kraken",
+      "Swallow",
+      "Acid damage"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "What are the limitations on the spell slots a Wizard can recover using Arcane Recovery during a Short Rest?",
+    "expected_answer": "The combined level of the recovered slots can be no more than half the Wizard's level (rounded up), and none of the slots can be level 6 or higher.",
+    "keywords": [
+      "Wizard",
+      "Arcane Recovery",
+      "Short Rest",
+      "Spell Slots"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What does moving Lever 1 up on the Apparatus of the Crab do?",
+    "expected_answer": "Its legs extend, allowing the apparatus to walk and swim.",
+    "keywords": [
+      "Apparatus of the Crab",
+      "Lever 1",
+      "Legs"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What bonus does a Portable Ram provide when breaking down doors, and how can another character assist?",
+    "expected_answer": "It provides a +4 bonus to the Strength check, and another character can help use it to give Advantage on the check.",
+    "keywords": [
+      "Portable Ram",
+      "Strength check",
+      "Advantage"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "Under what specific conditions does the Time Stop spell end early?",
+    "expected_answer": "The spell ends early if one of your actions or effects affects a creature other than you or an object worn/carried by someone else, or if you move more than 1,000 feet away from where you cast it.",
+    "keywords": [
+      "Time Stop",
+      "End early",
+      "Distance"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "How does an Aboleth's Mucus Cloud affect a creature's ability to regain Hit Points?",
+    "expected_answer": "A cursed creature can't regain Hit Points unless it is underwater.",
+    "keywords": [
+      "Aboleth",
+      "Mucus Cloud",
+      "Regain Hit Points",
+      "Underwater"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "How many Hit Points must a Paladin expend from their Lay on Hands pool to remove the Poisoned condition?",
+    "expected_answer": "The Paladin must expend 5 Hit Points from the pool.",
+    "keywords": [
+      "Paladin",
+      "Lay on Hands",
+      "Poisoned"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What is the starting DC for the Constitution saving throw when exposed to Extreme Heat without water, and how does it scale?",
+    "expected_answer": "The DC is 5 for the first hour and increases by 1 for each additional hour.",
+    "keywords": [
+      "Extreme Heat",
+      "DC",
+      "Constitution",
+      "Hazard"
+    ],
+    "category": "Gameplay Toolbox"
+  },
+  {
+    "question": "How many charges does it cost to cast Plane Shift using a Cubic Gate?",
+    "expected_answer": "It costs 1 charge (activated by pressing one side of the cube twice).",
+    "keywords": [
+      "Cubic Gate",
+      "Plane Shift",
+      "Charges"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "At what Druid level can you adopt a Wild Shape form with a Fly Speed, and what is the maximum Challenge Rating for that form?",
+    "expected_answer": "At Druid level 8, you can adopt a form with a Fly Speed, and the maximum Challenge Rating is 1.",
+    "keywords": [
+      "Druid",
+      "Wild Shape",
+      "Fly Speed",
+      "CR"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What specific immunities and HP benefits does a creature gain after consuming a Heroes' Feast?",
+    "expected_answer": "The creature gains Immunity to the Frightened and Poisoned conditions, its Hit Point maximum increases by 2d10, and it regains the same number of Hit Points.",
+    "keywords": [
+      "Heroes' Feast",
+      "Immunity",
+      "Hit Point maximum"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What is the range and damage of a Treant's Hail of Bark attack?",
+    "expected_answer": "It has a range of 180 feet and deals 28 (4d10 + 6) Piercing damage.",
+    "keywords": [
+      "Treant",
+      "Hail of Bark",
+      "Range",
+      "Damage"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "How much does a Spyglass cost, and what is its mechanical effect?",
+    "expected_answer": "It costs 1,000 GP, and objects viewed through it are magnified to twice their size.",
+    "keywords": [
+      "Spyglass",
+      "Cost",
+      "Magnified"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "How many Sorcery Points does it cost for a Sorcerer to use the Heightened Spell Metamagic option?",
+    "expected_answer": "It costs 2 Sorcery Points.",
+    "keywords": [
+      "Sorcerer",
+      "Heightened Spell",
+      "Sorcery Points"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What illusion is created if you roll a 70-72 on the Deck of Illusions table?",
+    "expected_answer": "A Medusa.",
+    "keywords": [
+      "Deck of Illusions",
+      "70-72",
+      "Medusa"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "If a creature is Invisible, how does it affect their Initiative roll?",
+    "expected_answer": "The creature has Advantage on the Initiative roll.",
+    "keywords": [
+      "Invisible",
+      "Initiative",
+      "Advantage"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "What benefits does the Inscrutable trait grant a Sphinx?",
+    "expected_answer": "No magic can observe it remotely or detect its thoughts without permission, and Wisdom (Insight) checks made to ascertain its intentions or sincerity have Disadvantage.",
+    "keywords": [
+      "Sphinx",
+      "Inscrutable",
+      "Insight",
+      "Telepathy"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "If you cast Animal Messenger using a level 4 spell slot, how much is the spell's duration increased?",
+    "expected_answer": "The duration increases by 48 hours for each level above 2, so a level 4 slot increases it by 96 hours.",
+    "keywords": [
+      "Animal Messenger",
+      "Upcast",
+      "Duration"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What does the Fighter's Tactical Mind feature allow them to do when failing an ability check?",
+    "expected_answer": "The Fighter can expend a use of Second Wind to roll 1d10 and add it to the check. If it still fails, the use of Second Wind isn't expended.",
+    "keywords": [
+      "Fighter",
+      "Tactical Mind",
+      "Second Wind",
+      "Ability Check"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "When climbing or crawling in Difficult Terrain, how much does each foot of movement cost?",
+    "expected_answer": "Each foot of movement costs 2 extra feet.",
+    "keywords": [
+      "Climbing",
+      "Crawling",
+      "Difficult Terrain",
+      "Movement cost"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "What is the cost and weight multiplier for purchasing armor as Barding for a mount?",
+    "expected_answer": "The cost is four times the normal cost, and it weighs twice as much.",
+    "keywords": [
+      "Barding",
+      "Mount",
+      "Cost",
+      "Weight"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "What benefit does the Ioun Stone of Mastery provide, and what is its rarity?",
+    "expected_answer": "It is a Legendary item that increases your Proficiency Bonus by 1.",
+    "keywords": [
+      "Ioun Stone",
+      "Mastery",
+      "Proficiency Bonus",
+      "Legendary"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What are the material components for the Awaken spell, and what kind of target can it affect?",
+    "expected_answer": "It requires an agate worth 1,000+ GP (which is consumed). The target must be a Beast or Plant creature with Intelligence 3 or less, or a nonmagical plant.",
+    "keywords": [
+      "Awaken",
+      "Agate",
+      "Beast",
+      "Plant"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What happens if a Behir takes 30 or more damage on a single turn from a swallowed creature?",
+    "expected_answer": "The Behir must succeed on a DC 14 Constitution saving throw at the end of the turn or regurgitate the swallowed creature.",
+    "keywords": [
+      "Behir",
+      "Swallow",
+      "Regurgitate",
+      "Damage"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "What are the prerequisites for a Warlock to learn the Devouring Blade Eldritch Invocation?",
+    "expected_answer": "The Warlock must be level 12+ and have the Thirsting Blade Invocation.",
+    "keywords": [
+      "Warlock",
+      "Devouring Blade",
+      "Prerequisite"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "How many patches does a Robe of Useful Items have in total when originally found?",
+    "expected_answer": "It has two of each of the six specific patches (12 total), plus 4d4 other randomly determined patches.",
+    "keywords": [
+      "Robe of Useful Items",
+      "Patches",
+      "4d4"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "How does the Restrained condition affect a creature's saving throws?",
+    "expected_answer": "The creature has Disadvantage on Dexterity saving throws.",
+    "keywords": [
+      "Restrained",
+      "Condition",
+      "Dexterity",
+      "Disadvantage"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "What is the DC to pull a creature out of a Gelatinous Cube, and what happens to the puller?",
+    "expected_answer": "It requires a successful DC 12 Strength (Athletics) check, and the puller takes 10 (3d6) Acid damage.",
+    "keywords": [
+      "Gelatinous Cube",
+      "Pull",
+      "DC 12",
+      "Acid"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "What is the difference in casting time between the Overgrowth and Enrichment effects of the Plant Growth spell?",
+    "expected_answer": "Overgrowth has a casting time of 1 Action, while Enrichment takes 8 hours.",
+    "keywords": [
+      "Plant Growth",
+      "Overgrowth",
+      "Enrichment",
+      "Casting Time"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "How many uses does a Healer's Kit have, and what is its mechanical function?",
+    "expected_answer": "It has 10 uses. As a Utilize action, you can expend one use to stabilize an Unconscious creature with 0 Hit Points without needing a Medicine check.",
+    "keywords": [
+      "Healer's Kit",
+      "Stabilize",
+      "Utilize action"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "At what level does a Bard's Bardic Inspiration die increase to a d10?",
+    "expected_answer": "It increases to a d10 at Bard level 10.",
+    "keywords": [
+      "Bard",
+      "Bardic Inspiration",
+      "d10",
+      "Level 10"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What happens if a bearer refuses to comply with a sentient magic item's demands and fails the Charisma saving throw when the item attempts to take control?",
+    "expected_answer": "The bearer has the Charmed condition for 1d12 hours and must try to follow the item's commands.",
+    "keywords": [
+      "Sentient Magic Item",
+      "Conflict",
+      "Charmed",
+      "Control"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What types of movement or actions allow a creature to leave an enemy's reach without provoking an Opportunity Attack?",
+    "expected_answer": "You can avoid an Opportunity Attack by taking the Disengage action, or if you Teleport, or if you are moved without using your movement, action, Bonus Action, or Reaction.",
+    "keywords": [
+      "Opportunity Attack",
+      "Disengage",
+      "Teleport",
+      "movement"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "What is the Armor Class of an object made of Mithral?",
+    "expected_answer": "An object made of Mithral has an Armor Class of 21.",
+    "keywords": [
+      "Armor Class",
+      "Object",
+      "Mithral",
+      "Breaking Objects"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "What are the mechanical effects of the Hamstring Blow option for a Barbarian's Brutal Strike?",
+    "expected_answer": "The target's Speed is reduced by 15 feet until the start of the Barbarian's next turn. A target can only be affected by one Hamstring Blow at a time.",
+    "keywords": [
+      "Barbarian",
+      "Brutal Strike",
+      "Hamstring Blow",
+      "Speed"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "At what Cleric level does a Life Domain Cleric always have the spells Mass Cure Wounds and Greater Restoration prepared?",
+    "expected_answer": "A Life Domain Cleric always has Mass Cure Wounds and Greater Restoration prepared at level 9.",
+    "keywords": [
+      "Cleric",
+      "Life Domain",
+      "Mass Cure Wounds",
+      "Level 9"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What is the Sneak Attack die cost for a Rogue's Obscure Cunning Strike effect, and what saving throw does it force the target to make?",
+    "expected_answer": "The die cost is 3d6, and it forces the target to make a Dexterity saving throw to avoid the Blinded condition.",
+    "keywords": [
+      "Rogue",
+      "Cunning Strike",
+      "Obscure",
+      "Dexterity"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What material component is required to cast the Contingency spell, and is it consumed?",
+    "expected_answer": "It requires a gem-encrusted statuette of yourself worth 1,500+ GP, and it is not consumed by the spell.",
+    "keywords": [
+      "Contingency",
+      "Material component",
+      "Statuette"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "How does the Heroes' Feast spell affect a creature's Hit Points?",
+    "expected_answer": "It increases the creature's Hit Point maximum by 2d10, and the creature gains the same number of Hit Points. It lasts for 24 hours.",
+    "keywords": [
+      "Heroes' Feast",
+      "Hit Point maximum",
+      "2d10"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What happens if you roll a 01 on the Potion Miscibility table when mixing two potions?",
+    "expected_answer": "Both potions lose their effects, and the mixture creates a magical explosion in a 5-foot-radius Sphere centered on itself, dealing 4d10 Force damage to each creature in that area.",
+    "keywords": [
+      "Potion Miscibility",
+      "01",
+      "Explosion",
+      "Force damage"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What is the Dexterity saving throw DC and damage for an Ancient Black Dragon's Acid Breath?",
+    "expected_answer": "The DC is 22, and it deals 67 (15d8) Acid damage on a failed save, or half as much on a successful one.",
+    "keywords": [
+      "Ancient Black Dragon",
+      "Acid Breath",
+      "DC 22",
+      "15d8"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "If a Balor dies outside the Abyss, what happens to its body, and what is the damage of its Death Throes?",
+    "expected_answer": "If it dies outside the Abyss, it gains a new body instantly in the Abyss. Its Death Throes deal 31 (9d6) Fire damage plus 31 (9d6) Force damage to creatures in a 30-foot Emanation on a failed DC 20 Dexterity save.",
+    "keywords": [
+      "Balor",
+      "Abyss",
+      "Death Throes",
+      "Fire",
+      "Force"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "How much does a single dose of Purple Worm Poison cost, and what is the DC for its Constitution saving throw?",
+    "expected_answer": "It costs 2,000 GP, and the Constitution saving throw DC is 21.",
+    "keywords": [
+      "Purple Worm Poison",
+      "Cost",
+      "DC 21",
+      "Injury"
+    ],
+    "category": "Gameplay Toolbox"
+  },
+  {
+    "question": "According to the Control Weather spell, what weather conditions correspond to stage 5 of Precipitation?",
+    "expected_answer": "Torrential rain, driving hail, or blizzard.",
+    "keywords": [
+      "Control Weather",
+      "Precipitation",
+      "Stage 5"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What three ability scores are increased by the Acolyte background?",
+    "expected_answer": "Intelligence, Wisdom, and Charisma.",
+    "keywords": [
+      "Acolyte",
+      "Background",
+      "Ability Scores"
+    ],
+    "category": "Character Origins"
+  },
+  {
+    "question": "What tool proficiency is required to craft a basic Potion of Healing, and how much does it cost in raw materials?",
+    "expected_answer": "It requires proficiency with the Herbalism Kit, and it costs 25 GP in raw materials.",
+    "keywords": [
+      "Potion of Healing",
+      "Herbalism Kit",
+      "Raw materials",
+      "Crafting"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "How much weight does a Block and Tackle allow a character to hoist compared to their normal lifting capacity?",
+    "expected_answer": "It allows a character to hoist up to four times the weight they can normally lift.",
+    "keywords": [
+      "Block and Tackle",
+      "Hoist",
+      "Weight"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "What happens when a creature whose name is on the page of a Warlock's Book of Shadows (with the Gift of the Protectors invocation) drops to 0 Hit Points?",
+    "expected_answer": "If the creature is not killed outright, it magically drops to 1 Hit Point instead. This can only happen once per Long Rest for any creature on the page.",
+    "keywords": [
+      "Warlock",
+      "Gift of the Protectors",
+      "0 Hit Points",
+      "Book of Shadows"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What does the Evoker Wizard's level 14 feature 'Overchannel' allow them to do, and what happens if they use it a second time before a Long Rest?",
+    "expected_answer": "It allows the Wizard to deal maximum damage with a level 1-5 Wizard spell. If used a second time before finishing a Long Rest, the Wizard takes 2d12 Necrotic damage per level of the spell slot, which ignores Resistance and Immunity.",
+    "keywords": [
+      "Wizard",
+      "Evoker",
+      "Overchannel",
+      "Necrotic damage"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "Which creature type automatically succeeds on its saving throw against the Flesh to Stone spell?",
+    "expected_answer": "Constructs automatically succeed on the save.",
+    "keywords": [
+      "Flesh to Stone",
+      "Constructs",
+      "Saving Throw"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What effect does moving Lever 8 on the Apparatus of the Crab have?",
+    "expected_answer": "Moving it up causes the eyelike fixtures to emit Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. Moving it down turns the light off.",
+    "keywords": [
+      "Apparatus of the Crab",
+      "Lever 8",
+      "Light"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What is the recharge rate, shape, and damage of an Adult Bronze Dragon's Lightning Breath?",
+    "expected_answer": "It recharges on a 5-6, fills a 90-foot-long, 5-foot-wide Line, and deals 55 (10d10) Lightning damage on a failed DC 19 Dexterity save (half on a success).",
+    "keywords": [
+      "Adult Bronze Dragon",
+      "Lightning Breath",
+      "Line",
+      "Damage"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "What happens to a Troll Limb if it is not destroyed within 24 hours?",
+    "expected_answer": "Roll 1d12. On a 12, the limb turns into a Troll. Otherwise, the limb withers away.",
+    "keywords": [
+      "Troll Limb",
+      "24 hours",
+      "Troll Spawn"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "According to the rules on flying, what happens to a flying creature if it is subjected to the Prone condition and cannot hover?",
+    "expected_answer": "The creature falls.",
+    "keywords": [
+      "Flying",
+      "Prone",
+      "Hover",
+      "Fall"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "How much water per day does a Large creature require to avoid the Dehydration hazard?",
+    "expected_answer": "A Large creature requires 4 gallons of water per day.",
+    "keywords": [
+      "Dehydration",
+      "Large",
+      "Gallons",
+      "Water"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "What is the saving throw and DC required to avoid gaining an Exhaustion level after an hour of swimming in deep water?",
+    "expected_answer": "The creature must succeed on a DC 10 Constitution saving throw.",
+    "keywords": [
+      "Deep Water",
+      "Swimming",
+      "Constitution",
+      "DC 10"
+    ],
+    "category": "Gameplay Toolbox"
+  },
+  {
+    "question": "What is the radius of a Paladin's Aura of Protection at level 18?",
+    "expected_answer": "The aura expands to a 30-foot Emanation.",
+    "keywords": [
+      "Paladin",
+      "Aura of Protection",
+      "Level 18",
+      "Emanation"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "How many levels' worth of spell slots can a level 6 Circle of the Land Druid recover using the Natural Recovery feature?",
+    "expected_answer": "They can recover up to three levels' worth of spell slots (half their Druid level, rounded up).",
+    "keywords": [
+      "Druid",
+      "Circle of the Land",
+      "Natural Recovery",
+      "Spell slots"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What specific items does a Diplomat's Pack contain?",
+    "expected_answer": "A Chest, Fine Clothes, Ink, 5 Ink Pens, Lamp, 2 Map or Scroll Cases, 4 flasks of Oil, 5 sheets of Paper, 5 sheets of Parchment, Perfume, and Tinderbox.",
+    "keywords": [
+      "Diplomat's Pack",
+      "Equipment",
+      "Contents"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "What happens if a caster casts the Forbiddance spell in the same location every day for 30 days?",
+    "expected_answer": "The spell lasts until it is dispelled, and the Material components are consumed on the last casting.",
+    "keywords": [
+      "Forbiddance",
+      "30 days",
+      "Dispelled",
+      "Components"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What material components are required to cast the True Polymorph spell?",
+    "expected_answer": "A drop of mercury, a dollop of gum arabic, and a wisp of smoke.",
+    "keywords": [
+      "True Polymorph",
+      "Material components",
+      "Mercury"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What is the maximum number of spell levels a Rod of Absorption can absorb over its entire existence?",
+    "expected_answer": "The rod can absorb and store up to 50 levels of energy over the course of its existence.",
+    "keywords": [
+      "Rod of Absorption",
+      "50 levels",
+      "spell energy"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What happens if a Humanoid is reduced to 0 Hit Points by a Shadow's Draining Swipe attack?",
+    "expected_answer": "The target dies, and a Shadow rises from the corpse 1d4 hours later.",
+    "keywords": [
+      "Shadow",
+      "Draining Swipe",
+      "0 Hit Points",
+      "Humanoid"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "What is the Armor Class of an Iron Golem?",
+    "expected_answer": "An Iron Golem has an Armor Class of 20.",
+    "keywords": [
+      "Iron Golem",
+      "Armor Class",
+      "AC"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "What does the Colossus Slayer option for the Ranger's Hunter subclass do?",
+    "expected_answer": "When you hit a creature with a weapon, the weapon deals an extra 1d8 damage to the target if it\u2019s missing any of its Hit Points. This extra damage can only be dealt once per turn.",
+    "keywords": [
+      "Ranger",
+      "Hunter",
+      "Colossus Slayer",
+      "Damage"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "How much does a Galley cost, and what is the minimum crew required to operate it?",
+    "expected_answer": "A Galley costs 30,000 GP and requires a minimum crew of 80 skilled hirelings.",
+    "keywords": [
+      "Galley",
+      "Cost",
+      "Crew",
+      "Vehicles"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "How is a creature's Passive Perception score calculated?",
+    "expected_answer": "It equals 10 plus the creature's Wisdom (Perception) check bonus. If the creature has Advantage on such checks, increase the score by 5. If it has Disadvantage, decrease it by 5.",
+    "keywords": [
+      "Passive Perception",
+      "Calculation",
+      "Advantage",
+      "Wisdom"
+    ],
+    "category": "Rules Glossary"
+  },
+  {
+    "question": "What happens if a creature trapped inside a Forcecage tries to use teleportation or interplanar travel to leave, but fails the required Charisma saving throw?",
+    "expected_answer": "The creature doesn't exit the cage and wastes the spell or effect.",
+    "keywords": [
+      "Forcecage",
+      "Teleportation",
+      "Charisma saving throw",
+      "Fails"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What is required to destroy the Blue layer of a Prismatic Wall?",
+    "expected_answer": "The Blue layer is destroyed if it takes at least 25 Fire damage.",
+    "keywords": [
+      "Prismatic Wall",
+      "Blue layer",
+      "Fire damage",
+      "Destroyed"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What is the recharge rate, range, and damage of a Giant Ape's Boulder Toss action?",
+    "expected_answer": "It recharges on a 6, has a range of 90 feet (creating a 5-foot-radius Sphere), and deals 24 (7d6) Bludgeoning damage on a failed DC 17 Dexterity save.",
+    "keywords": [
+      "Giant Ape",
+      "Boulder Toss",
+      "Recharge",
+      "Damage"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "What mechanical benefit does a character gain after applying Perfume to themselves?",
+    "expected_answer": "For 1 hour, the character has Advantage on Charisma (Persuasion) checks made to influence an Indifferent Humanoid within 5 feet of them.",
+    "keywords": [
+      "Perfume",
+      "Advantage",
+      "Charisma",
+      "Persuasion"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "How many uses of the Indomitable feature does a Fighter have available before a Long Rest when they reach level 17?",
+    "expected_answer": "A level 17 Fighter can use Indomitable three times before a Long Rest.",
+    "keywords": [
+      "Fighter",
+      "Indomitable",
+      "Level 17",
+      "Long Rest"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "When a Monk uses the Warrior of the Open Hand subclass 'Addle' option from Open Hand Technique, what effect does it impose?",
+    "expected_answer": "The target can't make Opportunity Attacks until the start of its next turn.",
+    "keywords": [
+      "Monk",
+      "Open Hand Technique",
+      "Addle",
+      "Opportunity Attacks"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "Which specific conditions are automatically ended on a creature when it is healed by the Power Word Heal spell?",
+    "expected_answer": "The Charmed, Frightened, Paralyzed, Poisoned, or Stunned conditions.",
+    "keywords": [
+      "Power Word Heal",
+      "Conditions",
+      "End"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What happens when the last charge of a Staff of the Magi is expended and you roll a 1 on the 1d20 check?",
+    "expected_answer": "The staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties.",
+    "keywords": [
+      "Staff of the Magi",
+      "Last charge",
+      "Roll a 1",
+      "Properties"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What is the specific mechanical effect of a Vampire's 'Stake to the Heart' weakness?",
+    "expected_answer": "If a weapon that deals Piercing damage is driven into the vampire's heart while it is Incapacitated in its resting place, the vampire has the Paralyzed condition until the weapon is removed.",
+    "keywords": [
+      "Vampire",
+      "Weakness",
+      "Stake to the Heart",
+      "Paralyzed"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "How many arrows can a standard Quiver hold?",
+    "expected_answer": "A Quiver holds up to 20 Arrows.",
+    "keywords": [
+      "Quiver",
+      "Arrows",
+      "Capacity"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "When casting the Earthquake spell, what type of saving throw must a creature make to avoid falling into a newly opened fissure?",
+    "expected_answer": "A Dexterity saving throw.",
+    "keywords": [
+      "Earthquake",
+      "Fissure",
+      "Saving throw",
+      "Dexterity"
+    ],
+    "category": "Spells"
+  },
+  {
+    "question": "What happens to a creature that draws the 'Skull' card from the Mysterious Deck?",
+    "expected_answer": "An Avatar of Death appears and targets only that creature with its attacks. If an ally interferes and damages the avatar, they summon their own Avatar of Death.",
+    "keywords": [
+      "Avatar of Death",
+      "Skull",
+      "ally"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What spells are added to a Draconic Sorcerer's prepared list at level 9 due to their Draconic Spells feature?",
+    "expected_answer": "Legend Lore and Summon Dragon.",
+    "keywords": [
+      "Sorcerer",
+      "Draconic Sorcery",
+      "Level 9",
+      "Spells"
+    ],
+    "category": "Classes"
+  },
+  {
+    "question": "What languages does a Sphinx of Lore know and speak?",
+    "expected_answer": "It knows Celestial and Common.",
+    "keywords": [
+      "Sphinx of Lore",
+      "Languages",
+      "Celestial",
+      "Common"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "What happens to a creature's weight while they are under the effects of the Petrified condition?",
+    "expected_answer": "The creature's weight increases by a factor of ten.",
+    "keywords": [
+      "Petrified",
+      "Condition",
+      "Weight"
+    ],
+    "category": "Rules Glossary"
+  }
+]

@@ -1,0 +1,59 @@
+Initializing Vector Database connection...
+Initializing SQLite (Parent Chunk Store)...
+Loading Local Native Encoder (BAAI/bge-large-en-v1.5)...
+Initializing LLM Judge (phi-agent)...
+
+============================================================
+🚀 EVALUATING DATASET: golden_dataset_original.json
+============================================================
+
+
+--- Running LLM-as-Judge Evaluation (K=10, Judge: phi-agent) ---
+
+Q1: How much does a Longsword cost and what damage does it deal?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 4.2s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the abilities and statistics 
+    Judge: The task requires determining whether the retrieved text chunks contain a verbatim quote that answers the specific quest
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 2.9s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the abilities and statistics 
+    Judge: The task requires determining whether the expanded text chunks contain a verbatim quote that answers the specific questi
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 4.3s
+    Topic: D&D Weapon Properties Summary: The snippet outlines various properties of D&D we
+    Judge: The task requires identifying whether the provided text contains a verbatim quote that answers the specific question abo
+    Judge Evidence: "Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP"
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The task requires identifying whether the provided text contains a verbatim quote that answers the specific question abo
+
+Q2: If my ability score is 18, what is my modifier?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 6.1s
+    Topic: D&D Core Rules Summary: The core gameplay of D&D revolves around three main pill
+    Judge: The task requires identifying whether the provided text contains a verbatim quote that answers the specific question abo
+    Judge Evidence: "12–19 This represents a strong capability.
+
+20 This is the highest an adventurer’s score can go unless a feature says otherwise.
+
+30 This is the highest a score can go.
+
+**Ability Modifiers**
+
+**Score** **Modifier**
+
+1 −5
+2–3 −4
+4–5 −3
+6–7 −2
+8–9 −1
+10–11 +0
+12–13 +1
+14–15 +2
+16–17 +3
+18–19 +4"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The task requires identifying whether the provided text contains a verbatim quote that answers the specific question abo
+
+Q3: What modifier do I get for an ability score of 1 or 11?
+[ollama/phi4:latest] Thinking...

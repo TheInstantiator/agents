@@ -1,0 +1,45 @@
+Initializing Vector Database connection...
+Initializing SQLite (Parent Chunk Store)...
+Loading Local Native Encoder (BAAI/bge-large-en-v1.5)...
+Loading Cross-Encoder Re-Ranker (ms-marco-MiniLM-L-6-v2)...
+Initializing LLM Judge and Master Router (phi-agent)...
+Judge mode: ONE-SHOT (all chunks at once)
+Initializing Rephrase Agent (phi-agent)...
+Initializing Generation Agent (phi-agent)...
+
+============================================================
+🚀 ROUTED EVALUATING DATASET: golden_dataset_original.json
+============================================================
+
+
+--- Running LLM-as-Judge Evaluation w/ Master Router (Judge: phi-agent) ---
+
+Q1: How much does a Longsword cost and what damage does it deal?
+  A: 15 gp, 1d8 slashing
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: items | 12.8s
+  [Router] Exact Matches: ['Longsword']
+  [Router] HyDE: A Longsword is a common melee weapon used by many adventurers. It has a specified cost in gold pieces and deals damage on successful hits, typically m...
+[ollama/phi4:latest] Thinking...
+  [One-Shot] ✅ FOUND | 20.1s
+    Judge: The task involves determining whether the provided text chunks contain enough information to answer a specific question about magical items from a role-playing game setting. The key is to identify any relevant details across these chunks that might collectively provide an answer.
+
+First, let's break down what each chunk contains:
+1. **Sword of Sharpness**: Describes its effects when attacking objects and creatures, particularly the extra damage on a critical hit (rolling a 20).
+2. **Sun Blade**: Details about its radiant blade, sunlight emission, and additional damage to undead.
+3. **Sword of Life Stealing**: Explains how it deals extra necrotic damage and grants temporary hit points upon a critical hit.
+4. **Staff of Thunder and Lightning**: Describes various effects like lightning strikes, thunder sounds, and combined properties.
+5. **Stone of Good Luck (Luckstone)**: Provides a bonus to ability checks and saving throws when worn.
+6. **Talisman of the Sphere** and **Talisman of Ultim
+    Judge Evidence: "When you attack an object with this magic weapon and hit, maximize your weapon damage dice against the target. When you attack a creature with this weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 14 Slashing damage and gains 1 Exhaustion level.
+
+This item appears to be a sword hilt. While grasping the hilt, you can take a Bonus Action to cause a blade of pure radiance to spring into existence or make the blade disappear. While the blade exists, this magic weapon functions as a Longsword with the Finesse property. If you are proficient with Longswords or Shortswords, you are proficient with the Sun Blade. You gain a +2 bonus to attack rolls and damage rolls made with it, which deals Radiant damage instead of Slashing damage. When you hit an Undead with it, that target takes an extra 1d8 Radiant damage.
+
+This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. It also has the following additional properties. Once one of these properties is used, it can’t be used again until the next dawn. When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 Lightning damage (no action required). When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder audible out to 300 feet (no action required). The target you hit must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn.
+
+This talisman is a mighty symbol of goodness. A Fiend or an Undead that touches the talisman takes 8d6 Radiant damage and takes the damage again each time it ends its turn holding or carrying the talisman."
+  ✅ RETRIEVAL SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 2.4s
+    Rewritten Q: What is the cost in gold pieces and how much damage does a standard, non-magical Longsword deal?
+[ollama/phi4:latest] Thinking...

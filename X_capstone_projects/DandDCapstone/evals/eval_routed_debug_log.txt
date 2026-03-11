@@ -1,0 +1,104 @@
+  [ReRanker] Boosting scores for Exact Matches: ['Longsword']
+  [DEBUG] exact_match_indices: {30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49}
+  [DEBUG] Boosting chunk 30. Original score: -1.45
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 28.55
+  [DEBUG] Final boosted score: 28.55. Text preview: **Button 1.** A fiery blade sprouts from the end opposite th
+  [DEBUG] Boosting chunk 31. Original score: -9.83
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 20.17
+  [DEBUG] Final boosted score: 20.17. Text preview: choice with which you have proficiency, such as
+Longbows and
+  [DEBUG] Boosting chunk 32. Original score: -10.46
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 19.54
+  [DEBUG] Final boosted score: 19.54. Text preview: _Medium or Small Humanoid, Neutral_
+
+
+**AC** 18 **Initiative
+  [DEBUG] Boosting chunk 33. Original score: -3.56
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 26.44
+  [DEBUG] Final boosted score: 26.44. Text preview: Actions
+
+_**Multiattack.**_ The guard makes two attacks, usi
+  [DEBUG] Boosting chunk 34. Original score: -9.06
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 20.94
+  [DEBUG] Final boosted score: 20.94. Text preview: **Gear** Half Plate Armor, Longbow, Longsword, Shield
+**Sens
+  [DEBUG] Boosting chunk 35. Original score: -8.33
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 21.67
+  [DEBUG] Final boosted score: 21.67. Text preview: **Stone of Good Luck (Luckstone)**
+_Wondrous Item, Uncommon 
+  [DEBUG] Boosting chunk 36. Original score: -2.96
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 27.04
+  [DEBUG] Final boosted score: 27.04. Text preview: blade disappear. While the blade exists, this magic
+weapon f
+  [DEBUG] Boosting chunk 37. Original score: -8.47
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 21.53
+  [DEBUG] Final boosted score: 21.53. Text preview: **Sword of Life Stealing**
+_Weapon (Glaive, Greatsword, Long
+  [DEBUG] Boosting chunk 38. Original score: -8.27
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 21.73
+  [DEBUG] Final boosted score: 21.73. Text preview: **Sword of Sharpness**
+_Weapon (Glaive, Greatsword, Longswor
+  [DEBUG] Boosting chunk 39. Original score: -7.41
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 22.59
+  [DEBUG] Final boosted score: 22.59. Text preview: **Sword of Wounding**
+_Weapon (Glaive, Greatsword, Longsword
+  [DEBUG] Boosting chunk 40. Original score: -9.46
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 20.54
+  [DEBUG] Final boosted score: 20.54. Text preview: Potions _Potion of Healing_
+
+Rings _Ring of Invisibility_
+
+R
+  [DEBUG] Boosting chunk 41. Original score: -8.01
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 21.99
+  [DEBUG] Final boosted score: 21.99. Text preview: **247** System Reference Document 5.2
+
+
+
+**Vorpal Sword**
+_W
+  [DEBUG] Boosting chunk 42. Original score: -10.08
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 19.92
+  [DEBUG] Final boosted score: 19.92. Text preview: **Weapon Proficiencies** Simple and Martial weapons
+
+**Armor
+  [DEBUG] Boosting chunk 43. Original score: -9.46
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 20.54
+  [DEBUG] Final boosted score: 20.54. Text preview: **Level 1: Weapon Mastery**
+Your training with weapons allow
+  [DEBUG] Boosting chunk 44. Original score: -9.08
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 20.92
+  [DEBUG] Final boosted score: 20.92. Text preview: **Dancing Sword**
+_Weapon (Greatsword, Longsword, Rapier, Sc
+  [DEBUG] Boosting chunk 45. Original score: -7.98
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 22.02
+  [DEBUG] Final boosted score: 22.02. Text preview: **Goat of Terror.** This figurine can become a **Giant**
+**G
+  [DEBUG] Boosting chunk 46. Original score: -6.06
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 23.94
+  [DEBUG] Final boosted score: 23.94. Text preview: and the other becomes a _+2 Longsword_ . Removing
+a horn req
+  [DEBUG] Boosting chunk 47. Original score: -8.62
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 21.38
+  [DEBUG] Final boosted score: 21.38. Text preview: **Frost Brand**
+_Weapon (Glaive, Greatsword, Longsword, Rapi
+  [DEBUG] Boosting chunk 48. Original score: -6.23
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 23.77
+  [DEBUG] Final boosted score: 23.77. Text preview: Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP
+
+Mau
+  [DEBUG] Boosting chunk 49. Original score: -9.24
+  [BM25 BOOST] Keyword 'Longsword' found in metadata! New score: 20.76
+  [DEBUG] Final boosted score: 20.76. Text preview: **Luck Blade**
+_Weapon (Glaive, Greatsword, Longsword, Rapie
+  [ReRanker] Graded 50 docs, kept top 10 | 0.4s
+  [One-Shot] Judging all 10 chunks at once...
+     Reasoning: The task involves determining whether the provided text chunks contain enough information to answer a specific question about magical items from a role-playing game setting. The key is to identify any relevant details across these chunks that might collectively provide an answer.
+
+First, let's break down what each chunk contains:
+1. **Sword of Sharpness**: Describes its effects when attacking objects and creatures, particularly the extra damage on a critical hit (rolling a 20).
+2. **Sun Blade**: Details about its radiant blade, sunlight emission, and additional damage to undead.
+3. **Sword of Life Stealing**: Explains how it deals extra necrotic damage and grants temporary hit points upon a critical hit.
+4. **Staff of Thunder and Lightning**: Describes various effects like lightning strikes, thunder sounds, and combined properties.
+5. **Stone of Good Luck (Luckstone)**: Provides a bonus to ability checks and saving throws when worn.
+6. **Talisman of the Sphere** and **Talisman of Ultim

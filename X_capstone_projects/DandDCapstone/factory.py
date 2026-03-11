@@ -22,6 +22,7 @@ class Stats(BaseModel):
 
 class CharacterIdentity(BaseModel):
     """The 'flavor' and identify of a character (Name, Bio, etc.)."""
+    thoughts: str = Field(default="", description="Your internal reasoning for picking this class and role.")
     name: str
     species: str
     background: str
@@ -31,6 +32,7 @@ class CharacterIdentity(BaseModel):
 
 class EvaluationResult(BaseModel):
     """The format the 'Judge Agent' uses to tell us if a party is balanced."""
+    thoughts: str = Field(default="", description="Step by step reasoning evaluating the party balance.")
     is_valid: bool
     feedback: str
     suggested_replacements: list[str] | None = None

@@ -1,0 +1,298 @@
+--- Chunk 1 ---
+Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': "Dungeon Master's Guide Summary: The provided D&D snippet includes a list of creatures and their page numbers for quick reference in gameplay, rules related to the 'Mindless Rage' feature for immunity conditions during rage states, and Bard class features detailing abilities like Charisma-based attacks, inspirational mechanics, weapon proficiencies, and skill enhancements at various levels.", 'type': 'text', 'source': 'DandDRuleset.pdf'}
+
+Document:
+Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP
+
+Maul 2d6 Bludgeoning Heavy, Two-Handed Topple 10 lb. 10 GP
+
+Morningstar 1d8 Piercing     - Sap 4 lb. 15 GP
+
+Pike 1d10 Piercing Heavy, Reach, Two-Handed Push 18 lb. 5 GP
+
+Rapier 1d8 Piercing Finesse Vex 2 lb. 25 GP
+================================================================================
+
+--- Chunk 2 ---
+Metadata: {'type': 'text', 'parent_summary': "D&D Monsters Summary: The D&D section describes three types of creatures: a **Guard** and its more powerful variant, the **Guard Captain**, both humanoids with varying combat abilities; and a **Half-Dragon**, which is related to dragons and can resist specific damage types. The Half-Dragon has melee attacks and a Dragon’s Breath attack with significant area effect. Additionally, there's a **Harpy**, characterized by its claw attacks.", 'source': 'DandDRuleset.pdf', 'doc_hash': '371143968f4537998af5502c02d2097b'}
+
+Document:
+_Medium or Small Humanoid, Neutral_
+
+
+**AC** 18 **Initiative** +4 (14)
+**HP** 75 (10d8 + 30)
+**Speed** 30 ft.
+
+
+**Skills** Athletics +6, Perception +4
+**Gear** Breastplate, Javelins (6), Longsword, Shield
+**Senses** Passive Perception 14
+**Languages** Common
+**CR** 4 (XP 1,100; PB +2)
+
+Actions
+================================================================================
+
+--- Chunk 3 ---
+Metadata: {'parent_summary': "D&D Monsters Summary: The D&D section describes three types of creatures: a **Guard** and its more powerful variant, the **Guard Captain**, both humanoids with varying combat abilities; and a **Half-Dragon**, which is related to dragons and can resist specific damage types. The Half-Dragon has melee attacks and a Dragon’s Breath attack with significant area effect. Additionally, there's a **Harpy**, characterized by its claw attacks.", 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf'}
+
+Document:
+Actions
+
+_**Multiattack.**_ The guard makes two attacks, using Javelin
+or Longsword in any combination.
+
+_**Javelin.**_ _Melee or Ranged Attack Roll:_ +6, reach 5 ft. or
+range 30/120 ft. _Hit:_ 14 (3d6 + 4) Piercing damage.
+================================================================================
+
+--- Chunk 4 ---
+Metadata: {'parent_summary': "D&D Monsters Summary: The D&D section describes three types of creatures: a **Guard** and its more powerful variant, the **Guard Captain**, both humanoids with varying combat abilities; and a **Half-Dragon**, which is related to dragons and can resist specific damage types. The Half-Dragon has melee attacks and a Dragon’s Breath attack with significant area effect. Additionally, there's a **Harpy**, characterized by its claw attacks.", 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf'}
+
+Document:
+_**Longsword.**_ _Melee Attack Roll:_ +6, reach 5 ft. _Hit:_ 15
+(2d10 + 4) Slashing damage.
+
+
+## **Half-Dragon**
+### **Half-Dragon**
+
+_Medium Dragon, Neutral_
+
+
+**AC** 18 **Initiative** +5 (15)
+**HP** 105 (14d8 + 42)
+**Speed** 40 ft.
+================================================================================
+
+--- Chunk 5 ---
+Metadata: {'type': 'text', 'parent_summary': "D&D Rod Summary: The 'Rod of Alertness' (Very Rare) enhances Wisdom checks, Initiative rolls, allows specific spells when held, and projects a protective light that grants bonuses and reveals invisible creatures for 10 minutes. The 'Rod of Lordly Might' (Legendary) transforms into a magic weapon with a +3 attack bonus, featuring six button-activated properties such as a fiery blade or dual crescent blades.", 'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf'}
+
+Document:
+**Button 1.** A fiery blade sprouts from the end opposite the rod’s flanged head. The flames shed
+Bright Light in a 40-foot radius and Dim Light for
+an additional 40 feet, and the blade functions as
+a magic Longsword or Shortsword (your choice)
+that deals an extra 2d6 Fire damage on a hit.
+================================================================================
+
+--- Chunk 6 ---
+Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'type': 'text', 'parent_summary': 'D&D Rulebook Snippet Summary: The hezrou is a large giant with abilities including Multiattack using Tree Club or Trash Lob, and the Leap action for movement. It deals significant damage with Poison effects. Hill giants possess similar combat mechanics but have different damage potential and special conditions like Prone on smaller creatures. Hippogriffs engage in aerial attacks without provoking Opportunity Attacks when flying away.', 'source': 'DandDRuleset.pdf'}
+
+Document:
+**Gear** Half Plate Armor, Longbow, Longsword, Shield
+**Senses** Darkvision 60 ft.; Passive Perception 10
+**Languages** Common, Goblin
+**CR** 1/2 (XP 100; PB +2)
+
+
+Traits
+================================================================================
+
+--- Chunk 7 ---
+Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': 'D&D Rulebook Snippet Summary: The hezrou is a large giant with abilities including Multiattack using Tree Club or Trash Lob, and the Leap action for movement. It deals significant damage with Poison effects. Hill giants possess similar combat mechanics but have different damage potential and special conditions like Prone on smaller creatures. Hippogriffs engage in aerial attacks without provoking Opportunity Attacks when flying away.', 'type': 'text', 'source': 'DandDRuleset.pdf'}
+
+Document:
+Actions
+
+_**Longsword.**_ _Melee Attack Roll:_ +3, reach 5 ft. _Hit:_ 12
+(2d10 + 1) Slashing damage.
+
+_**Longbow.**_ _Ranged Attack Roll:_ +3, range 150/600 ft.
+_Hit:_ 5 (1d8 + 1) Piercing damage plus 7 (3d4) Poison damage.
+### **Hobgoblin Captain**
+
+_Medium Fey (Goblinoid), Lawful Evil_
+================================================================================
+
+--- Chunk 8 ---
+Metadata: {'parent_summary': "D&D Paladin Class Summary: Paladins in D&D are Strength and Charisma primary class characters with features centered on healing, protection, and combat prowess. Starting at level 1, they possess the 'Lay On Hands' feature for healing, proficiency with simple and martial weapons, and training in light, medium armor, and shields. Paladins gain additional abilities as they level up, such as weapon mastery at level 1, and have a pool of Hit Points that replenishes after long rests.", 'type': 'text', 'source': 'DandDRuleset.pdf', 'doc_hash': '371143968f4537998af5502c02d2097b'}
+
+Document:
+**Weapon Proficiencies** Simple and Martial weapons
+
+**Armor Training** Light, Medium, and Heavy armor and Shields
+
+**Starting Equipment** _Choose A or B:_ (A) Chain Mail,
+Shield, Longsword, 6 Javelins,
+Holy Symbol, Priest’s Pack,
+and 9 GP; or (B) 150 GP
+
+#### **Becoming a Paladin …**
+================================================================================
+
+--- Chunk 9 ---
+Metadata: {'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'doc_hash': '371143968f4537998af5502c02d2097b', 'type': 'text', 'source': 'DandDRuleset.pdf'}
+
+Document:
+**Stone of Good Luck (Luckstone)**
+_Wondrous Item, Uncommon (Requires Attunement)_
+
+While this polished agate is on your person, you
+gain a +1 bonus to ability checks and saving throws.
+
+**Sun Blade**
+_Weapon (Longsword), Rare (Requires Attunement)_
+================================================================================
+
+--- Chunk 10 ---
+Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'type': 'text', 'source': 'DandDRuleset.pdf'}
+
+Document:
+blade disappear. While the blade exists, this magic
+weapon functions as a Longsword with the Finesse
+property. If you are proficient with Longswords or
+Shortswords, you are proficient with the _Sun Blade_ .
+You gain a +2 bonus to attack rolls and damage
+================================================================================
+
+--- Chunk 11 ---
+Metadata: {'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'source': 'DandDRuleset.pdf'}
+
+Document:
+**Sword of Life Stealing**
+_Weapon (Glaive, Greatsword, Longsword, Rapier,_
+_Scimitar, or Shortsword), Rare (Requires Attunement)_
+================================================================================
+
+--- Chunk 12 ---
+Metadata: {'type': 'text', 'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'source': 'DandDRuleset.pdf', 'doc_hash': '371143968f4537998af5502c02d2097b'}
+
+Document:
+**Sword of Sharpness**
+_Weapon (Glaive, Greatsword, Longsword, or Scimitar),_
+_Very Rare (Requires Attunement)_
+================================================================================
+
+--- Chunk 13 ---
+Metadata: {'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'source': 'DandDRuleset.pdf', 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b'}
+
+Document:
+**Sword of Wounding**
+_Weapon (Glaive, Greatsword, Longsword, Rapier,_
+_Scimitar, or Shortsword), Rare (Requires Attunement)_
+================================================================================
+
+--- Chunk 14 ---
+Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf', 'parent_summary': 'D&D Paladin Class Features Summary: At Level 1, Paladins gain spellcasting abilities using Charisma as their spellcasting ability and have prepared spells they regain after a Long Rest. They also learn Weapon Mastery for two weapon types of choice and receive a Fighting Style feat or the Blessed Warrior option for additional cantrips. At Level 2, they always prepare the _Divine Smite_ spell, which can be cast without expending a slot but requires a Long Rest before reuse.', 'type': 'text'}
+
+Document:
+**Level 1: Weapon Mastery**
+Your training with weapons allows you to use the
+mastery properties of two kinds of weapons of your
+choice with which you have proficiency, such as
+Longswords and Javelins.
+
+
+**54** System Reference Document 5.2
+================================================================================
+
+--- Chunk 15 ---
+Metadata: {'type': 'text', 'parent_summary': "D&D Wondrous Items and Legendary Weapons Summary: The 'Tome' items enhance a character's intelligence, charisma, or wisdom by 2 points after dedicated study but lose their magic afterward. The 'Trident of Fish Command' allows casting _Dominate Beast_ on aquatic creatures using its charges. The 'Universal Solvent' dissolves adhesives instantly upon application. Weapons include the 'Vicious Weapon,' which adds extra damage, and the 'Vorpal Sword,' which can sever a creature's head with a critical hit while ignoring resistance to slashing.", 'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf'}
+
+Document:
+**247** System Reference Document 5.2
+
+
+
+**Vorpal Sword**
+_Weapon (Glaive, Greatsword, Longsword, or Scimitar),_
+_Legendary (Requires Attunement)_
+================================================================================
+
+--- Chunk 16 ---
+Metadata: {'source': 'DandDRuleset.pdf', 'type': 'text', 'parent_summary': "D&D Ranger Class Features Summary: The Ranger class gains features like 'Favored Enemy' for preparing and casting the _Hunter’s Mark_ spell, 'Weapon Mastery' for mastering two weapon types, 'Deft Explorer' for expertise in a skill and additional languages, and a unique 'Druidic Warrior' fighting style with Druid cantrips. Rangers also progress through levels with improvements such as 'Extra Attack,' 'Ability Score Improvement,' and increased mobility with 'Roving.' Subclass features are obtained at specific levels, enhancing the Ranger's specialized abilities.", 'doc_hash': '371143968f4537998af5502c02d2097b'}
+
+Document:
+choice with which you have proficiency, such as
+Longbows and Shortswords.
+Whenever you finish a Long Rest, you can change
+the kinds of weapons you chose. For example, you
+could switch to using the mastery properties of
+Scimitars and Longswords.
+================================================================================
+
+--- Chunk 17 ---
+Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf', 'parent_summary': 'D&D Magic Items Summaries: The snippet describes several magic items: A Dagger of Venom that can be coated with poison for an attack, granting a bonus to attack rolls and causing damage; a Dancing Sword which can hover and attack autonomously under player control, requiring attunement; and a Decanter of Endless Water capable of producing varying amounts of fresh or salt water on command, including as a geyser that deals damage.', 'type': 'text'}
+
+Document:
+**Dancing Sword**
+_Weapon (Greatsword, Longsword, Rapier, Scimitar, or_
+_Shortsword), Very Rare (Requires Attunement)_
+================================================================================
+
+--- Chunk 18 ---
+Metadata: {'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': "D&D Figurines of Wondrous Power Summary: A _Figurine of Wondrous Power_ is a portable statuette that transforms into a specified creature when thrown, obeying its controller's commands for a set duration. It reverts to figurine form upon damage, duration lapse, or specific magic action, with varying cooldown periods before reuse. Examples include the Bronze Griffon (griffon for 6 hours, 5-day rest), Ebony Fly (giant fly mount for 12 hours, 2-day rest), and Golden Lions (two lions for 1 hour each, 7-day rest). Ivory Goats set includes a Goat of Terror that turns into a giant goat offering wearable horns as weapons.", 'source': 'DandDRuleset.pdf'}
+
+Document:
+**Goat of Terror.** This figurine can become a **Giant**
+**Goat** for up to 3 hours. The goat can’t attack, but
+you can (harmlessly) remove its horns and use
+them as weapons. One horn becomes a _+1 Lance_,
+and the other becomes a _+2 Longsword_ . Removing
+================================================================================
+
+--- Chunk 19 ---
+Metadata: {'source': 'DandDRuleset.pdf', 'parent_summary': "D&D Figurines of Wondrous Power Summary: A _Figurine of Wondrous Power_ is a portable statuette that transforms into a specified creature when thrown, obeying its controller's commands for a set duration. It reverts to figurine form upon damage, duration lapse, or specific magic action, with varying cooldown periods before reuse. Examples include the Bronze Griffon (griffon for 6 hours, 5-day rest), Ebony Fly (giant fly mount for 12 hours, 2-day rest), and Golden Lions (two lions for 1 hour each, 7-day rest). Ivory Goats set includes a Goat of Terror that turns into a giant goat offering wearable horns as weapons.", 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b'}
+
+Document:
+and the other becomes a _+2 Longsword_ . Removing
+a horn requires a Magic action, and the weapons
+disappear and the horns return when the goat
+reverts to figurine form. While you ride the goat,
+================================================================================
+
+--- Chunk 20 ---
+Metadata: {'type': 'text', 'parent_summary': "D&D Magic Weapons and Items Summary: The snippet covers several magical items in D&D: 'Flame Tongue' is a weapon that allows fire effects through command words; 'Folding Boat' transforms into boats with different command words; 'Frost Brand' deals extra cold damage and provides fire resistance, plus extinguishing flames; 'Gauntlets of Ogre Power' boost Strength but only if it increases the wearer's Strength below 19; 'Gem of Brightness' has multiple uses triggered by command words.", 'source': 'DandDRuleset.pdf', 'doc_hash': '371143968f4537998af5502c02d2097b'}
+
+Document:
+**Frost Brand**
+_Weapon (Glaive, Greatsword, Longsword, Rapier,_
+_Scimitar, or Shortsword), Very Rare (Requires_
+_Attunement)_
+================================================================================
+
+--- Chunk 21 ---
+Metadata: {'source': 'DandDRuleset.pdf', 'parent_summary': "Magic Items Overview: Magic items, found as treasures from defeated monsters or hidden vaults, provide extraordinary abilities that enhance or complement their users' capabilities. These items fall into nine categories: Armor, Potions, Rings, Rods, Scrolls, Staffs, Wands, Weapons, and Wondrous Items. Each category has specific rules; for example, magic armor must be worn to function, potions are consumable and require a Bonus Action to use, while wondrous items offer diverse magical effects.", 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b'}
+
+Document:
+Potions _Potion of Healing_
+
+Rings _Ring of Invisibility_
+
+Rods _Immovable Rod_
+
+Scrolls _Spell Scroll_
+
+Staffs _Staff of Striking_
+
+Wands _Wand of Fireballs_
+
+Weapons _+1 Ammunition_, _+1 Longsword_
+
+Wondrous Items _Bag of Holding_, _Boots of Elvenkind_
+#### **Armor**
+================================================================================
+
+--- Chunk 22 ---
+Metadata: {'source': 'DandDRuleset.pdf', 'parent_summary': 'Magic Item Activation and Properties: Magic items in Dungeons & Dragons are categorized into Weapons, Wondrous Items, and Wands, each with specific activation methods. Weapons might have properties like Ammunition, while wondrous items include various wearable or functional objects. Magic items range from common to artifact rarity, affecting their value and availability. Activation usually requires a Magic action, sometimes involving a command word.', 'doc_hash': '371143968f4537998af5502c02d2097b', 'type': 'text'}
+
+Document:
+A magic weapon is typically a magical version of a
+weapon from “Equipment.” Some magic weapons
+specify the type of weapon they are in their descriptions, such as a Longsword or Longbow. If no
+weapon type is specified, you may choose the type
+or determine it randomly.
+================================================================================
+
+--- Chunk 23 ---
+Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf', 'type': 'text', 'parent_summary': 'Magic Weapons Overview: The excerpt describes various magic weapons with unique properties and rarity levels in Dungeons & Dragons. The Javelin of Lightning transforms into a bolt to deal Lightning damage, the Lantern of Revealing provides illumination while revealing invisible entities, and the Luck Blade offers bonuses to rolls along with rerolling capabilities and a limited-use Wish spell. The Mace of Disruption deals additional damage to Fiends or Undead, potentially destroying them if they have low Hit Points, while the Mace of Smiting enhances attack effectiveness against Constructs.'}
+
+Document:
+**Luck Blade**
+_Weapon (Glaive, Greatsword, Longsword, Rapier,_
+_Scimitar, Sickle, or Shortsword), Legendary (Requires_
+_Attunement)_
+================================================================================
+

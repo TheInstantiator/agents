@@ -1,0 +1,1088 @@
+[
+  {
+    "question": "What is the AC of a Tyrannosaurus Rex?",
+    "expected_answer": "13",
+    "keywords": [],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What type of condition does a triceratops impose with its Gore attack on a Large or smaller target if it moved 20+ feet straight toward it?",
+    "expected_answer": "Prone",
+    "keywords": [
+      "triceratops",
+      "Gore attack",
+      "condition",
+      "Large or smaller",
+      "moved 20+ feet"
+    ],
+    "category": "Conditions and Effects"
+  },
+  {
+    "question": "What is the speed of a weasel?",
+    "expected_answer": "30 ft.",
+    "keywords": [
+      "weasel",
+      "speed"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "How many Hit points does a vulture have at level one?",
+    "expected_answer": "5",
+    "keywords": [
+      "vulture",
+      "Hit points",
+      "level one"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the DC for saving against a tyrannosaurus' Grappled condition?",
+    "expected_answer": "17",
+    "keywords": [
+      "tyrannosaurus",
+      "Grappled condition",
+      "DC"
+    ],
+    "category": "Conditions and Effects"
+  },
+  {
+    "question": "What kind of damage does a tiger's Rend attack cause?",
+    "expected_answer": "Slashing damage",
+    "keywords": [
+      "tiger",
+      "Rend attack",
+      "damage type"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "How many feet can a tiger move in one turn?",
+    "expected_answer": "40 ft.",
+    "keywords": [
+      "tiger",
+      "speed"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What condition does a venomous snake's bite inflict on its target?",
+    "expected_answer": "Poisoned",
+    "keywords": [
+      "venomous snake",
+      "bite",
+      "condition"
+    ],
+    "category": "Conditions and Effects"
+  },
+  {
+    "question": "How many hit points does a warhorse have at level one?",
+    "expected_answer": "19",
+    "keywords": [
+      "warhorse",
+      "hit points",
+      "level one"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the attack roll for a weasel's bite attack?",
+    "expected_answer": "+5",
+    "keywords": [
+      "weasel",
+      "bite attack",
+      "attack roll"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "If a tiger moves 20+ feet straight toward its target, what additional damage does it deal with its Rend attack?",
+    "expected_answer": "The target has the Prone condition.",
+    "keywords": [
+      "tiger",
+      "Rend attack",
+      "additional damage"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What kind of damage does a triceratops' Gore attack inflict?",
+    "expected_answer": "Piercing damage",
+    "keywords": [
+      "triceratops",
+      "Gore attack",
+      "damage type"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What is the initiative bonus of a weasel?",
+    "expected_answer": "+3",
+    "keywords": [
+      "weasel",
+      "initiative"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What condition does a tiger's Rend attack impose on Large or smaller targets?",
+    "expected_answer": "Prone",
+    "keywords": [
+      "tiger",
+      "Rend attack",
+      "condition"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What is the hit point total for a Medium Beast with an AC of 12?",
+    "expected_answer": "11",
+    "keywords": [
+      "Medium Beast",
+      "AC",
+      "hit points"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the DC to save against a triceratops' Prone condition?",
+    "expected_answer": "Not applicable; it's an automatic effect.",
+    "keywords": [
+      "triceratops",
+      "Prone condition",
+      "DC"
+    ],
+    "category": "Conditions and Effects"
+  },
+  {
+    "question": "How many feet can a warhorse move in one turn?",
+    "expected_answer": "60 ft.",
+    "keywords": [
+      "warhorse",
+      "speed"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the AC of a vulture?",
+    "expected_answer": "10",
+    "keywords": [
+      "vulture",
+      "AC"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "How does a triceratops' Gore attack affect its target's condition when it moves 20+ feet straight toward the target?",
+    "expected_answer": "The target takes extra Piercing damage and has the Prone condition.",
+    "keywords": [
+      "triceratops",
+      "Gore attack",
+      "condition"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What is the AC of a creature with an initiative bonus of +3?",
+    "expected_answer": "It varies, but one example is 13 for Tyrannosaurus Rex.",
+    "keywords": [
+      "AC",
+      "initiative bonus",
+      "+3"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What condition does a Medium Beast with an AC of 12 inflict when its attack hits?",
+    "expected_answer": "Prone, if it's a wolf.",
+    "keywords": [
+      "Medium Beast",
+      "AC",
+      "condition"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What is the Wisdom Saving Throw DC for a swarm of venomous snakes' Cacophony attack?",
+    "expected_answer": "10",
+    "keywords": [
+      "venomous snakes",
+      "Cacophony attack",
+      "Wisdom Saving Throw DC"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What condition does a Medium Beast with an AC of 12 inflict when it uses its Pack Tactics?",
+    "expected_answer": "It doesn't impose a condition; it provides Advantage on attack rolls.",
+    "keywords": [
+      "Medium Beast",
+      "AC",
+      "Pack Tactics"
+    ],
+    "category": "Conditions and Effects"
+  },
+  {
+    "question": "What is the initiative bonus of a creature with 19 hit points at level one?",
+    "expected_answer": "+1, as seen with Warhorse.",
+    "keywords": [
+      "initiative bonus",
+      "hit points",
+      "level one"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the DC for saving against a tiger's Grappled condition?",
+    "expected_answer": "Not applicable; it's an automatic effect.",
+    "keywords": [
+      "tiger",
+      "Grappled condition",
+      "DC"
+    ],
+    "category": "Conditions and Effects"
+  },
+  {
+    "question": "What is the speed of a creature with an initiative bonus of +3?",
+    "expected_answer": "It varies; one example is 50 ft. for Tyrannosaurus Rex.",
+    "keywords": [
+      "speed",
+      "initiative bonus",
+      "+3"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What kind of damage does a Large Beast with an AC of 14 inflict with its Multiattack?",
+    "expected_answer": "Piercing and Slashing, as seen with Triceratops.",
+    "keywords": [
+      "Large Beast",
+      "AC",
+      "Multiattack"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What is the HP of a creature with an AC of 14?",
+    "expected_answer": "It varies; examples include 114 for Triceratops and 136 for Tyrannosaurus Rex.",
+    "keywords": [
+      "HP",
+      "AC"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the initiative bonus of a creature with a DC to save against its Prone condition?",
+    "expected_answer": "Not applicable; it's an automatic effect.",
+    "keywords": [
+      "initiative bonus",
+      "DC",
+      "Prone condition"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the HP of a creature with an initiative bonus of +4?",
+    "expected_answer": "136, as seen with Tyrannosaurus Rex.",
+    "keywords": [
+      "HP",
+      "initiative bonus",
+      "+4"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What kind of damage does a creature with an initiative bonus of +3 inflict?",
+    "expected_answer": "It varies; examples include Slashing for Tiger and Piercing for Tyrannosaurus Rex.",
+    "keywords": [
+      "damage type",
+      "initiative bonus",
+      "+3"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What is the AC of a creature with 11 hit points at level one?",
+    "expected_answer": "12, as seen with Wolf.",
+    "keywords": [
+      "AC",
+      "hit points",
+      "level one"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the condition effect of a creature's bite if it has an AC of 10?",
+    "expected_answer": "No specific condition; it depends on the creature, like a vulture.",
+    "keywords": [
+      "bite",
+      "AC",
+      "condition"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What is the DC to save against a Large Beast's Grappled condition?",
+    "expected_answer": "17, as seen with Tyrannosaurus Rex.",
+    "keywords": [
+      "Large Beast",
+      "Grappled condition",
+      "DC"
+    ],
+    "category": "Conditions and Effects"
+  },
+  {
+    "question": "What is the AC of a creature that moves 30 ft. in one turn?",
+    "expected_answer": "It varies; examples include 13 for Tyrannosaurus Rex.",
+    "keywords": [
+      "AC",
+      "speed",
+      "30 ft."
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the initiative bonus of a creature with a Wisdom Saving Throw DC of 10?",
+    "expected_answer": "+3, as seen with Venomous Snake.",
+    "keywords": [
+      "initiative bonus",
+      "Wisdom Saving Throw DC",
+      "10"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the HP of a creature with an AC of 13?",
+    "expected_answer": "It varies; examples include 136 for Tyrannosaurus Rex.",
+    "keywords": [
+      "HP",
+      "AC"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the speed of a creature with an initiative bonus of +1?",
+    "expected_answer": "60 ft., as seen with Warhorse.",
+    "keywords": [
+      "speed",
+      "initiative bonus",
+      "+1"
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What kind of damage does a creature inflict if it has an initiative bonus of +2?",
+    "expected_answer": "It varies; examples include Slashing for Tiger.",
+    "keywords": [
+      "damage type",
+      "initiative bonus",
+      "+2"
+    ],
+    "category": "Actions and Attacks"
+  },
+  {
+    "question": "What is the HP of a creature that moves 50 ft. in one turn?",
+    "expected_answer": "136, as seen with Tyrannosaurus Rex.",
+    "keywords": [
+      "HP",
+      "speed",
+      "50 ft."
+    ],
+    "category": "Creature Stats"
+  },
+  {
+    "question": "What is the hit point total for a Tyrannosaurus Rex?",
+    "expected_answer": "136",
+    "keywords": [
+      "hit points",
+      "t-rex"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "How many feet can a triceratops move in one turn?",
+    "expected_answer": "50",
+    "keywords": [
+      "speed",
+      "triceratops"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the AC of a Tiger?",
+    "expected_answer": "13",
+    "keywords": [
+      "ac",
+      "tiger"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What damage type does a vulture's beak attack deal?",
+    "expected_answer": "Piercing",
+    "keywords": [
+      "damage type",
+      "vulture",
+      "beak"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the Initiative bonus of a Warhorse?",
+    "expected_answer": "+1",
+    "keywords": [
+      "initiative bonus",
+      "warhorse"
+    ],
+    "category": ""
+  },
+  {
+    "question": "How many feet can a Weasel climb in one turn?",
+    "expected_answer": "30",
+    "keywords": [
+      "climb",
+      "weasel"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the HP of a Venomous Snake?",
+    "expected_answer": "5",
+    "keywords": [
+      "hp",
+      "venomous snake"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "What condition does a triceratops's Gore attack impose on its target if the target is Large or smaller and the triceratops moved 20+ feet towards it?",
+    "expected_answer": "Prone",
+    "keywords": [
+      "condition",
+      "gore attack",
+      "triceratops"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "What kind of damage does a Tiger's Rend attack deal?",
+    "expected_answer": "Slashing",
+    "keywords": [
+      "damage type",
+      "rend attack",
+      "tiger"
+    ],
+    "category": ""
+  },
+  {
+    "question": "How many feet can a Wolf run in one turn?",
+    "expected_answer": "40",
+    "keywords": [
+      "speed",
+      "wolf"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the Initiative bonus of a Tiger?",
+    "expected_answer": "+3",
+    "keywords": [
+      "initiative bonus",
+      "tiger"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What kind of damage does a Triceratops's Gore attack deal?",
+    "expected_answer": "Piercing",
+    "keywords": [
+      "damage type",
+      "gore attack",
+      "triceratops"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the initiative bonus of a creature with an AC of 12 and it uses Pack Tactics?",
+    "expected_answer": "+2",
+    "keywords": [
+      "initiative bonus",
+      "ac 12",
+      "pack tactics"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "How many feet can a Vulture fly in one turn?",
+    "expected_answer": "50",
+    "keywords": [
+      "fly",
+      "vulture"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the HP of a Weasel?",
+    "expected_answer": "1",
+    "keywords": [
+      "hp",
+      "weasel"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What condition does a Tiger's Rend attack impose on its target if the target is Large or smaller?",
+    "expected_answer": "Prone",
+    "keywords": [
+      "condition",
+      "rend attack",
+      "tiger"
+    ],
+    "category": ""
+  },
+  {
+    "question": "How many feet can a Small Beast move in one turn according to general rules?",
+    "expected_answer": "30",
+    "keywords": [
+      "speed",
+      "small beast"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "What is the Initiative bonus of a Venomous Snake?",
+    "expected_answer": "+2",
+    "keywords": [
+      "initiative bonus",
+      "venomous snake"
+    ],
+    "category": ""
+  },
+  {
+    "question": "How many feet can a Large Beast move in one turn according to general rules?",
+    "expected_answer": "50",
+    "keywords": [
+      "speed",
+      "large beast"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "What is the HP of a Wolf?",
+    "expected_answer": "11",
+    "keywords": [
+      "hp",
+      "wolf"
+    ],
+    "category": ""
+  },
+  {
+    "question": "How many feet can a Medium Beast move in one turn according to general rules?",
+    "expected_answer": "40",
+    "keywords": [
+      "speed",
+      "medium beast"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "What is the Initiative bonus of a creature with an AC of 13 and it has Stealth +4?",
+    "expected_answer": "+2",
+    "keywords": [
+      "initiative bonus",
+      "ac 13",
+      "stealth +4"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "How many feet can a Large Beast fly in one turn if applicable?",
+    "expected_answer": "Varies (e.g., up to 50 ft. for specific creatures)",
+    "keywords": [
+      "fly",
+      "large beast"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What kind of damage does a Wolf's Bite attack deal?",
+    "expected_answer": "Piercing",
+    "keywords": [
+      "damage type",
+      "bite attack",
+      "wolf"
+    ],
+    "category": ""
+  },
+  {
+    "question": "How many feet can a Medium Beast swim in one turn if applicable?",
+    "expected_answer": "Varies (e.g., up to 30 ft. for specific creatures)",
+    "keywords": [
+      "swim",
+      "medium beast"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the Initiative bonus of a creature with an AC of 14 and it has Blindsight?",
+    "expected_answer": "+3",
+    "keywords": [
+      "initiative bonus",
+      "ac 14",
+      "blindsight"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "How many feet can a Huge Beast move in one turn according to general rules?",
+    "expected_answer": "40",
+    "keywords": [
+      "speed",
+      "huge beast"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the AC of a creature that has Blindsight and an Initiative bonus of +3?",
+    "expected_answer": "12",
+    "keywords": [
+      "ac",
+      "blindsight",
+      "initiative bonus +3"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "What kind of damage does a Tyrannosaurus Rex's Bite attack deal?",
+    "expected_answer": "Piercing",
+    "keywords": [
+      "damage type",
+      "bite attack",
+      "t-rex"
+    ],
+    "category": ""
+  },
+  {
+    "question": "How many feet can a creature with an AC of 10 and it has Darkvision move in one turn?",
+    "expected_answer": "Varies based on size (e.g., up to 40 ft. for Medium beasts)",
+    "keywords": [
+      "speed",
+      "ac 10",
+      "darkvision"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the HP of a creature with an Initiative bonus of +1?",
+    "expected_answer": "Varies based on creature size and AC",
+    "keywords": [
+      "hp",
+      "initiative bonus +1"
+    ],
+    "category": "hard"
+  },
+  {
+    "question": "How many feet can a Tiny Beast move in one turn according to general rules?",
+    "expected_answer": "30",
+    "keywords": [
+      "speed",
+      "tiny beast"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What kind of damage does a Tiger's Bite attack deal?",
+    "expected_answer": "Piercing",
+    "keywords": [
+      "damage type",
+      "bite attack",
+      "tiger"
+    ],
+    "category": ""
+  },
+  {
+    "question": "What is the AC of a Vulture?",
+    "expected_answer": "10",
+    "keywords": [
+      "Vulture",
+      "AC"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "Does a Triceratops have any natural vision abilities?",
+    "expected_answer": "No, it doesn't. Passive Perception is listed.",
+    "keywords": [
+      "Triceratops",
+      "vision",
+      "abilities"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "What condition does the Tyrannosaurus Rex's Tail attack impose on its target if hit?",
+    "expected_answer": "If the target is a Huge or smaller creature, it has the Prone condition.",
+    "keywords": [
+      "Tyrannosaurus Rex",
+      "Tail attack",
+      "condition"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What are the two actions that a Tyrannosaurus Rex can take in its turn?",
+    "expected_answer": "Bite and Tail",
+    "keywords": [
+      "Tyrannosaurus Rex",
+      "actions",
+      "turn"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "What are the speed capabilities of a Triceratops?",
+    "expected_answer": "50 feet per turn.",
+    "keywords": [
+      "Triceratops",
+      "speed"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "Which creature has an Initiative bonus of +3 and what is its AC?",
+    "expected_answer": "Tyrannosaurus Rex, 13",
+    "keywords": [
+      "Initiative bonus",
+      "+3",
+      "AC"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "What kind of attack does a Warhorse make?",
+    "expected_answer": "Hooves.",
+    "keywords": [
+      "Warhorse",
+      "attack"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "How many feet can the Tiger move in one turn according to its speed?",
+    "expected_answer": "40 feet",
+    "keywords": [
+      "Tiger",
+      "speed"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What ability does a Tiger have that allows it to Disengage or Hide?",
+    "expected_answer": "Nimble Escape",
+    "keywords": [
+      "Tiger",
+      "ability",
+      "Disengage",
+      "Hide"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "How many feet can the Vulture fly in one turn?",
+    "expected_answer": "50 feet.",
+    "keywords": [
+      "Vulture",
+      "fly"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "What is the HP of a Tyrannosaurus Rex?",
+    "expected_answer": "136",
+    "keywords": [
+      "Tyrannosaurus Rex",
+      "HP"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "Does a Tiger have any natural vision abilities?",
+    "expected_answer": "Yes, it has Darkvision 60 ft.",
+    "keywords": [
+      "Tiger",
+      "vision",
+      "abilities"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What is the Initiative bonus of a Weasel?",
+    "expected_answer": "+3",
+    "keywords": [
+      "Weasel",
+      "Initiative bonus"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "Which creatures have the condition Prone as part of their attacks?",
+    "expected_answer": "Tiger (Rend), Triceratops (Gore), Tyrannosaurus Rex (Bite, Tail)",
+    "keywords": [
+      "Prone",
+      "attack"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What is the Initiative bonus of a creature with an AC of 13 and it has Stealth +4?",
+    "expected_answer": "+2",
+    "keywords": [
+      "AC",
+      "Initiative bonus",
+      "+2",
+      "Stealth +4"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "What kind of damage does a Weasel's Bite attack deal?",
+    "expected_answer": "Piercing.",
+    "keywords": [
+      "Weasel",
+      "Bite attack",
+      "damage"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "How many feet can a creature with an AC of 10 and it has Darkvision move in one turn?",
+    "expected_answer": "10",
+    "keywords": [
+      "AC",
+      "Darkvision",
+      "speed"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "What is the HP of a creature with an Initiative bonus of +1?",
+    "expected_answer": "11",
+    "keywords": [
+      "Initiative bonus",
+      "+1",
+      "HP"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What condition does a Triceratops's Gore attack impose on its target if it moved 20+ feet straight toward the target immediately before the hit?",
+    "expected_answer": "Prone, and extra damage.",
+    "keywords": [
+      "Triceratops",
+      "Gore attack",
+      "condition"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What kind of damage does a Tiger's Rend attack deal?",
+    "expected_answer": "Slashing.",
+    "keywords": [
+      "Tiger",
+      "Rend attack",
+      "damage"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "How many feet can a Medium Beast move in one turn according to general rules?",
+    "expected_answer": "40",
+    "keywords": [
+      "Medium Beast",
+      "speed"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "What kind of damage does a Tyrannosaurus Rex's Bite attack deal?",
+    "expected_answer": "Piercing.",
+    "keywords": [
+      "Tyrannosaurus Rex",
+      "Bite attack",
+      "damage"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "How many feet can a Large Beast move in one turn according to general rules?",
+    "expected_answer": "30",
+    "keywords": [
+      "Large Beast",
+      "speed"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "What is the AC of a creature that has Blindsight and an Initiative bonus of +3?",
+    "expected_answer": "12 or 13, depending on the specific creature.",
+    "keywords": [
+      "Blindsight",
+      "Initiative bonus",
+      "+3",
+      "AC"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "Does a Vulture have any natural vision abilities?",
+    "expected_answer": "No, it doesn't. Passive Perception is listed.",
+    "keywords": [
+      "Vulture",
+      "vision",
+      "abilities"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What condition does the Triceratops's Gore attack impose on its target if it moved 20+ feet straight toward the target immediately before the hit?",
+    "expected_answer": "Prone, and extra damage.",
+    "keywords": [
+      "Triceratops",
+      "Gore attack",
+      "condition"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What is the AC of a Tyrannosaurus Rex?",
+    "expected_answer": "13",
+    "keywords": [
+      "Tyrannosaurus Rex",
+      "AC"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "How many feet can the Triceratops move in one turn according to its speed?",
+    "expected_answer": "50 feet.",
+    "keywords": [
+      "Triceratops",
+      "speed"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What kind of attack does a Vulture make?",
+    "expected_answer": "Beak",
+    "keywords": [
+      "Vulture",
+      "attack"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "How many feet can the Tyrannosaurus Rex fly in one turn if applicable?",
+    "expected_answer": "It cannot fly.",
+    "keywords": [
+      "Tyrannosaurus Rex",
+      "fly"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What is the HP of a Warhorse?",
+    "expected_answer": "19",
+    "keywords": [
+      "Warhorse",
+      "HP"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "Does a Weasel have any natural vision abilities?",
+    "expected_answer": "Yes, it has Darkvision 60 ft.",
+    "keywords": [
+      "Weasel",
+      "vision",
+      "abilities"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What condition does the Tiger's Rend attack impose on its target if the target is Large or smaller?",
+    "expected_answer": "Prone",
+    "keywords": [
+      "Tiger",
+      "Rend attack",
+      "condition"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "How many feet can a Small Beast move in one turn according to general rules?",
+    "expected_answer": "20 feet.",
+    "keywords": [
+      "Small Beast",
+      "speed"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "What kind of damage does a Vulture's Beak attack deal?",
+    "expected_answer": "Piercing",
+    "keywords": [
+      "Vulture",
+      "Beak attack",
+      "damage"
+    ],
+    "category": "Easy"
+  },
+  {
+    "question": "How many feet can the Warhorse move in one turn according to its speed?",
+    "expected_answer": "60 feet.",
+    "keywords": [
+      "Warhorse",
+      "speed"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What is the Initiative bonus of a creature with an AC of 14 and it has Blindsight?",
+    "expected_answer": "+2 or +3",
+    "keywords": [
+      "AC",
+      "Blindsight",
+      "Initiative bonus"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "How many feet can a Huge Beast move in one turn according to general rules?",
+    "expected_answer": "30 feet.",
+    "keywords": [
+      "Huge Beast",
+      "speed"
+    ],
+    "category": "Medium"
+  },
+  {
+    "question": "What is the HP of a Small Beast with an Initiative bonus of +1?",
+    "expected_answer": "5",
+    "keywords": [
+      "Small Beast",
+      "HP",
+      "Initiative bonus",
+      "+1"
+    ],
+    "category": "Hard for RAG"
+  },
+  {
+    "question": "How many feet can a Tiny Beast swim in one turn if applicable?",
+    "expected_answer": "30",
+    "keywords": [
+      "Tiny Beast",
+      "swim"
+    ],
+    "category": "Easy"
+  }
+]

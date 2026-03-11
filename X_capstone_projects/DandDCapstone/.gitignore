@@ -1,0 +1,5 @@
+chroma_db/
+parent_chunks.db
+parent_chunks.db-journal
+dnd_rag_visualization_*.html
+*.db

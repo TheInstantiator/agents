@@ -1,0 +1,62 @@
+--- TOP 5 RESULTS FOR 'longsword' ---
+
+[Rank 1] (Score: 0.2803)
+Parent Summary : D&D Rulebook Snippet Summary: The snippet outlines the abilities and statistics of various creatures in D&D: Guards with basic combat skills, a Guard Captain with enhanced attack capabilities, Half-Dragons possessing draconic traits and breath attacks, and Harpies with claw attacks. Each creature has specific attributes like AC, HP, speed, resistances, and actions.
+Top Keywords   : halfdragon, longsword, melee, reach, 2d10, slashing, medium, dragon, neutral, initiative, 105, 14d8, speed
+Chunk Preview  : _**Longsword.**_ _Melee Attack Roll:_ +6, reach 5 ft. _Hit:_ 15
+(2d10 + 4) Slashing damage.
+
+
+## **Half-Dragon**
+### **Half-Dragon**
+
+_Medium Dragon, Neutral_
+
+
+**AC** 18 **Initiative** +5 (15)
+**HP** 105 (14d8 + 42)
+**Speed** 40 ft.
+
+[Rank 2] (Score: 0.2859)
+Parent Summary : D&D Weapon Properties Summary: The snippet outlines various properties of D&D weapons, including 'Graze' (damage on a miss), 'Nick' (extra attack as part of the Attack action), 'Push' (pushing hit creatures), 'Sap' (disadvantage on next attack roll for the target), 'Slow' (reducing speed after being hit), and 'Topple' (forcing a creature to fall). It also lists weapons categorized into Simple Melee, Simple Ranged, and Martial Melee, detailing their damage types, properties, mastery levels, weights, and costs.
+Top Keywords   : 1d8, piercing, 1d10, sap, heavy, twohanded, longsword, slashing, versatile, maul, 2d6, bludgeoning, topple, morningstar, pike, reach, push, rapier, finesse, vex
+Chunk Preview  : Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP
+
+Maul 2d6 Bludgeoning Heavy, Two-Handed Topple 10 lb. 10 GP
+
+Morningstar 1d8 Piercing     - Sap 4 lb. 15 GP
+
+Pike 1d10 Piercing Heavy, Reach, Two-Handed Push 18 lb. 5 GP
+
+Rapier 1d8 Piercing Finesse Vex 2 lb. 25 GP
+
+[Rank 3] (Score: 0.3051)
+Parent Summary : D&D Rulebook Snippet Summary: The snippet outlines core rules for Barbarian class features in Dungeons & Dragons, detailing progression through levels with abilities like Rage, Weapon Mastery, Danger Sense, and more. It also describes the Ranger class's primary traits, starting equipment, and key spells such as Arcane Eye and Arcane Hand. Additionally, it covers environmental effects like Heavy Precipitation and High Altitude, along with mechanics for Fear and Mental Stress effects.
+Top Keywords   : blade, light, button, fiery, sprouts, end, opposite, rod’s, flanged, head, flames, shed, bright, 40foot, radius, dim, additional, functions, magic, longsword, shortsword, choice, deals, extra, 2d6
+Chunk Preview  : **Button 1.** A fiery blade sprouts from the end opposite the rod’s flanged head. The flames shed
+Bright Light in a 40-foot radius and Dim Light for
+an additional 40 feet, and the blade functions as
+a magic Longsword or Shortsword (your choice)
+that deals an extra 2d6 Fire damage on a hit.
+
+[Rank 4] (Score: 0.3069)
+Parent Summary : D&D Rulebook Snippet Summary: This snippet outlines the progression and abilities for a Ranger class in Dungeons & Dragons, detailing features such as Favored Enemy with Hunter's Mark spellcasting, Weapon Mastery, Deft Explorer benefits including Expertise and language skills, Fighting Style options like Druidic Warrior, subclass specialization, Ability Score Improvement, Extra Attack, and enhanced mobility through Roving.
+Top Keywords   : choice, such, longbows, shortswords, whenever, finish, long, rest, change, kinds, weapons, chose, example, switch, using, mastery, properties, scimitars, longswords
+Chunk Preview  : choice with which you have proficiency, such as
+Longbows and Shortswords.
+Whenever you finish a Long Rest, you can change
+the kinds of weapons you chose. For example, you
+could switch to using the mastery properties of
+Scimitars and Longswords.
+
+[Rank 5] (Score: 0.3147)
+Parent Summary : D&D Rogue Class Features Summary: The core features of a D&D Rogue include gaining Sneak Attack damage as they level up, proficiency in Thieves' Cant and two other languages at level 1, Weapon Mastery for using mastery properties with two weapon types, Cunning Action to take additional actions on their turn, and advanced abilities like Steady Aim and Ability Score Improvement at higher levels.
+Top Keywords   : system, reference, document, whenever, finish, long, rest, change, kinds, weapons, chose, example, switch, using, mastery, properties, scimitars, shortswords
+Chunk Preview  : **62** System Reference Document 5.2
+
+
+
+Whenever you finish a Long Rest, you can change
+the kinds of weapons you chose. For example, you
+could switch to using the mastery properties of
+Scimitars and Shortswords.

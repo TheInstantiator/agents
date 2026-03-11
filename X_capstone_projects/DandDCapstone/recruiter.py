@@ -15,15 +15,20 @@ if os.getenv("GROK_API_KEY") and not os.getenv("XAI_API_KEY"):
 from factory import CharacterIdentity, create_pc_from_choice, EvaluationResult, save_party, load_party
 from constants import CLASS_ATTRIBUTES
 
+# Get the absolute path to this script's directory for robust file loading
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Add parent dir to sys.path so we can import core_agent
+sys.path.append(os.path.join(SCRIPT_DIR, ".."))
+from core_agent import CoreAgent
+
 # Disable telemetry
 litellm.telemetry = False
 
 # Globals for cost tracking
 TOTAL_COST = 0.0
 TOTAL_TOKENS = 0
-
-# Get the absolute path to this script's directory for robust file loading
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+TOTAL_TIME = 0.0
 
 def get_litellm_params(agent_name: str) -> dict:
     """Read config.json and return the litellm_params for the given agent."""
@@ -44,17 +49,6 @@ def get_litellm_params(agent_name: str) -> dict:
                 return params
     raise ValueError(f"Agent {agent_name} not found in {config_path}")
 
-def track_cost_and_tokens(response):
-    global TOTAL_COST, TOTAL_TOKENS
-    try:
-        cost = litellm.completion_cost(completion_response=response)
-        tokens = response.usage.total_tokens
-        if cost:
-            TOTAL_COST += cost
-        if tokens:
-            TOTAL_TOKENS += tokens
-    except Exception:
-        pass
 
 async def recruit_member(agent_name: str, current_party_summary: str, judge_feedback: str = None) -> CharacterIdentity:
     """
@@ -79,6 +73,7 @@ async def recruit_member(agent_name: str, current_party_summary: str, judge_feed
         f"{guidelines}\n"
         "You are a D&D character recruiter. Review the current party and "
         "choose a Name, Class, and Backstory for a new Level 1 character that fills a missing role.\n"
+        "IMPORTANT: You MUST select an actual_class EXACTLY as it appears in the Available Classes list below.\n"
         f"Available Classes: {available_classes}\n"
         f"Current Party: {current_party_summary}"
     )
@@ -87,23 +82,25 @@ async def recruit_member(agent_name: str, current_party_summary: str, judge_feed
         recruiter_instructions += f"\nJUDGE'S FEEDBACK FROM LAST ATTEMPT: {judge_feedback}"
 
     litellm_kwargs = get_litellm_params(agent_name)
-    litellm_kwargs["messages"] = [
-        {"role": "system", "content": recruiter_instructions},
-        {"role": "user", "content": "Choose a character to join the party."}
-    ]
-    litellm_kwargs["response_format"] = CharacterIdentity
     litellm_kwargs["temperature"] = 0.5
     
-    # We use streaming for the "thinking" effect if the model supports it, but since we are demanding a structured
-    # response format via litellm Pydantic integration, it's easier to use normal completion.
+    agent = CoreAgent(
+        agent_id=f"recruiter_{agent_name}",
+        system_prompt=recruiter_instructions,
+        litellm_kwargs=litellm_kwargs,
+        one_shot=True,
+        response_model=CharacterIdentity
+    )
+    
     print("\n--- RECRUITER IS THINKING ---")
-    response = await litellm.acompletion(**litellm_kwargs)
+    response_obj = await agent.ask("Choose a character to join the party.")
     
-    track_cost_and_tokens(response)
+    global TOTAL_COST, TOTAL_TOKENS, TOTAL_TIME
+    TOTAL_COST += agent.cost
+    TOTAL_TOKENS += agent.tokens_used
+    TOTAL_TIME += agent.total_response_time
     
-    # Parse the response into our Pydantic model
-    raw_response = response.choices[0].message.content
-    return CharacterIdentity.model_validate_json(raw_response)
+    return response_obj
 
 async def evaluate_party(agent_name: str, party_list: list) -> EvaluationResult:
     """
@@ -113,24 +110,30 @@ async def evaluate_party(agent_name: str, party_list: list) -> EvaluationResult:
     party_str = "\n".join([f"- {p.identity.name}: {p.identity.actual_class}" for p in party_list])
     
     litellm_kwargs = get_litellm_params(agent_name)
-    litellm_kwargs["messages"] = [
-        {"role": "system", "content": (
+    litellm_kwargs["temperature"] = 0.1
+    
+    agent = CoreAgent(
+        agent_id=f"judge_{agent_name}",
+        system_prompt=(
             "You are a D&D Party Judge. Strictly evaluate the party against the Balanced Party Standard. "
             "If the party is perfectly balanced, set is_valid to True. "
             "If it is missing a core role (Healer, Frontline, Stealth, Arcane), set is_valid to False."
-        )},
-        {"role": "user", "content": f"Final Party Proposal:\n{party_str}"}
-    ]
-    litellm_kwargs["response_format"] = EvaluationResult
-    litellm_kwargs["temperature"] = 0.1
+        ),
+        litellm_kwargs=litellm_kwargs,
+        one_shot=True,
+        response_model=EvaluationResult
+    )
     
     print("\n--- JUDGE IS EVALUATING THE PARTY ---")
-    response = await litellm.acompletion(**litellm_kwargs)
+    response_obj = await agent.ask(f"Final Party Proposal:\n{party_str}")
     
-    track_cost_and_tokens(response)
+    global TOTAL_COST, TOTAL_TOKENS, TOTAL_TIME
+    TOTAL_COST += agent.cost
+    TOTAL_TOKENS += agent.tokens_used
+    TOTAL_TIME += agent.total_response_time
     
-    raw_response = response.choices[0].message.content
-    return EvaluationResult.model_validate_json(raw_response)
+    return response_obj
+
 
 async def main():
     party_file = os.path.join(SCRIPT_DIR, 'party_state.json')
@@ -144,44 +147,46 @@ async def main():
             return
 
     # If no party file, start recruitment
-    # If we can't build a party in 3 attempts, give up something is wrong
-    max_attempts = 3
+    max_attempts = 10
     attempt = 1
     judge_feedback = None
     party = []
+    party_summary = "Empty Party"
     
-    while attempt <= max_attempts:
-        print(f"\n--- ATTEMPT {attempt} of {max_attempts} ---")
-        party = []
-        party_summary = "Empty Party"
-        
-        # The list of agents to cycle through for character creation
-        agent_roster = [
-            "grok-agent-tier1-think",
-            "gemini-agent-tier1-think",
-            "gemini-agent-vanilla",
-            "grok-agent-vanilla"
-        ]
+    # The list of agents to cycle through for character creation
+    agent_roster = [
+        "llama-agent",
+        "phi-agent",
+        "qwen-agent",
+        "gemma-agent",
+        "deepseek-agent"
+    ]
+    agent_index = 0
 
-        # Recruit 5 members
-        for i in range(1, 6):
-            print(f"\n--- RECRUITING PLAYER {i} ---")
-            
-            # Select the next agent in the round-robin
-            current_agent = agent_roster[(i - 1) % len(agent_roster)]
-            print(f"Assigning this task to: {current_agent}")
-            
-            choice = await recruit_member(current_agent, party_summary, judge_feedback)
-            stats = CLASS_ATTRIBUTES.get(choice.actual_class)
-            
-            new_hero = create_pc_from_choice(choice, stats, played_by=current_agent)
-            party.append(new_hero)
-            
-            print(f"SUCCESS: {new_hero.identity.name} the {new_hero.identity.actual_class} has joined!")
-            party_summary = "\n".join([f"- {p.identity.name}: {p.identity.actual_class}" for p in party])
+    print("\n--- INITIAL RECRUITMENT ---")
+    while len(party) < 5:
+        print(f"\n--- RECRUITING PLAYER {len(party) + 1} ---")
+        current_agent = agent_roster[agent_index % len(agent_roster)]
+        print(f"Assigning this task to: {current_agent}")
+        agent_index += 1
         
-        # Also updated the judge since "grok-agent" was removed from config.yaml
+        choice = await recruit_member(current_agent, party_summary, judge_feedback=None)
+        print(f"\n[THOUGHTS]: {choice.thoughts}\n")
+        stats = CLASS_ATTRIBUTES.get(choice.actual_class)
+        if stats is None:
+            print(f"❌ HALLUCINATION DETECTED: Agent chose '{choice.actual_class}' which is not a valid class. Retrying...")
+            continue
+            
+        new_hero = create_pc_from_choice(choice, stats, played_by=current_agent)
+        party.append(new_hero)
+        
+        print(f"SUCCESS: {new_hero.identity.name} the {new_hero.identity.actual_class} has joined!")
+        party_summary = "\n".join([f"- {p.identity.name}: {p.identity.actual_class}" for p in party])
+
+    while attempt <= max_attempts:
+        # Evaluate the full party of 5
         eval_result = await evaluate_party("grok-agent-tier1-think", party)
+        print(f"\n[JUDGE THOUGHTS]: {eval_result.thoughts}")
         
         if eval_result.is_valid:
             print(f"\n✅ JUDGE APPROVED: {eval_result.feedback}")
@@ -192,12 +197,43 @@ async def main():
             print(f"\n❌ JUDGE REJECTED: {eval_result.feedback}")
             judge_feedback = eval_result.feedback
             attempt += 1
+            
+            if attempt > max_attempts:
+                print("\n❌ Max attempts reached. Could not form a valid party.")
+                break
+                
+            # Kick the last member
+            kicked_member = party.pop()
+            print(f"\n--- ATTEMPT {attempt} ---")
+            print(f"Kicking the last member: {kicked_member.identity.name} the {kicked_member.identity.actual_class}.")
+            party_summary = "\n".join([f"- {p.identity.name}: {p.identity.actual_class}" for p in party])
+            
+            # Re-recruit the 5th member
+            current_agent = agent_roster[agent_index % len(agent_roster)]
+            print(f"\n--- RE-RECRUITING PLAYER 5 ---")
+            print(f"Assigning this task to: {current_agent}")
+            agent_index += 1
+            
+            choice = await recruit_member(current_agent, party_summary, judge_feedback)
+            print(f"\n[THOUGHTS]: {choice.thoughts}\n")
+            stats = CLASS_ATTRIBUTES.get(choice.actual_class)
+            
+            if stats is None:
+                print(f"❌ HALLUCINATION DETECTED: Agent chose '{choice.actual_class}' which is not a valid class. Skipping this attempt.")
+                # We don't append anything, forcing the Judge to evaluate a 4-man party, which guarantees a rejection and triggers another clean loop.
+                continue
+                
+            new_hero = create_pc_from_choice(choice, stats, played_by=current_agent)
+            party.append(new_hero)
+            
+            print(f"SUCCESS: {new_hero.identity.name} the {new_hero.identity.actual_class} has joined!")
+            party_summary = "\n".join([f"- {p.identity.name}: {p.identity.actual_class}" for p in party])
 
     print("\n--- FINAL PARTY ASSEMBLED ---")
     for p in party:
         print(f"[{p.identity.actual_class}] {p.identity.name} | HP: {p.hp} | AC: {p.ac}")
 
-    print(f"\n💰 Total LLM API Cost: ${TOTAL_COST:.6f} ({TOTAL_TOKENS} tokens used)")
+    print(f"\n💰 Total LLM API Cost: ${TOTAL_COST:.6f} ({TOTAL_TOKENS} tokens used) | Total Time: {TOTAL_TIME:.2f}s")
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -186,3 +186,10 @@ memory.db
 # Ignore Accounts database in capstone project
 6_mcp/accounts.db
 6_mcp/memory/*.db
+
+# D&D Capstone Large Files
+X_capstone_projects/documents/
+X_capstone_projects/DandDCapstone/documents/
+X_capstone_projects/DandDCapstone/chroma_db/
+X_capstone_projects/DandDCapstone/parent_chunks.db
+*.html

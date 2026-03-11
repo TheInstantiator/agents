@@ -4,84 +4,131 @@
             "model_name": "grok-agent-legacy",
             "litellm_params": {
                 "model": "xai/grok-3-mini",
-                "api_key": "os.environ/GROK_API_KEY"
+                "api_key": "os.environ/GROK_API_KEY",
+                "max_input_tokens": 3000,
+                "max_tokens": 500,
+                "k_specific": 3,
+                "one_shot_judge": false
             }
         },
         {
             "model_name": "grok-agent-vanilla",
             "litellm_params": {
                 "model": "xai/grok-4-0709",
-                "api_key": "os.environ/GROK_API_KEY"
+                "api_key": "os.environ/GROK_API_KEY",
+                "max_input_tokens": 3000,
+                "max_tokens": 500,
+                "k_specific": 3
             }
         },
         {
             "model_name": "grok-agent-tier1-think",
             "litellm_params": {
                 "model": "xai/grok-4-1-fast-reasoning",
-                "api_key": "os.environ/GROK_API_KEY"
+                "api_key": "os.environ/GROK_API_KEY",
+                "max_input_tokens": 3000,
+                "max_tokens": 500,
+                "k_specific": 3
             }
         },
         {
             "model_name": "grok-agent-tier1-nonthink",
             "litellm_params": {
                 "model": "xai/grok-4-1-fast-non-reasoning",
-                "api_key": "os.environ/GROK_API_KEY"
+                "api_key": "os.environ/GROK_API_KEY",
+                "max_input_tokens": 3000,
+                "max_tokens": 500,
+                "k_specific": 3
             }
         },
         {
             "model_name": "gemini-agent-vanilla",
             "litellm_params": {
                 "model": "gemini/gemini-2.5-flash",
-                "api_key": "os.environ/GEMINI_API_KEYX"
+                "api_key": "os.environ/GEMINI_API_KEYX",
+                "max_input_tokens": 3000,
+                "max_tokens": 500,
+                "k_specific": 3
             }
         },
         {
             "model_name": "gemini-agent-tier1-nonthink",
             "litellm_params": {
                 "model": "gemini/gemini-3.1-flash-lite-preview",
-                "api_key": "os.environ/GEMINI_API_KEYX"
+                "api_key": "os.environ/GEMINI_API_KEYX",
+                "max_input_tokens": 3000,
+                "max_tokens": 500,
+                "k_specific": 3
             }
         },
         {
             "model_name": "gemini-agent-tier1-think",
             "litellm_params": {
                 "model": "gemini/gemini-3.1-pro-preview",
-                "api_key": "os.environ/GEMINI_API_KEYX"
+                "api_key": "os.environ/GEMINI_API_KEYX",
+                "max_input_tokens": 3000,
+                "max_tokens": 500,
+                "k_specific": 3
             }
         },
         {
             "model_name": "qwen-agent",
             "litellm_params": {
                 "model": "ollama/qwen3:32b",
-                "api_base": "http://localhost:11434"
+                "api_base": "http://localhost:11434",
+                "max_input_tokens": 300000,
+                "max_tokens": 2000,
+                "k_specific": 10,
+                "one_shot_judge": true,
+                "temperature": 0.0
             }
         },
         {
             "model_name": "gemma-agent",
             "litellm_params": {
                 "model": "ollama/gemma3:27b",
-                "api_base": "http://localhost:11434"
+                "api_base": "http://localhost:11434",
+                "max_input_tokens": 300000,
+                "max_tokens": 2000,
+                "k_specific": 10,
+                "one_shot_judge": true,
+                "temperature": 0.0
             }
         },
         {
             "model_name": "deepseek-agent",
             "litellm_params": {
                 "model": "ollama/deepseek-r1:32b",
-                "api_base": "http://localhost:11434"
+                "api_base": "http://localhost:11434",
+                "max_input_tokens": 300000,
+                "max_tokens": 2000,
+                "k_specific": 10,
+                "one_shot_judge": true,
+                "temperature": 0.0
             }
         },
         {
             "model_name": "llama-agent",
             "litellm_params": {
                 "model": "ollama/llama3.1:8b",
-                "api_base": "http://localhost:11434"
+                "api_base": "http://localhost:11434",
+                "max_input_tokens": 300000,
+                "max_tokens": 2000,
+                "k_specific": 10,
+                "one_shot_judge": true,
+                "temperature": 0.0
             }
         },
         {
             "model_name": "phi-agent",
             "litellm_params": {
                 "model": "ollama/phi4:latest",
-                "api_base": "http://localhost:11434"
+                "api_base": "http://localhost:11434",
+                "max_input_tokens": 300000,
+                "max_tokens": 2000,
+                "k_specific": 10,
+                "one_shot_judge": true,
+                "temperature": 0.0
             }
         }
     ]

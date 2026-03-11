@@ -1,0 +1,779 @@
+[
+  {
+    "question": "What is the base Armor Class calculation for all creatures?",
+    "expected_answer": "Base AC = 10 + the creature\u2019s Dexterity modifier",
+    "keywords": [
+      "Armor Class",
+      "base AC",
+      "Dexterity modifier"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "How many Proficiency Bonus values can be added to a die roll?",
+    "expected_answer": "Your Proficiency Bonus can\u2019t be added to a die roll or another number more than once.",
+    "keywords": [
+      "Proficiency Bonus",
+      "stacking"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "What is the effect of traveling at a Fast pace?",
+    "expected_answer": "Traveling at a Fast pace imposes Disadvantage on Wisdom (Perception) checks that rely on sight.",
+    "keywords": [
+      "Travel Pace",
+      "Fast pace"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "Can you communicate while taking your turn?",
+    "expected_answer": "You can communicate however you are able\u2014through brief utterances and gestures\u2014as you take your turn. Doing so uses neither your action nor your move.",
+    "keywords": [
+      "Communicating",
+      "turn"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "What happens if you roll a natural 20 on an attack roll?",
+    "expected_answer": "If you roll a 20 on the d20 (called a \u201cnatural 20\u201d) for an attack roll, the attack hits regardless of any modifiers or the target\u2019s AC. This is called a Critical Hit.",
+    "keywords": [
+      "Critical Hit",
+      "natural 20"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "List the six ability scores and what they measure.",
+    "expected_answer": "Strength: Physical might; Dexterity: Agility, reflexes, and balance; Constitution: Health and stamina; Intelligence: Reasoning and memory; Wisdom: Perceptiveness and mental fortitude; Charisma: Confidence, poise, and charm.",
+    "keywords": [
+      "ability scores"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "What is the Proficiency Bonus for a level 5 character?",
+    "expected_answer": "+3",
+    "keywords": [
+      "Proficiency Bonus",
+      "level 5"
+    ],
+    "category": "Character Creation"
+  },
+  {
+    "question": "How do you calculate Passive Perception?",
+    "expected_answer": "Passive Perception = 10 + Wisdom (Perception) check modifier",
+    "keywords": [
+      "Passive Perception"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "What actions can you take on your turn outside combat?",
+    "expected_answer": "Attack, Dash, Disengage, Dodge, Help, Hide, Influence, Magic, Ready, Search, Study, Utilize.",
+    "keywords": [
+      "Actions"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "What is the maximum Proficiency Bonus?",
+    "expected_answer": "+6 (at level 17-20)",
+    "keywords": [
+      "Proficiency Bonus",
+      "maximum"
+    ],
+    "category": "Character Advancement"
+  },
+  {
+    "question": "How many Rages does a level 1 Barbarian have?",
+    "expected_answer": "2",
+    "keywords": [
+      "Barbarian",
+      "Rages",
+      "level 1"
+    ],
+    "category": "Barbarian"
+  },
+  {
+    "question": "What is the Rage Damage bonus for a Barbarian at level 9?",
+    "expected_answer": "+3",
+    "keywords": [
+      "Rage Damage",
+      "Barbarian",
+      "level 9"
+    ],
+    "category": "Barbarian"
+  },
+  {
+    "question": "Does a Barbarian in Rage have Advantage on Strength checks?",
+    "expected_answer": "Yes, Strength Advantage: You have Advantage on Strength checks and Strength saving throws while raging.",
+    "keywords": [
+      "Rage",
+      "Strength Advantage"
+    ],
+    "category": "Barbarian"
+  },
+  {
+    "question": "What is the Weapon Mastery for a level 1 Barbarian?",
+    "expected_answer": "2 kinds of Simple or Martial Melee weapons",
+    "keywords": [
+      "Weapon Mastery",
+      "Barbarian",
+      "level 1"
+    ],
+    "category": "Barbarian"
+  },
+  {
+    "question": "Can a Barbarian cast spells while in Rage?",
+    "expected_answer": "No, No Concentration or Spells: You can\u2019t maintain Concentration, and you can\u2019t cast spells while raging.",
+    "keywords": [
+      "Rage",
+      "spells"
+    ],
+    "category": "Barbarian"
+  },
+  {
+    "question": "How many Bardic Inspiration dice does a level 1 Bard have?",
+    "expected_answer": "D6, number of uses equal to Charisma modifier (minimum once)",
+    "keywords": [
+      "Bardic Inspiration",
+      "level 1"
+    ],
+    "category": "Bard"
+  },
+  {
+    "question": "What is the Spellcasting Ability for Bard spells?",
+    "expected_answer": "Charisma",
+    "keywords": [
+      "Bard",
+      "Spellcasting Ability"
+    ],
+    "category": "Bard"
+  },
+  {
+    "question": "How many cantrips does a level 1 Bard know?",
+    "expected_answer": "2",
+    "keywords": [
+      "Bard",
+      "cantrips",
+      "level 1"
+    ],
+    "category": "Bard"
+  },
+  {
+    "question": "What is Jack of All Trades for a Bard?",
+    "expected_answer": "You can add half your Proficiency Bonus (round down) to any ability check you make that uses a skill proficiency you lack and that doesn\u2019t otherwise use your Proficiency Bonus.",
+    "keywords": [
+      "Jack of All Trades"
+    ],
+    "category": "Bard"
+  },
+  {
+    "question": "What is the Bardic Inspiration die at level 10?",
+    "expected_answer": "D10",
+    "keywords": [
+      "Bardic Inspiration",
+      "die",
+      "level 10"
+    ],
+    "category": "Bard"
+  },
+  {
+    "question": "What is the Hit Point Die for a Cleric?",
+    "expected_answer": "D8 per Cleric level",
+    "keywords": [
+      "Cleric",
+      "Hit Point Die"
+    ],
+    "category": "Cleric"
+  },
+  {
+    "question": "What Divine Order options does a level 1 Cleric have?",
+    "expected_answer": "Protector or Thaumaturge",
+    "keywords": [
+      "Divine Order"
+    ],
+    "category": "Cleric"
+  },
+  {
+    "question": "How many Channel Divinity uses at level 1 for Cleric?",
+    "expected_answer": "2",
+    "keywords": [
+      "Channel Divinity",
+      "Cleric",
+      "level 1"
+    ],
+    "category": "Cleric"
+  },
+  {
+    "question": "What are the two Channel Divinity effects for level 1 Cleric?",
+    "expected_answer": "Divine Spark and Turn Undead",
+    "keywords": [
+      "Channel Divinity",
+      "Cleric"
+    ],
+    "category": "Cleric"
+  },
+  {
+    "question": "What is the Spellcasting Ability for Cleric spells?",
+    "expected_answer": "Wisdom",
+    "keywords": [
+      "Cleric",
+      "Spellcasting"
+    ],
+    "category": "Cleric"
+  },
+  {
+    "question": "What is the Hit Point Die for a Druid?",
+    "expected_answer": "D8 per Druid level",
+    "keywords": [
+      "Druid",
+      "Hit Point Die"
+    ],
+    "category": "Druid"
+  },
+  {
+    "question": "How many Wild Shape uses at level 2 for Druid?",
+    "expected_answer": "2",
+    "keywords": [
+      "Wild Shape",
+      "level 2"
+    ],
+    "category": "Druid"
+  },
+  {
+    "question": "What is the maximum CR for Beast forms at Druid level 4?",
+    "expected_answer": "1/2",
+    "keywords": [
+      "Beast Shapes",
+      "Druid level 4"
+    ],
+    "category": "Druid"
+  },
+  {
+    "question": "What is Primal Order for a level 1 Druid?",
+    "expected_answer": "Magician or Warden",
+    "keywords": [
+      "Primal Order"
+    ],
+    "category": "Druid"
+  },
+  {
+    "question": "How many known Beast forms at Druid level 2?",
+    "expected_answer": "4",
+    "keywords": [
+      "Wild Shape",
+      "known forms"
+    ],
+    "category": "Druid"
+  },
+  {
+    "question": "What is the Spellcasting Ability for a Fighter?",
+    "expected_answer": "N/A (Fighters don't have inherent spellcasting)",
+    "keywords": [
+      "Fighter",
+      "Spellcasting"
+    ],
+    "category": "Fighter"
+  },
+  {
+    "question": "What is the Second Wind HP regain at level 1 for Fighter?",
+    "expected_answer": "1d10 + Fighter level",
+    "keywords": [
+      "Second Wind",
+      "level 1"
+    ],
+    "category": "Fighter"
+  },
+  {
+    "question": "How many Weapon Mastery kinds at Fighter level 1?",
+    "expected_answer": "3",
+    "keywords": [
+      "Weapon Mastery",
+      "Fighter"
+    ],
+    "category": "Fighter"
+  },
+  {
+    "question": "What is Action Surge at level 2?",
+    "expected_answer": "On your turn, you can take one additional action, except the Magic action. Once used, can\u2019t use again until Short or Long Rest.",
+    "keywords": [
+      "Action Surge"
+    ],
+    "category": "Fighter"
+  },
+  {
+    "question": "Does Indomitable allow rerolling a successful save?",
+    "expected_answer": "No, only if you fail a saving throw, you can reroll it.",
+    "keywords": [
+      "Indomitable"
+    ],
+    "category": "Fighter"
+  },
+  {
+    "question": "What is the Hit Point Die for a Monk?",
+    "expected_answer": "D8 per Monk level",
+    "keywords": [
+      "Monk",
+      "Hit Point Die"
+    ],
+    "category": "Monk"
+  },
+  {
+    "question": "What is Unarmored Defense for Monk?",
+    "expected_answer": "While you aren\u2019t wearing armor or wielding a Shield, your base Armor Class equals 10 plus your Dexterity and Wisdom modifiers.",
+    "keywords": [
+      "Unarmored Defense"
+    ],
+    "category": "Monk"
+  },
+  {
+    "question": "How many Focus Points at Monk level 2?",
+    "expected_answer": "2",
+    "keywords": [
+      "Monk\u2019s Focus",
+      "level 2"
+    ],
+    "category": "Monk"
+  },
+  {
+    "question": "What is Deflect Attacks for level 3 Monk?",
+    "expected_answer": "When an attack roll hits you and its damage includes Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to reduce the attack\u2019s total damage against you. The reduction equals 1d10 plus your Dexterity modifier and Monk level.",
+    "keywords": [
+      "Deflect Attacks"
+    ],
+    "category": "Monk"
+  },
+  {
+    "question": "What Martial Arts Die at Monk level 5?",
+    "expected_answer": "1d8",
+    "keywords": [
+      "Martial Arts",
+      "level 5"
+    ],
+    "category": "Monk"
+  },
+  {
+    "question": "What is the Spellcasting Ability for Paladin spells?",
+    "expected_answer": "Charisma",
+    "keywords": [
+      "Paladin",
+      "Spellcasting"
+    ],
+    "category": "Paladin"
+  },
+  {
+    "question": "How much is the Lay On Hands pool at level 1?",
+    "expected_answer": "5 times Paladin level",
+    "keywords": [
+      "Lay On Hands",
+      "level 1"
+    ],
+    "category": "Paladin"
+  },
+  {
+    "question": "What is the Aura of Protection radius at level 6?",
+    "expected_answer": "10-foot Emanation",
+    "keywords": [
+      "Aura of Protection"
+    ],
+    "category": "Paladin"
+  },
+  {
+    "question": "What Channel Divinity effect does Paladin get at level 3?",
+    "expected_answer": "Divine Sense",
+    "keywords": [
+      "Channel Divinity",
+      "Paladin"
+    ],
+    "category": "Paladin"
+  },
+  {
+    "question": "What is Radiant Strikes for level 11 Paladin?",
+    "expected_answer": "When you hit a target with an attack roll using a Melee weapon or an Unarmed Strike, the target takes an extra 1d8 Radiant damage.",
+    "keywords": [
+      "Radiant Strikes"
+    ],
+    "category": "Paladin"
+  },
+  {
+    "question": "What is the Hit Point Die for Ranger?",
+    "expected_answer": "D10 per Ranger level",
+    "keywords": [
+      "Ranger",
+      "Hit Point Die"
+    ],
+    "category": "Ranger"
+  },
+  {
+    "question": "How many Favored Enemy casts of Hunter\u2019s Mark at level 1?",
+    "expected_answer": "2",
+    "keywords": [
+      "Favored Enemy",
+      "Hunter\u2019s Mark"
+    ],
+    "category": "Ranger"
+  },
+  {
+    "question": "What is Deft Explorer for level 2 Ranger?",
+    "expected_answer": "Expertise in one skill proficiency, two languages",
+    "keywords": [
+      "Deft Explorer"
+    ],
+    "category": "Ranger"
+  },
+  {
+    "question": "What does Tireless give at level 10 Ranger?",
+    "expected_answer": "Temporary Hit Points action equal to 1d8 + Wis mod (min 1), uses = Wis mod (min 1); Decrease Exhaustion by 1 after Short Rest",
+    "keywords": [
+      "Tireless"
+    ],
+    "category": "Ranger"
+  },
+  {
+    "question": "What is the Spellcasting Ability for Rogue?",
+    "expected_answer": "N/A (Rogues don't have inherent spellcasting)",
+    "keywords": [
+      "Rogue",
+      "Spellcasting"
+    ],
+    "category": "Rogue"
+  },
+  {
+    "question": "What is the Sneak Attack damage at level 3 Rogue?",
+    "expected_answer": "2d6",
+    "keywords": [
+      "Sneak Attack",
+      "level 3"
+    ],
+    "category": "Rogue"
+  },
+  {
+    "question": "What Cunning Strike effects are available at level 5 Rogue?",
+    "expected_answer": "Poison (1d6), Trip (1d6), Withdraw (1d6)",
+    "keywords": [
+      "Cunning Strike"
+    ],
+    "category": "Rogue"
+  },
+  {
+    "question": "Can a Rogue use Steady Aim if they have moved this turn?",
+    "expected_answer": "No, you can use this feature only if you haven\u2019t moved during this turn.",
+    "keywords": [
+      "Steady Aim"
+    ],
+    "category": "Rogue"
+  },
+  {
+    "question": "What is the Hit Point Die for Sorcerer?",
+    "expected_answer": "D6 per Sorcerer level",
+    "keywords": [
+      "Sorcerer",
+      "Hit Point Die"
+    ],
+    "category": "Sorcerer"
+  },
+  {
+    "question": "How many Sorcery Points at level 2 Sorcerer?",
+    "expected_answer": "2",
+    "keywords": [
+      "Sorcery Points",
+      "level 2"
+    ],
+    "category": "Sorcerer"
+  },
+  {
+    "question": "What is Innate Sorcery for level 1 Sorcerer?",
+    "expected_answer": "As a Bonus Action, unleash for 1 minute: spell save DC +1, Advantage on Sorcerer spell attack rolls. 2 uses, regain on Long Rest.",
+    "keywords": [
+      "Innate Sorcery"
+    ],
+    "category": "Sorcerer"
+  },
+  {
+    "question": "How many Metamagic options at level 2 Sorcerer?",
+    "expected_answer": "2",
+    "keywords": [
+      "Metamagic",
+      "level 2"
+    ],
+    "category": "Sorcerer"
+  },
+  {
+    "question": "What is the Spellcasting Ability for Warlock spells?",
+    "expected_answer": "Charisma",
+    "keywords": [
+      "Warlock",
+      "Spellcasting"
+    ],
+    "category": "Warlock"
+  },
+  {
+    "question": "How many Eldritch Invocations at level 1 Warlock?",
+    "expected_answer": "1",
+    "keywords": [
+      "Eldritch Invocations",
+      "level 1"
+    ],
+    "category": "Warlock"
+  },
+  {
+    "question": "What is Pact Magic spell slot level at Warlock level 2?",
+    "expected_answer": "2",
+    "keywords": [
+      "Pact Magic",
+      "level 2"
+    ],
+    "category": "Warlock"
+  },
+  {
+    "question": "How many spell slots for Pact Magic at level 1 Warlock?",
+    "expected_answer": "1",
+    "keywords": [
+      "Pact Magic",
+      "spell slots",
+      "level 1"
+    ],
+    "category": "Warlock"
+  },
+  {
+    "question": "What is the Spellcasting Ability for Wizard spells?",
+    "expected_answer": "Intelligence",
+    "keywords": [
+      "Wizard",
+      "Spellcasting"
+    ],
+    "category": "Wizard"
+  },
+  {
+    "question": "How many spells in spellbook at level 1 Wizard?",
+    "expected_answer": "6 level 1 spells",
+    "keywords": [
+      "spellbook",
+      "level 1"
+    ],
+    "category": "Wizard"
+  },
+  {
+    "question": "What is Ritual Adept for Wizard?",
+    "expected_answer": "You can cast any spell as a Ritual if that spell has the Ritual tag and the spell is in your spellbook. You needn\u2019t have the spell prepared.",
+    "keywords": [
+      "Ritual Adept"
+    ],
+    "category": "Wizard"
+  },
+  {
+    "question": "How many Arcane Recovery levels at level 1 Wizard?",
+    "expected_answer": "Half Wizard level (round up), max level 5",
+    "keywords": [
+      "Arcane Recovery"
+    ],
+    "category": "Wizard"
+  },
+  {
+    "question": "What is the background feat for Acolyte?",
+    "expected_answer": "Magic Initiate (Cleric)",
+    "keywords": [
+      "Acolyte",
+      "feat"
+    ],
+    "category": "Character Origins"
+  },
+  {
+    "question": "What tool proficiency does Criminal background give?",
+    "expected_answer": "Thieves\u2019 Tools",
+    "keywords": [
+      "Criminal",
+      "tool proficiency"
+    ],
+    "category": "Character Origins"
+  },
+  {
+    "question": "What size is a Dragonborn?",
+    "expected_answer": "Medium (about 5\u20137 feet tall)",
+    "keywords": [
+      "Dragonborn",
+      "size"
+    ],
+    "category": "Character Origins"
+  },
+  {
+    "question": "What special trait does Dwarf have for Stonecunning?",
+    "expected_answer": "As a Bonus Action, gain Tremorsense 60 ft. for 10 minutes on stone. Uses = Proficiency Bonus, regain on Long Rest.",
+    "keywords": [
+      "Stonecunning"
+    ],
+    "category": "Character Origins"
+  },
+  {
+    "question": "What is the Fly Speed for Goliath Large Form at level 5?",
+    "expected_answer": "No Fly Speed mentioned; Speed increases by 10 ft.",
+    "keywords": [
+      "Goliath",
+      "Large Form"
+    ],
+    "category": "Character Origins"
+  },
+  {
+    "question": "What languages does a Halfling know?",
+    "expected_answer": "Species doesn't grant languages; backgrounds and class do.",
+    "keywords": [
+      "Halfling",
+      "languages"
+    ],
+    "category": "Character Origins"
+  },
+  {
+    "question": "What is Alert feat's Initiative Proficiency?",
+    "expected_answer": "When you roll Initiative, you can add your Proficiency Bonus to the roll.",
+    "keywords": [
+      "Alert",
+      "Initiative"
+    ],
+    "category": "Feats"
+  },
+  {
+    "question": "What does Magic Initiate feat give?",
+    "expected_answer": "Two cantrips from Cleric, Druid, or Wizard list; one level 1 spell from same list, cast once without slot per Long Rest.",
+    "keywords": [
+      "Magic Initiate"
+    ],
+    "category": "Feats"
+  },
+  {
+    "question": "What is the cost of Plate Armor?",
+    "expected_answer": "1,500 GP",
+    "keywords": [
+      "Plate Armor",
+      "cost"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "What is the Stealth disadvantage for Scale Mail?",
+    "expected_answer": "Disadvantage on Dexterity (Stealth) checks",
+    "keywords": [
+      "Scale Mail"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "What tool is required for Alchemist\u2019s Supplies?",
+    "expected_answer": "Intelligence",
+    "keywords": [
+      "Alchemist\u2019s Supplies"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "How much does a Backpack weigh?",
+    "expected_answer": "5 lb.",
+    "keywords": [
+      "Backpack",
+      "weight"
+    ],
+    "category": "Equipment"
+  },
+  {
+    "question": "How many spell slots does a level 3 Bard have?",
+    "expected_answer": "4 level 1, 2 level 2",
+    "keywords": [
+      "Bard",
+      "spell slots",
+      "level 3"
+    ],
+    "category": "Bard"
+  },
+  {
+    "question": "What is the DC for a Very Easy ability check?",
+    "expected_answer": "5",
+    "keywords": [
+      "Difficulty Class",
+      "Very Easy"
+    ],
+    "category": "Playing the Game"
+  },
+  {
+    "question": "What damage types does a Barbarian have Resistance to during Rage?",
+    "expected_answer": "Bludgeoning, Piercing, and Slashing",
+    "keywords": [
+      "Rage",
+      "Resistance"
+    ],
+    "category": "Barbarian"
+  },
+  {
+    "question": "What is the expected answer for a Barbarian's Indomitable Might at level 18?",
+    "expected_answer": "If your total for a Strength check or Strength saving throw is less than your Strength score, you can use that score in place of the total.",
+    "keywords": [
+      "Indomitable Might"
+    ],
+    "category": "Barbarian"
+  },
+  {
+    "question": "Combine the Barbarian level 11 Relentless Rage DC increase rule with level 15 Persistent Rage: what is the DC after first use at level 16?",
+    "expected_answer": "DC starts at 10, increases by 5 after first use to 15; resets on Short/Long Rest. Persistent Rage allows regaining Rage uses on Initiative but doesn't affect DC.",
+    "keywords": [
+      "Relentless Rage",
+      "Persistent Rage"
+    ],
+    "category": "Barbarian Hard for RAG"
+  },
+  {
+    "question": "For a multiclass Bard 3 / Wizard 2, how many level 1 spell slots using Multiclass Spellcaster table?",
+    "expected_answer": "Total caster level 3+2=5: 4 level 1 slots",
+    "keywords": [
+      "multiclass",
+      "spell slots",
+      "Bard Wizard"
+    ],
+    "category": "Multiclassing Hard for RAG"
+  },
+  {
+    "question": "What is the AC and HP of an Adult Black Dragon from its stat block?",
+    "expected_answer": "AC 19, HP 195 (17d12 + 85)",
+    "keywords": [
+      "Adult Black Dragon",
+      "AC HP"
+    ],
+    "category": "Monsters"
+  },
+  {
+    "question": "How does a Clay Golem's Berserk trait interact with Acid Absorption?",
+    "expected_answer": "Berserk triggers when Bloodied; Acid Absorption heals it from Acid damage but doesn't prevent Berserk if triggered.",
+    "keywords": [
+      "Clay Golem",
+      "Berserk",
+      "Acid Absorption"
+    ],
+    "category": "Monsters Hard for RAG"
+  },
+  {
+    "question": "Using Travel Pace table and Mounted Combat rules, how far can a group on horses travel in a day at Fast pace for 1 hour then Normal?",
+    "expected_answer": "Fast: 60 miles for 1 hour (double Normal 30 miles); then Normal 24 miles for 7 hours (total 84 miles), mounts need Short/Long Rest after doubled pace hour.",
+    "keywords": [
+      "Travel Pace",
+      "mounted"
+    ],
+    "category": "Travel Hard for RAG"
+  },
+  {
+    "question": "For crafting a Rare magic item like +1 Weapon, what time and cost, assuming Smith\u2019s Tools proficiency?",
+    "expected_answer": "50 days, 2,000 GP (plus weapon cost if applicable)",
+    "keywords": [
+      "crafting magic items"
+    ],
+    "category": "Magic Items"
+  },
+  {
+    "question": "What is the expected answer?",
+    "expected_answer": "Test question",
+    "keywords": [
+      "test"
+    ],
+    "category": "Test"
+  }
+]
