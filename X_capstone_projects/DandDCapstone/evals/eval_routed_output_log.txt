@@ -2,8 +2,10 @@ Initializing Vector Database connection...
 Initializing SQLite (Parent Chunk Store)...
 Loading Local Native Encoder (BAAI/bge-large-en-v1.5)...
 Loading Cross-Encoder Re-Ranker (ms-marco-MiniLM-L-6-v2)...
+Loading BM25 corpus from disk...
+  BM25 index built with keyword-enrichment: 6281 documents.
 Initializing LLM Judge and Master Router (phi-agent)...
-Judge mode: ONE-SHOT (all chunks at once)
+Judge mode: INCREMENTAL (memory-accumulating)
 Initializing Rephrase Agent (phi-agent)...
 Initializing Generation Agent (phi-agent)...
 
@@ -17,29 +19,541 @@ Initializing Generation Agent (phi-agent)...
 Q1: How much does a Longsword cost and what damage does it deal?
   A: 15 gp, 1d8 slashing
 [ollama/phi4:latest] Thinking...
-  [Router] Scope: SPECIFIC | Cat: items | 12.8s
+  [Router] Scope: SPECIFIC | Cat: items | 2.8s
   [Router] Exact Matches: ['Longsword']
   [Router] HyDE: A Longsword is a common melee weapon used by many adventurers. It has a specified cost in gold pieces and deals damage on successful hits, typically m...
 [ollama/phi4:latest] Thinking...
-  [One-Shot] ✅ FOUND | 20.1s
-    Judge: The task involves determining whether the provided text chunks contain enough information to answer a specific question about magical items from a role-playing game setting. The key is to identify any relevant details across these chunks that might collectively provide an answer.
+  [Window 1] ✅ FOUND VIA WINDOWING | 5.4s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The snippet outlines weapon u
+    Doc:   The Longsword costs 15 gp, deals 1d8 slashing damage, weighs 3 lbs, and has the Versatile (1d10) and
+    Judge: To determine whether the context provides the specific facts required to match the expected answer '15 gp, 1d8 slashing', I need to identify these exact details within the provided text chunks. The question asks for both the cost and damage of a Longsword. Let's analyze the relevant chunk: 
 
-First, let's break down what each chunk contains:
-1. **Sword of Sharpness**: Describes its effects when attacking objects and creatures, particularly the extra damage on a critical hit (rolling a 20).
-2. **Sun Blade**: Details about its radiant blade, sunlight emission, and additional damage to undead.
-3. **Sword of Life Stealing**: Explains how it deals extra necrotic damage and grants temporary hit points upon a critical hit.
-4. **Staff of Thunder and Lightning**: Describes various effects like lightning strikes, thunder sounds, and combined properties.
-5. **Stone of Good Luck (Luckstone)**: Provides a bonus to ability checks and saving throws when worn.
-6. **Talisman of the Sphere** and **Talisman of Ultim
-    Judge Evidence: "When you attack an object with this magic weapon and hit, maximize your weapon damage dice against the target. When you attack a creature with this weapon and roll a 20 on the d20 for the attack roll, that target takes an extra 14 Slashing damage and gains 1 Exhaustion level.
+[Chunk 1] (ID: 371143968f4537998af5502c02d2097b_parent_107_table_1_row_7):
+The Longsword costs 15 gp, deals 1d8 slashing damage, weighs 3 lbs, and has the Versatile (1d10) and Sap properties.
 
-This item appears to be a sword hilt. While grasping the hilt, you can take a Bonus Action to cause a blade of pure radiance to spring into existence or make the blade disappear. While the blade exists, this magic weapon functions as a Longsword with the Finesse property. If you are proficient with Longswords or Shortswords, you are proficient with the Sun Blade. You gain a +2 bonus to attack rolls and damage rolls made with it, which deals Radiant damage instead of Slashing damage. When you hit an Undead with it, that target takes an extra 1d8 Radiant damage.
+This chunk explicitly states both the cost ('15 gp') and the damage ('1d8 slashing'), which matches the expected answer verbatim. Therefore, I can confirm that these specific facts are present in the text.
+    Judge Evidence: "The Longsword costs 15 gp, deals 1d8 slashing damage"
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 2.9s
+    Rewritten Q: What are the standard cost and damage characteristics of a Longsword in D&D?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 4.3s
+    Answer: A Longsword costs 15 gp and deals 1d8 slashing damage. It also has the Versatile (1d10) and Sap properties.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 3.7s
 
-This staff can be wielded as a magic Quarterstaff that grants a +2 bonus to attack rolls and damage rolls made with it. It also has the following additional properties. Once one of these properties is used, it can’t be used again until the next dawn. When you hit with a melee attack using the staff, you can cause the target to take an extra 2d6 Lightning damage (no action required). When you hit with a melee attack using the staff, you can cause the staff to emit a crack of thunder audible out to 300 feet (no action required). The target you hit must succeed on a DC 17 Constitution saving throw or have the Stunned condition until the end of your next turn.
+Q2: If my ability score is 18, what is my modifier?
+  A: +4
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: rules | 2.4s
+  [Router] Exact Matches: ['Ability Score', 'Modifier']
+  [Router] HyDE: An Ability Score represents a character's innate talent in areas such as Strength or Intelligence. The Modifier for an Ability Score of 18 is calculat...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 3.6s
+    Topic: Core Rules for Generating Ability Scores in D&D: The snippet outlines three meth
+    Doc:   Ability Scores and Modifiers table. Write the modifier next to each of your scores.   **Ability Scor
+    Judge: The task is to determine whether the context provides enough information to answer the question about what modifier corresponds to an ability score of 18 in D&D. The expected answer is '+4'. I need to find a verbatim quote from the provided text that directly links an ability score of 18 with its corresponding modifier.
+    Judge Evidence: "**Ability Scores and Modifiers**
 
-This talisman is a mighty symbol of goodness. A Fiend or an Undead that touches the talisman takes 8d6 Radiant damage and takes the damage again each time it ends its turn holding or carrying the talisman."
-  ✅ RETRIEVAL SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+**Score** **Modifier**
+12–13 +1
+14–15 +2
+16–17 +3
+18–19 +4
+20 +5"
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 2.2s
+    Rewritten Q: How do you calculate the modifier for a given ability score in D&D according to the standard rules?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 3.4s
+    Answer: The modifier for an Ability Score of 18 is +4.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 3.0s
+
+Q3: What modifier do I get for an ability score of 1 or 11?
+  A: 1 is -5, 11 is +0
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: rules | 2.7s
+  [Router] Exact Matches: ['ability score', 'modifier']
+  [Router] HyDE: In Dungeons & Dragons, each character has six ability scores: Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma. The modifier for ...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 6.8s
+    Topic: Core Rules for Generating Ability Scores in D&D: The snippet outlines three meth
+    Doc:   Ability Scores and Modifiers table. Write the modifier next to each of your scores.   **Ability Scor
+    Judge: To determine whether the context contains the specific facts required to match the expected answer ('1 is -5, 11 is +0'), I need to examine the provided text for any mention of ability score modifiers corresponding to scores of 1 and 11. The relevant sections are those that list ability scores alongside their respective modifiers.
+
+Upon reviewing the context, there are two tables under 'Ability Scores and Modifiers' and 'Ability Score Point Costs'. The first table lists modifiers for scores ranging from 12 to 20 but does not include score 1 or 11. However, the second table ('Ability Score Point Costs') includes a row with:
+
+**Score Modifier**
+3 -4
+4–5 -3
+6–7 -2
+8–9 -1
+10–11 +0
+
+This indicates that an ability score of 11 has a modifier of +0. However, there is no mention of the modifier for a score of 1 in any part of the provided text.
+
+Therefore, while I found the modifier for a score of 11 (+0), I did not find the modifier for a score of 1 (-5). Consequently, the context does not con
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 6.9s
+    Topic: Level Advancement in D&D: In Dungeons & Dragons, character advancement is achiev
+    Doc:   that increases one or more of your ability scores, your ability modifier also changes if the new sco
+    Judge: To determine whether the context contains the specific facts required to match the expected answer ('1 is -5, 11 is +0'), I need to examine both provided text chunks for any mention of ability score modifiers corresponding to scores of 1 and 11. The first chunk (Rank 1) includes a table under 'Ability Score Point Costs' that lists:
+
+**Score Modifier**
+3 -4
+4–5 -3
+6–7 -2
+8–9 -1
+10–11 +0
+
+This indicates that an ability score of 11 has a modifier of +0. However, it does not mention the modifier for a score of 1.
+
+The second chunk (Rank 2) contains no information about ability score modifiers or specific scores like 1 and 11. It focuses on character advancement, experience points, and class features in Dungeons & Dragons.
+
+Therefore, while I found the modifier for a score of 11 (+0) from the first context, I did not find any mention of the modifier for a score of 1 (-5). Consequently, the combined context does not contain all the specific facts required to match the expected answer verbati
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 11.3s
+    Topic: Core Rules for Generating Ability Scores in D&D: The snippet outlines three meth
+    Doc:   score of 14 costs 7 of your 27 points.   **Ability Score Point Costs**   **Score** **Modifier**   3 
+    Judge: To determine whether the context contains the specific facts required to match the expected answer ('1 is -5, 11 is +0'), I need to examine all provided text chunks for any mention of ability score modifiers corresponding to scores of 1 and 11. The first chunk (Rank 1) includes a table under 'Ability Score Point Costs' that lists:
+
+**Score Modifier**
+3 −4
+4–5 −3
+6–7 −2
+8–9 −1
+10–11 +0
+
+This indicates that an ability score of 11 has a modifier of +0. However, it does not mention the modifier for a score of 1.
+
+The second chunk (Rank 2) contains no information about ability score modifiers or specific scores like 1 and 11. It focuses on character advancement, experience points, and class features in Dungeons & Dragons.
+
+The third chunk (Rank 3) repeats the same 'Ability Score Point Costs' table from Rank 1:
+
+**Score Modifier**
+3 −4
+4–5 −3
+6–7 −2
+8–9 −1
+10–11 +0
+
+This again confirms that an ability score of 11 has a modifier of +0, but still does not mention the modifier for a score of 1.
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 13.3s
+    Topic: D&D Rulebook Snippet Summary: The snippet provides definitions for key D&D mecha
+    Doc:   **Ability Score and Modifier** A creature has six ability scores—Strength, Dexterity, Constitution, 
+    Judge: To determine whether the context contains the specific facts required to match the expected answer ('1 is -5, 11 is +0'), I need to examine all provided text chunks for any mention of ability score modifiers corresponding to scores of 1 and 11. The first chunk (Rank 1) includes a table under 'Ability Score Point Costs' that lists:
+
+**Score Modifier**
+3 −4
+4–5 −3
+6–7 −2
+8–9 −1
+10–11 +0
+
+This indicates that an ability score of 11 has a modifier of +0. However, it does not mention the modifier for a score of 1.
+
+The second chunk (Rank 2) contains no information about ability score modifiers or specific scores like 1 and 11. It focuses on character advancement, experience points, and class features in Dungeons & Dragons.
+
+The third chunk (Rank 3) repeats the same 'Ability Score Point Costs' table from Rank 1:
+
+**Score Modifier**
+3 −4
+4–5 −3
+6–7 −2
+8–9 −1
+10–11 +0
+
+This again confirms that an ability score of 11 has a modifier of +0, but still does not mention the modifier for a score of 1.
+[ollama/phi4:latest] Thinking...
+  [Window 5] ✅ FOUND VIA WINDOWING | 18.0s
+    Topic: The Six Abilities in D&D: In Dungeons & Dragons, creatures possess six abilities
+    Doc:   **Ability Scores**   **Score** **Meaning**   1 This is the lowest a score can normally go. If an eff
+    Judge: To determine whether the context contains the specific facts required to match the expected answer ('1 is -5, 11 is +0'), I need to examine all provided text chunks for any mention of ability score modifiers corresponding to scores of 1 and 11. The first chunk (Rank 1) includes a table under 'Ability Score Point Costs' that lists:
+
+**Score Modifier**
+3 −4
+4–5 −3
+6–7 −2
+8–9 −1
+10–11 +0
+
+This indicates that an ability score of 11 has a modifier of +0. However, it does not mention the modifier for a score of 1.
+
+The second chunk (Rank 2) contains no information about ability score modifiers or specific scores like 1 and 11. It focuses on character advancement, experience points, and class features in Dungeons & Dragons.
+
+The third chunk (Rank 3) repeats the same 'Ability Score Point Costs' table from Rank 1:
+
+**Score Modifier**
+3 −4
+4–5 −3
+6–7 −2
+8–9 −1
+10–11 +0
+
+This again confirms that an ability score of 11 has a modifier of +0, but still does not mention the modifier for a score of 1.
+    Judge Evidence: "**Score Modifier**
+1 −5
+2–3 −4
+4–5 −3
+6–7 −2
+8–9 −1
+10–11 +0"
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 5 (MRR+: 0.20)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 3.4s
+    Rewritten Q: How are ability score modifiers calculated according to the base rules of Dungeons & Dragons?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 4.3s
+    Answer: In Dungeons & Dragons, each character has six ability scores: Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma. The modifier for an ability score is calculated by subtracting 10 from the score, dividing by two, and rounding down. For example, an ability score of 1 results in a -5 modifier, while an ability score of 11 gives a +0 modifier.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 3.5s
+
+Q4: Does an Adult Red Dragon have Legendary Resistance? How many times?
+  A: Yes, it has Legendary Resistance. It can use it 3/Day, or 4/Day in its Lair.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: monsters | 2.7s
+  [Router] Exact Matches: ['Adult Red Dragon', 'Legendary Resistance']
+  [Router] HyDE: An Adult Red Dragon is a powerful dragon known for its fiery breath and formidable presence. It possesses the ability called Legendary Resistance, all...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 4.0s
+    Topic: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a power
+    Doc:   **Senses** Blindsight 60 ft., Darkvision 120 ft.; Passive Perception 23 **Languages** Common, Dracon
+    Judge: To determine whether the retrieved text chunks contain enough information to correctly answer the question about an Adult Red Dragon's Legendary Resistance, I need to verify two specific pieces of information: 1) Whether it has Legendary Resistance and 2) How many times it can use this ability per day (3/Day or 4/Day in its Lair). The expected answer specifies these details verbatim. Let's examine the provided context for these facts.
+    Judge Evidence: "_**Legendary Resistance (3/Day, or 4/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead."
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 2.7s
+    Rewritten Q: Does an Adult Red Dragon have the ability called Legendary Resistance according to the standard D&D rules?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 3.8s
+    Answer: An Adult Red Dragon has the ability called Legendary Resistance. It can use this ability three times per day, or four times per day if it is in its lair.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 3.2s
+
+Q5: Can I cast two spells in the same turn?
+  A: If you cast a spell as a bonus action, you can't cast another spell during the same turn, except for a cantrip with a casting time of 1 action.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: rules | 2.6s
+  [Router] Exact Matches: ['Casting', 'Spells', 'Turn']
+  [Router] HyDE: In Dungeons & Dragons, casting spells is a fundamental action for spellcasters. The rules allow a character to cast one spell at a time unless they ha...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 4.4s
+    Topic: Core Rules/Concepts in D&D Rulebook Snippet: The snippet outlines key rules for 
+    Doc:   a spell. This rule means you can’t, for example, cast a spell with a spell slot using the Magic acti
+    Judge: To determine whether the retrieved text chunks contain enough information to correctly answer the question about casting two spells in the same turn, I need to identify specific details regarding spellcasting actions and their limitations within a single turn. The expected answer specifies that if you cast a spell as a bonus action, you cannot cast another spell during the same turn unless it is a cantrip with a casting time of 1 action. Therefore, I must look for information about casting spells using different actions (action, bonus action) and any exceptions related to cantrips.
+    Judge Evidence: "a spell. This rule means you can’t, for example, cast
+a spell with a spell slot using the Magic action and
+another one using a Bonus Action on the same turn."
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 2.9s
+    Rewritten Q: In the standard D&D 5e rules, can a character cast more than one spell during their turn?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 4.2s
+    Answer: In Dungeons & Dragons 5th Edition, a character typically cannot cast more than one spell during their turn unless they have specific abilities or features allowing them to do so. The rules state that you cannot cast a spell with a spell slot using the Magic action and another one using a Bonus Action on the same turn.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 3.4s
+
+Q6: What does the 'Invisibility' spell do?
+  A: A creature you touch becomes invisible until the spell ends. The spell ends if the target attacks or casts a spell.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: spells | 2.2s
+  [Router] Exact Matches: ['Invisibility']
+  [Router] HyDE: The Invisibility spell is a transmutation magic that renders its target unseen. It allows the caster or another creature to become invisible until the...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.4s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines three spells from Dungeons & 
+    Doc:   that an illusory double of you appears where you are standing. The double lasts for the duration, bu
+    Judge: To determine whether the retrieved text chunks contain enough information to correctly answer the question about what the 'Invisibility' spell does, I need to identify any mention of this specific spell and its effects within the provided context. The expected answer specifies that a creature touched by the spell becomes invisible until it attacks or casts a spell, at which point the invisibility ends. I will review each chunk for mentions of an 'Invisibility' spell and check if they describe these exact conditions.
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.6s
+    Topic: D&D Spell Descriptions: This snippet from a D&D rulebook describes three spells 
+    Doc:   The spell also ends if you cast this spell again or if the Tiny replica chest is destroyed. If the s
+    Judge: To determine whether the retrieved text chunks contain enough information to correctly answer the question about what the 'Invisibility' spell does, I need to identify any mention of this specific spell and its effects within the provided context. The expected answer specifies that a creature touched by the spell becomes invisible until it attacks or casts a spell, at which point the invisibility ends. I will review each chunk for mentions of an 'Invisibility' spell and check if they describe these exact conditions.
+[ollama/phi4:latest] Thinking...
+  [Window 3] ✅ FOUND VIA WINDOWING | 4.8s
+    Topic: D&D Rulebook Snippet Summary: This snippet from a D&D rulebook outlines several 
+    Doc:   dance in place, and has Disadvantage on Dexterity saving throws and attack rolls, and other creature
+    Judge: To determine whether the retrieved text chunks contain enough information to correctly answer the question about what the 'Invisibility' spell does, I need to identify any mention of this specific spell and its effects within the provided context. The expected answer specifies that a creature touched by the spell becomes invisible until it attacks or casts a spell, at which point the invisibility ends. In reviewing the new context (Rank 3), there is a section specifically about the 'Invisibility' spell that matches these conditions.
+    Judge Evidence: "A creature you touch has the Invisible condition until the spell ends. The spell ends early immediately after the target makes an attack roll, deals damage, or casts a spell."
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 3 (MRR+: 0.33)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 2.6s
+    Rewritten Q: What are the effects of the 'Invisibility' spell according to the Dungeons & Dragons Standard/Basic Rules?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 5.8s
+    Answer: The 'Invisibility' spell is a Level 2 Illusion that makes a touched creature invisible for up to an hour, ending if the target attacks, deals damage, or casts a spell. Using a higher-level spell slot can target additional creatures.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 5.5s
+
+Q7: How do death saving throws work?
+  A: Whenever you start your turn with 0 hit points, you must make a special saving throw. Roll a d20: 10 or higher is a success, 9 or lower is a failure. On your third success, you become stable. On your third failure, you die.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: rules | 3.4s
+  [Router] Exact Matches: ['Death Saving Throws', 'Hit Point Thresholds']
+  [Router] HyDE: Death Saving Throws are a mechanism used in Dungeons & Dragons to determine the fate of characters who have been reduced to 0 hit points. When a chara...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 5.0s
+    Topic: Core Rules/Concepts Summary: The D&D rulebook snippet outlines how damage types 
+    Doc:   A Stable creature doesn’t make Death Saving Throws even though it has 0 Hit Points, but it still has
+    Judge: To determine whether the retrieved text chunks contain enough information to correctly answer the question about how death saving throws work, I need to identify specific details in the provided context that match the expected answer: 'Whenever you start your turn with 0 hit points, you must make a special saving throw. Roll a d20: 10 or higher is a success, 9 or lower is a failure. On your third success, you become stable. On your third failure, you die.' I will look for these specific elements in the text chunks provided.
+[ollama/phi4:latest] Thinking...
+  [Window 2] ✅ FOUND VIA WINDOWING | 5.6s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines movement mechanics, condition
+    Doc:   A player character must make a Death Saving Throw (also called a Death Save) if they start their tur
+    Judge: To determine whether the retrieved text chunks contain enough information to correctly answer the question about how death saving throws work, I need to identify specific details in the provided context that match the expected answer: 'Whenever you start your turn with 0 hit points, you must make a special saving throw. Roll a d20: 10 or higher is a success, 9 or lower is a failure. On your third success, you become stable. On your third failure, you die.' I will look for these specific elements in the text chunks provided.
+    Judge Evidence: "A player character must make a Death Saving Throw (also called a Death Save) if they start their turn with 0 Hit Points. Roll a d20: on a roll of 10 or higher, the player succeeds; on a roll of 9 or lower, the player fails. On your third success, you become stable. On your third failure, you die."
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 2 (MRR+: 0.50)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 3.1s
+    Rewritten Q: What are the rules for death saving throws in Dungeons & Dragons 5th Edition when a character reaches 0 hit points?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 4.7s
+    Answer: A player character must make a Death Saving Throw if they start their turn with 0 Hit Points.
+[ollama/phi4:latest] Thinking...
+  ❌ GEN FAILED (Judge) | 3.8s
+    Gen Eval Thoughts: The Generated Answer states that a player character must make a Death Saving Throw if they start their turn with 0 Hit Points. This aligns with the first part of the Expected Golden Answer, which specifies that whenever you start your turn with 0 hit points, you must make a special saving throw (Death Saving Throw). However, the Generated Answer does not mention the mechanics of rolling a d20 and the outcomes of success or failure, nor does it specify what happens on the third success (becoming stable) or the third failure (dying), which are critical components of the Expected Golden Answer. Therefore, while the Generated Answer is partially correct in stating that a Death Saving Throw must be made at 0 Hit Points, it omits essential details about how these throws work and their consequences.
+
+Q8: If I am a level 4 Ranger and level 3 Sorcerer multiclass character, how many level 3 spell slots do I have?
+  A: You count as a level 5 spellcaster (all 3 Sorcerer levels + half of 4 Ranger levels, which is 2), giving you two level 3 spell slots.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: rules | 2.9s
+  [Router] Exact Matches: ['Ranger', 'Sorcerer', 'level 3 spell slots']
+  [Router] HyDE: A multiclass character in Dungeons & Dragons combines levels from different classes, such as a Ranger and Sorcerer. The number of level 3 spell slots ...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 8.3s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines rules for multiclassing in D&
+    Doc:   Sorcerer, you count as a level 5 character when determining your spell slots, counting all your leve
+    Judge: To determine whether the retrieved text chunks contain enough information to correctly answer the question about a level 4 Ranger and level 3 Sorcerer multiclass character's spell slots, I need to verify specific details. The expected answer states that such a character counts as a level 5 spellcaster (all 3 Sorcerer levels + half of 4 Ranger levels, which is 2), resulting in two level 3 spell slots.
+
+The relevant section from the provided context discusses how to calculate spell slots for multiclass characters. It specifies adding all levels in certain classes and half the levels in others like Paladin and Ranger. The chunk explicitly states that a character with these levels counts as a level 5 when determining their spell slots, which matches the expected answer's calculation.
+
+The exact quote from the text is: 'Sorcerer, you count as a level 5 character when determining your spell slots, counting all your levels as a Sorcerer and half your Ranger levels. As shown in the Multiclass 
+    Judge Evidence: "Sorcerer, you count as a level 5 character when determining your spell slots, counting all your levels as a Sorcerer and half your Ranger levels. As shown in the Multiclass Spellcaster table, you have four level 1 spell slots, three level 2 slots, and two level 3."
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 4.9s
+    Rewritten Q: How do you determine the number of level 3 spell slots for a multiclass character with levels in both Ranger and Sorcerer?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 3.4s
+    Answer: A level 4 Ranger / level 3 Sorcerer character has two level 3 spell slots.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 3.5s
+
+Q9: How long does it take to don and doff Medium Armor?
+  A: It takes 5 minutes to don and 1 minute to doff Medium Armor.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: rules | 2.9s
+  [Router] Exact Matches: ['Medium Armor', 'donning time', 'doffing time']
+  [Router] HyDE: In Dungeons & Dragons, Medium Armor refers to a category of armor that provides balanced protection and mobility. The rules specify the donning time a...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 3.4s
+    Topic: D&D Armor Rules Summary: The table outlines the main armor types in Dungeons & D
+    Doc:   _Light Armor (1 Minute to Don or Doff)_   Padded Armor 11 + Dex modifier      - Disadvantage 8 lb. 5
+    Judge: The task is to determine whether the retrieved text chunks contain enough information to correctly answer the question about how long it takes to don and doff Medium Armor in D&D. The expected answer specifies that it takes 5 minutes to don and 1 minute to doff Medium Armor. I need to find a verbatim quote from the provided context that matches this information exactly.
+    Judge Evidence: "_Medium Armor (5 Minutes to Don and 1 Minute to Doff)_"
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 4.9s
+    Rewritten Q: What are the standard donning and doffing times for Medium Armor according to the base D&D rules?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 3.8s
+    Answer: In Dungeons & Dragons, Medium Armor takes 5 minutes to don and 1 minute to doff.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 3.2s
+
+Q10: What happens if a creature reaches Exhaustion level 6?
+  A: The creature dies.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: rules | 2.7s
+  [Router] Exact Matches: ['Exhaustion', 'level 6']
+  [Router] HyDE: The condition known as Exhaustion in Dungeons & Dragons is a status effect that represents extreme fatigue. When a creature reaches Exhaustion level 6...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.1s
+    Topic: D&D Rulebook Snippet Summary: This snippet from a D&D rulebook outlines key conc
+    Doc:   When a creature runs out of breath or is choking, it gains 1 Exhaustion level at the end of each of 
+    Judge: To determine whether the context contains the specific fact about what happens when a creature reaches Exhaustion level 6, I need to carefully examine all provided text chunks for any mention of this particular scenario. The expected answer is that 'The creature dies.' Therefore, I must look for a verbatim statement indicating that reaching Exhaustion level 6 results in death. In the given context, there are no explicit mentions or descriptions related to what happens at Exhaustion level 6. The text discusses gaining Exhaustion levels due to suffocation and other general information about D&D mechanics but does not specify consequences of reaching higher levels of Exhaustion, particularly level 6.
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 4.4s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines movement mechanics, condition
+    Doc:   those effects are still ongoing. If the creature died with any Exhaustion levels, it returns with 1 
+    Judge: To determine whether the context contains the specific fact about what happens when a creature reaches Exhaustion level 6, I need to examine all provided text chunks for any mention of this particular scenario. The expected answer is that 'The creature dies.' Therefore, I must look for a verbatim statement indicating that reaching Exhaustion level 6 results in death. In the given context from Rank 2, there is no explicit mention or description related to what happens at Exhaustion level 6. The text discusses conditions like Deafened and Death Saving Throws but does not specify consequences of reaching higher levels of Exhaustion, particularly level 6.
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 4.9s
+    Topic: Core Rules/Concepts Summary: This D&D rulebook snippet outlines key mechanics in
+    Doc:   it gains 1 Exhaustion level at the end of each of its turns. When a creature can breathe again, it r
+    Judge: To determine whether the context contains the specific fact about what happens when a creature reaches Exhaustion level 6, I need to examine all provided text chunks for any mention of this particular scenario. The expected answer is that 'The creature dies.' Therefore, I must look for a verbatim statement indicating that reaching Exhaustion level 6 results in death. In the given context from Rank 3, there is no explicit mention or description related to what happens at Exhaustion level 6. The text discusses various mechanics such as Surprise, Swimming, Swim Speed, Targeting rules, Telepathy, and other core concepts but does not specify consequences of reaching higher levels of Exhaustion, particularly level 6.
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 5.5s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines rules for magical contagions 
+    Doc:   by 1. If the creature’s Exhaustion level is reduced to 0, the contagion ends on the creature.   **Si
+    Judge: To determine whether the context contains the specific fact about what happens when a creature reaches Exhaustion level 6, I need to examine all provided text chunks for any mention of this particular scenario. The expected answer is that 'The creature dies.' Therefore, I must look for a verbatim statement indicating that reaching Exhaustion level 6 results in death. In the given context from Rank 4, there is no explicit mention or description related to what happens at Exhaustion level 6. The text discusses magical contagions like Cackle Fever and Sewer Plague, detailing their effects and how they spread, but does not specify consequences of reaching higher levels of Exhaustion, particularly level 6.
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 5.6s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines rules for magical contagions 
+    Doc:   the following effects 1d4 days after infection:   **Fatigue.** The creature gains 1 Exhaustion level
+    Judge: To determine whether the context contains the specific fact about what happens when a creature reaches Exhaustion level 6, I need to examine all provided text chunks for any mention of this particular scenario. The expected answer is that 'The creature dies.' Therefore, I must look for a verbatim statement indicating that reaching Exhaustion level 6 results in death. In the given context from Rank 5, there is no explicit mention or description related to what happens at Exhaustion level 6. The text discusses magical contagions like Cackle Fever and Sewer Plague, detailing their effects and how they spread, but does not specify consequences of reaching higher levels of Exhaustion, particularly level 6.
+[ollama/phi4:latest] Thinking...
+  [Window 6] ❌ Not in this window | 6.0s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines rules for magical contagions 
+    Doc:   _**Fighting the Contagion.**_ Daily at dawn, an infected creature makes a DC 11 Constitution saving 
+    Judge: To determine whether the context contains the specific fact about what happens when a creature reaches Exhaustion level 6, I need to examine all provided text chunks for any mention of this particular scenario. The expected answer is that 'The creature dies.' Therefore, I must look for a verbatim statement indicating that reaching Exhaustion level 6 results in death. In the given context from Rank 6, there is no explicit mention or description related to what happens at Exhaustion level 6. The text discusses magical contagions like Cackle Fever and Sewer Plague, detailing their effects and how they spread, but does not specify consequences of reaching higher levels of Exhaustion, particularly level 6.
+[ollama/phi4:latest] Thinking...
+  [Window 7] ✅ FOUND VIA WINDOWING | 6.3s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines key mechanics and concepts in
+    Doc:   Each time you receive it, you gain 1 Exhaustion level. You die if your Exhaustion level is 6. _**D20
+    Judge: To determine whether the context contains the specific fact about what happens when a creature reaches Exhaustion level 6, I need to examine all provided text chunks for any mention of this particular scenario. The expected answer is that 'The creature dies.' Therefore, I must look for a verbatim statement indicating that reaching Exhaustion level 6 results in death. In the given context from Rank 7, there is an explicit mention: 'Each time you receive it, you gain 1 Exhaustion level. You die if your Exhaustion level is 6.' This directly matches the expected answer.
+    Judge Evidence: "You die if your Exhaustion level is 6."
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 7 (MRR+: 0.14)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 4.2s
+    Rewritten Q: What are the effects and requirements for recovery when a creature reaches the maximum level of Exhaustion in Dungeons & Dragons, according to the Standard/Base ruleset?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 3.4s
+    Answer: When a creature reaches Exhaustion level 6, it dies unless it can take a long rest to recover. Finishing a Long Rest removes 1 of the creature's Exhaustion levels.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 2.8s
+
+Q11: What is the effect of the Sap weapon mastery property?
+  A: If you hit a creature with a weapon that has the Sap property, that creature has Disadvantage on its next attack roll before the start of your next turn.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: rules | 2.7s
+  [Router] Exact Matches: ['Sap', 'weapon mastery']
+  [Router] HyDE: The Sap weapon mastery property allows a character to use certain weapons with proficiency in the Thieves' Tools skill. When using a weapon with this ...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 5.0s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The snippet outlines weapon u
+    Doc:   #### **Mastery Properties**   Each weapon has a mastery property, which is usable only by a characte
+    Judge: To determine whether the context provides the specific facts required to match the expected answer about the Sap weapon mastery property, I need to identify a verbatim quote that states: 'If you hit a creature with a weapon that has the Sap property, that creature has Disadvantage on its next attack roll before the start of your next turn.' The provided context includes a section titled 'Mastery Properties' where various properties are defined. Within this section, there is an entry for the Sap property which states: 'If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn.' This matches exactly with the expected answer provided by the user.
+    Judge Evidence: "Sap
+If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
 [ollama/phi4:latest] Thinking...
   [Rephraser (phi-agent)] | 2.4s
-    Rewritten Q: What is the cost in gold pieces and how much damage does a standard, non-magical Longsword deal?
+    Rewritten Q: What are the effects of a weapon with the Sap property according to the core rules?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 3.2s
+    Answer: If you hit a creature with a weapon that has the Sap property, that creature has Disadvantage on its next attack roll before the start of your next turn.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 1.6s
+
+Q12: At what level does a Barbarian gain the Relentless Rage feature, and what is the starting DC for its saving throw?
+  A: A Barbarian gains Relentless Rage at level 11, and the initial Constitution saving throw DC is 10.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: classes | 2.8s
+  [Router] Exact Matches: ['Barbarian', 'Relentless Rage', 'saving throw']
+  [Router] HyDE: The Barbarian class in Dungeons & Dragons is known for its high strength and resilience. The Relentless Rage feature, which allows a Barbarian to igno...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 7.3s
+    Topic: D&D Barbarian Path of the Berserker Abilities Summary: The table outlines key ab
+    Doc:   **Level 11: Relentless Rage** Your Rage can keep you fighting despite grievous wounds. If you drop t
+    Judge: To determine whether the retrieved text chunks contain enough information to correctly answer the question about when a Barbarian gains the Relentless Rage feature and its starting DC for the saving throw, I need to analyze the provided context. The expected answer specifies that a Barbarian gains Relentless Rage at level 11 with an initial Constitution saving throw DC of 10.
+
+The relevant section in the text is titled 'Level 11: Relentless Rage,' which states:
+- "Your Rage can keep you fighting despite grievous wounds. If you drop to 0 Hit Points while your Rage is active and don’t die outright, you can make a DC 10 Constitution saving throw."
+
+This directly matches the expected answer regarding both the level at which Relentless Rage is gained (level 11) and the starting DC for its saving throw (DC 10). The text also mentions that each subsequent use of this feature increases the DC by 5, but it resets to 10 after a Short or Long Rest. This additional detail confirms the initial DC v
+    Judge Evidence: ""Your Rage can keep you fighting despite grievous wounds. If you drop to 0 Hit Points while your Rage is active and don’t die outright, you can make a DC 10 Constitution saving throw.""
+  ✅ RETRIEVAL SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+[ollama/phi4:latest] Thinking...
+  [Rephraser (phi-agent)] | 6.6s
+    Rewritten Q: At what level does a Barbarian gain the Relentless Rage feature in the base rules of Dungeons & Dragons, and how is the Difficulty Class for its saving throw determined?
+[ollama/phi4:latest] Thinking...
+  [Generation (phi-agent)] | 5.1s
+    Answer: A Barbarian gains the Relentless Rage feature at level 11. The starting Difficulty Class (DC) for its saving throw is determined by adding 10 plus any Constitution modifier.
+[ollama/phi4:latest] Thinking...
+  ✅ GEN SUCCESS (Judge) | 4.2s
+
+Q13: What is the effect of the Indigo layer of a Prismatic Wall, and what can destroy it?
+  A: A creature failing the save against the Indigo layer is Restrained and must make Constitution saves to avoid being Petrified. The layer is destroyed by Bright Light shed by the Daylight spell.
+[ollama/phi4:latest] Thinking...
+  [Router] Scope: SPECIFIC | Cat: spells | 3.1s
+  [Router] Exact Matches: ['Prismatic Wall', 'Indigo Layer']
+  [Router] HyDE: A Prismatic Wall is a magical barrier created by the spell of the same name, which manifests in seven layers of different colors. The Indigo layer spe...
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 5.9s
+    Topic: D&D Rulebook Snippet Summary: The 'Prismatic Wall' spell creates an opaque multi
+    Doc:   **155** System Reference Document 5.2   specific to each layer. If a layer is destroyed, it is gone 
+    Judge: To determine whether the total context provides the specific facts required to match the expected answer, I need to analyze both the new context and any previous chunks for information about the Indigo layer of a Prismatic Wall. The expected answer specifies two key points: 1) the effect on creatures failing the save against the Indigo layer, which includes being Restrained and needing Constitution saves to avoid Petrification; and 2) that the layer is destroyed by Bright Light shed by the Daylight spell.
+
+In the provided context, I need to look for a section detailing the effects of each Prismatic Wall layer. The new context mentions 'Prismatic Layers' but does not provide specific details about the Indigo layer within this snippet. Therefore, I must check if any previous chunks contain the necessary information regarding the Indigo layer.
+
+If the required facts are found verbatim in either the current or previous contexts, then answer_found should be set to true with a rank_found of 
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 7.1s
+    Topic: D&D Rulebook Snippet Summary: The 'Prismatic Wall' spell creates an opaque multi
+    Doc:   creature to make a Dexterity saving throw or be affected by that layer’s properties as described in 
+    Judge: To determine whether the total context provides the specific facts required to match the expected answer, I need to analyze both the new context and any previous chunks for information about the Indigo layer of a Prismatic Wall. The expected answer specifies two key points: 1) the effect on creatures failing the save against the Indigo layer, which includes being Restrained and needing Constitution saves to avoid Petrification; and 2) that the layer is destroyed by Bright Light shed by the Daylight spell.
+
+In the provided context, I need to look for a section detailing the effects of each Prismatic Wall layer. The new context mentions 'Prismatic Layers' but does not provide specific details about the Indigo layer within this snippet. Therefore, I must check if any previous chunks contain the necessary information regarding the Indigo layer.
+
+Upon reviewing both the current and previous contexts, there is no verbatim mention of the effects on creatures failing the save against the Indig
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 7.8s
+    Topic: D&D Rulebook Snippet Summary: The 'Prismatic Wall' spell creates an opaque multi
+    Doc:   **Prismatic Layers**   **Order** **Effects**   1 **Red.** _Failed Save:_ 12d6 Fire damage. _Successf
+    Judge: To determine whether the total context provides the specific facts required to match the expected answer, I need to analyze both the new context and any previous chunks for information about the Indigo layer of a Prismatic Wall. The expected answer specifies two key points: 1) the effect on creatures failing the save against the Indigo layer, which includes being Restrained and needing Constitution saves to avoid Petrification; and 2) that the layer is destroyed by Bright Light shed by the Daylight spell.
+
+In the provided context, I need to look for a section detailing the effects of each Prismatic Wall layer. The new context mentions 'Prismatic Layers' but does not provide specific details about the Indigo layer within this snippet. Therefore, I must check if any previous chunks contain the necessary information regarding the Indigo layer.
+
+Upon reviewing both the current and previous contexts, there is no verbatim mention of the effects on creatures failing the save against the Indig
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 8.9s
+    Topic: D&D Rulebook Snippet Summary: The 'Prismatic Wall' spell creates an opaque multi
+    Doc:   _ful Save:_ Half as much damage. _Additional Ef-_ _fects:_ The layer is destroyed if it takes at lea
+    Judge: To determine whether the total context provides the specific facts required to match the expected answer, I need to analyze both the new context and any previous chunks for information about the Indigo layer of a Prismatic Wall. The expected answer specifies two key points: 1) the effect on creatures failing the save against the Indigo layer, which includes being Restrained and needing Constitution saves to avoid Petrification; and 2) that the layer is destroyed by Bright Light shed by the Daylight spell.
+
+In the provided context, I need to look for a section detailing the effects of each Prismatic Wall layer. The new context mentions 'Prismatic Layers' and includes specific details about the Indigo layer: it states that failing the save results in the Restrained condition and requires Constitution saving throws at the end of each turn.
+
+However, while the effect on creatures is partially covered (Restrained condition), there is no mention of needing to make Constitution saves to avoid
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 9.0s
+    Topic: D&D Rulebook Snippet Summary: The 'Prismatic Wall' spell creates an opaque multi
+    Doc:   _cessful Save:_ Half as much damage. _Additional_ _Effects:_ A _Passwall_ spell, or another spell of
+    Judge: To determine whether the total context provides the specific facts required to match the expected answer, I need to analyze both the new context and any previous chunks for information about the Indigo layer of a Prismatic Wall. The expected answer specifies two key points: 1) the effect on creatures failing the save against the Indigo layer, which includes being Restrained and needing Constitution saves to avoid being Petrified; and 2) that the layer is destroyed by Bright Light shed by the Daylight spell.
+
+In the provided context, I need to look for a section detailing the effects of each Prismatic Wall layer. The new context mentions 'Prismatic Layers' but does not provide specific details about the Indigo layer within this snippet. Therefore, I must check if any previous chunks contain the necessary information regarding the Indigo layer.
+
+Upon reviewing both the current and previous contexts, there is no verbatim mention of the effects on creatures failing the save against the Ind
+[ollama/phi4:latest] Thinking...
+  [Window 6] ❌ Not in this window | 9.7s
+    Topic: D&D Rulebook Snippet Summary: The 'Prismatic Wall' spell creates an opaque multi
+    Doc:   _of Wind_ ).   3 **Yellow.** _Failed Save:_ 12d6 Lightning damage. _Successful Save:_ Half as much d
+    Judge: To determine whether the total context provides the specific facts required to match the expected answer, I need to analyze both the new context and any previous chunks for information about the Indigo layer of a Prismatic Wall. The expected answer specifies two key points: 1) the effect on creatures failing the save against the Indigo layer, which includes being Restrained and needing Constitution saves to avoid being Petrified; and 2) that the layer is destroyed by Bright Light shed by the Daylight spell.
+
+In the provided context, I need to look for a section detailing the effects of each Prismatic Wall layer. The new context mentions 'Prismatic Layers' but does not provide specific details about the Indigo layer within this snippet. Therefore, I must check if any previous chunks contain the necessary information regarding the Indigo layer.
+
+Upon reviewing both the current and previous contexts, there is no verbatim mention of the effects on creatures failing the save against the Ind
+[ollama/phi4:latest] Thinking...
+  [Window 7] ❌ Not in this window | 12.5s
+    Topic: D&D Rulebook Snippet Summary: The 'Prismatic Wall' spell creates an opaque multi
+    Doc:   failures needn’t be consecutive; keep track of both until the target collects three of a kind. _Addi
+    Judge: To determine whether the total context provides the specific facts required to match the expected answer, I need to analyze both the new context and any previous chunks for information about the Indigo layer of a Prismatic Wall. The expected answer specifies two key points: 1) the effect on creatures failing the save against the Indigo layer, which includes being Restrained and needing Constitution saves to avoid being Petrified; and 2) that the layer is destroyed by Bright Light shed by the Daylight spell.
+
+In the provided context, I need to look for a section detailing the effects of each Prismatic Wall layer. The new context mentions 'Prismatic Layers' and includes specific details about how the Blue layer can be destroyed by Bright Light from the Daylight spell. However, it does not provide information about the Indigo layer being destroyed in this manner.
+
+Upon reviewing both the current and previous contexts, there is a mention of the effect on creatures failing the save against 
+[ollama/phi4:latest] Thinking...
+  [Window 8] ❌ Not in this window | 14.8s
+    Topic: D&D Rulebook Snippet Summary: The 'Prismatic Wall' spell creates an opaque multi
+    Doc:   The wall consists of seven layers, each with a different color. When a creature reaches into or pass
+    Judge: To determine whether the total context provides the specific facts required to match the expected answer, I need to analyze both the new context and any previous chunks for information about the Indigo layer of a Prismatic Wall. The expected answer specifies two key points: 1) the effect on creatures failing the save against the Indigo layer, which includes being Restrained and needing Constitution saves to avoid being Petrified; and 2) that the layer is destroyed by Bright Light shed by the Daylight spell.
+
+In the provided context, I need to look for a section detailing the effects of each Prismatic Wall layer. The new context mentions 'Prismatic Layers' but does not provide specific details about the Indigo layer within this snippet. Therefore, I must check if any previous chunks contain the necessary information regarding the Indigo layer.
+
+Upon reviewing both the current and previous contexts, there is a mention of the effect on creatures failing the save against the Indigo layer: 
+[ollama/phi4:latest] Thinking...
+  [Window 9] ❌ Not in this window | 26.2s
+    Topic: D&D Rulebook Snippet Summary: The 'Prismatic Wall' spell creates an opaque multi
+    Doc:   least 25 Cold damage.   2 **Orange.** _Failed Save:_ 12d6 Acid damage. _Suc-_ _cessful Save:_ Half a
+    Judge: To determine whether the total context provides the specific facts required to match the expected answer, I need to analyze both the new context and any previous chunks for information about the Indigo layer of a Prismatic Wall. The expected answer specifies two key points: 1) the effect on creatures failing the save against the Indigo layer, which includes being Restrained and needing Constitution saves to avoid being Petrified; and 2) that the layer is destroyed by Bright Light shed by the Daylight spell.
+
+In the provided context, I need to look for a section detailing the effects of each Prismatic Wall layer. The new context mentions 'Prismatic Layers' but does not provide specific details about the Indigo layer within this snippet. Therefore, I must check if any previous chunks contain the necessary information regarding the Indigo layer.
+
+Upon reviewing both the current and previous contexts, there is a mention of the effect on creatures failing the save against the Indigo layer: 
 [ollama/phi4:latest] Thinking...

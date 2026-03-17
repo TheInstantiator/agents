@@ -1,3 +1,4 @@
+import re
 import json
 import asyncio
 import chromadb
@@ -100,6 +101,13 @@ bm25_index = None
 bm25_corpus_docs = []
 bm25_corpus_metas = []
 bm25_corpus_ids = []
+
+def simple_tokenize(text: str) -> List[str]:
+    """Robust tokenizer that strips punctuation/Markdown to improve BM25 matching for bolded terms."""
+    if not text:
+        return []
+    return re.findall(r'\w+', text.lower())
+
 if os.path.exists(BM25_CORPUS_PATH):
     print("Loading BM25 corpus from disk...", flush=True)
     with open(BM25_CORPUS_PATH, "rb") as _f:
@@ -107,10 +115,15 @@ if os.path.exists(BM25_CORPUS_PATH):
     bm25_corpus_docs = _corpus["documents"]
     bm25_corpus_metas = _corpus["metadatas"]
     bm25_corpus_ids = _corpus["ids"]
-    # Tokenise by splitting on whitespace (simple but effective for BM25)
-    _tokenised = [doc.lower().split() for doc in bm25_corpus_docs]
+    # Improved tokenization: prepend summaries to the text so BM25 knows the monster/section name
+    # even if it's not in the small child chunk! (Headless Chunk problem fix)
+    _tokenised = []
+    for doc, meta in zip(bm25_corpus_docs, bm25_corpus_metas):
+        enriched_text = f"{meta.get('parent_summary', '')} {meta.get('table_summary', '')} {doc}"
+        _tokenised.append(simple_tokenize(enriched_text))
+    
     bm25_index = BM25Okapi(_tokenised)
-    print(f"  BM25 index built: {len(bm25_corpus_docs)} documents.", flush=True)
+    print(f"  BM25 index built with keyword-enrichment: {len(bm25_corpus_docs)} documents.", flush=True)
 else:
     print(f"  ⚠️  BM25 corpus not found at {BM25_CORPUS_PATH}. Run build_rag_db.py first. Falling back to boolean scan.", flush=True)
 
@@ -125,14 +138,15 @@ judge = CoreAgent(
     system_prompt=(
         "You are a strict D&D rules evaluation judge. "
         "Your ONLY job is to determine whether the retrieved text chunks contain enough information "
-        "to correctly answer the given question. Be strict — the chunk must actually contain the answer, "
-        "not just be vaguely related. Return answer_found=True only if you're confident. "
+        "to correctly answer the given question. "
+        "The chunk MUST contain the specific facts required by the question, but it is perfectly acceptable (and often expected) if it contains other surrounding context or information. "
+        "Return answer_found=True if the core facts are present verbatim. "
         "CRITICAL: If you find the answer, you MUST extract the exact, verbatim quote from the text that proves it. "
         "Do not paraphrase. If you cannot find a verbatim quote that answers the question, you must set answer_found=False."
     ),
     litellm_kwargs=phi_kwargs,
     response_model=JudgeVerdict,
-    one_shot=True
+    one_shot=ONE_SHOT_JUDGE
 )
 
 router = CoreAgent(
@@ -167,9 +181,12 @@ rephrase_agent = CoreAgent(
     agent_id="rephrase_agent",
     system_prompt=(
         "You are an expert D&D rules interpreter.\n"
-        "Players often ask vague questions like 'What is the damage of a longsword?', which can result in magical items (like a Sword of Sharpness) being confused for the base item.\n"
-        "Your job is to rewrite the player's question to explicitly state that it refers to the standard, BASE, non-magical version of the item, monster, or rule unless the player specifically mentions a variant.\n"
-        "Make the rewritten question extremely clear and precise."
+        "Your task is to rewrite user questions to be highly precise and target the 'Standard/Base' ruleset.\n"
+        "RELEVANCY RULE: You will be given a 'Hypothetical Answer' from a search router. \n"
+        "WARNING: The Hypothetical Answer often contains hallucinations or incorrect facts. \n"
+        "DO NOT copy facts (like costs, dice, or rules) from the Hypothetical Answer into the Rewritten Question unless they were in the Original Question.\n"
+        "Only use the Hypothetical Answer to understand the 'topic' or 'category' of the search.\n"
+        "Make the rewritten question clear and technically accurate, but do not add invented details."
     ),
     litellm_kwargs=phi_kwargs,
     response_model=RewrittenQuery,
@@ -199,7 +216,10 @@ answer_judge = CoreAgent(
     system_prompt=(
         "You are an impartial evaluator. You will be given a User Question, an Expected Golden Answer, and a Generated Answer. "
         "Your job is to determine if the Generated Answer is factually correct and equivalent to the Golden Answer. "
-        "Ignore formatting or phrasing differences; focus purely on the facts."
+        "Ignore formatting or phrasing differences; focus purely on the facts. "
+        "CRITICAL: Be a lenient evaluator regarding additional context. "
+        "If the Generated Answer is more detailed or provides more surrounding facts than the Golden Answer, DO NOT penalize it, as long as all facts required by the Golden Answer are present and accurate. "
+        "Only fail if the Generated Answer contradicts the Golden Answer or misses a key fact required by the Golden Answer."
     ),
     litellm_kwargs=phi_kwargs,
     response_model=AnswerEvalVerdict,
@@ -207,21 +227,38 @@ answer_judge = CoreAgent(
 )
 
 def get_context_for_rank(results, rank: int, windowing: bool = False) -> str:
-    """Builds the full context string for a given rank, including the parent chunk."""
+    """Builds the full context string for a given rank, including parent summaries and raw tables."""
     doc = results['documents'][0][rank]
     meta = results['metadatas'][0][rank]
     chunk_id = results['ids'][0][rank]
-    parent_id = "_".join(chunk_id.split("_")[:3])
+    
+    # Robust parent_id extraction (handles {hash}_parent_{idx} prefixes)
+    parent_id = meta.get('parent_id')
+    if not parent_id:
+        parts = chunk_id.split("_")
+        parent_id = "_".join(parts[:3])
 
-    context = f"[Chunk {rank+1}] (ID: {chunk_id} -> Parent: {parent_id}):\n{doc}"
-    if meta.get('type') == 'table' and 'table_content' in meta:
-        context += f"\n[Raw Table]:\n{meta['table_content']}"
+    # 1. Build Semantic Header from Agentic Summaries
+    header_parts = []
+    if meta.get('parent_summary'):
+        header_parts.append(f"[Section Overview]: {meta['parent_summary']}")
+    if meta.get('table_summary'):
+        header_parts.append(f"[Table Focus]: {meta['table_summary']}")
+    
+    header_str = "\n".join(header_parts)
+    context = f"{header_str}\n[Chunk {rank+1}] (ID: {chunk_id}):\n{doc}"
 
+    # 2. Raw Table Fallback
+    # If the hit is a prose row OR a raw table chunk, include the full raw table for holistic context
+    if meta.get('type') in ['table', 'table_row_prose'] and 'table_content' in meta:
+        context += f"\n[Full Raw Table Data]:\n{meta['table_content']}"
+
+    # 3. Windowing (surrounding parent chunks)
     if windowing:
-        parts = parent_id.split("_")
-        if len(parts) >= 3 and parts[2].isdigit():
-            idx = int(parts[2])
-            base_id = "_".join(parts[:2])
+        parent_parts = parent_id.split("_")
+        if len(parent_parts) >= 3 and parent_parts[2].isdigit():
+            idx = int(parent_parts[2])
+            base_id = "_".join(parent_parts[:2])
             parent_ids = [f"{base_id}_{idx-1}", parent_id, f"{base_id}_{idx+1}"]
         else:
             parent_ids = [parent_id]
@@ -236,6 +273,7 @@ def get_context_for_rank(results, rank: int, windowing: bool = False) -> str:
         if full_text:
             context += f"\n[Windowed Section Context]:\n...\n" + "\n...\n".join(full_text)
     else:
+        # Standard Parent Retrieval
         parent_cursor.execute("SELECT content FROM parent_chunks WHERE id=?", (parent_id,))
         parent_row = parent_cursor.fetchone()
         if parent_row:
@@ -276,11 +314,11 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
             print(f"  [Router] Exact Matches: {decision.exact_match_keywords}")
             print(f"  [Router] HyDE: {decision.hyde_excerpt[:150]}...")
 
-            k = 80 if decision.scope.upper() == "BROAD" else 10
+            k = 80 if decision.scope.upper() == "BROAD" else 20
         except Exception as e:
             print(f"  ⚠️  Router error: {e}")
             decision = RouterDecision(scope="SPECIFIC", category="rules", exact_match_keywords=[], hyde_excerpt=query)
-            k = 10
+            k = 20
 
         # 1. Hybrid Search Construction (Dense Vector) 
         # Using the natural language query and the formalized HyDE excerpt together
@@ -304,7 +342,12 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
 
         # ── TRACK B: Real BM25 Search ──────────────────────────────────────────
         # Hard-filter common/generic words the LLM sometimes adds as keywords
-        blacklist = {"cost", "damage", "ac", "stats", "hp", "hit", "points", "price", "modifier", "score", "level", "dc"}
+        # This prevents noisy BM25 hits from burying dense results.
+        blacklist = {
+            "cost", "damage", "ac", "stats", "hp", "hit", "points", "price", 
+            "modifier", "score", "level", "dc", "weight", "type", "size", 
+            "speed", "alignment", "languages", "properties", "standard", "base"
+        }
         filtered_keywords = [
             kw for kw in decision.exact_match_keywords
             if kw.lower() not in blacklist and not kw.lower().startswith("level ")
@@ -315,8 +358,8 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
         existing_ids_set = set(ids)
 
         if bm25_index and filtered_keywords:
-            # Build a combined BM25 query from all filtered keywords
-            bm25_query_tokens = " ".join(filtered_keywords).lower().split()
+            # Build a combined BM25 query from all filtered keywords using the robust tokenizer
+            bm25_query_tokens = simple_tokenize(" ".join(filtered_keywords))
             bm25_scores = bm25_index.get_scores(bm25_query_tokens)
 
             # Get the top k*3 BM25 results
@@ -364,10 +407,32 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
         scores = scores.tolist() if hasattr(scores, 'tolist') else list(scores)
 
         debug_print(f"  [DEBUG] exact_match_indices: {exact_match_indices}")
-        for idx in exact_match_indices:
-            debug_print(f"  [DEBUG] BM25 hit chunk {idx}. CE score before override: {scores[idx]:.2f}. Preview: {docs[idx][:80]}")
-            scores[idx] = 99.0  # Hard override — BM25 says it's relevant, trust it over CE
-            debug_print(f"  [DEBUG] Score overridden to 99.0 for BM25 hit.")
+        for idx in range(len(docs)):
+            doc_text = docs[idx].lower()
+            meta = metas[idx]
+            
+            # ── PHRASAL BOOST ──
+            # Count how many of the Router's specific keywords/phrases match literally.
+            # A chunk with BOTH "Adult Red Dragon" and "Legendary Resistance" 
+            # should score higher than one with just "Legendary Resistance".
+            phrasal_match_count = 0
+            for kw in filtered_keywords:
+                low_kw = kw.lower()
+                if (low_kw in doc_text or 
+                    low_kw in meta.get('parent_summary', '').lower() or
+                    low_kw in meta.get('table_summary', '').lower()):
+                    phrasal_match_count += 1
+
+            if phrasal_match_count > 0:
+                # Tiered Phrasal Boost: (100 * count) ensures multi-keyword matches win.
+                old_score = scores[idx]
+                scores[idx] = (phrasal_match_count * 100.0) + (old_score / 100.0)
+                debug_print(f"  [DEBUG] PHRASAL hit x{phrasal_match_count} chunk {idx} ({meta.get('type')}). CE: {old_score:.2f} -> Boosted: {scores[idx]:.2f}")
+            elif idx in exact_match_indices:
+                # Mid tier: BM25 Token match (bag of words, no full phrasal match)
+                old_score = scores[idx]
+                scores[idx] = 50.0 + (old_score / 100.0)
+                debug_print(f"  [DEBUG] TOKEN hit chunk {idx} ({meta.get('type')}). CE: {old_score:.2f} -> Boosted: {scores[idx]:.2f}")
 
         # Sort by score descending and keep top k
         scored_results = sorted(zip(scores, docs, metas, ids), key=lambda x: x[0], reverse=True)
@@ -390,31 +455,29 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
 
         if ONE_SHOT_JUDGE:
             # ── ONE-SHOT MODE ──────────────────────────────────────────────────
-            # Concatenate every retrieved chunk + its window into one big prompt
-            # and let the judge evaluate everything in a single pass.
+            # Concatenate every retrieved chunk + its narrative window into one big prompt
             num_chunks = len(results['documents'][0])
-            all_contexts = []
+            all_narratives = []
             for rank in range(min(k, num_chunks)):
-                child_ctx = get_context_for_rank(results, rank, windowing=False)
-                window_ctx = get_context_for_rank(results, rank, windowing=True)
-                all_contexts.append(
-                    f"--- Rank {rank+1} ---\n{child_ctx}\n[Window]:\n{window_ctx}"
-                )
-            combined = "\n\n".join(all_contexts)
+                narrative = get_context_for_rank(results, rank, windowing=True)
+                all_narratives.append(f"--- Result Rank {rank+1} ---\n{narrative}")
+            
+            combined = "\n\n".join(all_narratives)
 
             judge.working_memory.clear()
             one_shot_prompt = (
                 f"Question: {query}\n"
                 f"Expected Answer: {expected_answer}\n\n"
-                f"Below are ALL {num_chunks} retrieved retrieved chunks (with surrounding window context):\n\n"
+                f"Below are the Top {num_chunks} retrieved results (each with surrounding context):\n\n"
                 f"{combined[:120000]}\n\n"
-                f"Do these chunks COLLECTIVELY contain enough information to correctly answer the question? "
-                f"The answer may be spread across multiple chunks. "
-                f"Set answer_found=true if the combined context covers the answer. "
-                f"Set rank_found=1 if found, otherwise -1."
+                f"Instructions:\n"
+                f"- Do these results COLLECTIVELY contain the specific facts to answer the question?\n"
+                f"- The answer might be spread across multiple ranks.\n"
+                f"- Set answer_found=true if the combined text has the answer.\n"
+                f"- Set rank_found to the rank (1-{num_chunks}) where the fact first appears."
             )
             t_start = time.time()
-            debug_print(f"  [One-Shot] Judging all {num_chunks} chunks at once...")
+            debug_print(f"  [One-Shot] Judging all {num_chunks} windowed narratives...")
             try:
                 best_verdict = await judge.ask(one_shot_prompt)
             except Exception as e:
@@ -427,44 +490,7 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
                 print(f"    Judge: {best_verdict.thoughts[:1000]}", flush=True)
             if best_verdict.answer_found:
                 print(f"    Judge Evidence: \"{best_verdict.exact_quote}\"", flush=True)
-            if best_verdict.answer_found:
-                found_rank = 1  # MRR=1.0 — we got the answer, rank attribution isn't meaningful
-
-            # ── CONFIRMATION PASS ──────────────────────────────────────────────
-            # If one-shot failed, retry with a simpler targeted prompt that strips
-            # away complex reasoning and just asks: "is the expected answer here?"
-            if not best_verdict.answer_found:
-                print(f"  [Confirm] One-shot missed — running targeted confirmation...", flush=True)
-                judge.working_memory.clear()
-                confirm_prompt = (
-                    f"Read the text below carefully.\n\n"
-                    f"Text:\n{combined[:120000]}\n\n"
-                    f"Question: {query}\n"
-                    f"Does the text contain the following information: '{expected_answer}'?\n"
-                    f"Look for exact values, names, or key facts from that answer anywhere in the text. "
-                    f"Set answer_found=true if you can locate those facts. Set rank_found=1 if yes, -1 if no."
-                )
-                t_confirm = time.time()
-                try:
-                    confirm_verdict = await judge.ask(confirm_prompt)
-                except Exception as e:
-                    print(f"  ⚠️  Confirmation judge error: {e}", flush=True)
-                    confirm_verdict = JudgeVerdict(thoughts="error", answer_found=False, rank_found=-1)
-                elapsed_c = time.time() - t_confirm
-                c_status = "✅ FOUND (confirmation)" if confirm_verdict.answer_found else "❌ Still not found"
-                print(f"  [Confirm] {c_status} | {elapsed_c:.1f}s", flush=True)
-                if confirm_verdict.thoughts:
-                    debug_print(f"    Judge: {confirm_verdict.thoughts[:1000]}")
-                if confirm_verdict.answer_found:
-                    best_verdict = confirm_verdict
-                    found_rank = 1
-                else:
-                    # Both passes failed — dump the raw context so we can see what the judge had
-                    debug_print(f"\n  {'='*60}")
-                    debug_print(f"  🔍 DEBUG: Full context sent to judge ({len(combined)} chars):")
-                    debug_print(f"  {'='*60}")
-                    debug_print(combined[:120000])
-                    debug_print(f"  {'='*60}\n")
+                found_rank = best_verdict.rank_found if best_verdict.rank_found > 0 else 1
 
 
         else:
@@ -476,28 +502,19 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
                 # within this question so split answers (e.g. list spread over 2 chunks)
                 # are caught when the combined evidence becomes complete.
                 context = get_context_for_rank(results, rank, windowing=is_window)
-                if is_window:
-                    judge_prompt = (
-                        f"Question: {query}\n"
-                        f"Expected Answer: {expected_answer}\n\n"
-                        f"Retrieved Expanded Window (Rank {rank+1}):\n{context[:6000]}\n\n"
-                        f"Consider this chunk AND all chunks you have already evaluated for this question. "
-                        f"Together, is there now enough information to correctly answer the question? "
-                        f"Set answer_found=true if the answer is fully covered across all seen chunks. "
-                        f"Set rank_found={rank+1} if now found, otherwise -1."
-                    )
-                    topic_pre = "Window"
-                else:
-                    judge_prompt = (
-                        f"Question: {query}\n"
-                        f"Expected Answer: {expected_answer}\n\n"
-                        f"Retrieved Chunk (Rank {rank+1}):\n{context[:3000]}\n\n"
-                        f"Consider this chunk AND all chunks you have already evaluated for this question. "
-                        f"Together, is there now enough information to correctly answer the question? "
-                        f"Set answer_found=true if the answer is fully covered across all seen chunks. "
-                        f"Set rank_found={rank+1} if now found, otherwise -1."
-                    )
-                    topic_pre = "Chunk"
+                chunk_limited = context[:6000] if is_window else context[:3000]
+                
+                judge_prompt = (
+                    f"Question: {query}\n"
+                    f"Expected Answer: {expected_answer}\n\n"
+                    f"New Context (Rank {rank+1}, {'Window' if is_window else 'Chunk'}):\n{chunk_limited}\n\n"
+                    f"Consider this new context AND all previous chunks you have evaluated for this question.\n"
+                    f"Does the TOTAL context provide the SPECIFIC FACTS required to match the Expected Answer?\n"
+                    f"The answer may be split across multiple chunks. Only set answer_found=true if the combined information handles the full requirement.\n"
+                    f"DO NOT use outside knowledge. The facts MUST be in the provided text.\n"
+                    f"Set answer_found=true ONLY if the facts are found. Set rank_found={rank+1} if found, otherwise -1."
+                )
+                topic_pre = "Window" if is_window else "Chunk"
 
                 t_start = time.time()
                 try:
@@ -524,13 +541,6 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
                 return {"rank": rank, "is_window": is_window, "verdict": verdict}
 
             for rank in range(min(k, len(results['documents'][0]))):
-                task_res = await check_chunk(rank, is_window=False)
-                if task_res['verdict'].answer_found:
-                    found_rank = task_res['rank'] + 1
-                    used_windowing = False
-                    best_verdict = task_res['verdict']
-                    break
-
                 task_res = await check_chunk(rank, is_window=True)
                 if task_res['verdict'].answer_found:
                     found_rank = task_res['rank'] + 1
@@ -560,8 +570,10 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
             f"Router Metadata:\n"
             f"  Scope: {decision.scope} | Category: {decision.category}\n"
             f"  Keywords: {decision.exact_match_keywords}\n"
-            f"  Hypothetical Answer: {decision.hyde_excerpt}\n\n"
-            f"Rewrite this question to clearly ask for the standard/base game properties. Use the Hypothetical Answer and Keywords for context on what we are looking for."
+            f"  Potential Topic Context (DANGEROUS: May contain lies): {decision.hyde_excerpt}\n\n"
+            f"Rewrite the Original Question to clearly ask for the base/standard properties. \n"
+            f"STRICT RULE: Do not include ANY specific numbers, costs, or mechanics from the 'Potential Topic Context' in your rewrite. \n"
+            f"Only use that context to understand what the user is likely referring to (e.g. if they say 'T-Rex', the context helps you know they mean 'Tyrannosaurus Rex')."
         )
         t_ref = time.time()
         try:
@@ -575,8 +587,13 @@ async def evaluate_retrieval_llm(dataset: List[Dict], dataset_name: str):
         print(f"  [Rephraser ({MODEL_NAME})] | {elapsed_ref:.1f}s", flush=True)
         print(f"    Rewritten Q: {ref_resp.rewritten_question}", flush=True)
 
-        # 2) Give the generator the exact same context that the one-shot judge read
-        generation_context = combined
+        # 2) Give the generator only the relevant context that actually contained the answer
+        if found_rank != -1:
+            generation_context = get_context_for_rank(results, found_rank - 1, windowing=used_windowing)
+        else:
+            # Fallback to all chunks if judge completely failed, just in case
+            all_contexts = [get_context_for_rank(results, r, windowing=True) for r in range(min(k, len(results['documents'][0])))]
+            generation_context = "\n\n".join(all_contexts)
             
         gen_prompt = (
             f"Original Question: {query}\n"
