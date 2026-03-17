@@ -192,4 +192,8 @@ X_capstone_projects/documents/
 X_capstone_projects/DandDCapstone/documents/
 X_capstone_projects/DandDCapstone/chroma_db/
 X_capstone_projects/DandDCapstone/parent_chunks.db
+X_capstone_projects/DandDCapstone/parent_chunks.db-journal
+X_capstone_projects/DandDCapstone/dnd_rag_visualization_*.html
+X_capstone_projects/DandDCapstone/*.db
+X_capstone_projects/chroma_db/
 *.html

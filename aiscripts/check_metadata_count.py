@@ -3,8 +3,8 @@ import os
 import chromadb
 
 # Setup paths
-SCRIPT_DIR = "/home/ouar/projects/agents/X_capstone_projects/aiscripts"
-DB_PATH = "/home/ouar/projects/agents/X_capstone_projects/chroma_db"
+SCRIPT_DIR = "/home/ouar/projects/agents/aiscripts"
+DB_PATH = "/home/ouar/projects/agents/X_capstone_projects/DandDCapstone/chroma_db"
 
 print("Connecting to ChromaDB...", flush=True)
 client = chromadb.PersistentClient(path=DB_PATH)

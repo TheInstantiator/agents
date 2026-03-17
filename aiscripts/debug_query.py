@@ -10,7 +10,7 @@ import chromadb
 from sentence_transformers import SentenceTransformer
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_DIR = os.path.join(SCRIPT_DIR, "..")  # aiscripts/ lives inside X_capstone_projects/
+PROJECT_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, "..", "X_capstone_projects"))
 DB_PATH = os.path.join(PROJECT_DIR, "DandDCapstone", "chroma_db")
 SQLITE_PATH = os.path.join(PROJECT_DIR, "DandDCapstone", "parent_chunks.db")
 

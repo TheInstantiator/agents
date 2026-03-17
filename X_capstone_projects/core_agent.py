@@ -114,11 +114,19 @@ class CoreAgent:
             
             # Save the raw JSON string to memory for context continuity
             self.working_memory.append({"role": "assistant", "content": raw_output})
+            
+            if self.one_shot:
+                self.working_memory.clear()
+                
             return parsed_output
             
         else:
             # Fallback for completely unstructured text
             self.working_memory.append({"role": "assistant", "content": raw_output})
+            
+            if self.one_shot:
+                self.working_memory.clear()
+                
             return raw_output
 
 # --- PHASE 1 TEST BLOCK ---

@@ -76,7 +76,8 @@
             "litellm_params": {
                 "model": "ollama/qwen3:32b",
                 "api_base": "http://localhost:11434",
-                "max_input_tokens": 300000,
+                "max_input_tokens": 128000,
+                "num_ctx": 128000,
                 "max_tokens": 2000,
                 "k_specific": 10,
                 "one_shot_judge": true,
@@ -88,7 +89,8 @@
             "litellm_params": {
                 "model": "ollama/gemma3:27b",
                 "api_base": "http://localhost:11434",
-                "max_input_tokens": 300000,
+                "max_input_tokens": 128000,
+                "num_ctx": 128000,
                 "max_tokens": 2000,
                 "k_specific": 10,
                 "one_shot_judge": true,
@@ -100,7 +102,8 @@
             "litellm_params": {
                 "model": "ollama/deepseek-r1:32b",
                 "api_base": "http://localhost:11434",
-                "max_input_tokens": 300000,
+                "max_input_tokens": 128000,
+                "num_ctx": 128000,
                 "max_tokens": 2000,
                 "k_specific": 10,
                 "one_shot_judge": true,
@@ -112,7 +115,8 @@
             "litellm_params": {
                 "model": "ollama/llama3.1:8b",
                 "api_base": "http://localhost:11434",
-                "max_input_tokens": 300000,
+                "max_input_tokens": 128000,
+                "num_ctx": 128000,
                 "max_tokens": 2000,
                 "k_specific": 10,
                 "one_shot_judge": true,
@@ -124,10 +128,11 @@
             "litellm_params": {
                 "model": "ollama/phi4:latest",
                 "api_base": "http://localhost:11434",
-                "max_input_tokens": 300000,
+                "max_input_tokens": 16384,
+                "num_ctx": 16384,
                 "max_tokens": 2000,
                 "k_specific": 10,
-                "one_shot_judge": true,
+                "one_shot_judge": false,
                 "temperature": 0.0
             }
         }

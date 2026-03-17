@@ -1,7 +1,7 @@
 import json
 import os
 
-config_path = os.path.join(os.path.dirname(__file__), "..", "config.json")
+config_path = os.path.join(os.path.dirname(__file__), "..", "X_capstone_projects", "config.json")
 
 with open(config_path, "r") as f:
     config = json.load(f)

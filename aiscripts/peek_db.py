@@ -3,7 +3,7 @@ import os
 import chromadb
 from sentence_transformers import SentenceTransformer
 
-DB_PATH = "/home/ouar/projects/agents/X_capstone_projects/chroma_db"
+DB_PATH = "/home/ouar/projects/agents/X_capstone_projects/DandDCapstone/chroma_db"
 client = chromadb.PersistentClient(path=DB_PATH)
 collection = client.get_collection(name="dnd_rules_multi_v1")
 

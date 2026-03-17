@@ -1,298 +1,594 @@
---- Chunk 1 ---
-Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': "Dungeon Master's Guide Summary: The provided D&D snippet includes a list of creatures and their page numbers for quick reference in gameplay, rules related to the 'Mindless Rage' feature for immunity conditions during rage states, and Bard class features detailing abilities like Charisma-based attacks, inspirational mechanics, weapon proficiencies, and skill enhancements at various levels.", 'type': 'text', 'source': 'DandDRuleset.pdf'}
+=== TOP 25 DENSE ENCODING RESULTS FOR 'longsword' ===
 
-Document:
-Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP
-
-Maul 2d6 Bludgeoning Heavy, Two-Handed Topple 10 lb. 10 GP
-
-Morningstar 1d8 Piercing     - Sap 4 lb. 15 GP
-
-Pike 1d10 Piercing Heavy, Reach, Two-Handed Push 18 lb. 5 GP
-
-Rapier 1d8 Piercing Finesse Vex 2 lb. 25 GP
-================================================================================
-
---- Chunk 2 ---
-Metadata: {'type': 'text', 'parent_summary': "D&D Monsters Summary: The D&D section describes three types of creatures: a **Guard** and its more powerful variant, the **Guard Captain**, both humanoids with varying combat abilities; and a **Half-Dragon**, which is related to dragons and can resist specific damage types. The Half-Dragon has melee attacks and a Dragon’s Breath attack with significant area effect. Additionally, there's a **Harpy**, characterized by its claw attacks.", 'source': 'DandDRuleset.pdf', 'doc_hash': '371143968f4537998af5502c02d2097b'}
-
-Document:
-_Medium or Small Humanoid, Neutral_
-
-
-**AC** 18 **Initiative** +4 (14)
-**HP** 75 (10d8 + 30)
-**Speed** 30 ft.
-
-
-**Skills** Athletics +6, Perception +4
-**Gear** Breastplate, Javelins (6), Longsword, Shield
-**Senses** Passive Perception 14
-**Languages** Common
-**CR** 4 (XP 1,100; PB +2)
-
-Actions
-================================================================================
-
---- Chunk 3 ---
-Metadata: {'parent_summary': "D&D Monsters Summary: The D&D section describes three types of creatures: a **Guard** and its more powerful variant, the **Guard Captain**, both humanoids with varying combat abilities; and a **Half-Dragon**, which is related to dragons and can resist specific damage types. The Half-Dragon has melee attacks and a Dragon’s Breath attack with significant area effect. Additionally, there's a **Harpy**, characterized by its claw attacks.", 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf'}
-
-Document:
-Actions
-
-_**Multiattack.**_ The guard makes two attacks, using Javelin
-or Longsword in any combination.
-
-_**Javelin.**_ _Melee or Ranged Attack Roll:_ +6, reach 5 ft. or
-range 30/120 ft. _Hit:_ 14 (3d6 + 4) Piercing damage.
-================================================================================
-
---- Chunk 4 ---
-Metadata: {'parent_summary': "D&D Monsters Summary: The D&D section describes three types of creatures: a **Guard** and its more powerful variant, the **Guard Captain**, both humanoids with varying combat abilities; and a **Half-Dragon**, which is related to dragons and can resist specific damage types. The Half-Dragon has melee attacks and a Dragon’s Breath attack with significant area effect. Additionally, there's a **Harpy**, characterized by its claw attacks.", 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf'}
-
-Document:
-_**Longsword.**_ _Melee Attack Roll:_ +6, reach 5 ft. _Hit:_ 15
+[Dense Rank 1] (Distance: 0.2302)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_423_child_2
+Type            : text
+Parent Summary  : Guard Captain: The Guard Captain is a medium or small humanoid with high defensive capabilities (AC 18), moderate initiative (+4), and substantial health points (75). It excels in combat, utilizing both javelins for ranged attacks and a longsword for melee engagements. The character's skills include Athletics and Perception, and it is equipped with a breastplate, shield, and six javelins, making it adept at defending and attacking in various scenarios.
+Table Summary   : N/A
+Chunk Preview   : _**Longsword.**_ _Melee Attack Roll:_ +6, reach 5 ft. _Hit:_ 15
 (2d10 + 4) Slashing damage.
+------------------------------------------------------------
 
+[Dense Rank 2] (Distance: 0.2773)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_107_table_1_row_7
+Type            : table_row_prose
+Parent Summary  : Core Rules and Concepts from D&D Rulebook Snippet: The snippet outlines weapon usage in Dungeons & Dragons, detailing how melee weapons use ability modifiers for attack and damage rolls. It describes properties like Two-Handed (requiring two hands), Versatile (usable with one or two hands), and various Mastery Properties such as Cleave, Graze, Nick, Push, Sap, Slow, and Topple that enhance weapon functionality under specific conditions. Additionally, it lists Simple Melee and Ranged Weapons, specifying their damage types, properties, mastery features, weight, and cost.
+Table Summary   : This data table provides information on different melee weapons, including their damage type and dice roll, any special properties they possess, their weight, and their cost in gold pieces.
+Chunk Preview   : The Longsword costs 15 gp, deals 1d8 slashing damage, weighs 3 lbs, and has the Versatile (1d10) and Sap properties.
+Raw Table Sample: Battleaxe 1d8 Slashing Versatile (1d10) Topple 4 lb. 10 GP   Flail 1d8 Bludgeoning       - Sap 2 lb....
+------------------------------------------------------------
 
-## **Half-Dragon**
-### **Half-Dragon**
+[Dense Rank 3] (Distance: 0.2803)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_304_child_7
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes various magical items and their effects in a Dungeons & Dragons setting. The 'Staff of Withering' deals thunder damage and imposes conditions on foes, while the 'Stone of Controlling Earth Elementals' allows summoning an elemental ally. The 'Stone of Good Luck' provides bonuses to checks and saves. The 'Sun Blade' is a radiant sword with enhanced attack capabilities against undead and adjustable light emission. Lastly, the 'Sword of Life Stealing' grants temporary hit points when dealing extra damage on critical hits.
+Table Summary   : N/A
+Chunk Preview   : weapon functions as a Longsword with the Finesse
+property. If you are proficient with Longswords or
+Shortswords, you are proficient with the _Sun Blade_ .
+You gain a +2 bonus to attack rolls and damage
+rolls made with this weapon, which deals Radiant
+damage instead of Slashing damage. When you hit
+------------------------------------------------------------
 
-_Medium Dragon, Neutral_
+[Dense Rank 4] (Distance: 0.2810)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_108_table_0_row_0
+Type            : table_row_prose
+Parent Summary  : D&D Weapon Summary: This snippet from the D&D rulebook outlines various melee and ranged weapons, detailing their damage types (e.g., Slashing, Bludgeoning), special properties (e.g., Finesse, Versatile), weight, cost in gold pieces (GP), and unique features like reach or loading requirements. Melee weapons include swords, maces, and spears, while ranged options cover bows, crossbows, and firearms.
+Table Summary   : This data table provides information on different weapons including their damage type, dice roll for determining damage, any special features they possess, their weight, and their cost in gold pieces.
+Chunk Preview   : The Longsword costs 15 gp, deals 1d8 slashing damage, weighs 3 lbs, and has the Versatile (1d10) property along with Sap.
+Raw Table Sample: Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP   Maul 2d6 Bludgeoning Heavy, Two-Handed Top...
+------------------------------------------------------------
 
+[Dense Rank 5] (Distance: 0.2827)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_107_child_14
+Type            : text
+Parent Summary  : Core Rules and Concepts from D&D Rulebook Snippet: The snippet outlines weapon usage in Dungeons & Dragons, detailing how melee weapons use ability modifiers for attack and damage rolls. It describes properties like Two-Handed (requiring two hands), Versatile (usable with one or two hands), and various Mastery Properties such as Cleave, Graze, Nick, Push, Sap, Slow, and Topple that enhance weapon functionality under specific conditions. Additionally, it lists Simple Melee and Ranged Weapons, specifying their damage types, properties, mastery features, weight, and cost.
+Table Summary   : N/A
+Chunk Preview   : Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP  
+Maul 2d6 Bludgeoning Heavy, Two-Handed Topple 10 lb. 10 GP  
+Morningstar 1d8 Piercing     - Sap 4 lb. 15 GP  
+Pike 1d10 Piercing Heavy, Reach, Two-Handed Push 18 lb. 5 GP
+------------------------------------------------------------
 
-**AC** 18 **Initiative** +5 (15)
-**HP** 105 (14d8 + 42)
-**Speed** 40 ft.
-================================================================================
+[Dense Rank 6] (Distance: 0.2859)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_108_child_0
+Type            : text
+Parent Summary  : D&D Weapon Summary: This snippet from the D&D rulebook outlines various melee and ranged weapons, detailing their damage types (e.g., Slashing, Bludgeoning), special properties (e.g., Finesse, Versatile), weight, cost in gold pieces (GP), and unique features like reach or loading requirements. Melee weapons include swords, maces, and spears, while ranged options cover bows, crossbows, and firearms.
+Table Summary   : N/A
+Chunk Preview   : Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP  
+Maul 2d6 Bludgeoning Heavy, Two-Handed Topple 10 lb. 10 GP  
+Morningstar 1d8 Piercing     - Sap 4 lb. 15 GP  
+Pike 1d10 Piercing Heavy, Reach, Two-Handed Push 18 lb. 5 GP  
+Rapier 1d8 Piercing Finesse Vex 2 lb. 25 GP
+------------------------------------------------------------
 
---- Chunk 5 ---
-Metadata: {'type': 'text', 'parent_summary': "D&D Rod Summary: The 'Rod of Alertness' (Very Rare) enhances Wisdom checks, Initiative rolls, allows specific spells when held, and projects a protective light that grants bonuses and reveals invisible creatures for 10 minutes. The 'Rod of Lordly Might' (Legendary) transforms into a magic weapon with a +3 attack bonus, featuring six button-activated properties such as a fiery blade or dual crescent blades.", 'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf'}
+[Dense Rank 7] (Distance: 0.2918)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_68_child_6
+Type            : text
+Parent Summary  : Paladin Spellcasting and Abilities Overview: This D&D rulebook snippet outlines the spellcasting mechanics for Paladins, emphasizing their ability to prepare and manage spells as they level up. Initially, Paladins choose two level 1 spells, with 'Heroism' and 'Searing Smite' recommended. As they advance in levels, they can increase their prepared spells list according to the Paladin Features table, ensuring chosen spells match available spell slots. Prepared spells can be altered after a Long Rest, and Charisma serves as the spellcasting ability, using a Holy Symbol as a focus. Additionally, Paladins gain weapon mastery at level 1, allowing them to use mastery properties of two weapons, which they can change post-Long Rest. At level 2, they acquire a Fighting Style feat or the 'Blessed Warrior' option for Cleric cantrips, and always have 'Divine Smite' prepared without using slots after a Long Rest. By level 3, Paladins gain Channel Divinity with effects like Divine Sense, regaining uses through Short and Long Rests.
+Table Summary   : N/A
+Chunk Preview   : Whenever you finish a Long Rest, you can change
+the kinds of weapons you chose. For example, you
+could switch to using the mastery properties of Halberds and Flails.  
+**Level 2: Fighting Style**
+You gain a Fighting Style feat of your choice (see
+“Feats” for feats). Instead of choosing one of those
+------------------------------------------------------------
 
-Document:
+[Dense Rank 8] (Distance: 0.2938)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_296_child_14
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet outlines various items and their uses in D&D gameplay. It includes descriptions of open pits, potions, rowboats, spell scrolls, mastiffs, windows, portable rams, and three types of rods: Rod of Absorption, Rod of Alertness, and Rod of Lordly Might. The Rod of Absorption allows a player to absorb spells targeting them, storing the energy for later use as spell slots. The Rod of Alertness enhances perception checks and initiative rolls while providing access to specific spells and a protective aura. The Rod of Lordly Might is briefly mentioned but not fully described.
+Table Summary   : N/A
+Chunk Preview   : to its normal form:  
 **Button 1.** A fiery blade sprouts from the end opposite the rod’s flanged head. The flames shed
 Bright Light in a 40-foot radius and Dim Light for
 an additional 40 feet, and the blade functions as
 a magic Longsword or Shortsword (your choice)
+------------------------------------------------------------
+
+[Dense Rank 9] (Distance: 0.3061)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_296_child_15
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet outlines various items and their uses in D&D gameplay. It includes descriptions of open pits, potions, rowboats, spell scrolls, mastiffs, windows, portable rams, and three types of rods: Rod of Absorption, Rod of Alertness, and Rod of Lordly Might. The Rod of Absorption allows a player to absorb spells targeting them, storing the energy for later use as spell slots. The Rod of Alertness enhances perception checks and initiative rolls while providing access to specific spells and a protective aura. The Rod of Lordly Might is briefly mentioned but not fully described.
+Table Summary   : N/A
+Chunk Preview   : a magic Longsword or Shortsword (your choice)
 that deals an extra 2d6 Fire damage on a hit.
-================================================================================
+**Button 2.** The rod’s flanged head folds down and
+two crescent-shaped blades spring out, transforming the rod into a magic Battleaxe that grants
+a +3 bonus to attack rolls and damage rolls made
+with it.
+------------------------------------------------------------
 
---- Chunk 6 ---
-Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'type': 'text', 'parent_summary': 'D&D Rulebook Snippet Summary: The hezrou is a large giant with abilities including Multiattack using Tree Club or Trash Lob, and the Leap action for movement. It deals significant damage with Poison effects. Hill giants possess similar combat mechanics but have different damage potential and special conditions like Prone on smaller creatures. Hippogriffs engage in aerial attacks without provoking Opportunity Attacks when flying away.', 'source': 'DandDRuleset.pdf'}
+[Dense Rank 10] (Distance: 0.3061)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_297_child_0
+Type            : text
+Parent Summary  : Rod of Rulership Abilities and Effects: The Rod of Rulership is a versatile magic item that transforms into various weapons and tools, each with unique bonuses and effects. It can become a fire-dealing sword or axe, a spear, a climbing pole, or a battering ram, providing significant combat advantages like attack roll bonuses and damage enhancements. Additionally, it offers utility functions such as indicating magnetic north and measuring depth or altitude. The rod also has powerful abilities to drain life, paralyze, and terrify creatures upon successful melee attacks, each usable once per day until dawn. Furthermore, the wielder can command obedience from creatures within a 120-foot radius by making them Charmed for up to eight hours.
+Table Summary   : N/A
+Chunk Preview   : a magic Longsword or Shortsword (your choice)
+that deals an extra 2d6 Fire damage on a hit.
+**Button 2.** The rod’s flanged head folds down and
+two crescent-shaped blades spring out, transforming the rod into a magic Battleaxe that grants
+a +3 bonus to attack rolls and damage rolls made
+with it.
+------------------------------------------------------------
 
-Document:
-**Gear** Half Plate Armor, Longbow, Longsword, Shield
-**Senses** Darkvision 60 ft.; Passive Perception 10
-**Languages** Common, Goblin
-**CR** 1/2 (XP 100; PB +2)
-
-
-Traits
-================================================================================
-
---- Chunk 7 ---
-Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': 'D&D Rulebook Snippet Summary: The hezrou is a large giant with abilities including Multiattack using Tree Club or Trash Lob, and the Leap action for movement. It deals significant damage with Poison effects. Hill giants possess similar combat mechanics but have different damage potential and special conditions like Prone on smaller creatures. Hippogriffs engage in aerial attacks without provoking Opportunity Attacks when flying away.', 'type': 'text', 'source': 'DandDRuleset.pdf'}
-
-Document:
-Actions
-
-_**Longsword.**_ _Melee Attack Roll:_ +3, reach 5 ft. _Hit:_ 12
-(2d10 + 1) Slashing damage.
-
-_**Longbow.**_ _Ranged Attack Roll:_ +3, range 150/600 ft.
-_Hit:_ 5 (1d8 + 1) Piercing damage plus 7 (3d4) Poison damage.
-### **Hobgoblin Captain**
-
-_Medium Fey (Goblinoid), Lawful Evil_
-================================================================================
-
---- Chunk 8 ---
-Metadata: {'parent_summary': "D&D Paladin Class Summary: Paladins in D&D are Strength and Charisma primary class characters with features centered on healing, protection, and combat prowess. Starting at level 1, they possess the 'Lay On Hands' feature for healing, proficiency with simple and martial weapons, and training in light, medium armor, and shields. Paladins gain additional abilities as they level up, such as weapon mastery at level 1, and have a pool of Hit Points that replenishes after long rests.", 'type': 'text', 'source': 'DandDRuleset.pdf', 'doc_hash': '371143968f4537998af5502c02d2097b'}
-
-Document:
-**Weapon Proficiencies** Simple and Martial weapons
-
-**Armor Training** Light, Medium, and Heavy armor and Shields
-
-**Starting Equipment** _Choose A or B:_ (A) Chain Mail,
-Shield, Longsword, 6 Javelins,
-Holy Symbol, Priest’s Pack,
-and 9 GP; or (B) 150 GP
-
-#### **Becoming a Paladin …**
-================================================================================
-
---- Chunk 9 ---
-Metadata: {'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'doc_hash': '371143968f4537998af5502c02d2097b', 'type': 'text', 'source': 'DandDRuleset.pdf'}
-
-Document:
-**Stone of Good Luck (Luckstone)**
-_Wondrous Item, Uncommon (Requires Attunement)_
-
-While this polished agate is on your person, you
-gain a +1 bonus to ability checks and saving throws.
-
-**Sun Blade**
-_Weapon (Longsword), Rare (Requires Attunement)_
-================================================================================
-
---- Chunk 10 ---
-Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'type': 'text', 'source': 'DandDRuleset.pdf'}
-
-Document:
-blade disappear. While the blade exists, this magic
-weapon functions as a Longsword with the Finesse
-property. If you are proficient with Longswords or
-Shortswords, you are proficient with the _Sun Blade_ .
-You gain a +2 bonus to attack rolls and damage
-================================================================================
-
---- Chunk 11 ---
-Metadata: {'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'source': 'DandDRuleset.pdf'}
-
-Document:
-**Sword of Life Stealing**
-_Weapon (Glaive, Greatsword, Longsword, Rapier,_
-_Scimitar, or Shortsword), Rare (Requires Attunement)_
-================================================================================
-
---- Chunk 12 ---
-Metadata: {'type': 'text', 'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'source': 'DandDRuleset.pdf', 'doc_hash': '371143968f4537998af5502c02d2097b'}
-
-Document:
-**Sword of Sharpness**
-_Weapon (Glaive, Greatsword, Longsword, or Scimitar),_
-_Very Rare (Requires Attunement)_
-================================================================================
-
---- Chunk 13 ---
-Metadata: {'parent_summary': "D&D Wondrous Items Overview: This section describes various magical items in D&D, such as the 'Stone of Good Luck,' which provides bonuses to ability checks and saving throws; 'Sun Blade,' a sword with radiant properties granting bonuses and extra damage against Undead; 'Sword of Life Stealing,' which deals necrotic damage and grants temporary hit points on critical hits; 'Sword of Sharpness,' maximizing weapon damage against objects or inflicting extra damage and exhaustion to creatures on critical hits; 'Sword of Wounding,' causing additional necrotic damage with a chance to prevent healing for an hour; and the 'Talisman of Pure Good,' which deals radiant damage repeatedly to fiends and undead.", 'source': 'DandDRuleset.pdf', 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b'}
-
-Document:
-**Sword of Wounding**
-_Weapon (Glaive, Greatsword, Longsword, Rapier,_
-_Scimitar, or Shortsword), Rare (Requires Attunement)_
-================================================================================
-
---- Chunk 14 ---
-Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf', 'parent_summary': 'D&D Paladin Class Features Summary: At Level 1, Paladins gain spellcasting abilities using Charisma as their spellcasting ability and have prepared spells they regain after a Long Rest. They also learn Weapon Mastery for two weapon types of choice and receive a Fighting Style feat or the Blessed Warrior option for additional cantrips. At Level 2, they always prepare the _Divine Smite_ spell, which can be cast without expending a slot but requires a Long Rest before reuse.', 'type': 'text'}
-
-Document:
-**Level 1: Weapon Mastery**
-Your training with weapons allows you to use the
+[Dense Rank 11] (Distance: 0.3125)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_68_child_5
+Type            : text
+Parent Summary  : Paladin Spellcasting and Abilities Overview: This D&D rulebook snippet outlines the spellcasting mechanics for Paladins, emphasizing their ability to prepare and manage spells as they level up. Initially, Paladins choose two level 1 spells, with 'Heroism' and 'Searing Smite' recommended. As they advance in levels, they can increase their prepared spells list according to the Paladin Features table, ensuring chosen spells match available spell slots. Prepared spells can be altered after a Long Rest, and Charisma serves as the spellcasting ability, using a Holy Symbol as a focus. Additionally, Paladins gain weapon mastery at level 1, allowing them to use mastery properties of two weapons, which they can change post-Long Rest. At level 2, they acquire a Fighting Style feat or the 'Blessed Warrior' option for Cleric cantrips, and always have 'Divine Smite' prepared without using slots after a Long Rest. By level 3, Paladins gain Channel Divinity with effects like Divine Sense, regaining uses through Short and Long Rests.
+Table Summary   : N/A
+Chunk Preview   : Your training with weapons allows you to use the
 mastery properties of two kinds of weapons of your
 choice with which you have proficiency, such as
-Longswords and Javelins.
-
-
-**54** System Reference Document 5.2
-================================================================================
-
---- Chunk 15 ---
-Metadata: {'type': 'text', 'parent_summary': "D&D Wondrous Items and Legendary Weapons Summary: The 'Tome' items enhance a character's intelligence, charisma, or wisdom by 2 points after dedicated study but lose their magic afterward. The 'Trident of Fish Command' allows casting _Dominate Beast_ on aquatic creatures using its charges. The 'Universal Solvent' dissolves adhesives instantly upon application. Weapons include the 'Vicious Weapon,' which adds extra damage, and the 'Vorpal Sword,' which can sever a creature's head with a critical hit while ignoring resistance to slashing.", 'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf'}
-
-Document:
-**247** System Reference Document 5.2
-
-
-
-**Vorpal Sword**
-_Weapon (Glaive, Greatsword, Longsword, or Scimitar),_
-_Legendary (Requires Attunement)_
-================================================================================
-
---- Chunk 16 ---
-Metadata: {'source': 'DandDRuleset.pdf', 'type': 'text', 'parent_summary': "D&D Ranger Class Features Summary: The Ranger class gains features like 'Favored Enemy' for preparing and casting the _Hunter’s Mark_ spell, 'Weapon Mastery' for mastering two weapon types, 'Deft Explorer' for expertise in a skill and additional languages, and a unique 'Druidic Warrior' fighting style with Druid cantrips. Rangers also progress through levels with improvements such as 'Extra Attack,' 'Ability Score Improvement,' and increased mobility with 'Roving.' Subclass features are obtained at specific levels, enhancing the Ranger's specialized abilities.", 'doc_hash': '371143968f4537998af5502c02d2097b'}
-
-Document:
-choice with which you have proficiency, such as
-Longbows and Shortswords.
+Longswords and Javelins.  
+**54** System Reference Document 5.2  
 Whenever you finish a Long Rest, you can change
+------------------------------------------------------------
+
+[Dense Rank 12] (Distance: 0.3153)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_106_child_15
+Type            : text
+Parent Summary  : D&D Weapons Overview: The D&D rulebook snippet provides details on weapons used in the game, categorizing them as Simple or Martial and classifying them as either Melee or Ranged. It outlines weapon attributes such as cost, weight, damage type, properties (like Ammunition, Finesse, Heavy, Light, Loading), and mastery requirements. Additionally, it explains that proficiency with a weapon is necessary to add a Proficiency Bonus to attack rolls, which can be granted through character features or monster stat blocks.
+Table Summary   : N/A
+Chunk Preview   : A Two-Handed weapon requires two hands when
+you attack with it.  
+**Versatile**
+------------------------------------------------------------
+
+[Dense Rank 13] (Distance: 0.3191)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_73_child_5
+Type            : text
+Parent Summary  : D&D Ranger Class Features Summary: This snippet outlines key features and abilities for the Ranger class in Dungeons & Dragons, focusing on spellcasting, combat skills, and character progression. Rangers have unique spell preparation rules, allowing them to always have certain spells ready without counting against their prepared list. They gain proficiency with specific weapons and can change these choices after a long rest. As they level up, Rangers acquire abilities like 'Favored Enemy' for enhanced spellcasting, 'Weapon Mastery,' and 'Deft Explorer' skills such as expertise in a chosen skill and additional languages. At higher levels, features include 'Druidic Warrior' for learning Druid cantrips, choosing a Ranger subclass for specialized abilities, ability score improvements, extra attacks during combat, and increased mobility with the 'Roving' feature.
+Table Summary   : N/A
+Chunk Preview   : Whenever you finish a Long Rest, you can change
 the kinds of weapons you chose. For example, you
 could switch to using the mastery properties of
-Scimitars and Longswords.
-================================================================================
+Scimitars and Longswords.  
+**Level 2: Deft Explorer**
+Thanks to your travels, you gain the following
+benefits.
+------------------------------------------------------------
 
---- Chunk 17 ---
-Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf', 'parent_summary': 'D&D Magic Items Summaries: The snippet describes several magic items: A Dagger of Venom that can be coated with poison for an attack, granting a bonus to attack rolls and causing damage; a Dancing Sword which can hover and attack autonomously under player control, requiring attunement; and a Decanter of Endless Water capable of producing varying amounts of fresh or salt water on command, including as a geyser that deals damage.', 'type': 'text'}
+[Dense Rank 14] (Distance: 0.3204)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_430_child_2
+Type            : text
+Parent Summary  : Hobgoblin Warrior Overview: The Hobgoblin Warrior is a Medium Fey, Lawful Evil creature with an Armor Class of 18 and initiative bonus of +3. It has 11 hit points and moves at a speed of 30 feet. Equipped with half plate armor, a longbow, a longsword, and a shield, it can see in the dark up to 60 feet and understands Common and Goblin languages. Its Challenge Rating is 1/2, granting 100 XP upon defeat. The warrior benefits from 'Pack Tactics,' gaining an advantage on attacks when allies are nearby. It can attack with a melee longsword for slashing damage or use its ranged longbow for piercing and poison damage.
+Table Summary   : N/A
+Chunk Preview   : Actions  
+_**Longsword.**_ _Melee Attack Roll:_ +3, reach 5 ft. _Hit:_ 12
+(2d10 + 1) Slashing damage.  
+_**Longbow.**_ _Ranged Attack Roll:_ +3, range 150/600 ft.
+_Hit:_ 5 (1d8 + 1) Piercing damage plus 7 (3d4) Poison damage.
+------------------------------------------------------------
 
-Document:
-**Dancing Sword**
-_Weapon (Greatsword, Longsword, Rapier, Scimitar, or_
-_Shortsword), Very Rare (Requires Attunement)_
-================================================================================
+[Dense Rank 15] (Distance: 0.3247)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_304_child_6
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes various magical items and their effects in a Dungeons & Dragons setting. The 'Staff of Withering' deals thunder damage and imposes conditions on foes, while the 'Stone of Controlling Earth Elementals' allows summoning an elemental ally. The 'Stone of Good Luck' provides bonuses to checks and saves. The 'Sun Blade' is a radiant sword with enhanced attack capabilities against undead and adjustable light emission. Lastly, the 'Sword of Life Stealing' grants temporary hit points when dealing extra damage on critical hits.
+Table Summary   : N/A
+Chunk Preview   : This item appears to be a sword hilt.
+_**Blade of Radiance.**_ While grasping the hilt, you
+can take a Bonus Action to cause a blade of pure
+radiance to spring into existence or make the  
+blade disappear. While the blade exists, this magic
+weapon functions as a Longsword with the Finesse
+------------------------------------------------------------
 
---- Chunk 18 ---
-Metadata: {'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b', 'parent_summary': "D&D Figurines of Wondrous Power Summary: A _Figurine of Wondrous Power_ is a portable statuette that transforms into a specified creature when thrown, obeying its controller's commands for a set duration. It reverts to figurine form upon damage, duration lapse, or specific magic action, with varying cooldown periods before reuse. Examples include the Bronze Griffon (griffon for 6 hours, 5-day rest), Ebony Fly (giant fly mount for 12 hours, 2-day rest), and Golden Lions (two lions for 1 hour each, 7-day rest). Ivory Goats set includes a Goat of Terror that turns into a giant goat offering wearable horns as weapons.", 'source': 'DandDRuleset.pdf'}
-
-Document:
-**Goat of Terror.** This figurine can become a **Giant**
-**Goat** for up to 3 hours. The goat can’t attack, but
-you can (harmlessly) remove its horns and use
-them as weapons. One horn becomes a _+1 Lance_,
-and the other becomes a _+2 Longsword_ . Removing
-================================================================================
-
---- Chunk 19 ---
-Metadata: {'source': 'DandDRuleset.pdf', 'parent_summary': "D&D Figurines of Wondrous Power Summary: A _Figurine of Wondrous Power_ is a portable statuette that transforms into a specified creature when thrown, obeying its controller's commands for a set duration. It reverts to figurine form upon damage, duration lapse, or specific magic action, with varying cooldown periods before reuse. Examples include the Bronze Griffon (griffon for 6 hours, 5-day rest), Ebony Fly (giant fly mount for 12 hours, 2-day rest), and Golden Lions (two lions for 1 hour each, 7-day rest). Ivory Goats set includes a Goat of Terror that turns into a giant goat offering wearable horns as weapons.", 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b'}
-
-Document:
-and the other becomes a _+2 Longsword_ . Removing
-a horn requires a Magic action, and the weapons
-disappear and the horns return when the goat
-reverts to figurine form. While you ride the goat,
-================================================================================
-
---- Chunk 20 ---
-Metadata: {'type': 'text', 'parent_summary': "D&D Magic Weapons and Items Summary: The snippet covers several magical items in D&D: 'Flame Tongue' is a weapon that allows fire effects through command words; 'Folding Boat' transforms into boats with different command words; 'Frost Brand' deals extra cold damage and provides fire resistance, plus extinguishing flames; 'Gauntlets of Ogre Power' boost Strength but only if it increases the wearer's Strength below 19; 'Gem of Brightness' has multiple uses triggered by command words.", 'source': 'DandDRuleset.pdf', 'doc_hash': '371143968f4537998af5502c02d2097b'}
-
-Document:
-**Frost Brand**
-_Weapon (Glaive, Greatsword, Longsword, Rapier,_
-_Scimitar, or Shortsword), Very Rare (Requires_
-_Attunement)_
-================================================================================
-
---- Chunk 21 ---
-Metadata: {'source': 'DandDRuleset.pdf', 'parent_summary': "Magic Items Overview: Magic items, found as treasures from defeated monsters or hidden vaults, provide extraordinary abilities that enhance or complement their users' capabilities. These items fall into nine categories: Armor, Potions, Rings, Rods, Scrolls, Staffs, Wands, Weapons, and Wondrous Items. Each category has specific rules; for example, magic armor must be worn to function, potions are consumable and require a Bonus Action to use, while wondrous items offer diverse magical effects.", 'type': 'text', 'doc_hash': '371143968f4537998af5502c02d2097b'}
-
-Document:
-Potions _Potion of Healing_
-
-Rings _Ring of Invisibility_
-
-Rods _Immovable Rod_
-
-Scrolls _Spell Scroll_
-
-Staffs _Staff of Striking_
-
-Wands _Wand of Fireballs_
-
-Weapons _+1 Ammunition_, _+1 Longsword_
-
-Wondrous Items _Bag of Holding_, _Boots of Elvenkind_
-#### **Armor**
-================================================================================
-
---- Chunk 22 ---
-Metadata: {'source': 'DandDRuleset.pdf', 'parent_summary': 'Magic Item Activation and Properties: Magic items in Dungeons & Dragons are categorized into Weapons, Wondrous Items, and Wands, each with specific activation methods. Weapons might have properties like Ammunition, while wondrous items include various wearable or functional objects. Magic items range from common to artifact rarity, affecting their value and availability. Activation usually requires a Magic action, sometimes involving a command word.', 'doc_hash': '371143968f4537998af5502c02d2097b', 'type': 'text'}
-
-Document:
-A magic weapon is typically a magical version of a
-weapon from “Equipment.” Some magic weapons
+[Dense Rank 16] (Distance: 0.3277)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_251_child_5
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet outlines various categories and rules for using magical items in Dungeons & Dragons. Scrolls are consumable magic items that require reading to activate their spells, after which they become unusable. Staffs and wands serve as both walking aids and arcane foci, with staffs also functioning as nonmagical quarterstaffs. Magic weapons can be standard or randomly determined types, with some having magical ammunition properties. Wondrous items include a variety of wearable and other unique objects, each assigned a rarity that indicates its power level and availability, influencing their market value in the game.
+Table Summary   : N/A
+Chunk Preview   : weapon from “Equipment.” Some magic weapons
 specify the type of weapon they are in their descriptions, such as a Longsword or Longbow. If no
 weapon type is specified, you may choose the type
 or determine it randomly.
-================================================================================
+------------------------------------------------------------
 
---- Chunk 23 ---
-Metadata: {'doc_hash': '371143968f4537998af5502c02d2097b', 'source': 'DandDRuleset.pdf', 'type': 'text', 'parent_summary': 'Magic Weapons Overview: The excerpt describes various magic weapons with unique properties and rarity levels in Dungeons & Dragons. The Javelin of Lightning transforms into a bolt to deal Lightning damage, the Lantern of Revealing provides illumination while revealing invisible entities, and the Luck Blade offers bonuses to rolls along with rerolling capabilities and a limited-use Wish spell. The Mace of Disruption deals additional damage to Fiends or Undead, potentially destroying them if they have low Hit Points, while the Mace of Smiting enhances attack effectiveness against Constructs.'}
+[Dense Rank 17] (Distance: 0.3285)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_304_child_10
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes various magical items and their effects in a Dungeons & Dragons setting. The 'Staff of Withering' deals thunder damage and imposes conditions on foes, while the 'Stone of Controlling Earth Elementals' allows summoning an elemental ally. The 'Stone of Good Luck' provides bonuses to checks and saves. The 'Sun Blade' is a radiant sword with enhanced attack capabilities against undead and adjustable light emission. Lastly, the 'Sword of Life Stealing' grants temporary hit points when dealing extra damage on critical hits.
+Table Summary   : N/A
+Chunk Preview   : _Weapon (Glaive, Greatsword, Longsword, Rapier,_
+_Scimitar, or Shortsword), Rare (Requires Attunement)_  
+When you attack a creature with this magic weapon
+and roll a 20 on the d20 for the attack roll, that
+target takes an extra 15 Necrotic damage if it isn’t
+------------------------------------------------------------
 
-Document:
-**Luck Blade**
+[Dense Rank 18] (Distance: 0.3312)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_267_child_13
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes various wondrous items in Dungeons & Dragons, each with unique abilities. The Cloak allows shape-shifting into a bat under specific conditions and grants underwater breathing and swimming speed. Crystal Balls offer scrying capabilities, with additional functions like mind reading, telepathy, true seeing, or casting suggestion spells. The Cube of Force can cast various spells based on its faces, regaining charges daily. Lastly, the Cubic Gate facilitates travel between different planes of existence.
+Table Summary   : N/A
+Chunk Preview   : That creature must succeed on a DC 15 Constitution
+saving throw or take 2d10 Poison damage and have
+the Poisoned condition for 1 minute. The weapon
+can’t be used this way again until the next dawn.  
+**Dancing Sword**
+_Weapon (Greatsword, Longsword, Rapier, Scimitar, or_
+------------------------------------------------------------
+
+[Dense Rank 19] (Distance: 0.3313)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_268_child_0
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes three magical items from Dungeons & Dragons: The Dancing Sword, which allows for aerial attacks with a bonus action; the Decanter of Endless Water, capable of producing varying amounts of water and causing damage or knocking over objects with its geyser command; and the Deck of Illusions, used to create harmless creature illusions by drawing cards at random.
+Table Summary   : N/A
+Chunk Preview   : the Poisoned condition for 1 minute. The weapon
+can’t be used this way again until the next dawn.  
+**Dancing Sword**
+_Weapon (Greatsword, Longsword, Rapier, Scimitar, or_
+_Shortsword), Very Rare (Requires Attunement)_  
+You can take a Bonus Action to toss this magic
+------------------------------------------------------------
+
+[Dense Rank 20] (Distance: 0.3335)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_73_child_4
+Type            : text
+Parent Summary  : D&D Ranger Class Features Summary: This snippet outlines key features and abilities for the Ranger class in Dungeons & Dragons, focusing on spellcasting, combat skills, and character progression. Rangers have unique spell preparation rules, allowing them to always have certain spells ready without counting against their prepared list. They gain proficiency with specific weapons and can change these choices after a long rest. As they level up, Rangers acquire abilities like 'Favored Enemy' for enhanced spellcasting, 'Weapon Mastery,' and 'Deft Explorer' skills such as expertise in a chosen skill and additional languages. At higher levels, features include 'Druidic Warrior' for learning Druid cantrips, choosing a Ranger subclass for specialized abilities, ability score improvements, extra attacks during combat, and increased mobility with the 'Roving' feature.
+Table Summary   : N/A
+Chunk Preview   : **Level 1: Weapon Mastery**
+Your training with weapons allows you to use the
+mastery properties of two kinds of weapons of your  
+choice with which you have proficiency, such as
+Longbows and Shortswords.
+Whenever you finish a Long Rest, you can change
+------------------------------------------------------------
+
+[Dense Rank 21] (Distance: 0.3441)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_76_child_14
+Type            : text
+Parent Summary  : D&D Rogue Class Summary: The Rogue class in Dungeons & Dragons is characterized by its reliance on Dexterity and Intelligence for primary abilities and saving throws. Rogues start with proficiency in four chosen skills from a list including Acrobatics, Deception, and Stealth, among others, as well as proficiency with simple and martial weapons that have the Finesse or Light property, and Thieves' Tools. They are trained in light armor and can choose between specific starting equipment options. Key features of Rogues include Expertise at level 1, allowing them to double their proficiency bonus in two skills, and Sneak Attack, which lets them deal extra damage under certain conditions. As they advance, Rogues gain additional abilities like Cunning Action, Weapon Mastery, and Evasion, with the potential for increased sneak attack damage up to 10d6 at level 20.
+Table Summary   : N/A
+Chunk Preview   : choice with which you have proficiency, such as
+Daggers and Shortbows.  
+**62** System Reference Document 5.2  
+Whenever you finish a Long Rest, you can change
+the kinds of weapons you chose. For example, you
+could switch to using the mastery properties of
+Scimitars and Shortswords.
+------------------------------------------------------------
+
+[Dense Rank 22] (Distance: 0.3464)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_494_child_2
+Type            : text
+Parent Summary  : Scout Character Overview: The Scout is a Medium or Small Humanoid character with an AC of 13 and initiative bonus of +2, possessing 16 HP. It excels in stealth and perception, with notable skills in Nature, Perception, Stealth, and Survival. Equipped with leather armor, a longbow, and a shortsword, the scout can perform two attacks per turn using these weapons. The character has a passive perception score of 15, speaks Common plus one other language, and is classified as CR 1/2.
+Table Summary   : N/A
+Chunk Preview   : (1d6 + 2) Piercing damage.  
+_**Longbow.**_ _Ranged Attack Roll:_ +4, range 150/600 ft.
+_Hit:_ 6 (1d8 + 2) Piercing damage.
+------------------------------------------------------------
+
+[Dense Rank 23] (Distance: 0.3478)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_304_child_9
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes various magical items and their effects in a Dungeons & Dragons setting. The 'Staff of Withering' deals thunder damage and imposes conditions on foes, while the 'Stone of Controlling Earth Elementals' allows summoning an elemental ally. The 'Stone of Good Luck' provides bonuses to checks and saves. The 'Sun Blade' is a radiant sword with enhanced attack capabilities against undead and adjustable light emission. Lastly, the 'Sword of Life Stealing' grants temporary hit points when dealing extra damage on critical hits.
+Table Summary   : N/A
+Chunk Preview   : the blade persists, you can take a Magic action to
+expand or reduce its radius of Bright Light and Dim
+Light by 5 feet each, to a maximum of 30 feet each
+or a minimum of 10 feet each.  
+**Sword of Life Stealing**
 _Weapon (Glaive, Greatsword, Longsword, Rapier,_
-_Scimitar, Sickle, or Shortsword), Legendary (Requires_
-_Attunement)_
+------------------------------------------------------------
+
+[Dense Rank 24] (Distance: 0.3480)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_304_child_13
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes various magical items and their effects in a Dungeons & Dragons setting. The 'Staff of Withering' deals thunder damage and imposes conditions on foes, while the 'Stone of Controlling Earth Elementals' allows summoning an elemental ally. The 'Stone of Good Luck' provides bonuses to checks and saves. The 'Sun Blade' is a radiant sword with enhanced attack capabilities against undead and adjustable light emission. Lastly, the 'Sword of Life Stealing' grants temporary hit points when dealing extra damage on critical hits.
+Table Summary   : N/A
+Chunk Preview   : 1 Exhaustion level.  
+**Sword of Wounding**
+_Weapon (Glaive, Greatsword, Longsword, Rapier,_
+_Scimitar, or Shortsword), Rare (Requires Attunement)_  
+When you hit a creature with an attack using
+this magic weapon, the target takes an extra 2d6
+Necrotic damage and must succeed on a DC 15
+------------------------------------------------------------
+
+[Dense Rank 25] (Distance: 0.3485)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_304_child_11
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes various magical items and their effects in a Dungeons & Dragons setting. The 'Staff of Withering' deals thunder damage and imposes conditions on foes, while the 'Stone of Controlling Earth Elementals' allows summoning an elemental ally. The 'Stone of Good Luck' provides bonuses to checks and saves. The 'Sun Blade' is a radiant sword with enhanced attack capabilities against undead and adjustable light emission. Lastly, the 'Sword of Life Stealing' grants temporary hit points when dealing extra damage on critical hits.
+Table Summary   : N/A
+Chunk Preview   : a Construct or an Undead, and you gain Temporary
+Hit Points equal to the amount of Necrotic damage
+taken.  
+**Sword of Sharpness**
+_Weapon (Glaive, Greatsword, Longsword, or Scimitar),_
+_Very Rare (Requires Attunement)_  
+When you attack an object with this magic weapon
+------------------------------------------------------------
+
+
+
 ================================================================================
+
+=== TOP 25 BM25 RESULTS FOR 'longsword' ===
+
+[BM25 Rank 1] (Score: 8.1815)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_107_table_1_row_7
+Type            : table_row_prose
+Parent Summary  : Core Rules and Concepts from D&D Rulebook Snippet: The snippet outlines weapon usage in Dungeons & Dragons, detailing how melee weapons use ability modifiers for attack and damage rolls. It describes properties like Two-Handed (requiring two hands), Versatile (usable with one or two hands), and various Mastery Properties such as Cleave, Graze, Nick, Push, Sap, Slow, and Topple that enhance weapon functionality under specific conditions. Additionally, it lists Simple Melee and Ranged Weapons, specifying their damage types, properties, mastery features, weight, and cost.
+Table Summary   : This data table provides information on different melee weapons, including their damage type and dice roll, any special properties they possess, their weight, and their cost in gold pieces.
+Chunk Preview   : The Longsword costs 15 gp, deals 1d8 slashing damage, weighs 3 lbs, and has the Versatile (1d10) and Sap properties.
+Raw Table Sample: Battleaxe 1d8 Slashing Versatile (1d10) Topple 4 lb. 10 GP   Flail 1d8 Bludgeoning       - Sap 2 lb....
+------------------------------------------------------------
+
+[BM25 Rank 2] (Score: 8.0662)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_108_table_0_row_0
+Type            : table_row_prose
+Parent Summary  : D&D Weapon Summary: This snippet from the D&D rulebook outlines various melee and ranged weapons, detailing their damage types (e.g., Slashing, Bludgeoning), special properties (e.g., Finesse, Versatile), weight, cost in gold pieces (GP), and unique features like reach or loading requirements. Melee weapons include swords, maces, and spears, while ranged options cover bows, crossbows, and firearms.
+Table Summary   : This data table provides information on different weapons including their damage type, dice roll for determining damage, any special features they possess, their weight, and their cost in gold pieces.
+Chunk Preview   : The Longsword costs 15 gp, deals 1d8 slashing damage, weighs 3 lbs, and has the Versatile (1d10) property along with Sap.
+Raw Table Sample: Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP   Maul 2d6 Bludgeoning Heavy, Two-Handed Top...
+------------------------------------------------------------
+
+[BM25 Rank 3] (Score: 6.5821)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_251_child_5
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet outlines various categories and rules for using magical items in Dungeons & Dragons. Scrolls are consumable magic items that require reading to activate their spells, after which they become unusable. Staffs and wands serve as both walking aids and arcane foci, with staffs also functioning as nonmagical quarterstaffs. Magic weapons can be standard or randomly determined types, with some having magical ammunition properties. Wondrous items include a variety of wearable and other unique objects, each assigned a rarity that indicates its power level and availability, influencing their market value in the game.
+Table Summary   : N/A
+Chunk Preview   : weapon from “Equipment.” Some magic weapons
+specify the type of weapon they are in their descriptions, such as a Longsword or Longbow. If no
+weapon type is specified, you may choose the type
+or determine it randomly.
+------------------------------------------------------------
+
+[BM25 Rank 4] (Score: 6.3626)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_107_child_14
+Type            : text
+Parent Summary  : Core Rules and Concepts from D&D Rulebook Snippet: The snippet outlines weapon usage in Dungeons & Dragons, detailing how melee weapons use ability modifiers for attack and damage rolls. It describes properties like Two-Handed (requiring two hands), Versatile (usable with one or two hands), and various Mastery Properties such as Cleave, Graze, Nick, Push, Sap, Slow, and Topple that enhance weapon functionality under specific conditions. Additionally, it lists Simple Melee and Ranged Weapons, specifying their damage types, properties, mastery features, weight, and cost.
+Table Summary   : N/A
+Chunk Preview   : Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP  
+Maul 2d6 Bludgeoning Heavy, Two-Handed Topple 10 lb. 10 GP  
+Morningstar 1d8 Piercing     - Sap 4 lb. 15 GP  
+Pike 1d10 Piercing Heavy, Reach, Two-Handed Push 18 lb. 5 GP
+------------------------------------------------------------
+
+[BM25 Rank 5] (Score: 6.1573)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_423_child_1
+Type            : text
+Parent Summary  : Guard Captain: The Guard Captain is a medium or small humanoid with high defensive capabilities (AC 18), moderate initiative (+4), and substantial health points (75). It excels in combat, utilizing both javelins for ranged attacks and a longsword for melee engagements. The character's skills include Athletics and Perception, and it is equipped with a breastplate, shield, and six javelins, making it adept at defending and attacking in various scenarios.
+Table Summary   : N/A
+Chunk Preview   : **Languages** Common
+**CR** 4 (XP 1,100; PB +2)  
+Actions  
+_**Multiattack.**_ The guard makes two attacks, using Javelin
+or Longsword in any combination.  
+_**Javelin.**_ _Melee or Ranged Attack Roll:_ +6, reach 5 ft. or
+range 30/120 ft. _Hit:_ 14 (3d6 + 4) Piercing damage.
+------------------------------------------------------------
+
+[BM25 Rank 6] (Score: 5.9033)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_296_child_14
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet outlines various items and their uses in D&D gameplay. It includes descriptions of open pits, potions, rowboats, spell scrolls, mastiffs, windows, portable rams, and three types of rods: Rod of Absorption, Rod of Alertness, and Rod of Lordly Might. The Rod of Absorption allows a player to absorb spells targeting them, storing the energy for later use as spell slots. The Rod of Alertness enhances perception checks and initiative rolls while providing access to specific spells and a protective aura. The Rod of Lordly Might is briefly mentioned but not fully described.
+Table Summary   : N/A
+Chunk Preview   : to its normal form:  
+**Button 1.** A fiery blade sprouts from the end opposite the rod’s flanged head. The flames shed
+Bright Light in a 40-foot radius and Dim Light for
+an additional 40 feet, and the blade functions as
+a magic Longsword or Shortsword (your choice)
+------------------------------------------------------------
+
+[BM25 Rank 7] (Score: 5.7839)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_108_child_0
+Type            : text
+Parent Summary  : D&D Weapon Summary: This snippet from the D&D rulebook outlines various melee and ranged weapons, detailing their damage types (e.g., Slashing, Bludgeoning), special properties (e.g., Finesse, Versatile), weight, cost in gold pieces (GP), and unique features like reach or loading requirements. Melee weapons include swords, maces, and spears, while ranged options cover bows, crossbows, and firearms.
+Table Summary   : N/A
+Chunk Preview   : Longsword 1d8 Slashing Versatile (1d10) Sap 3 lb. 15 GP  
+Maul 2d6 Bludgeoning Heavy, Two-Handed Topple 10 lb. 10 GP  
+Morningstar 1d8 Piercing     - Sap 4 lb. 15 GP  
+Pike 1d10 Piercing Heavy, Reach, Two-Handed Push 18 lb. 5 GP  
+Rapier 1d8 Piercing Finesse Vex 2 lb. 25 GP
+------------------------------------------------------------
+
+[BM25 Rank 8] (Score: 5.6694)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_304_child_6
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes various magical items and their effects in a Dungeons & Dragons setting. The 'Staff of Withering' deals thunder damage and imposes conditions on foes, while the 'Stone of Controlling Earth Elementals' allows summoning an elemental ally. The 'Stone of Good Luck' provides bonuses to checks and saves. The 'Sun Blade' is a radiant sword with enhanced attack capabilities against undead and adjustable light emission. Lastly, the 'Sword of Life Stealing' grants temporary hit points when dealing extra damage on critical hits.
+Table Summary   : N/A
+Chunk Preview   : This item appears to be a sword hilt.
+_**Blade of Radiance.**_ While grasping the hilt, you
+can take a Bonus Action to cause a blade of pure
+radiance to spring into existence or make the  
+blade disappear. While the blade exists, this magic
+weapon functions as a Longsword with the Finesse
+------------------------------------------------------------
+
+[BM25 Rank 9] (Score: 5.6694)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_304_child_7
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet describes various magical items and their effects in a Dungeons & Dragons setting. The 'Staff of Withering' deals thunder damage and imposes conditions on foes, while the 'Stone of Controlling Earth Elementals' allows summoning an elemental ally. The 'Stone of Good Luck' provides bonuses to checks and saves. The 'Sun Blade' is a radiant sword with enhanced attack capabilities against undead and adjustable light emission. Lastly, the 'Sword of Life Stealing' grants temporary hit points when dealing extra damage on critical hits.
+Table Summary   : N/A
+Chunk Preview   : weapon functions as a Longsword with the Finesse
+property. If you are proficient with Longswords or
+Shortswords, you are proficient with the _Sun Blade_ .
+You gain a +2 bonus to attack rolls and damage
+rolls made with this weapon, which deals Radiant
+damage instead of Slashing damage. When you hit
+------------------------------------------------------------
+
+[BM25 Rank 10] (Score: 5.6138)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_296_child_15
+Type            : text
+Parent Summary  : D&D Rulebook Snippet Summary: The snippet outlines various items and their uses in D&D gameplay. It includes descriptions of open pits, potions, rowboats, spell scrolls, mastiffs, windows, portable rams, and three types of rods: Rod of Absorption, Rod of Alertness, and Rod of Lordly Might. The Rod of Absorption allows a player to absorb spells targeting them, storing the energy for later use as spell slots. The Rod of Alertness enhances perception checks and initiative rolls while providing access to specific spells and a protective aura. The Rod of Lordly Might is briefly mentioned but not fully described.
+Table Summary   : N/A
+Chunk Preview   : a magic Longsword or Shortsword (your choice)
+that deals an extra 2d6 Fire damage on a hit.
+**Button 2.** The rod’s flanged head folds down and
+two crescent-shaped blades spring out, transforming the rod into a magic Battleaxe that grants
+a +3 bonus to attack rolls and damage rolls made
+with it.
+------------------------------------------------------------
+
+[BM25 Rank 11] (Score: 5.6138)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_297_child_0
+Type            : text
+Parent Summary  : Rod of Rulership Abilities and Effects: The Rod of Rulership is a versatile magic item that transforms into various weapons and tools, each with unique bonuses and effects. It can become a fire-dealing sword or axe, a spear, a climbing pole, or a battering ram, providing significant combat advantages like attack roll bonuses and damage enhancements. Additionally, it offers utility functions such as indicating magnetic north and measuring depth or altitude. The rod also has powerful abilities to drain life, paralyze, and terrify creatures upon successful melee attacks, each usable once per day until dawn. Furthermore, the wielder can command obedience from creatures within a 120-foot radius by making them Charmed for up to eight hours.
+Table Summary   : N/A
+Chunk Preview   : a magic Longsword or Shortsword (your choice)
+that deals an extra 2d6 Fire damage on a hit.
+**Button 2.** The rod’s flanged head folds down and
+two crescent-shaped blades spring out, transforming the rod into a magic Battleaxe that grants
+a +3 bonus to attack rolls and damage rolls made
+with it.
+------------------------------------------------------------
+
+[BM25 Rank 12] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_0
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Hezrou **.** ...........................................................295
+Hill Giant........................................................295
+Hippogriff **.** ....................................................295
+Hippopotamus............................................ 352
+------------------------------------------------------------
+
+[BM25 Rank 13] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_1
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Hobgoblin Captain....................................296
+Hobgoblin Warrior **.** ..................................295
+Homunculus.................................................296
+Horned Devil **.** ..............................................296
+------------------------------------------------------------
+
+[BM25 Rank 14] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_2
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Hunter Shark **.** ..............................................353
+Hydra...............................................................297
+Hyena **.** ............................................................. 353
+Ice Devil **.** ........................................................297
+------------------------------------------------------------
+
+[BM25 Rank 15] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_3
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Ice Mephit **.** ....................................................304
+Imp **.** ..................................................................297
+Incubus...........................................................298
+Invisible Stalker.........................................298
+------------------------------------------------------------
+
+[BM25 Rank 16] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_4
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Iron Golem **.** ...................................................299
+Iron Golem **.** ...................................................299
+Jackal **.** .............................................................. 353
+Killer Whale.................................................353
+------------------------------------------------------------
+
+[BM25 Rank 17] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_5
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Kobold Warrior **.** .........................................299
+Kraken **.** ...........................................................300
+Lamia...............................................................300
+Lemure **.** .......................................................... 301
+------------------------------------------------------------
+
+[BM25 Rank 18] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_6
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Lich................................................................... 301
+Lion **.** ................................................................. 353
+Lizard..............................................................354
+------------------------------------------------------------
+
+[BM25 Rank 19] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_7
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Mage **.** ...............................................................302
+Magma Mephit............................................304
+Magmin **.** .........................................................302
+Mammoth......................................................354
+------------------------------------------------------------
+
+[BM25 Rank 20] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_8
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Manticore......................................................303
+Marilith **.** .........................................................303
+Mastiff.............................................................354
+Medusa **.** ..........................................................303
+------------------------------------------------------------
+
+[BM25 Rank 21] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_9
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Merfolk Skirmisher..................................305
+Merrow...........................................................305
+Mimic...............................................................305
+Minotaur of Baphomet............................306
+------------------------------------------------------------
+
+[BM25 Rank 22] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_10
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Minotaur Skeleton **.** ................................... 323
+Mule **.** ................................................................354
+Mummy **.** .........................................................306
+Mummy Lord...............................................306
+------------------------------------------------------------
+
+[BM25 Rank 23] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_11
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Nalfeshnee....................................................307
+Night Hag.......................................................308
+Nightmare.....................................................308
+Noble................................................................309
+------------------------------------------------------------
+
+[BM25 Rank 24] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_12
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Ochre Jelly.....................................................309
+Ogre..................................................................309
+Ogre Zombie **.** ............................................... 341
+Oni **.** ...................................................................309
+------------------------------------------------------------
+
+[BM25 Rank 25] (Score: 0.0000)
+Document ID     : 371143968f4537998af5502c02d2097b_parent_7_child_13
+Type            : text
+Parent Summary  : D&D Creature Index: This snippet from a D&D rulebook provides an index of various creatures, listing their names alongside page numbers where detailed information about each can be found. It serves as a quick reference for players and Dungeon Masters to locate descriptions, abilities, and stats for creatures like Hezrou, Hill Giant, Hippogriff, and many others within the game.
+Table Summary   : N/A
+Chunk Preview   : Otyugh.............................................................310
+Owl **.** ..................................................................354
+Owlbear **.** .........................................................310
+Panther........................................................... 355
+------------------------------------------------------------
 
