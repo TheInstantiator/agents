@@ -1,0 +1,112 @@
+Initializing databases...
+
+--- Searching for: Can I cast two spells in the same turn? ---
+
+--- Top 3 Vector Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_128_child_15):
+Type: text
+Parent Summary: Core Rules of Casting Spells in D&D: In Dungeons & Dragons, spells are categorized by levels from 0 (cantrips) to 9, indicating their power. Spellcasters use spell slots to cast spells, with each class having a limited number of these slots per level; casting a spell consumes a slot equal to or higher than the spell's level. Spells can also be cast without using slots through methods like cantrips, rituals (which take longer but don't consume slots), special abilities, and magic items. Additionally, some spells have enhanced effects at higher levels.
+Content:
+**One Spell with a Spell Slot per Turn**
+On a turn, you can expend only one spell slot to cast
+a spell. This rule means you can’t, for example, cast
+a spell with a spell slot using the Magic action an...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_130_child_14):
+Type: text
+Parent Summary: Core Rules/Concepts of D&D Spellcasting: Spells in Dungeons & Dragons have a specified duration, which can be dismissed if not incapacitated. The effects of spells are detailed after their duration and typically involve targeting creatures or objects, making saving throws, or attack rolls. A clear path is needed to target something with a spell, and targets may include the caster unless otherwise stated. Spells cover areas defined by shapes like cones or spheres, and awareness of being targeted depends on the perceptibility of the effect. If a spell fails due to an invalid target, it appears as if the target succeeded in its saving throw, though no actual attempt was made.
+Content:
+overlap. For example, if two Clerics cast _Bless_ on
+the same target, that target gains the spell’s benefit
+only once; the target doesn’t receive two bonus dice.
+But if the durations of the spells ove...
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_129_child_0):
+Type: text
+Parent Summary: Core Rules/Concepts from D&D Rulebook Snippet: In Dungeons & Dragons, spells with casting times of Reaction or Bonus Action are triggered by specific events. Spells requiring longer casting times (e.g., Rituals) necessitate the Magic action on each turn and maintaining Concentration; if broken, the spell fails without expending a slot. A spell's range determines how far its effect can originate from the caster, with types including Distance, Touch, or Self. Components required for casting include Verbal (chanting), Somatic (gestures), and Material (specific items), each essential unless otherwise stated.
+Content:
+a spell. This rule means you can’t, for example, cast
+a spell with a spell slot using the Magic action and
+another one using a Bonus Action on the same turn.  
+**Reaction and Bonus Action Triggers**
+A...
+
+BM25 Tokens: ['can', 'i', 'cast', 'two', 'spells', 'in', 'the', 'same', 'turn']
+
+--- Top 3 BM25 Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_228_child_9, Score: 21.66):
+Type: text
+Parent Summary: Core Rules/Concepts from D&D Rulebook Snippet: In Dungeons & Dragons, a player character is controlled by a player and may experience conditions like 'Poisoned,' causing disadvantage on attacks and checks, or 'Prone,' restricting movement and affecting attack rolls. Possession can be countered with specific spells. Proficiency allows adding a bonus to D20 tests for familiar skills or tools. A creature's reach defaults to 5 feet unless otherwise stated. Reactions are special actions triggered by events, allowing responses on another's turn, while the Ready action prepares an action or spell in anticipation of a trigger.
+Content:
+trapdoor, I’ll pull the lever that opens it,” and “If the
+zombie steps next to me, I move away.”
+When the trigger occurs, you can either take your
+Reaction right after the trigger finishes or ignore
+t...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_128_child_15, Score: 15.69):
+Type: text
+Parent Summary: Core Rules of Casting Spells in D&D: In Dungeons & Dragons, spells are categorized by levels from 0 (cantrips) to 9, indicating their power. Spellcasters use spell slots to cast spells, with each class having a limited number of these slots per level; casting a spell consumes a slot equal to or higher than the spell's level. Spells can also be cast without using slots through methods like cantrips, rituals (which take longer but don't consume slots), special abilities, and magic items. Additionally, some spells have enhanced effects at higher levels.
+Content:
+**One Spell with a Spell Slot per Turn**
+On a turn, you can expend only one spell slot to cast
+a spell. This rule means you can’t, for example, cast
+a spell with a spell slot using the Magic action an...
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_17_child_7, Score: 14.97):
+Type: text
+Parent Summary: Core Rules/Concepts of Actions in D&D: In Dungeons & Dragons, players typically perform an action other than moving or communicating each turn, with options like Attack, Dash, Disengage, Dodge, and more. Players can only take one main action per turn, but may also have a Bonus Action available through specific abilities or spells, which must be used strategically as it is limited to once per turn.
+Content:
+explained in “Combat” later in “Playing the Game.”
+Actions can come up in other situations, too: in a
+social interaction, you can try to Influence a creature or use the Search action to read the creat...
+
+--- Top 5 RRF Merged Results ---
+
+Rank 1 (ID: 371143968f4537998af5502c02d2097b_parent_128_child_15, RRF Score: 0.0331):
+Type: text
+Parent Summary: Core Rules of Casting Spells in D&D: In Dungeons & Dragons, spells are categorized by levels from 0 (cantrips) to 9, indicating their power. Spellcasters use spell slots to cast spells, with each class having a limited number of these slots per level; casting a spell consumes a slot equal to or higher than the spell's level. Spells can also be cast without using slots through methods like cantrips, rituals (which take longer but don't consume slots), special abilities, and magic items. Additionally, some spells have enhanced effects at higher levels.
+Content:
+**One Spell with a Spell Slot per Turn**
+On a turn, you can expend only one spell slot to cast
+a spell. This rule means you can’t, for example, cast
+a spell with a spell slot using the Magic action an...
+
+Rank 2 (ID: 371143968f4537998af5502c02d2097b_parent_130_child_14, RRF Score: 0.0309):
+Type: text
+Parent Summary: Core Rules/Concepts of D&D Spellcasting: Spells in Dungeons & Dragons have a specified duration, which can be dismissed if not incapacitated. The effects of spells are detailed after their duration and typically involve targeting creatures or objects, making saving throws, or attack rolls. A clear path is needed to target something with a spell, and targets may include the caster unless otherwise stated. Spells cover areas defined by shapes like cones or spheres, and awareness of being targeted depends on the perceptibility of the effect. If a spell fails due to an invalid target, it appears as if the target succeeded in its saving throw, though no actual attempt was made.
+Content:
+overlap. For example, if two Clerics cast _Bless_ on
+the same target, that target gains the spell’s benefit
+only once; the target doesn’t receive two bonus dice.
+But if the durations of the spells ove...
+
+Rank 3 (ID: 371143968f4537998af5502c02d2097b_parent_129_child_0, RRF Score: 0.0308):
+Type: text
+Parent Summary: Core Rules/Concepts from D&D Rulebook Snippet: In Dungeons & Dragons, spells with casting times of Reaction or Bonus Action are triggered by specific events. Spells requiring longer casting times (e.g., Rituals) necessitate the Magic action on each turn and maintaining Concentration; if broken, the spell fails without expending a slot. A spell's range determines how far its effect can originate from the caster, with types including Distance, Touch, or Self. Components required for casting include Verbal (chanting), Somatic (gestures), and Material (specific items), each essential unless otherwise stated.
+Content:
+a spell. This rule means you can’t, for example, cast
+a spell with a spell slot using the Magic action and
+another one using a Bonus Action on the same turn.  
+**Reaction and Bonus Action Triggers**
+A...
+
+Rank 4 (ID: 371143968f4537998af5502c02d2097b_parent_228_child_9, RRF Score: 0.0167):
+Type: text
+Parent Summary: Core Rules/Concepts from D&D Rulebook Snippet: In Dungeons & Dragons, a player character is controlled by a player and may experience conditions like 'Poisoned,' causing disadvantage on attacks and checks, or 'Prone,' restricting movement and affecting attack rolls. Possession can be countered with specific spells. Proficiency allows adding a bonus to D20 tests for familiar skills or tools. A creature's reach defaults to 5 feet unless otherwise stated. Reactions are special actions triggered by events, allowing responses on another's turn, while the Ready action prepares an action or spell in anticipation of a trigger.
+Content:
+trapdoor, I’ll pull the lever that opens it,” and “If the
+zombie steps next to me, I move away.”
+When the trigger occurs, you can either take your
+Reaction right after the trigger finishes or ignore
+t...
+
+Rank 5 (ID: 371143968f4537998af5502c02d2097b_parent_17_child_7, RRF Score: 0.0161):
+Type: text
+Parent Summary: Core Rules/Concepts of Actions in D&D: In Dungeons & Dragons, players typically perform an action other than moving or communicating each turn, with options like Attack, Dash, Disengage, Dodge, and more. Players can only take one main action per turn, but may also have a Bonus Action available through specific abilities or spells, which must be used strategically as it is limited to once per turn.
+Content:
+explained in “Combat” later in “Playing the Game.”
+Actions can come up in other situations, too: in a
+social interaction, you can try to Influence a creature or use the Search action to read the creat...

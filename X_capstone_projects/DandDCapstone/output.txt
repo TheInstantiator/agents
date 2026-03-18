@@ -1,0 +1,243 @@
+Initializing databases...
+
+--- Searching for: Does an Adult Red Dragon have Legendary Resistance? How many times? ---
+
+--- Top 3 Vector Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_353_child_2):
+Type: text
+Parent Summary: Ancient Bronze Dragon: The Ancient Bronze Dragon is a gargantuan, lawful good metallic dragon with formidable defenses and abilities. It boasts an Armor Class (AC) of 22, high hit points (444), and impressive speed in various terrains. The dragon has notable skills in Insight and Perception, immunity to lightning, and can breathe both air and water. Its attacks include a powerful Multiattack option featuring Rend with additional Lightning damage, as well as specialized breath weapons like Lightning Breath and Repulsion Breath. Additionally, it possesses spellcasting abilities, allowing it to cast spells such as Detect Magic and Shapechange at will, along with other spells once per day. The dragon also has Legendary Resistance, enabling it to negate failed saving throws twice daily or thrice in its lair, and can perform legendary actions like casting Guiding Bolt, making a Pounce attack, or unleashing a Thunderclap.
+Content:
+_**Legendary Resistance (4/Day, or 5/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks.
+It can r...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_352_child_2):
+Type: text
+Parent Summary: Adult Bronze Dragon: The Adult Bronze Dragon is a Huge Lawful Good Metallic dragon with high AC, initiative, and HP. It possesses abilities such as Amphibious nature, Legendary Resistance, and various attacks including Rend, Lightning Breath, and Repulsion Breath. The dragon can cast spells like Detect Magic and Shapechange at will, has specific legendary actions like Guiding Light and Pounce, and is immune to lightning damage.
+Content:
+_**Legendary Resistance (3/Day, or 4/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks.
+It can r...
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_416_child_2):
+Type: text
+Parent Summary: Ancient Green Dragon: The Ancient Green Dragon is a gargantuan, lawful evil chromatic dragon with formidable combat abilities, including high AC (21), initiative (+15), and HP (402). It excels in deception, perception, and persuasion, and possesses immunities to poison. The dragon can breathe air and water, has blindsight and darkvision, and speaks Common and Draconic. Its legendary resistance allows it to succeed on failed saving throws once per day or twice in its lair. In combat, the dragon uses a multiattack strategy with three Rend attacks, potentially substituting one for casting Mind Spike. It can also unleash poison breath causing significant damage, and has spellcasting abilities including Detect Magic and Geas. Additionally, it can perform legendary actions like Mind Invasion, Noxious Miasma, and Pounce.
+Content:
+_**Legendary Resistance (4/Day, or 5/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks. It
+can r...
+
+BM25 Tokens: ['does', 'an', 'adult', 'red', 'dragon', 'have', 'legendary', 'resistance', 'how', 'many', 'times']
+
+--- Top 3 BM25 Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_0, Score: 25.16):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+### **Adult Red Dragon**  
+_Huge Dragon (Chromatic), Chaotic Evil_  
+**AC** 19 **Initiative** +12 (22)
+**HP** 256 (19d12 + 133)
+**Speed** 40 ft., Climb 40 ft., Fly 80 ft.  
+**Skills** Perception +13, ...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_7, Score: 23.79):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+start of its next turn.  
+_**Pounce.**_ The dragon moves up to half its Speed, and it
+makes one Rend attack....
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_1, Score: 23.68):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+**Senses** Blindsight 60 ft., Darkvision 120 ft.;
+Passive Perception 23
+**Languages** Common, Draconic
+**CR** 17 (XP 18,000, or 20,000 in lair; PB +6)  
+Traits  
+_**Legendary Resistance (3/Day, or 4/D...
+
+--- Top 5 RRF Merged Results ---
+
+Rank 1 (ID: 371143968f4537998af5502c02d2097b_parent_486_child_1, RRF Score: 0.0290):
+Type: text
+Parent Summary: Ancient Red Dragon: The Ancient Red Dragon is a gargantuan, chaotic evil chromatic dragon with high combat capabilities, including an Armor Class of 22, initiative +14, and 507 hit points. It possesses immunities to fire, advanced perception skills, and can fly at 80 ft. Its primary attacks include Rend, Fire Breath, and spellcasting abilities like Scorching Ray and Fireball. The dragon has Legendary Resistance, allowing it to negate failed saving throws once per day (or five times in its lair), and uses Legendary Actions for additional offensive maneuvers such as Commanding Presence and Fiery Rays.
+Content:
+**Senses** Blindsight 60 ft., Darkvision 120 ft.;
+Passive Perception 26
+**Languages** Common, Draconic
+**CR** 24 (XP 62,000, or 75,000 in lair; PB +7)  
+Traits  
+_**Legendary Resistance (4/Day, or 5/D...
+
+Rank 2 (ID: 371143968f4537998af5502c02d2097b_parent_353_child_2, RRF Score: 0.0167):
+Type: text
+Parent Summary: Ancient Bronze Dragon: The Ancient Bronze Dragon is a gargantuan, lawful good metallic dragon with formidable defenses and abilities. It boasts an Armor Class (AC) of 22, high hit points (444), and impressive speed in various terrains. The dragon has notable skills in Insight and Perception, immunity to lightning, and can breathe both air and water. Its attacks include a powerful Multiattack option featuring Rend with additional Lightning damage, as well as specialized breath weapons like Lightning Breath and Repulsion Breath. Additionally, it possesses spellcasting abilities, allowing it to cast spells such as Detect Magic and Shapechange at will, along with other spells once per day. The dragon also has Legendary Resistance, enabling it to negate failed saving throws twice daily or thrice in its lair, and can perform legendary actions like casting Guiding Bolt, making a Pounce attack, or unleashing a Thunderclap.
+Content:
+_**Legendary Resistance (4/Day, or 5/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks.
+It can r...
+
+Rank 3 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_0, RRF Score: 0.0167):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+### **Adult Red Dragon**  
+_Huge Dragon (Chromatic), Chaotic Evil_  
+**AC** 19 **Initiative** +12 (22)
+**HP** 256 (19d12 + 133)
+**Speed** 40 ft., Climb 40 ft., Fly 80 ft.  
+**Skills** Perception +13, ...
+
+Rank 4 (ID: 371143968f4537998af5502c02d2097b_parent_352_child_2, RRF Score: 0.0164):
+Type: text
+Parent Summary: Adult Bronze Dragon: The Adult Bronze Dragon is a Huge Lawful Good Metallic dragon with high AC, initiative, and HP. It possesses abilities such as Amphibious nature, Legendary Resistance, and various attacks including Rend, Lightning Breath, and Repulsion Breath. The dragon can cast spells like Detect Magic and Shapechange at will, has specific legendary actions like Guiding Light and Pounce, and is immune to lightning damage.
+Content:
+_**Legendary Resistance (3/Day, or 4/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks.
+It can r...
+
+Rank 5 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_7, RRF Score: 0.0164):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+start of its next turn.  
+_**Pounce.**_ The dragon moves up to half its Speed, and it
+makes one Rend attack....
+
+--- Searching for: Adult Red Dragon Legendary Resistance ---
+
+--- Top 3 Vector Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_353_child_2):
+Type: text
+Parent Summary: Ancient Bronze Dragon: The Ancient Bronze Dragon is a gargantuan, lawful good metallic dragon with formidable defenses and abilities. It boasts an Armor Class (AC) of 22, high hit points (444), and impressive speed in various terrains. The dragon has notable skills in Insight and Perception, immunity to lightning, and can breathe both air and water. Its attacks include a powerful Multiattack option featuring Rend with additional Lightning damage, as well as specialized breath weapons like Lightning Breath and Repulsion Breath. Additionally, it possesses spellcasting abilities, allowing it to cast spells such as Detect Magic and Shapechange at will, along with other spells once per day. The dragon also has Legendary Resistance, enabling it to negate failed saving throws twice daily or thrice in its lair, and can perform legendary actions like casting Guiding Bolt, making a Pounce attack, or unleashing a Thunderclap.
+Content:
+_**Legendary Resistance (4/Day, or 5/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks.
+It can r...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_352_child_2):
+Type: text
+Parent Summary: Adult Bronze Dragon: The Adult Bronze Dragon is a Huge Lawful Good Metallic dragon with high AC, initiative, and HP. It possesses abilities such as Amphibious nature, Legendary Resistance, and various attacks including Rend, Lightning Breath, and Repulsion Breath. The dragon can cast spells like Detect Magic and Shapechange at will, has specific legendary actions like Guiding Light and Pounce, and is immune to lightning damage.
+Content:
+_**Legendary Resistance (3/Day, or 4/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks.
+It can r...
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_416_child_2):
+Type: text
+Parent Summary: Ancient Green Dragon: The Ancient Green Dragon is a gargantuan, lawful evil chromatic dragon with formidable combat abilities, including high AC (21), initiative (+15), and HP (402). It excels in deception, perception, and persuasion, and possesses immunities to poison. The dragon can breathe air and water, has blindsight and darkvision, and speaks Common and Draconic. Its legendary resistance allows it to succeed on failed saving throws once per day or twice in its lair. In combat, the dragon uses a multiattack strategy with three Rend attacks, potentially substituting one for casting Mind Spike. It can also unleash poison breath causing significant damage, and has spellcasting abilities including Detect Magic and Geas. Additionally, it can perform legendary actions like Mind Invasion, Noxious Miasma, and Pounce.
+Content:
+_**Legendary Resistance (4/Day, or 5/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks. It
+can r...
+
+BM25 Tokens: ['adult', 'red', 'dragon', 'legendary', 'resistance']
+
+--- Top 3 BM25 Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_0, Score: 22.64):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+### **Adult Red Dragon**  
+_Huge Dragon (Chromatic), Chaotic Evil_  
+**AC** 19 **Initiative** +12 (22)
+**HP** 256 (19d12 + 133)
+**Speed** 40 ft., Climb 40 ft., Fly 80 ft.  
+**Skills** Perception +13, ...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_1, Score: 21.24):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+**Senses** Blindsight 60 ft., Darkvision 120 ft.;
+Passive Perception 23
+**Languages** Common, Draconic
+**CR** 17 (XP 18,000, or 20,000 in lair; PB +6)  
+Traits  
+_**Legendary Resistance (3/Day, or 4/D...
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_7, Score: 21.13):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+start of its next turn.  
+_**Pounce.**_ The dragon moves up to half its Speed, and it
+makes one Rend attack....
+
+--- Top 5 RRF Merged Results ---
+
+Rank 1 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_0, RRF Score: 0.0316):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+### **Adult Red Dragon**  
+_Huge Dragon (Chromatic), Chaotic Evil_  
+**AC** 19 **Initiative** +12 (22)
+**HP** 256 (19d12 + 133)
+**Speed** 40 ft., Climb 40 ft., Fly 80 ft.  
+**Skills** Perception +13, ...
+
+Rank 2 (ID: 371143968f4537998af5502c02d2097b_parent_352_child_2, RRF Score: 0.0309):
+Type: text
+Parent Summary: Adult Bronze Dragon: The Adult Bronze Dragon is a Huge Lawful Good Metallic dragon with high AC, initiative, and HP. It possesses abilities such as Amphibious nature, Legendary Resistance, and various attacks including Rend, Lightning Breath, and Repulsion Breath. The dragon can cast spells like Detect Magic and Shapechange at will, has specific legendary actions like Guiding Light and Pounce, and is immune to lightning damage.
+Content:
+_**Legendary Resistance (3/Day, or 4/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks.
+It can r...
+
+Rank 3 (ID: 371143968f4537998af5502c02d2097b_parent_353_child_2, RRF Score: 0.0167):
+Type: text
+Parent Summary: Ancient Bronze Dragon: The Ancient Bronze Dragon is a gargantuan, lawful good metallic dragon with formidable defenses and abilities. It boasts an Armor Class (AC) of 22, high hit points (444), and impressive speed in various terrains. The dragon has notable skills in Insight and Perception, immunity to lightning, and can breathe both air and water. Its attacks include a powerful Multiattack option featuring Rend with additional Lightning damage, as well as specialized breath weapons like Lightning Breath and Repulsion Breath. Additionally, it possesses spellcasting abilities, allowing it to cast spells such as Detect Magic and Shapechange at will, along with other spells once per day. The dragon also has Legendary Resistance, enabling it to negate failed saving throws twice daily or thrice in its lair, and can perform legendary actions like casting Guiding Bolt, making a Pounce attack, or unleashing a Thunderclap.
+Content:
+_**Legendary Resistance (4/Day, or 5/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks.
+It can r...
+
+Rank 4 (ID: 371143968f4537998af5502c02d2097b_parent_485_child_1, RRF Score: 0.0164):
+Type: text
+Parent Summary: Core Rules/Concepts for Adult Red Dragon in D&D: The Adult Red Dragon is a powerful Huge Dragon with high AC (19), initiative (+12 or 22), and HP (256). It has impressive speed, climbing, and flying abilities, along with skills in Perception and Stealth. The dragon is immune to fire, possesses blindsight and darkvision, and can communicate in Common and Draconic languages. With a Challenge Rating of 17, it features Legendary Resistance, allowing it to succeed on failed saving throws three times per day (or four in its lair). Its actions include Multiattack with Rend and Spellcasting abilities like Scorching Ray and Fire Breath, which deals significant fire damage. The dragon can cast spells such as Command, Detect Magic, and Fireball at will or once a day, respectively. It also has Legendary Actions for additional strategic options.
+Content:
+**Senses** Blindsight 60 ft., Darkvision 120 ft.;
+Passive Perception 23
+**Languages** Common, Draconic
+**CR** 17 (XP 18,000, or 20,000 in lair; PB +6)  
+Traits  
+_**Legendary Resistance (3/Day, or 4/D...
+
+Rank 5 (ID: 371143968f4537998af5502c02d2097b_parent_416_child_2, RRF Score: 0.0161):
+Type: text
+Parent Summary: Ancient Green Dragon: The Ancient Green Dragon is a gargantuan, lawful evil chromatic dragon with formidable combat abilities, including high AC (21), initiative (+15), and HP (402). It excels in deception, perception, and persuasion, and possesses immunities to poison. The dragon can breathe air and water, has blindsight and darkvision, and speaks Common and Draconic. Its legendary resistance allows it to succeed on failed saving throws once per day or twice in its lair. In combat, the dragon uses a multiattack strategy with three Rend attacks, potentially substituting one for casting Mind Spike. It can also unleash poison breath causing significant damage, and has spellcasting abilities including Detect Magic and Geas. Additionally, it can perform legendary actions like Mind Invasion, Noxious Miasma, and Pounce.
+Content:
+_**Legendary Resistance (4/Day, or 5/Day in Lair).**_ If
+the dragon fails a saving throw, it can choose to succeed instead.  
+Actions  
+_**Multiattack.**_ The dragon makes three Rend attacks. It
+can r...

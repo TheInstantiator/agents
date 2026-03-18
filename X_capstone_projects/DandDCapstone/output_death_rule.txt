@@ -1,0 +1,116 @@
+Initializing databases...
+
+--- Searching for: Death Saving Throws rule summary ---
+
+--- Top 3 Vector Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_8):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+for a Death Saving Throw, you suffer two failures. If
+you roll a 20 on the d20, you regain 1 Hit Point.
+_**Damage at 0 Hit Points.**_ If you take any damage
+while you have 0 Hit Points, you suffer a D...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_7):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+have the Unconscious condition (see “Rules Glossary”) until you regain any Hit Points, and you now
+face making Death Saving Throws (see below).  
+**Death Saving Throws**
+Whenever you start your turn w...
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_221_child_6):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, characters can move double their Speed on their turn if they Dash, and may use special speeds like Fly or Swim instead of regular movement. A dead creature cannot regain Hit Points without magical revival, which requires the spirit's consent. The Deafened condition prevents hearing and causes automatic failure in ability checks requiring it. Characters with 0 Hit Points must make a Death Saving Throw to avoid death. Creatures need specific amounts of water daily based on size; insufficient intake leads to Exhaustion from dehydration. Difficult Terrain doubles movement cost, affecting spaces with obstacles like creatures, furniture, or steep slopes.
+Content:
+A player character must make a Death Saving
+Throw (also called a Death Save) if they start their
+turn with 0 Hit Points. _See also_ “Playing the Game”
+(“Damage and Healing”).  
+**Dehydration [Hazard]*...
+
+BM25 Tokens: ['death', 'saving', 'throws', 'rule', 'summary']
+
+--- Top 3 BM25 Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_3, Score: 12.56):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+_**Monster Death.**_ A monster dies the instant it
+drops to 0 Hit Points, although a Game Master can
+ignore this rule for an individual monster and treat
+it like a character.
+_**Hit Point Maximum of 0...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_7, Score: 9.31):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+have the Unconscious condition (see “Rules Glossary”) until you regain any Hit Points, and you now
+face making Death Saving Throws (see below).  
+**Death Saving Throws**
+Whenever you start your turn w...
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_10, Score: 9.28):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+A Stable creature doesn’t make Death Saving
+Throws even though it has 0 Hit Points, but it still
+has the Unconscious condition. If the creature takes
+damage, it stops being Stable and starts making
+De...
+
+--- Top 5 RRF Merged Results ---
+
+Rank 1 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_7, RRF Score: 0.0328):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+have the Unconscious condition (see “Rules Glossary”) until you regain any Hit Points, and you now
+face making Death Saving Throws (see below).  
+**Death Saving Throws**
+Whenever you start your turn w...
+
+Rank 2 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_8, RRF Score: 0.0325):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+for a Death Saving Throw, you suffer two failures. If
+you roll a 20 on the d20, you regain 1 Hit Point.
+_**Damage at 0 Hit Points.**_ If you take any damage
+while you have 0 Hit Points, you suffer a D...
+
+Rank 3 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_10, RRF Score: 0.0313):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+A Stable creature doesn’t make Death Saving
+Throws even though it has 0 Hit Points, but it still
+has the Unconscious condition. If the creature takes
+damage, it stops being Stable and starts making
+De...
+
+Rank 4 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_3, RRF Score: 0.0167):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+_**Monster Death.**_ A monster dies the instant it
+drops to 0 Hit Points, although a Game Master can
+ignore this rule for an individual monster and treat
+it like a character.
+_**Hit Point Maximum of 0...
+
+Rank 5 (ID: 371143968f4537998af5502c02d2097b_parent_221_child_6, RRF Score: 0.0161):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, characters can move double their Speed on their turn if they Dash, and may use special speeds like Fly or Swim instead of regular movement. A dead creature cannot regain Hit Points without magical revival, which requires the spirit's consent. The Deafened condition prevents hearing and causes automatic failure in ability checks requiring it. Characters with 0 Hit Points must make a Death Saving Throw to avoid death. Creatures need specific amounts of water daily based on size; insufficient intake leads to Exhaustion from dehydration. Difficult Terrain doubles movement cost, affecting spaces with obstacles like creatures, furniture, or steep slopes.
+Content:
+A player character must make a Death Saving
+Throw (also called a Death Save) if they start their
+turn with 0 Hit Points. _See also_ “Playing the Game”
+(“Damage and Healing”).  
+**Dehydration [Hazard]*...

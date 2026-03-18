@@ -1,5 +1,16 @@
 [
   {
+    "question": "How do I play D&D?",
+    "expected_answer": "As long as you mention the core loop of DM narration, player action, and d20 rolls, any helpful overview is good.",
+    "keywords": [
+      "d20",
+      "DM",
+      "player",
+      "dice"
+    ],
+    "category": "general"
+  },
+  {
     "question": "How much does a Longsword cost and what damage does it deal?",
     "expected_answer": "15 gp, 1d8 slashing",
     "keywords": [

@@ -5,359 +5,396 @@ import chromadb
 import sqlite3
 import sys
 import os
-import time
 import pickle
-from typing import List, Dict, Optional
+from typing import List, Dict, Tuple
 from pydantic import BaseModel, Field
-from sentence_transformers import SentenceTransformer, CrossEncoder
+
+from sentence_transformers import SentenceTransformer
 from rank_bm25 import BM25Okapi
 
-# Setup paths
+# ========================= PATHS =========================
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(SCRIPT_DIR, "..", ".."))
-
-MODEL_NAME = "phi-agent"
-ANSWER_MODEL_NAME = "phi-agent"
-
-# Create logger
-class Logger(object):
-    def __init__(self, filename="eval_pre_release_output_log.txt"):
-        self.terminal = sys.stdout
-        self.log = open(filename, "w")
-
-    def write(self, message):
-        self.terminal.write(message)
-        self.log.write(message)
-
-    def flush(self):
-        self.terminal.flush()
-        self.log.flush()
-
-sys.stdout = Logger(os.path.join(SCRIPT_DIR, "eval_pre_release_output_log.txt"))
 from core_agent import CoreAgent
 
 DB_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "chroma_db")
 SQLITE_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "parent_chunks.db")
+BM25_CORPUS_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "bm25_corpus.pkl")
 
-DEBUG_MODE = True
-DEBUG_LOG_PATH = os.path.join(SCRIPT_DIR, "eval_pre_release_debug_log.txt")
-debug_log_file = open(DEBUG_LOG_PATH, "w") if DEBUG_MODE else None
+# ========================= MODELS =========================
+class DecomposedQueries(BaseModel):
+    thoughts: str
+    sub_queries: list[str] = Field(default_factory=list)
 
-def debug_print(*args, **kwargs):
-    if debug_log_file:
-        print(*args, file=debug_log_file, **kwargs)
-        debug_log_file.flush()
+class HyDEAnswer(BaseModel):
+    thoughts: str
+    hyde_text: str
 
-# --- Models ---
-class RouterDecision(BaseModel):
-    scope: str = Field(description="'BROAD' or 'SPECIFIC'")
-    category: str = Field(description="The D&D category, e.g., 'spells', 'monsters', 'rules', 'classes', 'items', 'lore', or 'other'")
-    exact_match_keywords: list[str] = Field(default_factory=list, description="List of 1-3 highly specific exact phrases to search in the text (e.g., 'Adult Red Dragon'). Leave empty if none.")
-    hyde_excerpt: str = Field(description="A fake 3-sentence excerpt from the official D&D rulebook that sounds like it would answer the player's question.")
+class CritiqueResult(BaseModel):
+    thoughts: str
+    is_complete: bool
+    missing_aspects: list[str] = Field(default_factory=list)
+    follow_up_query: str = ""
 
-class RewrittenQuery(BaseModel):
-    thoughts: str = Field(description="Internal reasoning about clarifying the question.")
-    rewritten_question: str = Field(description="The final rewritten question demanding specific base stats.")
+class StandardAnswer(BaseModel):
+    thoughts: str = Field(description="Internal reasoning process.")
+    answer: str = Field(description="The concise, factual answer for the user.")
 
-class GeneratedAnswer(BaseModel):
-    thoughts: str = Field(description="Internal reasoning to formulate the answer based strictly on the context.")
-    final_answer: str = Field(description="The final concise answer to the question.")
-
-class AuditResult(BaseModel):
-    thoughts: str = Field(description="Reasoning about what information is still missing from the context.")
-    is_complete: bool = Field(description="True if the provided context is sufficient to fully answer the question.")
-    missing_info_keywords: list[str] = Field(default_factory=list, description="Keywords or phrases to search for specifically to fill the gaps.")
+class RerankOutput(BaseModel):
+    thoughts: str
+    ranked_indices: list[int] = Field(description="List of integer indices ordered from most to least relevant.")
 
 class AnswerEvalVerdict(BaseModel):
-    thoughts: str = Field(description="Detailed reasoning comparing the Generated Answer to the Expected Answer.")
-    is_correct: bool = Field(description="True if the generated answer is factually correct given the expected answer.")
+    thoughts: str = Field(description="Reasoning for the verdict.")
+    is_correct: bool = Field(description="Whether the generated answer matches the expected answer factually.")
 
-# --- Global Setup ---
-print("Initializing Vector Database connection...", flush=True)
+# ========================= SETUP =========================
+print("Initializing databases...")
 client = chromadb.PersistentClient(path=DB_PATH)
-try:
-    collection = client.get_collection(name="dnd_rules_multi_v2")
-except Exception as e:
-    print(f"Error accessing collection: {e}. Has build_rag_db.py finished?", flush=True)
-    exit()
+collection = client.get_collection(name="dnd_rules_multi_v2")
 
-print("Initializing SQLite (Parent Chunk Store)...", flush=True)
 parent_db = sqlite3.connect(SQLITE_PATH)
 parent_cursor = parent_db.cursor()
 
-print("Loading Local Native Encoder (BAAI/bge-large-en-v1.5)...", flush=True)
 encoder = SentenceTransformer("BAAI/bge-large-en-v1.5", device="cpu")
 
-print("Loading Cross-Encoder Re-Ranker (ms-marco-MiniLM-L-6-v2)...", flush=True)
-cross_encoder = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2", device="cpu")
+# Load BM25
+with open(BM25_CORPUS_PATH, "rb") as f:
+    bm25_data = pickle.load(f)
+bm25_corpus_docs = bm25_data["documents"]
+bm25_corpus_metas = bm25_data["metadatas"]
+bm25_corpus_ids = bm25_data["ids"]
 
-# --- BM25 Index ---
-BM25_CORPUS_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "bm25_corpus.pkl")
-bm25_index = None
-bm25_corpus_docs = []
-bm25_corpus_metas = []
-bm25_corpus_ids = []
+_tokenized = [re.findall(r'\w+', (meta.get('parent_summary', '') + " " + doc).lower())
+              for doc, meta in zip(bm25_corpus_docs, bm25_corpus_metas)]
+bm25_index = BM25Okapi(_tokenized)
 
-def simple_tokenize(text: str) -> List[str]:
-    if not text: return []
-    return re.findall(r'\w+', text.lower())
+# ========================= AGENTS =========================
+phi_kwargs = CoreAgent.load_litellm_kwargs_from_config("phi-agent")
 
-if os.path.exists(BM25_CORPUS_PATH):
-    print("Loading BM25 corpus from disk...", flush=True)
-    with open(BM25_CORPUS_PATH, "rb") as _f:
-        _corpus = pickle.load(_f)
-    bm25_corpus_docs = _corpus["documents"]
-    bm25_corpus_metas = _corpus["metadatas"]
-    bm25_corpus_ids = _corpus["ids"]
-    _tokenised = []
-    for doc, meta in zip(bm25_corpus_docs, bm25_corpus_metas):
-        enriched_text = f"{meta.get('parent_summary', '')} {meta.get('table_summary', '')} {doc}"
-        _tokenised.append(simple_tokenize(enriched_text))
-    bm25_index = BM25Okapi(_tokenised)
-else:
-    print(f"  ⚠️  BM25 corpus not found.", flush=True)
-
-phi_kwargs = CoreAgent.load_litellm_kwargs_from_config(MODEL_NAME)
-
-router = CoreAgent(
-    agent_id="master_router",
-    system_prompt="You are the Master Routing AI for a D&D 5e offline rules engine. Transform natural language questions into search strategies.",
+decomposer = CoreAgent(
+    agent_id="decomposer",
+    system_prompt="Break complex D&D questions into 2-4 simple, atomic sub-questions that together fully cover the original intent.",
     litellm_kwargs=phi_kwargs,
-    response_model=RouterDecision,
+    response_model=DecomposedQueries,
     one_shot=True
 )
 
-rephrase_agent = CoreAgent(
-    agent_id="rephrase_agent",
-    system_prompt="Rewrite player questions to explicitly target base, non-magical versions of items/monsters/rules.",
+hyde_agent = CoreAgent(
+    agent_id="hyde_agent",
+    system_prompt="Generate a short, plausible excerpt from the official D&D rulebook that would perfectly answer the question.",
     litellm_kwargs=phi_kwargs,
-    response_model=RewrittenQuery,
+    response_model=HyDEAnswer,
+    one_shot=True
+)
+
+critic = CoreAgent(
+    agent_id="critic",
+    # system_prompt="You are a strict QA tester. Compare the Original Question with the Generated Answer. Only ask a follow-up query if information EXPLICITLY requested in the Original Question is missing. Do NOT ask for additional lore, stats, or mechanics that were not directly requested. If the question is fully answered, mark it as complete.",
+    # system_prompt="You are a strict D&D rules auditor. Compare the original question with the generated answer. If anything is missing or incomplete (like missing costs, damage types, or specific mechanics mentioned in the rules), provide exactly ONE focused follow-up query to find that missing data.  If the question is good and based on your knowledge of D and D you could add some additional pertinent information to the answer to add interesting facts.  This is encouraged.",
+    system_prompt="You are a strict D&D rules auditor. Compare the Original Question and the provided Context with the Generated Answer. If the Context contains specific facts (like costs, damage types, or mechanics) that are missing from the Generated Answer, provide exactly ONE focused follow-up query to retrieve those specific missing facts. Do NOT use external knowledge not present in the Context.",
+    litellm_kwargs=phi_kwargs,
+    response_model=CritiqueResult,
+    one_shot=True
+)
+
+merger = CoreAgent(
+    agent_id="merger",
+    system_prompt="You are an expert editor. Combine the original answer and the supplemental answer into one clear, factual final answer. Do NOT include meta-commentary about needing more info, missing context, or being unable to find everything. Just state the facts you HAVE found.",
+    litellm_kwargs=phi_kwargs,
+    response_model=StandardAnswer,
     one_shot=True
 )
 
 answer_agent = CoreAgent(
     agent_id="answer_generator",
-    system_prompt="Answer player questions strictly using the provided context. If the answer is not in the text, say 'I don't know'.",
+    system_prompt="Answer strictly using the provided context from the D&D rulebook. Be precise and concise. Only provide the facts found in the context. Do NOT add phrases like 'I need more context' or 'further details may be needed'. If you found no information at all, say 'I don't know'.",
     litellm_kwargs=phi_kwargs,
-    response_model=GeneratedAnswer,
-    one_shot=True
-)
-
-audit_agent = CoreAgent(
-    agent_id="audit_agent",
-    system_prompt="Compare the context against the question. Identify missing facts. If facts are missing, suggest specific keywords for a second search.",
-    litellm_kwargs=phi_kwargs,
-    response_model=AuditResult,
+    response_model=StandardAnswer,
     one_shot=True
 )
 
 answer_judge = CoreAgent(
     agent_id="answer_judge",
-    system_prompt="You are an impartial, strict evaluator. You will be given a Question, an Expected Answer, and a Generated Answer. Your ONLY job is to determine if the Generated Answer contains the facts present in the Expected Answer. Treat the Expected Answer as the absolute, unquestionable truth. Do NOT use your own knowledge to correct the Expected Answer. If the Expected Answer says 18 gives +4, and the Generated Answer says +4, it is CORRECT.",
+    system_prompt="You are an impartial judge. Compare the Generated Answer to the Expected Answer. Determine if the Generated Answer is factually correct. You should mark it as correct if it matches the Expected Answer OR if it accurately answers the question based on the provided Context (which may contain updated rules compared to the Expected Answer).",
     litellm_kwargs=phi_kwargs,
     response_model=AnswerEvalVerdict,
     one_shot=True
 )
 
-def get_context_for_rank(results, rank: int, windowing: bool = False, aggregate_mode: bool = False) -> str:
-    doc = results['documents'][0][rank]
-    meta = results['metadatas'][0][rank]
-    chunk_id = results['ids'][0][rank]
-    parent_id = meta.get('parent_id')
-    if not parent_id:
-        parts = chunk_id.split("_")
-        parent_id = "_".join(parts[:3])
+reranker = CoreAgent(
+    agent_id="reranker",
+    system_prompt="You are an expert search reranker. Rank the given search results by relevance to the question. Output a list of the integer indices representing the original position of each document, ordered from most relevant to least relevant.",
+    litellm_kwargs=phi_kwargs,
+    response_model=RerankOutput,
+    one_shot=True
+)
 
-    header_parts = []
-    if meta.get('parent_summary'): header_parts.append(f"[Section Overview]: {meta['parent_summary']}")
-    if meta.get('table_summary'): header_parts.append(f"[Table Focus]: {meta['table_summary']}")
+# ========================= HELPERS =========================
+def reciprocal_rank_fusion(vector_results: dict, bm25_results: dict, k: int = 25) -> List[Tuple]:
+    scores = {}
+    # Vector results (could be multiple lists if multiple sub-queries)
+    for top_k_ids in vector_results.get('ids', []):
+        if not top_k_ids: continue
+        for rank, cid in enumerate(top_k_ids):
+            scores[cid] = scores.get(cid, 0) + 1.0 / (rank + 60)
     
-    context = "\n".join(header_parts) + f"\n[Chunk {rank+1}]:\n{doc}"
-    if meta.get('type') in ['table', 'table_row_prose'] and 'table_content' in meta:
-        context += f"\n[Full Table]:\n{meta['table_content']}"
-
-    # If we are building a massive prompt with 20 chunks, skip appending the 6000+ char parent text
-    if aggregate_mode:
-        return context
-
-    if windowing:
-        parent_parts = parent_id.split("_")
-        if len(parent_parts) >= 3 and parent_parts[2].isdigit():
-            idx = int(parent_parts[2])
-            base_id = "_".join(parent_parts[:2])
-            parent_ids = [f"{base_id}_{idx-1}", parent_id, f"{base_id}_{idx+1}"]
-        else: parent_ids = [parent_id]
-        
-        full_text = []
-        for pid in parent_ids:
-            parent_cursor.execute("SELECT content FROM parent_chunks WHERE id=?", (pid,))
-            row = parent_cursor.fetchone()
-            if row: full_text.append(row[0][:1500]) # Slightly reduced to save tokens
-        if full_text: context += f"\n[Windowed Context]:\n...\n" + "\n...\n".join(full_text)
-    else:
-        parent_cursor.execute("SELECT content FROM parent_chunks WHERE id=?", (parent_id,))
-        row = parent_cursor.fetchone()
-        if row: context += f"\n[Full Context]:\n{row[0][:1500]}"
-    return context
-
-async def hybrid_search(query: str, decision: RouterDecision, k: int):
-    search_text = f"{query} {decision.hyde_excerpt}"
-    query_embedding = encoder.encode(search_text, normalize_embeddings=True).tolist()
+    # BM25 results
+    for top_k_ids in bm25_results.get('ids', []):
+        if not top_k_ids: continue
+        for rank, cid in enumerate(top_k_ids):
+            scores[cid] = scores.get(cid, 0) + 1.0 / (rank + 60)
     
-    results = collection.query(
-        query_embeddings=[query_embedding],
-        n_results=k*3,
-        include=['documents', 'metadatas']
-    )
-    docs = results['documents'][0]
-    metas = results['metadatas'][0]
-    ids = results['ids'][0]
+    return sorted(scores.items(), key=lambda x: x[1], reverse=True)[:k]
 
-    blacklist = {"cost", "damage", "ac", "stats", "hp", "hit", "points", "price", "modifier", "score", "level", "dc", "weight", "type", "size", "speed", "alignment", "languages", "properties", "standard", "base"}
-    filtered_keywords = [kw for kw in decision.exact_match_keywords if kw.lower() not in blacklist and not kw.lower().startswith("level ")]
 
-    exact_match_indices = set()
-    existing_ids_set = set(ids)
+class MultiLogger:
+    def __init__(self, *files):
+        self.files = files
 
-    if bm25_index and filtered_keywords:
-        bm25_query_tokens = simple_tokenize(" ".join(filtered_keywords))
-        bm25_scores = bm25_index.get_scores(bm25_query_tokens)
-        top_bm25_indices = sorted(range(len(bm25_scores)), key=lambda i: bm25_scores[i], reverse=True)[:k * 3]
+    def write(self, obj):
+        for f in self.files:
+            f.write(obj)
+            f.flush()
 
-        for bm25_idx in top_bm25_indices:
-            if bm25_scores[bm25_idx] <= 0: break
-            doc_id = bm25_corpus_ids[bm25_idx]
-            if doc_id not in existing_ids_set:
-                docs.append(bm25_corpus_docs[bm25_idx])
-                metas.append(bm25_corpus_metas[bm25_idx])
-                ids.append(doc_id)
-                exact_match_indices.add(len(docs) - 1)
-                existing_ids_set.add(doc_id)
-            else:
-                try: exact_match_indices.add(ids.index(doc_id))
-                except ValueError: pass
+    def flush(self):
+        for f in self.files:
+            f.flush()
 
-    pairs = [[query, doc] for doc in docs]
-    scores = cross_encoder.predict(pairs).tolist()
-
-    for idx in range(len(docs)):
-        phrasal_count = 0
-        doc_low = docs[idx].lower()
-        for kw in filtered_keywords:
-            if kw.lower() in doc_low: phrasal_count += 1
-        
-        if phrasal_count > 0:
-            scores[idx] = (phrasal_count * 100.0) + (scores[idx] / 100.0)
-        elif idx in exact_match_indices:
-            scores[idx] = 50.0 + (scores[idx] / 100.0)
-
-    scored = sorted(zip(scores, docs, metas, ids), key=lambda x: x[0], reverse=True)[:k]
-    results['documents'][0] = [s[1] for s in scored]
-    results['metadatas'][0] = [s[2] for s in scored]
-    results['ids'][0] = [s[3] for s in scored]
-    return results
-
-async def run_pre_release_eval(dataset: List[Dict], dataset_name: str):
-    print(f"\n--- PRE-RELEASE AGENTIC RAG EVALUATION: {dataset_name} ---")
+# ========================= MAIN EVAL =========================
+async def run_pre_release_eval(dataset: List[Dict], dataset_name: str, debug_log_file):
+    print(f"\n=== PRE-RELEASE EVALUATION: {dataset_name} ===\n")
     total_correct = 0
-
+    total_questions = len(dataset)
+    
+    # Store failure details for debug log
     for i, item in enumerate(dataset):
-        query = item['question']
-        expected_answer = item.get('expected_answer', '')
-        print(f"\nQ{i+1}: {query}")
+        try:
+            original_query = item['question']
+            expected_answer = item.get('expected_answer', '')
 
-        # 1. ROUTE & DECOMPOSE
-        decision = await router.ask(query)
-        k = 10 if decision.scope == "SPECIFIC" else 20
-        print(f"  [Router] Scope: {decision.scope} | Cat: {decision.category} | K: {k}")
-        print(f"  [Router] Exact Match Keywords: {decision.exact_match_keywords}")
-        print(f"  [Router] HyDE: {decision.hyde_excerpt[:150]}...")
-        
-        # 2. INITIAL RETRIEVAL
-        results = await hybrid_search(query, decision, k)
-        print(f"\n  [Search 1] Retrieved Top {len(results['documents'][0])} chunks.")
-        
-        context_parts = []
-        for j in range(len(results['documents'][0])):
-            ctx = get_context_for_rank(results, j, windowing=False, aggregate_mode=True)
-            meta = results['metadatas'][0][j]
-            topic = meta.get('parent_summary', meta.get('table_summary', ''))[:100]
-            # Strip newlines for single-line printing
-            topic = topic.replace('\n', ' ')
-            print(f"    - Rank {j+1}: {topic} (+ Neighboring Windows)")
-            context_parts.append(ctx)
-        
-        context = "\n\n".join(context_parts)
+            print(f"\nQ{i+1}: {original_query}")
+            print(f"Expected Answer: {expected_answer}\n")
 
-        # 3. INTERNAL AUDIT
-        audit_prompt = f"Question: {query}\n\nContext:\n{context[:60000]}\n\nDoes this context contain EVERYTHING needed to answer the question? If not, what specifically is missing?"
-        audit = await audit_agent.ask(audit_prompt)
-        
-        if not audit.is_complete and audit.missing_info_keywords:
-            print(f"\n  [Audit] INCOMPLETE context detected.")
-            print(f"  [Audit] Thoughts: {audit.thoughts}")
-            print(f"  [Audit] Fetching missing info with keywords: {audit.missing_info_keywords}")
-            # 4. REFINEMENT SEARCH
-            refine_decision = RouterDecision(
-                scope="SPECIFIC",
-                category=decision.category,
-                exact_match_keywords=audit.missing_info_keywords,
-                hyde_excerpt=audit.thoughts
-            )
-            refine_results = await hybrid_search(query, refine_decision, 5)
-            print(f"  [Search 2] Retrieved {len(refine_results['documents'][0])} supplementary chunks.")
-            refine_context_parts = []
-            for j in range(len(refine_results['documents'][0])):
-                ctx = get_context_for_rank(refine_results, j, windowing=False, aggregate_mode=True)
-                meta = refine_results['metadatas'][0][j]
-                topic = meta.get('parent_summary', meta.get('table_summary', ''))[:100].replace('\n', ' ')
-                print(f"    - Refined Rank {j+1}: {topic}")
-                refine_context_parts.append(ctx)
+            # 1. Decomposition + HyDE
+            decomp = await decomposer.ask(original_query)
+            hyde = await hyde_agent.ask(original_query)
             
-            refine_context = "\n\n".join(refine_context_parts)
-            context += "\n\n=== ADDITIONAL CONTEXT ===\n\n" + refine_context
-        else:
-            print(f"\n  [Audit] COMPLETE. Context has sufficient information.")
+            print(f"  [Decomposer] Generated {len(decomp.sub_queries)} sub-queries: {decomp.sub_queries}")
+            print(f"  [HyDE] Excerpt: {hyde.hyde_text[:150]}...")
 
-        # 5. REPHRASE & GENERATE
-        # Include a strict warning about HyDE hallucination just like we did in routed evals
-        ref_q_prompt = (
-            f"Question: {query}\n"
-            f"Keywords: {decision.exact_match_keywords}\n"
-            f"HyDE Hint (DANGEROUS: DO NOT COPY FACTS OR NUMBERS FROM THIS): {decision.hyde_excerpt}"
-        )
-        ref_q = await rephrase_agent.ask(ref_q_prompt)
-        print(f"\n  [Rephrase] Thoughts: {ref_q.thoughts}")
-        print(f"  [Rephrase] Rewritten: {ref_q.rewritten_question}")
-        
-        gen_prompt = (
-            f"Question: {query}\n"
-            f"Clarification / Rephrased Focus: {ref_q.rewritten_question}\n\n"
-            f"Context:\n{context[:100000]}\n\n"
-            f"Answer the Question concisely based ONLY on the context. If it's not in the context, say 'I don't know'."
-        )
-        answer = await answer_agent.ask(gen_prompt)
-        print(f"\n  [Generator] Thoughts: {answer.thoughts[:200]}...")
-        print(f"  [Generated Answer]: {answer.final_answer}")
+            all_queries = [original_query] + decomp.sub_queries + [hyde.hyde_text]
 
-        # 6. FINAL JUDGE (Gen vs Golden)
-        eval_prompt = f"Question: {query}\nExpected: {expected_answer}\nGenerated: {answer.final_answer}\nIs it correct?"
-        verdict = await answer_judge.ask(eval_prompt)
-        
-        if verdict.is_correct:
-            total_correct += 1
-            print(f"  ✅ SUCCESS")
-        else:
-            print(f"  ❌ FAILED: {verdict.thoughts}")
+            # 2. Vector Search using specific encoder
+            all_embeddings = encoder.encode(all_queries, normalize_embeddings=True).tolist()
+            vector_results = collection.query(
+                query_embeddings=all_embeddings,
+                n_results=20,
+                include=['documents', 'metadatas']
+            )
 
-    print(f"\nFinal Score: {total_correct}/{len(dataset)} ({(total_correct/len(dataset))*100:.1f}%)")
+            # 3. BM25 Search
+            bm25_tokens = re.findall(r'\w+', " ".join(all_queries).lower())
+            bm25_scores = bm25_index.get_scores(bm25_tokens)
+            top_bm25_idx = sorted(range(len(bm25_scores)), key=lambda x: bm25_scores[x], reverse=True)[:20]
+
+            bm25_results = {
+                'documents': [[bm25_corpus_docs[mi] for mi in top_bm25_idx]],
+                'metadatas': [[bm25_corpus_metas[mi] for mi in top_bm25_idx]],
+                'ids': [[bm25_corpus_ids[mi] for mi in top_bm25_idx]]
+            }
+
+            # 4. RRF Merge
+            rrf_merged = reciprocal_rank_fusion(vector_results, bm25_results, k=30)
+            
+            total_vec = sum(len(x) for x in vector_results.get('ids', []))
+            total_bm25 = sum(len(x) for x in bm25_results.get('ids', []))
+            print(f"  [Retrieval] Vector returned {total_vec} hits. BM25 returned {total_bm25} hits. RRF merged to top {len(rrf_merged)} chunks.")
+
+            # 5. LLM Reranking (phi-4)
+            rerank_prompt = f"Original Question: {original_query}\n\nRank these chunks from most to least relevant. Return only ordered indices (0-based):\n"
+            rerank_lines = []
+            for idx, (cid, _) in enumerate(rrf_merged):
+                try:
+                    corpus_idx = bm25_corpus_ids.index(cid)
+                    doc = bm25_corpus_docs[corpus_idx]
+                except ValueError:
+                    doc = "Context details unavailable for this chunk."
+                rerank_lines.append(f"[{idx}] {doc[:500]}...")
+                
+            rerank_prompt += "\n".join(rerank_lines)
+            
+            reranked = await reranker.ask(rerank_prompt)
+            # Filter indices to ensure they are within the valid range of rrf_merged
+            valid_indices = [idx for idx in reranked.ranked_indices if 0 <= idx < len(rrf_merged)]
+            top_indices = valid_indices[:12]
+            print(f"  [Reranker] Filtered and kept the top {len(top_indices)} chunks for context window.")
+
+            # 6. Window Expansion with Deduplication
+            seen_parents = set()
+            context_parts = []
+            for rank_pos, idx in enumerate(top_indices):
+                cid = rrf_merged[idx][0]
+                # Find corresponding metadata
+                try:
+                    meta_idx = bm25_corpus_ids.index(cid)
+                    meta = bm25_corpus_metas[meta_idx]
+                    doc = bm25_corpus_docs[meta_idx]
+                except ValueError:
+                    continue
+                
+                parent_id = meta.get("parent_id", "")
+                
+                chunk_context = f"[Retrieval Rank {rank_pos+1}]\n"
+                if meta.get('parent_summary'): chunk_context += f"Section: {meta['parent_summary']}\n"
+                if meta.get('table_summary'): chunk_context += f"Table Focus: {meta['table_summary']}\n"
+                
+                # Strongly highlight the precise chunk that ranked highly
+                chunk_context += f"Exact Excerpt: {doc}\n"
+                
+                # Append full parent section only once per parent_id to prevent redundant token explosion
+                if parent_id and parent_id not in seen_parents:
+                    seen_parents.add(parent_id)
+                    parent_cursor.execute("SELECT content FROM parent_chunks WHERE id=?", (parent_id,))
+                    row = parent_cursor.fetchone()
+                    if row and row[0]:
+                        chunk_context += f"\nBroader Section Context:\n{row[0][:1500]}\n"
+                        
+                context_parts.append(chunk_context)
+
+            context = "\n\n---\n\n".join(context_parts)
+
+            # 7. Generate Initial Answer
+            answer_obj = await answer_agent.ask(
+                f"Question: {original_query}\n\nContext:\n{context}\n\nAnswer concisely using only the context."
+            )
+            initial_thoughts = answer_obj.thoughts
+            initial_answer_text = answer_obj.answer
+
+            # 8. Critic + Single Refinement Pass
+            critique = await critic.ask(
+                f"Original Question: {original_query}\n\nContext:\n{context}\n\nGenerated Answer: {initial_answer_text}\n\nIs this answer complete based on the Question and Context?"
+            )
+
+            final_thoughts = initial_thoughts
+            final_answer_text = initial_answer_text
+
+            if not critique.is_complete and critique.follow_up_query.strip():
+                YELLOW = "\033[0;33m"
+                RESET = "\033[0m"
+                print(f"  {YELLOW}[Critic Thoughts]: {critique.thoughts}{RESET}")
+                print(f"  {YELLOW}[Critic Follow-up]: {critique.follow_up_query}{RESET}")
+
+                # One additional retrieval
+                refine_embeddings = encoder.encode([critique.follow_up_query], normalize_embeddings=True).tolist()
+                refine_vector = collection.query(
+                    query_embeddings=refine_embeddings,
+                    n_results=10,
+                    include=['documents', 'metadatas']
+                )
+
+                refine_context_parts = []
+                for r_idx in range(len(refine_vector.get('ids', [[]])[0][:6])):
+                    doc = refine_vector['documents'][0][r_idx]
+                    meta = refine_vector['metadatas'][0][r_idx]
+                    refine_context_parts.append(f"Excerpt:\n{doc}\nSection Overview: {meta.get('parent_summary', '')}\n")
+                
+                refine_context = "\n\n".join(refine_context_parts)
+
+                supplemental_obj = await answer_agent.ask(
+                    f"Original Question: {original_query}\nFollow-up: {critique.follow_up_query}\n\nContext:\n{refine_context}\n\nProvide the missing information."
+                )
+
+                # Merge old and new
+                merged = await merger.ask(
+                    f"Original Answer: {initial_answer_text}\n\nNew Information: {supplemental_obj.answer}\n\nCombine them into one clear, complete final answer."
+                )
+                final_thoughts = merged.thoughts
+                final_answer_text = merged.answer
+
+            # Visual formatting for the final answer
+            GREEN_BOLD = "\033[1;32m"
+            CYAN = "\033[0;36m"
+            RESET = "\033[0m"
+            
+            print(f"\n{CYAN}THOUGHTS:{RESET}")
+            print(f"{CYAN}{final_thoughts}{RESET}")
+            print(f"\n{GREEN_BOLD}{'='*60}")
+            print(f"FINAL ANSWER:")
+            print(f"{final_answer_text}")
+            print(f"{'='*60}{RESET}\n")
+
+            # 9. Final Judge
+            verdict = await answer_judge.ask(
+                f"Question: {original_query}\nContext:\n{context}\n\nExpected Answer: {expected_answer}\nGenerated Answer: {final_answer_text}\nIs it correct?"
+            )
+
+            if verdict.is_correct:
+                total_correct += 1
+                print(f"  ✅ Correct\n  [Judge]: {verdict.thoughts}")
+            else:
+                print(f"  ❌ Incorrect\n  [Judge]: {verdict.thoughts}")
+                # Log failure to debug log
+                debug_info = f"Dataset: {dataset_name}\nQuestion: {original_query}\nExpected: {expected_answer}\nGenerated: {final_answer_text}\nJudge Thoughts: {verdict.thoughts}\n"
+                debug_log_file.write(f"{'#'*40}\n{debug_info}\n")
+                debug_log_file.flush()
+
+        except Exception as e:
+            print(f"  💥 ERROR processing question {i+1}: {e}")
+            query_text = item.get('question', 'Unknown') if isinstance(item, dict) else 'Unknown'
+            debug_log_file.write(f"{'#'*40}\nERROR on Question {i+1}: {query_text}\nException: {e}\n")
+            debug_log_file.flush()
+            continue
+
+    score_pct = (total_correct / total_questions * 100) if total_questions > 0 else 0
+    print(f"\nFinal Score for {dataset_name}: {total_correct}/{total_questions} ({score_pct:.1f}%)")
+    return total_correct, total_questions
 
 if __name__ == "__main__":
-    from dotenv import load_dotenv
-    os.chdir("/home/ouar/projects/agents/X_capstone_projects")
-    load_dotenv(override=True)
+    FILES_TO_RUN = [
+        "golden_dataset_original.json",
+        "golden_dataset_gemini.json",
+        "golden_dataset_grok.json",
+        "golden_dataset_phi.json"
+    ]
     
-    with open(os.path.join(SCRIPT_DIR, "golden_dataset_original.json"), 'r') as f:
-        dataset = json.load(f)
+    OUTPUT_LOG_PATH = os.path.join(SCRIPT_DIR, "eval_pre_release_output_log.txt")
+    SUM_LOG_PATH = os.path.join(SCRIPT_DIR, "eval_pre_release_sum_log.txt")
+    DEBUG_LOG_PATH = os.path.join(SCRIPT_DIR, "eval_pre_release_debug_log.txt")
     
-    asyncio.run(run_pre_release_eval(dataset[:10], "Short Test Run")) # Limit to 10 for test
+    # Open files
+    out_f = open(OUTPUT_LOG_PATH, "w")
+    sum_f = open(SUM_LOG_PATH, "w")
+    debug_f = open(DEBUG_LOG_PATH, "w")
+    
+    # Redirect stdout to both console and output log
+    original_stdout = sys.stdout
+    sys.stdout = MultiLogger(original_stdout, out_f)
+    
+    try:
+        sum_f.write("=== EVALUATION SUMMARY ===\n\n")
+        
+        for filename in FILES_TO_RUN:
+            file_path = os.path.join(SCRIPT_DIR, filename)
+            if not os.path.exists(file_path):
+                print(f"⚠️ Warning: File {filename} not found. Skipping.")
+                continue
+                
+            with open(file_path, 'r') as f:
+                dataset = json.load(f)
+            
+            # Run the eval
+            correct, total = asyncio.run(run_pre_release_eval(dataset, filename, debug_f))
+            
+            # Write to summary log
+            pct = (correct / total * 100) if total > 0 else 0
+            sum_f.write(f"{filename}: {correct}/{total} ({pct:.1f}%)\n")
+            sum_f.flush()
+            
+        print("\nAll evaluations complete.")
+        
+    finally:
+        sys.stdout = original_stdout
+        out_f.close()
+        sum_f.close()
+        debug_f.close()

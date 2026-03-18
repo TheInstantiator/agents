@@ -1,0 +1,108 @@
+Initializing databases...
+
+--- Searching for: How do death saving throws work? ---
+
+--- Top 3 Vector Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_8):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+for a Death Saving Throw, you suffer two failures. If
+you roll a 20 on the d20, you regain 1 Hit Point.
+_**Damage at 0 Hit Points.**_ If you take any damage
+while you have 0 Hit Points, you suffer a D...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_7):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+have the Unconscious condition (see “Rules Glossary”) until you regain any Hit Points, and you now
+face making Death Saving Throws (see below).  
+**Death Saving Throws**
+Whenever you start your turn w...
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_10):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+A Stable creature doesn’t make Death Saving
+Throws even though it has 0 Hit Points, but it still
+has the Unconscious condition. If the creature takes
+damage, it stops being Stable and starts making
+De...
+
+BM25 Tokens: ['how', 'do', 'death', 'saving', 'throws', 'work']
+
+--- Top 3 BM25 Search Results ---
+
+Result 1 (ID: 371143968f4537998af5502c02d2097b_parent_237_child_1, Score: 12.67):
+Type: text
+Parent Summary: Core Rules/Concepts of Magical Contagions in D&D: Magical contagions interrupt Long Rests, requiring creatures to make a DC 15 Constitution saving throw at the end of recuperation. Successful saves grant Advantage against the contagion for 24 hours. Examples include Cackle Fever and Sewer Plague, each with unique effects and methods of transmission. Creatures can fight off these contagions through repeated successful saving throws during Long Rests.
+Content:
+next 24 hours.  
+**Example Contagions**
+The following examples show how magical contagions can work. Feel free to alter the saving throw
+DCs, effects, and other characteristics of these contagions to ...
+
+Result 2 (ID: 371143968f4537998af5502c02d2097b_parent_0_child_3, Score: 10.09):
+Type: text
+Parent Summary: Legal Information: The System Reference Document 5.2 (SRD 5.2) is freely available under the Creative Commons Attribution 4.0 International License, allowing use with proper attribution to Wizards of the Coast LLC and a statement of compatibility with fifth edition Dungeons & Dragons. Users must adhere to the license's disclaimer of warranties and limitation of liability.
+Content:
+Please do not include any other attribution to Wizards or its parent or affiliates other than that provided
+above. You may, however, include a statement on your work indicating that it is “compatible ...
+
+Result 3 (ID: 371143968f4537998af5502c02d2097b_parent_230_child_9, Score: 9.96):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, a creature's Speed determines how far it can move per turn, with options for special speeds like Burrow, Climb, Fly, or Swim. Changes to a creature's base Speed affect its special speeds similarly. Spells are magical effects with specific characteristics and may involve spell attacks requiring attack rolls. Spellcasting Focuses allow certain creatures to substitute objects for non-consumable Material components of spells. A Sphere is an area effect extending outward from a point of origin, including the origin itself. Creatures can be Stable at 0 Hit Points without needing Death Saving Throws. Stat blocks provide detailed game statistics for monsters, including size, type, alignment, Armor Class (AC), Initiative, and Hit Points.
+Content:
+required to make Death Saving Throws. _See also_
+“Playing the Game” (“Damage and Healing”).  
+**Stat Block**
+A stat block contains the game statistics of a monster. Each stat block includes the follow...
+
+--- Top 5 RRF Merged Results ---
+
+Rank 1 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_7, RRF Score: 0.0318):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+have the Unconscious condition (see “Rules Glossary”) until you regain any Hit Points, and you now
+face making Death Saving Throws (see below).  
+**Death Saving Throws**
+Whenever you start your turn w...
+
+Rank 2 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_10, RRF Score: 0.0313):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+A Stable creature doesn’t make Death Saving
+Throws even though it has 0 Hit Points, but it still
+has the Unconscious condition. If the creature takes
+damage, it stops being Stable and starts making
+De...
+
+Rank 3 (ID: 371143968f4537998af5502c02d2097b_parent_26_child_8, RRF Score: 0.0167):
+Type: text
+Parent Summary: Core Rules/Concepts Summary: In D&D, damage type immunity means you don't take damage of a specific type, while immunity to a condition means it doesn't affect you. Healing restores hit points up to your maximum; excess healing is lost. Dropping to 0 hit points results in death or unconsciousness unless stabilized. Instant death can occur through monster death, a hit point maximum of 0, or massive damage exceeding the character's maximum. Characters at 0 hit points must make Death Saving Throws, with rolling a 1 resulting in two failures and a 20 restoring 1 hit point. Damage while at 0 hit points causes failure(s) in these throws, potentially leading to death if it equals or exceeds the maximum. A stable condition can be achieved through a successful Wisdom (Medicine) check, preventing further Death Saving Throws until healed.
+Content:
+for a Death Saving Throw, you suffer two failures. If
+you roll a 20 on the d20, you regain 1 Hit Point.
+_**Damage at 0 Hit Points.**_ If you take any damage
+while you have 0 Hit Points, you suffer a D...
+
+Rank 4 (ID: 371143968f4537998af5502c02d2097b_parent_237_child_1, RRF Score: 0.0167):
+Type: text
+Parent Summary: Core Rules/Concepts of Magical Contagions in D&D: Magical contagions interrupt Long Rests, requiring creatures to make a DC 15 Constitution saving throw at the end of recuperation. Successful saves grant Advantage against the contagion for 24 hours. Examples include Cackle Fever and Sewer Plague, each with unique effects and methods of transmission. Creatures can fight off these contagions through repeated successful saving throws during Long Rests.
+Content:
+next 24 hours.  
+**Example Contagions**
+The following examples show how magical contagions can work. Feel free to alter the saving throw
+DCs, effects, and other characteristics of these contagions to ...
+
+Rank 5 (ID: 371143968f4537998af5502c02d2097b_parent_0_child_3, RRF Score: 0.0164):
+Type: text
+Parent Summary: Legal Information: The System Reference Document 5.2 (SRD 5.2) is freely available under the Creative Commons Attribution 4.0 International License, allowing use with proper attribution to Wizards of the Coast LLC and a statement of compatibility with fifth edition Dungeons & Dragons. Users must adhere to the license's disclaimer of warranties and limitation of liability.
+Content:
+Please do not include any other attribution to Wizards or its parent or affiliates other than that provided
+above. You may, however, include a statement on your work indicating that it is “compatible ...
