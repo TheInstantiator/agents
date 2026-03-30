@@ -82,10 +82,8 @@ if __name__ == "__main__":
 
     for provider, models in models_dict.items():
         print(f"--- {provider.upper()} models ({len(models)} available) ---")
-        for model in models[:7]: # Show top 7 to keep terminal clean
+        for model in models:
             print(f"  {model}")
-        if len(models) > 7:
-            print(f"  ... and {len(models) - 7} more")
         print()
 
     print("--- Best Models by Job Type ---")

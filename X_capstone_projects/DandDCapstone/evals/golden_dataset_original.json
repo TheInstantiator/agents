@@ -54,11 +54,11 @@
   },
   {
     "question": "Can I cast two spells in the same turn?",
-    "expected_answer": "If you cast a spell as a bonus action, you can't cast another spell during the same turn, except for a cantrip with a casting time of 1 action.",
+    "expected_answer": "You can cast multiple spells in a single turn, but you cannot expend more than one spell slot per turn.",
     "keywords": [
-      "bonus action",
-      "cantrip",
-      "1 action"
+      "spell slot",
+      "one per turn",
+      "multiple"
     ],
     "category": "nuanced_rule"
   },

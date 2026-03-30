@@ -1,2 +1,5 @@
 === EVALUATION SUMMARY ===
 
+golden_dataset_original.json: 90/108 (83.3%)
+golden_dataset_gemini.json: 83/100 (83.0%)
+golden_dataset_grok.json: 71/88 (80.7%)

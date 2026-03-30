@@ -1,6 +1,7 @@
 import os
 import time
 import json
+import re
 from typing import List, Dict, Type, Optional
 from pydantic import BaseModel, Field
 import litellm
@@ -70,64 +71,96 @@ class CoreAgent:
                     return params
         raise ValueError(f"Agent {agent_name} not found in config {abs_config_path}")
 
-    async def ask(self, user_input: str) -> BaseModel | str:
+    def _clean_json_output(self, text: str) -> str:
+        """Extract JSON from potential markdown blocks or surrounding text."""
+        # 1. Try stripping markdown blocks
+        json_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL | re.IGNORECASE)
+        if json_match:
+            return json_match.group(1)
+            
+        # 2. Try finding the first { and last }
+        first_brace = text.find("{")
+        last_brace = text.rfind("}")
+        if first_brace != -1 and last_brace != -1 and last_brace > first_brace:
+            return text[first_brace:last_brace+1]
+            
+        return text
+
+    async def ask(self, user_input: str, response_model: Optional[Type[BaseModel]] = None, max_retries: int = 3) -> BaseModel | str:
         """
         The main generation loop (Phase 1).
         Takes the user input, combines it with the system prompt, and calls the LLM.
         """
+        # Determine which response model to use (specific call vs default)
+        active_model = response_model if response_model is not None else self.response_model
+
         # 1. Update Working Memory
         self.working_memory.append({"role": "user", "content": user_input})
         
+        # Inject strict JSON schema adherence directly into the core system prompt
+        dynamic_prompt = self.system_prompt
+        if active_model:
+            schema_str = json.dumps(active_model.model_json_schema())
+            dynamic_prompt += f"\n\nYou MUST output valid JSON that strictly conforms to this JSON schema. Do not deviate from the field types (e.g., if it asks for a list of strings, do NOT output a list of objects). Do not add any extra fields or text:\n{schema_str}"
+        
         # 2. Build the Payload
-        payload = [{"role": "system", "content": self.system_prompt}] + self.working_memory
+        payload = [{"role": "system", "content": dynamic_prompt}] + self.working_memory
 
         # 3. Prepare Litellm Arguments
         generate_kwargs = self.litellm_kwargs.copy()
         generate_kwargs["messages"] = payload
         
         # Enforce JSON structure if a Pydantic model was provided
-        if self.response_model:
-            generate_kwargs["response_format"] = self.response_model
+        if active_model:
+            generate_kwargs["response_format"] = { "type": "json_object" }
             
         # 4. Call the LLM (Async)
-        print(f"[{generate_kwargs['model']}] Thinking...")
-        
-        start_time = time.time()
-        response = await litellm.acompletion(**generate_kwargs)
-        self.total_response_time += (time.time() - start_time)
-        
-        # Accumulate Tokens and Cost
-        try:
-            run_cost = litellm.completion_cost(completion_response=response)
-            if run_cost:
-                self.cost += run_cost
-            if response.usage and hasattr(response.usage, 'total_tokens'):
-                self.tokens_used += response.usage.total_tokens
-        except Exception:
-            pass
+        for attempt in range(max_retries):
+            print(f"[{generate_kwargs['model']}] Thinking..." + (f" (Attempt {attempt+1}/{max_retries})" if attempt > 0 else ""))
             
-        raw_output = response.choices[0].message.content
-        
-        # 5. Parse, Validate, and return the result
-        if self.response_model:
-            parsed_output = self.response_model.model_validate_json(raw_output)
+            start_time = time.time()
+            response = await litellm.acompletion(**generate_kwargs)
+            self.total_response_time += (time.time() - start_time)
             
-            # Save the raw JSON string to memory for context continuity
-            self.working_memory.append({"role": "assistant", "content": raw_output})
-            
-            if self.one_shot:
-                self.working_memory.clear()
+            # Accumulate Tokens and Cost
+            try:
+                run_cost = litellm.completion_cost(completion_response=response)
+                if run_cost:
+                    self.cost += run_cost
+                if response.usage and hasattr(response.usage, 'total_tokens'):
+                    self.tokens_used += response.usage.total_tokens
+            except Exception:
+                pass
                 
-            return parsed_output
+            raw_output = response.choices[0].message.content
             
-        else:
-            # Fallback for completely unstructured text
-            self.working_memory.append({"role": "assistant", "content": raw_output})
+            # 5. Parse, Validate, and return the result
+            if active_model:
+                cleaned_output = self._clean_json_output(raw_output)
+                try:
+                    parsed_output = active_model.model_validate_json(cleaned_output)
+                    
+                    self.working_memory.append({"role": "assistant", "content": raw_output})
+                    if self.one_shot: self.working_memory.clear()
+                    
+                    return parsed_output
+                except Exception as e:
+                    print(f"Error validating JSON: {e}\nRaw Output: {raw_output}")
+                    if attempt == max_retries - 1:
+                        raise e
+                    else:
+                        print(f"Retrying {self.agent_id} JSON generation...")
+                        # Append the failure to the context so it corrects itself
+                        generate_kwargs["messages"].append({"role": "assistant", "content": raw_output})
+                        generate_kwargs["messages"].append({"role": "user", "content": f"You output invalid JSON. Error: {e}. Please strictly adhere to the JSON schema."})
+                        continue
             
-            if self.one_shot:
-                self.working_memory.clear()
+            else:
+                # Fallback for completely unstructured text
+                self.working_memory.append({"role": "assistant", "content": raw_output})
+                if self.one_shot: self.working_memory.clear()
                 
-            return raw_output
+                return raw_output
 
 # --- PHASE 1 TEST BLOCK ---
 if __name__ == "__main__":

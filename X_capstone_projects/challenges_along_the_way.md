@@ -94,20 +94,58 @@ We changed the evaluation logic to **Accumulate Evidence within a Question**.
 
 ---
 
-## 8. Current Accuracy & Architecture Summary
+---
+
+## 9. The Class Feature "Ghost Table" (Regex Anchoring Issue)
+
+**The Problem:**
+While weapon tables were being caught, **Class Feature tables** (Monk, Barbarian, Paladin) were being completely ignored. For example, a Monk row looks like:  
+`15 +5 Perfect Focus 1d10 15 +25 ft.`
+
+**Why It Happened:**
+The original "Ghost Table" regex was anchored to the end of the line (`$`) and expected a digit as the final character. Because class features have descriptive text (`Perfect Focus`) and units (`ft.`) at the end of the row, the detector failed silently. This caused these tables to be split into unsearchable 300-char fragments.
+
+**How We Overcame It:**
+1. **Flexible Regex:** Updated `is_ghost_row` to `^\d+\s+[+−-]\d+(\s+|$)`, focusing only on the `Level + Proficiency` signature at the start of the line.
+2. **Header Lookback:** Updated the extractor to look back 3 lines when a row is found to "grab" the column headers (e.g., *Focus Points*, *Martial Arts Die*), ensuring the LLM has context for the prose conversion.
+
+---
+
+## 10. The Markdown JSON Parsing Failure
+
+**The Problem:**
+Small but capable models (like `phi-4`) often wrap their structured output in markdown code blocks (e.g., ` ```json ... ``` `) even when explicitly told not to. This caused Pydantic's `model_validate_json` to crash.
+
+**How We Overcame It:**
+We implemented a **Robust JSON Extractor** in `core_agent.py`. Before parsing, the agent now:
+1. Strips out markdown code blocks using regex.
+2. If that fails, it finds the first `{` and last `}` and crops everything else.
+This allows the pipeline to remain stable even if the LLM adds polite preamble or markdown formatting.
+
+---
+
+## 11. The "Interesting Fact" Hallucination Trigger
+
+**The Problem:**
+The Critic agent was occasionally encouraging the pipeline to add "interesting facts" from its own internal knowledge if the rulebook was sparse. This caused "Relentless Rage" to hallucinate a "Disadvantage on Perception" mechanic that doesn't exist in the ruleset.
+
+**How We Overcame It:**
+We moved to **Zero-Tolerance Grounding**. We removed all "interesting facts" suggestions and updated the System Prompts for both the Critic and Answer Generator to explicitly reject any information not found in the provided `Context`. We now enforce an "I don't know" policy over "educated guesses."
+
+---
+
+## 12. Current Accuracy & Architecture Summary
 
 #### **The Implementation (Multi-Vector Hierarchical RAG)**
-*   **Parent Chunks:** 3,000 chars each (Page-level context).
-*   **Child Chunks:** 300 chars each (Embedded for high-precision retrieval).
-*   **Prose Conversion:** Automated LLM transformation of tabular data into searchable sentences.
-*   **Hybrid Retrieval:** BM25 (Exact keywords) + BGE-Large (Semantic vectors).
-*   **Re-Ranking:** `ms-marco-MiniLM` with a +10.0 score boost for exact keyword matches.
-*   **Incremental Judge:** A "Strict Judge" that checks hits one-by-one and can accumulate evidence.
+*   **Parent Chunks:** 4,000 chars each (Sectional context).
+*   **Child Chunks:** 300 chars each (High-precision retrieval).
+*   **Agentic Prose conversion:** LLM transformation of dense tables into searchable, descriptive sentences.
+*   **Robust Parsing:** Extraction logic to handle markdown-wrapped JSON.
 
-#### **Performance Metrics (As of March 11, 2026)**
-With Table Prose conversion and strict Judge weighting:
-*   **Longsword Fact Retrieval:** Rank 1 (MRR 1.0)
-*   **Vampire Weaknesses:** Success (via evidence accumulation)
-*   **Bag of Beans Tables:** Success (via context windowing)
+#### **Performance Metrics (As of March 24, 2026)**
+*   **Weapon Costs:** success (Rank 1)
+*   **Monk Focus Points:** success (via Class Feature Table detection)
+*   **Barbarian Relentless Rage:** Fixed (Hallucinations removed via strict grounding)
+*   **JSON Stability:** 100% (phi-4 now parses correctly regardless of backticks)
 
-The current pipeline represents a state-of-the-art approach to handling dense, structured technical documentation with affordable local hardware.
+The current pipeline represents a significant jump in robustness, handling not just standard tables but also the complex, text-heavy grids common in RPG rulesets.

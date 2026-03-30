@@ -37,6 +37,7 @@ class TableSummary(BaseModel):
     summary: str = Field(description="A 1-sentence summary.")
 
 class ParentSummary(BaseModel):
+    thoughts: str = Field(default="", description="Internal reasoning.")
     title: str = Field(description="A short descriptive title for this section.")
     summary: str = Field(description="A 1-2 sentence overview of what this section explains.")
 
@@ -47,16 +48,31 @@ class TableRowProse(BaseModel):
 # ========================= LLM HELPERS =========================
 async def summarize_content(agent: CoreAgent, text: str, mode: str = "table") -> BaseModel:
     if mode == "table":
-        prompt = f"Summarize what this data table lists in 1 sentence:\n\n{text[:2000]}"
+        prompt = (
+            f"Summarize what this data table lists in exactly ONE sentence.\n"
+            f"Output ONLY the required JSON fields 'thoughts' and 'summary'. "
+            f"Do NOT create an index, nested dictionary, or list.\n\n{text[:2000]}"
+        )
         response_model = TableSummary
     else:
-        prompt = f"Summarize the core rules/concepts in this D&D rulebook snippet in 1-2 sentences. Be very concise:\n\n{text[:3000]}"
+        # Parent chunk summary
+        prompt = (
+            f"Summarize the core rules/concepts in this D&D rulebook snippet in exactly ONE sentence. "
+            f"Output ONLY the required JSON fields 'thoughts', 'title', and 'summary'. "
+            f"Do NOT create an index, nested dictionary, or list of items. Snippet:\n{text[:3000]}"
+        )
         response_model = ParentSummary
         
     old_model = agent.response_model
     agent.response_model = response_model
     try:
         return await agent.ask(prompt)
+    except Exception as e:
+        print(f"⚠️ LLM generation failed for {mode} summary. Providing fallback. Error: {e}")
+        if mode == "table":
+            return TableSummary(summary="A table containing D&D data.")
+        else:
+            return ParentSummary(title="D&D Rules Section", summary="A section of the D&D ruleset.")
     finally:
         agent.response_model = old_model
 
@@ -101,11 +117,16 @@ async def convert_table_to_prose_rows(agent: CoreAgent, table_text: str) -> list
     try:
         prompt = (
             f"Convert each DATA ROW in this D&D table into a single natural-language sentence.\n"
-            f"Include all important values. Skip headers and separators.\n\n"
+            f"Include all important values. Skip headers and separators.\n"
+            f"Output ONLY the required JSON fields 'thoughts' and 'prose_rows'. "
+            f"Do NOT create a nested dictionary where keys are table items.\n\n"
             f"Table:\n{table_text[:3000]}"
         )
         response = await agent.ask(prompt)
         return response.prose_rows if response.prose_rows else []
+    except Exception as e:
+        print(f"⚠️ LLM generation failed for table prose conversion. Returning empty list. Error: {e}")
+        return []
     finally:
         agent.response_model = old_model
 
@@ -116,16 +137,25 @@ def extract_tables_from_markdown(text: str) -> list[str]:
     current_table = []
     empty_count = 0
 
-    for line in lines:
+    def is_row(line):
         cleaned = line.strip()
         is_md_table = line.count('|') >= 2
-        is_ghost_row = bool(re.search(r'^\d+.*\s+[+−-]\d+$', cleaned)) or \
+        is_ghost_row = bool(re.search(r'^\d+\s+[+−-]\d+(\s+|$)', cleaned)) or \
                        bool(re.search(r'\d+(?:d\d+)?', cleaned) and re.search(r'\b(GP|SP|CP)\b', cleaned, re.I))
+        return is_md_table or is_ghost_row
 
-        if is_md_table or is_ghost_row:
+    for i, line in enumerate(lines):
+        if is_row(line):
+            # If this is the start of a new table, try to grab the header lines above it
+            if not current_table:
+                # Look back up to 3 lines for headers/titles
+                for j in range(max(0, i-3), i):
+                    prev_line = lines[j].strip()
+                    if prev_line and not is_row(lines[j]):
+                        current_table.append(lines[j])
             current_table.append(line)
             empty_count = 0
-        elif cleaned == "" and current_table:
+        elif line.strip() == "" and current_table:
             empty_count += 1
             if empty_count > 1:
                 if len([l for l in current_table if l.strip()]) > 2:
@@ -135,9 +165,14 @@ def extract_tables_from_markdown(text: str) -> list[str]:
             else:
                 current_table.append(line)
         else:
-            if current_table and len([l for l in current_table if l.strip()]) > 2:
-                tables.append('\n'.join(current_table))
-            current_table = []
+            if current_table:
+                # Check if the next line is a row. If so, keep this line
+                if i + 1 < len(lines) and is_row(lines[i+1]):
+                    current_table.append(line)
+                else:
+                    if len([l for l in current_table if l.strip()]) > 2:
+                        tables.append('\n'.join(current_table))
+                    current_table = []
             empty_count = 0
 
     if current_table and len([l for l in current_table if l.strip()]) > 2:

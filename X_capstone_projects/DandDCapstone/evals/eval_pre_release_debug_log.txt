@@ -1,0 +1,494 @@
+########################################
+Dataset: golden_dataset_original.json
+Question: How do death saving throws work?
+Expected: Whenever you start your turn with 0 hit points, you must make a special saving throw. Roll a d20: 10 or higher is a success, 9 or lower is a failure. On your third success, you become stable. On your third failure, you die.
+Generated: A character must make a death saving throw whenever they start their turn with 0 Hit Points. Rolling a 1 results in a failure, while rolling a 20 allows the character to regain 1 Hit Point. Characters need two successes or three failures to either stabilize or die, respectively.
+Judge Thoughts: The generated answer provides an incorrect description of how death saving throws work compared to the expected answer. The expected answer states that a roll of 10 or higher is a success and 9 or lower is a failure, with stabilization occurring after three successes and death after three failures. However, the generated answer incorrectly describes rolling a 1 as a failure and rolling a 20 as regaining 1 Hit Point, which does not align with the expected mechanics. Additionally, it states that two successes are needed to stabilize, whereas the correct requirement is three successes.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What is the effect of the Indigo layer of a Prismatic Wall, and what can destroy it?
+Expected: A creature failing the save against the Indigo layer is Restrained and must make Constitution saves to avoid being Petrified. The layer is destroyed by Bright Light shed by the Daylight spell.
+Generated: The effect of the Indigo layer of a Prismatic Wall is that the target has the Restrained condition and must make a Constitution saving throw at the end of each turn. It can be destroyed by taking at least 25 Fire damage.
+Judge Thoughts: The generated answer correctly identifies that a creature failing the save against the Indigo layer is Restrained and must make Constitution saves, which aligns with the expected answer. However, it incorrectly states that the layer can be destroyed by taking at least 25 Fire damage instead of Bright Light from the Daylight spell as specified in the expected answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: How many Exhaustion levels does a creature automatically gain after eating nothing for 5 days?
+Expected: The creature automatically gains 1 Exhaustion level at the end of the fifth day, plus an additional level at the end of each subsequent day without food.
+Generated: A creature automatically gains 2 Exhaustion levels after eating nothing for 5 days.
+Judge Thoughts: The expected answer specifies that a creature gains 1 Exhaustion level at the end of the fifth day and an additional level at the end of each subsequent day without food. The generated answer states that a creature automatically gains 2 Exhaustion levels after eating nothing for 5 days, which does not align with the detailed progression described in the expected answer. Therefore, the generated answer is factually incorrect as it oversimplifies the process and misrepresents the timing of gaining Exhaustion levels.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: How many Focus Points does a level 15 Monk have?
+Expected: A level 15 Monk has 15 Focus Points.
+Generated: A level 15 Monk can regain expended Focus Points until they have 4 if they have 3 or fewer.
+Judge Thoughts: The expected answer states that a level 15 Monk has 15 Focus Points. The generated answer discusses how a Monk can regain expended Focus Points, but does not directly state the number of Focus Points a level 15 Monk possesses. Therefore, it lacks the core factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What is the requirement to use the Iron Horn of Valhalla without being attacked by the summoned spirits?
+Expected: You must have proficiency with all Martial weapons.
+Generated: To use the Bronze type of the Iron Horn of Valhalla without being attacked by the summoned spirits, one must have Training with all Simple weapons.
+Judge Thoughts: The expected answer specifies that proficiency with all Martial weapons is required to use the Iron Horn of Valhalla without being attacked. The generated answer mentions having training with all Simple weapons, which does not match the requirement for Martial weapons as stated in the expected answer. Therefore, the core factual information does not align.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: How does the Paralyzed condition affect incoming attack rolls and hits?
+Expected: Attack rolls against the paralyzed creature have Advantage, and any attack roll that hits is a Critical Hit if the attacker is within 5 feet.
+Generated: Attack rolls against a creature with the Paralyzed condition have Advantage.
+Judge Thoughts: The generated answer states that attack rolls against a paralyzed creature have Advantage, which matches part of the expected answer. However, it omits the additional information that any attack roll that hits is a Critical Hit if the attacker is within 5 feet. Therefore, the generated answer does not fully capture all the core factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: How many charges does it cost to cast Plane Shift using a Cubic Gate?
+Expected: It costs 1 charge (activated by pressing one side of the cube twice).
+Generated: I don't know
+Judge Thoughts: The generated answer 'I don't know' does not provide any factual information about the cost in charges to cast Plane Shift using a Cubic Gate. The expected answer specifies that it costs 1 charge, activated by pressing one side of the cube twice. Since the generated answer lacks this specific detail, it is factually incorrect.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What illusion is created if you roll a 70-72 on the Deck of Illusions table?
+Expected: A Medusa.
+Generated: I don't know
+Judge Thoughts: The expected answer specifies that rolling a 70-72 on the Deck of Illusions table creates a 'Medusa' illusion. The generated answer is 'I don't know,' which does not provide any factual information about what illusion is created by those rolls. Therefore, it lacks the core factual content required to match the expected answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: When climbing or crawling in Difficult Terrain, how much does each foot of movement cost?
+Expected: Each foot of movement costs 2 extra feet.
+Generated: In Difficult Terrain, every foot of movement costs an additional 1 foot according to the standard rule; there is no further specified additional cost per foot.
+Judge Thoughts: The expected answer states that each foot of movement in Difficult Terrain costs 2 extra feet. The generated answer, however, mentions that each foot of movement costs an additional 1 foot according to the standard rule and does not specify any further cost per foot. Therefore, the factual information regarding the cost per foot in Difficult Terrain does not match between the expected and generated answers.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: How does the Restrained condition affect a creature's saving throws?
+Expected: The creature has Disadvantage on Dexterity saving throws.
+Generated: The provided context does not specify how the Restrained condition affects a creature's saving throws.
+Judge Thoughts: The expected answer states that the Restrained condition causes a creature to have Disadvantage on Dexterity saving throws. The generated answer indicates that there is no information provided about how the Restrained condition affects saving throws, which means it does not confirm or deny the specific effect mentioned in the expected answer. Therefore, the core factual information required by the expected answer is missing from the generated answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What is the Sneak Attack die cost for a Rogue's Obscure Cunning Strike effect, and what saving throw does it force the target to make?
+Expected: The die cost is 3d6, and it forces the target to make a Dexterity saving throw to avoid the Blinded condition.
+Generated: The Sneak Attack die cost for a Rogue's Obscure Cunning Strike effect is 3d6, and it forces the target to make a Dexterity saving throw.
+Judge Thoughts: The generated answer states that the Sneak Attack die cost is 3d6 and mentions that it forces the target to make a Dexterity saving throw. The expected answer specifies that this saving throw is for avoiding the Blinded condition. While the generated answer does not explicitly mention the Blinded condition, it correctly identifies the type of saving throw (Dexterity) and the die cost (3d6). Since the core factual information about the die cost and the type of saving throw matches, but lacks the specific detail about the Blinded condition, we need to determine if this omission affects the correctness. The key elements are present, but not fully detailed as in the expected answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What effect does moving Lever 8 on the Apparatus of the Crab have?
+Expected: Moving it up causes the eyelike fixtures to emit Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. Moving it down turns the light off.
+Generated: Moving Lever 8 on the Apparatus of the Crab extends two claws from the front side when moved up and retracts them when moved down. Additionally, this lever provides resistance to Psychic damage.
+Judge Thoughts: The expected answer focuses solely on the lighting effects caused by moving Lever 8: emitting Bright Light in a 30-foot radius and Dim Light for an additional 30 feet when moved up, and turning off the light when moved down. The generated answer instead describes mechanical actions (extending/retracting claws) and resistance to Psychic damage, which are not mentioned in the expected answer. Therefore, the core factual information about lighting effects is missing from the generated response.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What material components are required to cast the True Polymorph spell?
+Expected: A drop of mercury, a dollop of gum arabic, and a wisp of smoke.
+Generated: The material components required to cast the True Polymorph spell include a bit of fur or hair from the creature you intend to transform into.
+Judge Thoughts: The expected answer lists specific material components for casting the True Polymorph spell: a drop of mercury, a dollop of gum arabic, and a wisp of smoke. The generated answer provides different components: a bit of fur or hair from the creature you intend to transform into. Since these two sets of components do not match, the factual information in the generated answer does not align with that in the expected answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What happens if a Humanoid is reduced to 0 Hit Points by a Shadow's Draining Swipe attack?
+Expected: The target dies, and a Shadow rises from the corpse 1d4 hours later.
+Generated: If a Humanoid is reduced to 0 Hit Points by a Shadow's Draining Swipe attack, they fall unconscious unless their Strength score is also reduced to 0, in which case they die.
+Judge Thoughts: The expected answer states that when a Humanoid is reduced to 0 Hit Points by a Shadow's Draining Swipe attack, the target dies and a Shadow rises from the corpse 1d4 hours later. The generated answer, however, introduces additional conditions (falling unconscious unless Strength score is also reduced to 0) which are not mentioned in the expected answer. Therefore, the core factual information about death and the rise of a Shadow is missing from the generated response.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What is the Armor Class of an Iron Golem?
+Expected: An Iron Golem has an Armor Class of 20.
+Generated: The Armor Class of an Iron Golem is 18.
+Judge Thoughts: The expected answer states that the Armor Class of an Iron Golem is 20. However, the generated answer provides a different value, stating it as 18. Since the factual information in the generated answer does not match the expected answer, it is incorrect.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What is required to destroy the Blue layer of a Prismatic Wall?
+Expected: The Blue layer is destroyed if it takes at least 25 Fire damage.
+Generated: A _Passwall_ spell, or another spell of equal or greater level that can open a portal on a solid surface, destroys this layer.
+Judge Thoughts: The expected answer specifies that the Blue layer of a Prismatic Wall is destroyed by taking at least 25 Fire damage. The generated answer mentions using a _Passwall_ spell or another spell of equal or greater level to destroy this layer, but it does not mention anything about fire damage. Therefore, the core factual information required by the expected answer (i.e., destruction via fire damage) is missing in the generated answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What happens when the last charge of a Staff of the Magi is expended and you roll a 1 on the 1d20 check?
+Expected: The staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties.
+Generated: If you expend the last charge and roll a 1 on the 1d20 check, a swarm of insects will consume and destroy the staff, then disperse.
+Judge Thoughts: The expected answer states that when the last charge is expended and a 1 is rolled, the Staff of the Magi retains its +2 bonus to attack rolls and damage rolls but loses all other properties. The generated answer describes an entirely different outcome where the staff is consumed and destroyed by insects. Therefore, the factual information in the generated answer does not match the expected answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What happens to a creature that draws the 'Skull' card from the Mysterious Deck?
+Expected: An Avatar of Death appears and targets only that creature with its attacks. If an ally interferes and damages the avatar, they summon their own Avatar of Death.
+Generated: An Avatar of Death appears in an unoccupied space as close to a creature as possible when that creature draws the 'Skull' card from the Mysterious Deck. It targets only that specific creature. The Avatar remains until found and removed from its sphere, and cannot be located by any Divination magic except with a _Wish_ spell. It is a medium undead creature with AC 20, Initiative +3 (13), HP equal to half the maximum HP of its summoner, Speeds of 60 ft. and Fly 60 ft., and immunities to Necrotic, Poison, Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned, Unconscious, and Truesight 60 ft. It has a Passive Perception of 13 and knows all languages known to its summoner. Its traits include Incorporeal Movement, and it can perform actions such as Multiattack with Reaping Scythe attacks.
+Judge Thoughts: The generated answer provides a detailed description of what happens when an Avatar of Death appears due to drawing the 'Skull' card, including its characteristics and abilities. The expected answer focuses on the appearance of the Avatar of Death targeting only that creature with its attacks and mentions the consequence if an ally interferes by summoning their own Avatar of Death. While the generated answer includes additional details about the Avatar's attributes, it does not contradict or omit the core factual information from the expected answer regarding the initial appearance and targeting behavior of the Avatar of Death. However, it lacks mention of the specific condition where an ally interfering results in them summoning their own Avatar of Death.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A Level 11 Fighter with the Two Extra Attacks feature wields two Shortswords and uses the Nick mastery property. How many attacks can they make in one turn when taking the Attack action, without using a Bonus Action?
+Expected: Four attacks. The Attack action grants three attacks due to Two Extra Attacks, and the Nick mastery property allows the extra attack from the Light property to be made as part of the Attack action instead of a Bonus Action.
+Generated: A Level 11 Fighter with the Two Extra Attacks feature can make three attacks in one turn when taking the Attack action by wielding two shortswords and utilizing the Nick mastery property, without needing to use a Bonus Action.
+Judge Thoughts: The expected answer states that the fighter makes four attacks: three from the Two Extra Attacks feature and one additional attack due to the Nick mastery property allowing the Light weapon's extra attack to be made as part of the Attack action. The generated answer only mentions making three attacks, without acknowledging the fourth attack enabled by the Nick mastery property. Therefore, the generated answer does not include all the core factual information required.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A party travels 40 miles entirely through mountainous terrain. Assuming no special movement modes, how many hours does this journey take, and what is the Constitution saving throw DC at the end of the final hour of travel to avoid exhaustion?
+Expected: It takes 20 hours. Mountains restrict the maximum pace to Slow (2 miles per hour). For travel beyond 8 hours, characters must make a Constitution saving throw each additional hour. At 20 hours, it's 12 hours past the limit. The DC is 10 plus 1 per hour past 8 hours, making the final DC 22.
+Generated: The duration of the journey in mountainous terrain is unspecified due to a lack of travel speed information. However, it is noted that at the end of each hour beyond 8 hours, the Constitution saving throw DC increases by '10 plus 1 for each hour past 8 hours.'
+Judge Thoughts: The generated answer does not provide a specific duration for the journey, which is crucial to determining the final Constitution saving throw DC. The expected answer specifies that it takes 20 hours due to the travel speed of 2 miles per hour in mountainous terrain. Without this information, we cannot accurately calculate the DC at the end of the final hour of travel. Therefore, the generated answer lacks the core factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A Level 14 Druid (Circle of the Land) attempts to use Wild Shape to turn into a Giant Crocodile. Can they do this, and if so, how many hours can they remain in that form?
+Expected: No, they cannot. While a Level 14 Druid can normally stay in Wild Shape for 7 hours, the Giant Crocodile is a CR 5 Beast. The maximum Challenge Rating for a Druid's Wild Shape form is CR 1.
+Generated: A Level 14 Druid can use Wild Shape to turn into a Giant Crocodile because its Challenge Rating (CR) of 5 is within the allowable range for known forms at that level. The Druid can remain in this form for up to one hour.
+Judge Thoughts: The expected answer states that a Level 14 Druid cannot turn into a Giant Crocodile using Wild Shape because its CR of 5 exceeds the maximum allowable CR of 1. The generated answer incorrectly claims that a Giant Crocodile's CR is within the allowable range and allows transformation, which contradicts the core factual information in the expected answer. Additionally, the duration mentioned in the generated answer (one hour) does not align with the expected seven hours for forms within the allowable CR range.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: In combat, a Black Pudding is hit by a nonmagical Longsword and then fails its save against a Level 3 Lightning Bolt spell. If it had 50 Hit Points and was Large size, what reactions does it take and what are the effects on the Longsword?
+Expected: The Longsword takes a -1 penalty to its attack rolls due to Corrosive Form. This slashing damage triggers the Pudding's Split reaction, creating two Medium Black Puddings. The Lightning Bolt deals no damage because the Black Pudding has Immunity to Lightning, and since it already used its single Reaction to split from the Longsword hit, it cannot split again.
+Generated: When hit by a nonmagical Longsword, the Black Pudding takes a cumulative -1 penalty to the Longsword's attack rolls. If it fails its save against a Level 3 Lightning Bolt spell, it splits into two smaller puddings, each one size smaller than the original and acting on its own initiative.
+Judge Thoughts: The generated answer correctly identifies that the Black Pudding takes a -1 penalty to the Longsword's attack rolls due to Corrosive Form. It also accurately states that failing its save against a Level 3 Lightning Bolt spell triggers the Split reaction, resulting in two smaller puddings. However, it omits the fact that the Lightning Bolt deals no damage because of the Black Pudding's immunity to lightning and clarifies that the single Reaction used for splitting prevents another split from occurring due to the failed save against the Lightning Bolt.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A Level 6 Paladin with a Charisma score of 18 is standing 5 feet from a Level 10 Fighter. An enemy spell forces both to make a Dexterity saving throw. The Fighter rolls a 12 and has a Dexterity modifier of +2. Does the Fighter succeed if the spell's save DC is 16?
+Expected: Yes. The Fighter's base save is 14 (12 + 2). Because the Paladin is within 10 feet, their Aura of Protection grants allies a bonus equal to the Paladin's Charisma modifier (+4). The Fighter's total save is 18, which exceeds the DC 16.
+Generated: The Fighter does not succeed on the Dexterity saving throw because their total Dexterity score including modifiers is 14, which is lower than the required Difficulty Class (DC) of 16.
+Judge Thoughts: The expected answer calculates the Fighter's total save as follows: base roll (12) + Dexterity modifier (+2) = 14. The Paladin's Aura of Protection adds a bonus equal to their Charisma modifier (+4), resulting in a final save of 18, which exceeds the DC of 16. Therefore, the Fighter succeeds. However, the generated answer incorrectly states that the Fighter does not succeed and fails to include the Paladin's Aura of Protection bonus, leading to an incorrect conclusion.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: At what Barbarian level does the Rage Damage bonus increase to +3?
+Expected: Level 9.
+Generated: The Rage Damage bonus for Barbarians increases to +3 starting at level 11.
+Judge Thoughts: The expected answer states that the Rage Damage bonus increases to +3 at level 9, while the generated answer claims it starts at level 11. These two levels are different, indicating a factual discrepancy between the expected and generated answers.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: How much extra Radiant or Necrotic damage does a Cleric deal with the Divine Strike option of the Improved Blessed Strikes feature at level 14?
+Expected: 2d8 extra damage.
+Generated: A Cleric using Divine Strike with Improved Blessed Strikes at level 14 deals an extra 1d8 Necrotic or Radiant damage, as there is no specified increase in damage for this feature at that level.
+Judge Thoughts: The expected answer states that a Cleric deals '2d8 extra damage' with Divine Strike and Improved Blessed Strikes at level 14. The generated answer, however, mentions only '1d8 Necrotic or Radiant damage,' indicating no increase in damage for this feature at that level. Therefore, the factual information regarding the amount of extra damage does not match between the expected and generated answers.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: How many Focus Points does a Level 5 Monk have?
+Expected: 5 Focus Points.
+Generated: I don't know.
+Judge Thoughts: The expected answer states that a Level 5 Monk has 5 Focus Points. The generated answer is 'I don't know,' which does not provide any factual information about the number of Focus Points for a Level 5 Monk. Therefore, it does not match the expected answer factually.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What benefit does the Grappler feat grant when you hit a creature with an Unarmed Strike as part of the Attack action?
+Expected: You can use both the Damage and the Grapple option on the target, but only once per turn.
+Generated: The Grappler feat grants Attack Advantage on attack rolls against a creature grappled by you when you hit it with an Unarmed Strike as part of the Attack action.
+Judge Thoughts: The expected answer specifies that the Grappler feat allows using both the Damage and the Grapple option on a target once per turn when hitting it with an Unarmed Strike as part of the Attack action. The generated answer, however, mentions that the Grappler feat grants Attack Advantage on attack rolls against a creature grappled by you under similar conditions. These are different benefits provided by the Grappler feat, and thus the core factual information does not match.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A character is a Level 5 Paladin, Level 4 Ranger, and Level 3 Wizard. According to the Multiclass Spellcaster table, how many Level 3 spell slots do they have available?
+Expected: They have three Level 3 spell slots. Their multiclass spellcaster level is 8, calculated by adding the Wizard level (3) plus half the Paladin levels (5/2 = 2.5, rounds up to 3) plus half the Ranger levels (4/2 = 2). 3 + 3 + 2 = 8.
+Generated: The character has two Level 3 spell slots available, although there is an indication of uncertainty about this information.
+Judge Thoughts: The expected answer calculates the multiclass spellcaster level as 8 by adding the Wizard level (3) and half of both the Paladin levels (rounded up from 2.5 to 3) and Ranger levels (2). This results in a total of 8, which corresponds to three Level 3 spell slots according to the Multiclass Spellcaster table. The generated answer states that the character has two Level 3 spell slots available, which does not match the expected calculation or conclusion.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: Which background gives a character proficiency with Calligrapher's Supplies and the Magic Initiate (Wizard) feat?
+Expected: The Sage background.
+Generated: The Soldier background provides proficiency with Calligrapher’s Supplies and includes the Magic Initiate (Wizard) feat.
+Judge Thoughts: The expected answer states that the Sage background gives a character proficiency with Calligrapher's Supplies and the Magic Initiate (Wizard) feat. The generated answer, however, claims these features are provided by the Soldier background. Since the core factual information in the generated answer does not match the expected answer, it is incorrect.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What is the area of effect for a typical Dragonborn's Breath Weapon?
+Expected: Either a 15-foot Cone or a 30-foot Line that is 5 feet wide (the player chooses the shape each time).
+Generated: The area of effect for a typical Dragonborn's Breath Weapon is a 30-foot cone. The Dexterity saving throw DC equals the spell save DC.
+Judge Thoughts: The expected answer specifies that a typical Dragonborn's Breath Weapon can be either a 15-foot Cone or a 30-foot Line that is 5 feet wide, with the player choosing the shape each time. The generated answer only mentions a 30-foot cone and does not include the option of a 15-foot cone or a 30-foot line that is 5 feet wide. Therefore, it lacks the complete factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: Which specific ability is used to determine a creature's Initiative score?
+Expected: Dexterity (specifically, a Dexterity check).
+Generated: A creature's Initiative score is typically determined by its Dexterity modifier. However, some monsters may also have additional modifiers applied to this number, such as the Proficiency Bonus, particularly if they possess certain feats like 'Alert' or specific mentions in their stat blocks.
+Judge Thoughts: The expected answer specifies that a Dexterity check is used to determine a creature's Initiative score. The generated answer states that a creature's Initiative score is typically determined by its Dexterity modifier, with additional modifiers possible for certain monsters. While both answers involve Dexterity, the key difference lies in 'Dexterity check' versus 'Dexterity modifier'. In Dungeons & Dragons 5th Edition, creatures use their Dexterity modifier to determine Initiative, not a Dexterity check. Therefore, while related, the generated answer does not match the expected answer's specific mention of a 'check'.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What specific resistance is granted to a character wearing a Belt of Dwarvenkind if they are not a dwarf or duergar?
+Expected: Resistance to Poison damage.
+Generated: A character who is not a dwarf or duergar gains Darkvision with a range of 60 feet when wearing the Belt of Dwarvenkind.
+Judge Thoughts: The expected answer specifies that the Belt of Dwarvenkind grants resistance to Poison damage for characters who are not dwarves or duergars. The generated answer, however, mentions that it provides Darkvision with a range of 60 feet instead. These two pieces of information address different effects of wearing the belt and do not match in terms of the specific resistance granted.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What is the save DC to resist the poisoned condition caused by an Ettercap's bite?
+Expected: There is no save for the poisoned condition on an Ettercap's bite; it automatically applies the Poisoned condition until the start of the ettercap's next turn upon hitting.
+Generated: I don't know.
+Judge Thoughts: The expected answer specifies that there is no save for the poisoned condition caused by an Ettercap's bite, meaning it automatically applies until the start of the ettercap's next turn. The generated answer simply states 'I don't know,' which does not provide any factual information about the save DC or the automatic application of the Poisoned condition. Therefore, the generated answer lacks the core factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: When casting the Fly spell with a 4th-level spell slot, how many creatures can you target?
+Expected: Two creatures (one base, plus one additional creature for the slot level above 3).
+Generated: I don't know.
+Judge Thoughts: The expected answer specifies that when casting the Fly spell with a 4th-level spell slot, you can target two creatures. The generated answer is 'I don't know,' which does not provide any factual information about the number of creatures that can be targeted. Therefore, it does not match the core factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: How many Temporary Hit Points does a character gain from the Fiendish Vigor invocation?
+Expected: The highest number on the die (which is 4 for False Life, plus 4 base, totaling 8 Temporary Hit Points).
+Generated: A character gains Temporary Hit Points equal to their Charisma modifier plus their Warlock level (minimum of 1 Temporary Hit Point) from the Fiendish Vigor invocation when they reduce an enemy to 0 Hit Points.
+Judge Thoughts: The expected answer specifies that a character gains 8 Temporary Hit Points from the Fiendish Vigor invocation, calculated as the highest number on a d4 (which is 4) plus a base of 4. The generated answer describes how Temporary Hit Points are gained based on Charisma modifier and Warlock level, which does not match the specific calculation provided in the expected answer. Therefore, the core factual information required by the expected answer is missing from the generated answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is the effect of traveling at a Fast pace?
+Expected: Traveling at a Fast pace imposes Disadvantage on Wisdom (Perception) checks that rely on sight.
+Generated: Traveling at a fast pace may impose certain disadvantages, such as increased risk of accidents or higher fuel consumption, but there is no conclusive evidence to definitively state all possible drawbacks.
+Judge Thoughts: The expected answer specifies that traveling at a Fast pace imposes Disadvantage on Wisdom (Perception) checks that rely on sight. The generated answer, however, discusses general disadvantages such as increased risk of accidents or higher fuel consumption without mentioning the specific disadvantage to Wisdom (Perception) checks related to sight. Therefore, the core factual information required by the expected answer is missing in the generated response.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: Does a Barbarian in Rage have Advantage on Strength checks?
+Expected: Yes, Strength Advantage: You have Advantage on Strength checks and Strength saving throws while raging.
+Generated: A Barbarian has Advantage on Strength checks at all times, not only while they are in Rage.
+Judge Thoughts: The expected answer specifies that a Barbarian has Advantage on Strength checks and saving throws specifically while raging. The generated answer states that a Barbarian has Advantage on Strength checks at all times, which is incorrect according to the rules of Dungeons & Dragons 5th Edition. Therefore, the factual information in the generated answer does not match the expected answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: How many Bardic Inspiration dice does a level 1 Bard have?
+Expected: D6, number of uses equal to Charisma modifier (minimum once)
+Generated: A level 1 Bard has one Bardic Inspiration die, which is a d6.
+Judge Thoughts: The expected answer specifies that a level 1 Bard has a Bardic Inspiration die of type D6 and that the number of uses is equal to their Charisma modifier with a minimum of once. The generated answer correctly states that a level 1 Bard has one Bardic Inspiration die, which is a d6. However, it omits the detail about the number of uses being tied to the Charisma modifier (minimum once). Despite this omission, the core factual information regarding the type and quantity of the Bardic Inspiration die is correct.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is the Hit Point Die for a Monk?
+Expected: D8 per Monk level
+Generated: D8
+Judge Thoughts: The expected answer specifies that the hit point die for a Monk is 'D8 per Monk level,' indicating that the number of hit points gained each level depends on rolling a D8 and multiplying by the monk's level. The generated answer simply states 'D8,' which does not include the crucial detail about it being per level. Therefore, the generated answer lacks the complete factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is Unarmored Defense for Monk?
+Expected: While you aren’t wearing armor or wielding a Shield, your base Armor Class equals 10 plus your Dexterity and Wisdom modifiers.
+Generated: A character's base Armor Class (AC) is calculated as 10 plus their Dexterity and Wisdom modifiers. Additionally, a Monk can benefit from Unarmored Defense while using a shield.
+Judge Thoughts: The expected answer specifies that a Monk's base Armor Class (AC) is calculated as 10 plus their Dexterity and Wisdom modifiers when not wearing armor or wielding a Shield. The generated answer correctly states this calculation but incorrectly adds that a Monk can benefit from Unarmored Defense while using a shield, which contradicts the condition of not wielding a shield mentioned in the expected answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: How much is the Lay On Hands pool at level 1?
+Expected: 5 times Paladin level
+Generated: I don't know.
+Judge Thoughts: The expected answer indicates that the Lay On Hands pool at level 1 is calculated as '5 times Paladin level.' At level 1, this would be 5 * 1 = 5. The generated answer simply states 'I don't know,' which does not provide any factual information or calculation related to the question. Therefore, it lacks the core factual content required by the expected answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is Deft Explorer for level 2 Ranger?
+Expected: Expertise in one skill proficiency, two languages
+Generated: At level 2, Rangers gain the 'Deft Explorer' class feature, which provides specific benefits thanks to their travels.
+Judge Thoughts: The expected answer specifies that at level 2, a Ranger gains 'Expertise in one skill proficiency and two languages' as part of the 'Deft Explorer' feature. The generated answer mentions that Rangers gain the 'Deft Explorer' class feature but does not specify what it entails. Therefore, it lacks the core factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What does Tireless give at level 10 Ranger?
+Expected: Temporary Hit Points action equal to 1d8 + Wis mod (min 1), uses = Wis mod (min 1); Decrease Exhaustion by 1 after Short Rest
+Generated: At level 10, the 'Tireless' feature allows Rangers to give themselves Temporary Hit Points as a Magic action. The amount is equal to 1d8 plus their Wisdom modifier (minimum of 1), and they can use this action multiple times.
+Judge Thoughts: The generated answer provides information about the 'Tireless' feature at level 10 Ranger, specifically mentioning that it allows Rangers to give themselves Temporary Hit Points as a Magic action. It correctly states the amount of Temporary Hit Points (1d8 + Wis mod, minimum 1) and mentions multiple uses based on Wisdom modifier (min 1). However, it omits the detail about decreasing Exhaustion by 1 after a Short Rest, which is present in the expected answer. Therefore, while the generated answer includes some core factual information, it does not fully match the expected answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What Cunning Strike effects are available at level 5 Rogue?
+Expected: Poison (1d6), Trip (1d6), Withdraw (1d6)
+Generated: At level 5, Rogues can use Cunning Strike to add effects such as Poison (cost: 1d6), Daze (cost: 2d6), or Knock Out (cost: 6d6) to their Sneak Attacks.
+Judge Thoughts: The expected answer lists three specific Cunning Strike effects available at level 5 Rogue: Poison, Trip, and Withdraw, each with a cost of 1d6. The generated answer mentions Poison (cost: 1d6) as one of the options but also includes Daze (cost: 2d6) and Knock Out (cost: 6d6), which are not part of the expected answer. Additionally, it omits Trip and Withdraw from its list. Therefore, while there is some overlap with the expected answer in terms of Poison being mentioned, the generated answer does not fully match the expected effects at level 5 Rogue.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is Pact Magic spell slot level at Warlock level 2?
+Expected: 2
+Generated: At Warlock level 2, the Pact Magic spell slot level is 1.
+Judge Thoughts: The expected answer indicates that the Pact Magic spell slot level at Warlock level 2 should be 2. The generated answer states it as 1, which does not match the expected factual information.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: How many spell slots for Pact Magic at level 1 Warlock?
+Expected: 1
+Generated: A level 1 Warlock has two spell slots and gains the feature 'Pact Magic.' It is not specified whether these spell slots are exclusively for Pact Magic or include other types of spellcasting features.
+Judge Thoughts: The expected answer specifies that a level 1 Warlock has 1 spell slot. The generated answer states that a level 1 Warlock has two spell slots, which contradicts the expected factual information. Therefore, the generated answer does not match the expected answer factually.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What languages does a Halfling know?
+Expected: Species doesn't grant languages; backgrounds and class do.
+Generated: I don't know.
+Judge Thoughts: The expected answer indicates that species, such as Halflings, do not inherently grant any languages. Instead, languages are determined by a character's background and class in Dungeons & Dragons 5th Edition rules. The generated answer 'I don't know' does not provide this specific information about how languages are acquired for a Halfling or any other species. Therefore, it lacks the core factual content required by the expected answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What does Magic Initiate feat give?
+Expected: Two cantrips from Cleric, Druid, or Wizard list; one level 1 spell from same list, cast once without slot per Long Rest.
+Generated: The Magic Initiate feat allows you to choose two cantrips from the Cleric, Druid, or Wizard spell lists and select Intelligence, Wisdom, or Charisma as your spellcasting ability. Additionally, it requires you to choose one Level 1 Spell from the same list as the chosen cantrips.
+Judge Thoughts: The generated answer provides information about choosing two cantrips and a level 1 spell from the Cleric, Druid, or Wizard lists, which aligns with part of the expected answer. However, it omits the detail that the level 1 spell can be cast once without expending a slot per long rest. This omission means the generated answer does not fully match the core factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: How many spell slots does a level 3 Bard have?
+Expected: 4 level 1, 2 level 2
+Generated: A level 3 Bard has 4 spell slots for level 3 spells and a total of 12 spell slots distributed among levels 1 through 4.
+Judge Thoughts: The expected answer specifies that a level 3 Bard has 4 level 1 spell slots and 2 level 2 spell slots. The generated answer, however, states that a level 3 Bard has 4 spell slots for level 3 spells and does not mention the specific number of level 1 or level 2 spell slots as required by the expected answer. Therefore, the core factual information about the distribution of level 1 and level 2 spell slots is missing in the generated answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: Combine the Barbarian level 11 Relentless Rage DC increase rule with level 15 Persistent Rage: what is the DC after first use at level 16?
+Expected: DC starts at 10, increases by 5 after first use to 15; resets on Short/Long Rest. Persistent Rage allows regaining Rage uses on Initiative but doesn't affect DC.
+Generated: The initial DC for Relentless Rage at level 16 is 30, and Persistent Rage does not affect this DC.
+Judge Thoughts: The expected answer outlines that the base DC starts at 10 and increases by 5 after first use to 15. The generated answer states an initial DC of 30, which does not align with the expected progression from 10 to 15. Additionally, both answers agree that Persistent Rage does not affect the DC. Therefore, the core factual information about the DC increase is incorrect in the generated answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: Using Travel Pace table and Mounted Combat rules, how far can a group on horses travel in a day at Fast pace for 1 hour then Normal?
+Expected: Fast: 60 miles for 1 hour (double Normal 30 miles); then Normal 24 miles for 7 hours (total 84 miles), mounts need Short/Long Rest after doubled pace hour.
+Generated: The group on horses travels a total of 24 miles in a day: 4 miles at Fast pace for the first hour and an additional 20 miles over approximately 6 hours and 40 minutes at Normal pace.
+Judge Thoughts: The expected answer states that traveling at Fast pace covers 60 miles in one hour, which is double the distance of 30 miles covered at Normal pace. After this hour, the group travels for 7 hours at Normal pace, covering 24 miles (4 miles per hour). The total distance traveled should be 84 miles. However, the generated answer incorrectly states that the Fast pace covers only 4 miles in one hour and the Normal pace covers 20 miles over approximately 6 hours and 40 minutes, totaling 24 miles for the day. This does not match the expected calculation or distances.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is the expected answer?
+Expected: Test question
+Generated: When casting 'Contact Other Plane,' you must make a DC 15 Intelligence saving throw to avoid breaking your mind; on a successful save, you can ask the entity up to five questions. The expected responses from the entity are typically one word such as 'yes,' 'no,' 'maybe,' 'never,' 'irrelevant,' or 'unclear.' However, the GM might provide a short phrase instead if a one-word answer would be misleading or contrary to the deity’s interests.
+Judge Thoughts: The expected answer is simply 'Test question,' which does not contain any factual information about the content of the generated answer. The generated answer provides detailed information about casting 'Contact Other Plane' and its mechanics, but since there is no specific factual comparison to be made with the expected answer (as it is just a placeholder), we cannot determine if the generated answer matches factually based on the expected answer. Therefore, they do not match in terms of content or context.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: How many feet can a tiger move in one turn?
+Expected: 40 ft.
+Generated: A tiger can use the Dash action to move up to 80 feet in one turn.
+Judge Thoughts: The expected answer states that a tiger can move 40 feet in one turn. The generated answer mentions that a tiger can move up to 80 feet using the Dash action, which implies additional movement beyond the base movement. However, without specifying the context of using the Dash action, the core factual information about moving 40 feet in one turn is not directly addressed. Therefore, the generated answer does not match the expected answer factually.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: If a tiger moves 20+ feet straight toward its target, what additional damage does it deal with its Rend attack?
+Expected: The target has the Prone condition.
+Generated: There is no specified additional damage for the Saber-Toothed Tiger's Rend attack if it moves 20+ feet straight toward its target.
+Judge Thoughts: The expected answer indicates that when a tiger moves 20+ feet straight toward its target, the additional effect is that the target has the Prone condition. The generated answer states there is no specified additional damage for this movement with the Rend attack, which does not address the Prone condition mentioned in the expected answer. Therefore, the core factual information about the Prone condition is missing from the generated response.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the AC of a creature with an initiative bonus of +3?
+Expected: It varies, but one example is 13 for Tyrannosaurus Rex.
+Generated: I don't know.
+Judge Thoughts: The expected answer indicates that the Armor Class (AC) of a creature with an initiative bonus of +3 can vary, providing 13 for Tyrannosaurus Rex as an example. The generated answer 'I don't know' does not provide any specific information or examples about AC values. Therefore, it lacks the core factual information required by the expected answer.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the initiative bonus of a creature with 19 hit points at level one?
+Expected: +1, as seen with Warhorse.
+Generated: I don't know.
+Judge Thoughts: The expected answer indicates that a creature with 19 hit points at level one has an initiative bonus of +1. The generated answer is 'I don't know,' which does not provide any factual information or conclusion about the initiative bonus. Therefore, it does not match the expected answer factually.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the DC for saving against a tiger's Grappled condition?
+Expected: Not applicable; it's an automatic effect.
+Generated: I don't know.
+Judge Thoughts: The expected answer indicates that there is no saving throw DC for a tiger's grapple because it is an automatic effect. The generated answer states 'I don't know,' which does not provide any factual information about the nature of the grapple being automatic or requiring a save. Therefore, the generated answer lacks the core factual information present in the expected answer.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the speed of a creature with an initiative bonus of +3?
+Expected: It varies; one example is 50 ft. for Tyrannosaurus Rex.
+Generated: I don't know.
+Judge Thoughts: The expected answer indicates that the speed of a creature with an initiative bonus of +3 can vary, providing an example such as 50 ft. for Tyrannosaurus Rex. The generated answer 'I don't know' does not provide any factual information about the speed or acknowledge its variability. Therefore, it lacks the core factual content required by the expected answer.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What kind of damage does a Large Beast with an AC of 14 inflict with its Multiattack?
+Expected: Piercing and Slashing, as seen with Triceratops.
+Generated: I don't know.
+Judge Thoughts: The expected answer specifies that a Large Beast with an AC of 14 inflicts 'Piercing and Slashing' damage, as exemplified by a Triceratops. The generated answer is 'I don't know,' which does not provide any factual information about the type of damage inflicted. Therefore, it lacks the core factual content required by the expected answer.
+
+########################################
+ERROR on Question 28: What is the HP of a creature with an AC of 14?
+Exception: 2 validation errors for CritiqueResult
+thoughts
+  Field required [type=missing, input_value={'answer': "The provided ...oleplaying guidelines."}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+is_complete
+  Field required [type=missing, input_value={'answer': "The provided ...oleplaying guidelines."}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+########################################
+ERROR on Question 29: What is the initiative bonus of a creature with a DC to save against its Prone condition?
+Exception: 2 validation errors for CritiqueResult
+thoughts
+  Field required [type=missing, input_value={'step-by-step analysis':...ing target visibility.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+is_complete
+  Field required [type=missing, input_value={'step-by-step analysis':...ing target visibility.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+########################################
+ERROR on Question 30: What is the HP of a creature with an initiative bonus of +4?
+Exception: 2 validation errors for CritiqueResult
+thoughts
+  Field required [type=missing, input_value={'step-by-step-derivation...the given information.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+is_complete
+  Field required [type=missing, input_value={'step-by-step-derivation...the given information.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+########################################
+ERROR on Question 31: What kind of damage does a creature with an initiative bonus of +3 inflict?
+Exception: 2 validation errors for CritiqueResult
+thoughts
+  Field required [type=missing, input_value={'step-by-step analysis':...ssary to provide one.'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+is_complete
+  Field required [type=missing, input_value={'step-by-step analysis':...ssary to provide one.'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+########################################
+ERROR on Question 32: What is the AC of a creature with 11 hit points at level one?
+Exception: 2 validation errors for CritiqueResult
+thoughts
+  Field required [type=missing, input_value={'step-by-step-derivation...ems, spells, and more.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+is_complete
+  Field required [type=missing, input_value={'step-by-step-derivation...ems, spells, and more.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+########################################
+ERROR on Question 33: What is the condition effect of a creature's bite if it has an AC of 10?
+Exception: 2 validation errors for CritiqueResult
+thoughts
+  Field required [type=missing, input_value={'answer': "The condition... paralyzing targets.'}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+is_complete
+  Field required [type=missing, input_value={'answer': "The condition... paralyzing targets.'}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+########################################
+ERROR on Question 34: What is the DC to save against a Large Beast's Grappled condition?
+Exception: 2 validation errors for CritiqueResult
+thoughts
+  Field required [type=missing, input_value={'step-by-step analysis':...ation might be found.'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+is_complete
+  Field required [type=missing, input_value={'step-by-step analysis':...ation might be found.'}}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+########################################
+ERROR on Question 35: What is the AC of a creature that moves 30 ft. in one turn?
+Exception: 2 validation errors for CritiqueResult
+thoughts
+  Field required [type=missing, input_value={'step-by-step-derivation...tween those attacks.'}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+is_complete
+  Field required [type=missing, input_value={'step-by-step-derivation...tween those attacks.'}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+########################################
+ERROR on Question 36: What is the initiative bonus of a creature with a Wisdom Saving Throw DC of 10?
+Exception: 2 validation errors for CritiqueResult
+thoughts
+  Field required [type=missing, input_value={'step-by-step analysis':...alculating such DCs."}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing
+is_complete
+  Field required [type=missing, input_value={'step-by-step analysis':...alculating such DCs."}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/missing

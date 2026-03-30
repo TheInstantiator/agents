@@ -1,0 +1,556 @@
+########################################
+Dataset: golden_dataset_original.json
+Question: What is the effect of the Sap weapon mastery property?
+Expected: If you hit a creature with a weapon that has the Sap property, that creature has Disadvantage on its next attack roll before the start of your next turn.
+Generated: The Sap weapon mastery property gives an opponent disadvantage on their next attack roll after being hit by a weapon with this property. The effect applies specifically to the opponent's subsequent attack roll without any additional timing constraints.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it against both the expected answer and the context provided in the document excerpts. The expected answer specifies that the Sap property causes a creature to have disadvantage on its next attack roll before the start of your next turn after being hit by such a weapon. The generated answer states that the effect applies specifically to the opponent's subsequent attack roll without any additional timing constraints, which seems to omit the detail about 'before the start of your next turn.' I need to verify if this omission affects the correctness based on the context provided.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: At what level does a Barbarian gain the Relentless Rage feature, and what is the starting DC for its saving throw?
+Expected: A Barbarian gains Relentless Rage at level 11, and the initial Constitution saving throw DC is 10.
+Generated: In Dungeons & Dragons, a Barbarian gains the Relentless Rage feature at level 11. When this feature activates, it imposes disadvantage on Wisdom (Perception) and Intelligence checks made by creatures within 30 feet of the Barbarian until the start of their next turn. The starting DC for Constitution saving throws to resist this effect is 10.
+Judge Thoughts: The Generated Answer contains some inaccuracies when compared to both the Context and the Expected Answer. Specifically, the description of what happens when Relentless Rage activates does not match the information provided in the context. The context states that if a Barbarian drops to 0 Hit Points while their Rage is active, they can make a DC 10 Constitution saving throw to change their Hit Points instead of dying outright. There is no mention of imposing disadvantage on Wisdom (Perception) and Intelligence checks in the context or Expected Answer. However, the Generated Answer correctly identifies that Relentless Rage is gained at level 11 and mentions the starting DC for the Constitution saving throw as 10, which aligns with both the Context and the Expected Answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What is the effect of the Indigo layer of a Prismatic Wall, and what can destroy it?
+Expected: A creature failing the save against the Indigo layer is Restrained and must make Constitution saves to avoid being Petrified. The layer is destroyed by Bright Light shed by the Daylight spell.
+Generated: The effect of the Indigo layer on a creature is that it imposes the Restrained condition and requires the creature to make a Constitution saving throw at the end of each turn. However, the context does not specify what can destroy or remove this Indigo layer.
+Judge Thoughts: To determine if the Generated Answer is factually correct, we need to compare it with both the Expected Answer and the Context provided. The Expected Answer states that a creature failing the save against the Indigo layer becomes Restrained and must make Constitution saves to avoid being Petrified, and that this layer is destroyed by Bright Light from the Daylight spell. However, the context given does not mention anything about the Petrification condition or the destruction of the Indigo layer by the Daylight spell's Bright Light. Instead, it specifies that a creature failing the save becomes Restrained and must make Constitution saving throws at the end of each turn to avoid being teleported to another plane (on a failed Wisdom save). Additionally, the context states that this layer is destroyed by Dispel Magic.
+
+The Generated Answer correctly identifies the effect of the Indigo layer as imposing the Restrained condition and requiring Constitution saves. However, it does not mention the teleportation aspect or the correct method for destroying the layer (Dispel Magic), which are both specified in the context. Therefore, while the Generated Answer is partially accurate regarding the effects on creatures, it lacks completeness and accuracy concerning the destruction of the Indigo layer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: How many Focus Points does a level 15 Monk have?
+Expected: A level 15 Monk has 15 Focus Points.
+Generated: A level 15 Monk has 5 Focus Points.
+Judge Thoughts: To determine if the generated answer is correct, I need to compare both the expected and generated answers with the context provided. The expected answer states that a level 15 Monk has 15 Focus Points. According to the context from [Retrieval Rank 1], it mentions 'Your Monk level determines the number of points you have,' which implies that at level 15, a Monk should indeed have 15 Focus Points. Additionally, the feature 'Perfect Focus' at level 15 allows regaining expended Focus Points during Initiative rolls until having 4 if they have 3 or fewer, but this does not change the total number of Focus Points available to them; it only affects how many are regained in certain situations. The generated answer states that a level 15 Monk has 5 Focus Points, which contradicts both the context and the expected answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What is the starting DC for the Constitution saving throw when exposed to Extreme Heat without water, and how does it scale?
+Expected: The DC is 5 for the first hour and increases by 1 for each additional hour.
+Generated: When exposed to extreme heat (100 degrees Fahrenheit or higher) without access to drinkable water, a creature must succeed on a Constitution saving throw at the end of each hour to avoid gaining an Exhaustion level. The DC for this saving throw starts at 5 for the first hour and increases to 10 for subsequent hours. Creatures with resistances or immunities to heat-related damage automatically succeed on these saves.
+Judge Thoughts: To determine if the Generated Answer is factually correct, I need to compare it against both the Expected Answer and the Context provided. The Expected Answer states that the DC starts at 5 for the first hour and increases by 1 for each additional hour. According to the Context, this matches exactly with the information given in the 'Extreme Heat' section: "The DC is 5 for the first hour and increases by 1 for each additional hour." The Generated Answer states that the DC starts at 5 for the first hour but incorrectly claims it increases to 10 for subsequent hours. This discrepancy indicates an error in scaling, as the Context specifies a gradual increase of 1 per hour rather than jumping directly to 10.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: How many charges does it cost to cast Plane Shift using a Cubic Gate?
+Expected: It costs 1 charge (activated by pressing one side of the cube twice).
+Generated: It is stated that casting Plane Shift with a Cubic Gate costs 7 charges; however, there is no additional confirmation available to verify this detail.
+Judge Thoughts: To determine if the generated answer is correct, I need to compare it against both the expected answer and the context provided. The expected answer states that casting Plane Shift with a Cubic Gate costs 1 charge (activated by pressing one side of the cube twice). In the context, there are two relevant excerpts: one from Retrieval Rank 4 stating the Cubic Gate has 3 charges and regains 1d3 expended charges daily at dawn, and another from Retrieval Rank 6 mentioning a spell called 'Planar Binding' with a level 5 Abjuration that requires a Charisma saving throw. However, neither of these excerpts directly address the charge cost for Plane Shift using the Cubic Gate. The generated answer mentions a cost of 7 charges but does not provide context or confirmation from the provided snippets to support this claim.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What illusion is created if you roll a 70-72 on the Deck of Illusions table?
+Expected: A Medusa.
+Generated: The Deck of Illusions creates an illusion of a 'Giant Octopus' when a roll of 70-72 is drawn.
+Judge Thoughts: To determine if the generated answer is correct, I need to compare it with both the expected answer and the context provided. The expected answer for a roll of 70-72 on the Deck of Illusions table is 'A Medusa.' According to the context, there are no specific entries listed for rolls between 70-72; however, the closest relevant section indicates that the deck creates illusions based on card draws with specified ranges. Since the generated answer mentions a 'Giant Octopus' and not 'Medusa,' it does not match the expected answer or any provided context for those numbers.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: How does the Restrained condition affect a creature's saving throws?
+Expected: The creature has Disadvantage on Dexterity saving throws.
+Generated: The Restrained condition does not directly alter a creature's saving throw mechanics; however, it is imposed through various spells that involve making saving throws. For instance, the spell Grasping Plants requires creatures to succeed on a Strength saving throw or become restrained, after which they can attempt a Strength (Athletics) check to escape. Similarly, Black Tentacles causes creatures who fail a Strength saving throw to be restrained and take damage; these creatures can make another Strength saving throw to end the condition. The spell Imprisonment entraps a creature in magical restraints until the spell ends but does not specify mechanics for escaping via saving throws.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it against both the context provided and the expected answer. The expected answer states that a creature has Disadvantage on Dexterity saving throws when restrained. However, the context does not mention any direct effect of the Restrained condition on Dexterity saving throws; instead, it describes how various spells impose the Restrained condition through different mechanics involving Strength or Constitution saving throws. Therefore, I need to assess if the generated answer aligns with this understanding and whether it addresses the question accurately.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What effect does moving Lever 8 on the Apparatus of the Crab have?
+Expected: Moving it up causes the eyelike fixtures to emit Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. Moving it down turns the light off.
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to compare the provided context with both the expected and generated answers. The expected answer specifies that moving Lever 8 up causes the eyelike fixtures of the Apparatus of the Crab to emit Bright Light in a 30-foot radius and Dim Light for an additional 30 feet, while moving it down turns off the light. However, none of the context excerpts explicitly mention Lever 8 or its effects on lighting. The closest relevant information is about the general function of levers (Rank 2) but does not specify which lever controls what effect. Therefore, based on the provided context, there isn't enough information to confirm the expected answer's details regarding Lever 8.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What is the recharge rate, shape, and damage of an Adult Bronze Dragon's Lightning Breath?
+Expected: It recharges on a 5-6, fills a 90-foot-long, 5-foot-wide Line, and deals 55 (10d10) Lightning damage on a failed DC 19 Dexterity save (half on a success).
+Generated: The recharge rate for an Adult Bronze Dragon's Lightning Breath is 5–6 rounds. Its shape is a 120-foot-long, 10-foot-wide line. On a failed save, it deals 88 (16d10) lightning damage; on a successful save, the damage is halved.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it with both the expected answer and the context provided. The expected answer specifies that an Adult Bronze Dragon's Lightning Breath recharges on a 5-6, affects a 90-foot-long, 5-foot-wide line, and deals 55 (10d10) lightning damage on a failed DC 19 Dexterity save, with half damage on success. However, the context provided pertains to different types of dragons, including Adult Blue Dragon, Young Bronze Dragon, Behir, Ancient Blue Dragon, etc., but not specifically an Adult Bronze Dragon. The generated answer refers to an Ancient Blue Dragon's Lightning Breath, which has a recharge rate of 5-6 rounds, affects a 120-foot-long, 10-foot-wide line, and deals 88 (16d10) lightning damage on a failed DC 23 Dexterity save, with half damage on success. The generated answer does not match the expected answer for an Adult Bronze Dragon but is accurate for an Ancient Blue Dragon as per the context provided.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What material components are required to cast the True Polymorph spell?
+Expected: A drop of mercury, a dollop of gum arabic, and a wisp of smoke.
+Generated: I do not have enough information to provide an answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to compare the provided context with the expected material components for casting 'True Polymorph.' The context includes several sections about different spells and their requirements. However, none of these sections explicitly mention the material components for 'True Polymorph.' Therefore, I must verify whether any part of the context provides this information or if it is absent entirely.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What is required to destroy the Blue layer of a Prismatic Wall?
+Expected: The Blue layer is destroyed if it takes at least 25 Fire damage.
+Generated: To destroy the Blue layer of a Prismatic Wall, you need to use a _Passwall_ spell or another spell of equal or greater level capable of opening a portal on a solid surface.
+Judge Thoughts: To determine if the Generated Answer is factually correct, I must compare it with both the Expected Answer and the Context provided. The Expected Answer states that the Blue layer is destroyed by taking at least 25 Fire damage. However, the Context specifies that the Blue layer can be destroyed using a _Passwall_ spell or another spell of equal or greater level capable of opening a portal on a solid surface. There is no mention in the Context about destroying it with Fire damage. Therefore, the Generated Answer aligns with the information provided in the Context but does not match the Expected Answer.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What happens when the last charge of a Staff of the Magi is expended and you roll a 1 on the 1d20 check?
+Expected: The staff retains its +2 bonus to attack rolls and damage rolls but loses all other properties.
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the Generated Answer is correct, we need to compare it with both the Expected Answer and the Context provided. The question asks about what happens when the last charge of a Staff of the Magi is expended and a roll of 1 on a 1d20 check occurs. According to the context, this specific scenario results in the staff retaining its +2 bonus to attack rolls and damage rolls but losing all other properties. The Expected Answer aligns with this information from the Context.
+
+########################################
+Dataset: golden_dataset_original.json
+Question: What happens to a creature that draws the 'Skull' card from the Mysterious Deck?
+Expected: An Avatar of Death appears and targets only that creature with its attacks. If an ally interferes and damages the avatar, they summon their own Avatar of Death.
+Generated: Drawing the 'Skull' card from the Mysterious Deck summons an Avatar of Death that appears in an unoccupied space as close to the drawer as possible, targeting only them with its attacks. The Avatar of Death is a Medium Undead creature with 20 AC and +3 initiative (13). It has half the maximum HP of its summoner and can move at speeds of 60 ft. on foot and flying (hover). The Avatar possesses immunities to Necrotic and Poison damage, as well as conditions such as Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned, and Unconscious. It attacks with a Reaping Scythe, dealing necrotic and slashing damage.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it against both the expected answer and the context provided. The expected answer describes that an Avatar of Death appears when the 'Skull' card is drawn, targeting only the drawer with its attacks. If an ally interferes by damaging the avatar, they summon their own Avatar of Death. The generated answer provides a detailed description of the Avatar of Death's attributes and abilities but does not mention the condition about allies summoning their own Avatars if they interfere.
+
+The context from the provided information confirms that drawing the 'Skull' card results in an Avatar of Death appearing, targeting only the drawer unless interfered with by an ally. The generated answer accurately describes the appearance and attributes of the Avatar but omits the specific condition about allies summoning their own Avatars if they damage it.
+
+Therefore, while the generated answer is mostly correct regarding the appearance and characteristics of the Avatar of Death, it lacks completeness in addressing the full scope of interactions described in both the expected answer and context.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A Level 11 Fighter with the Two Extra Attacks feature wields two Shortswords and uses the Nick mastery property. How many attacks can they make in one turn when taking the Attack action, without using a Bonus Action?
+Expected: Four attacks. The Attack action grants three attacks due to Two Extra Attacks, and the Nick mastery property allows the extra attack from the Light property to be made as part of the Attack action instead of a Bonus Action.
+Generated: A Level 11 Fighter with the Two Extra Attacks feature can make three attacks per turn when taking the Attack action. The Nick mastery property allows replacing the weapon's mastery property with Push, Sap, or Slow for an attack but does not affect the number of attacks made. Therefore, wielding two shortswords and using the Nick mastery property does not change the total number of attacks; the Fighter can still make three attacks in one turn.
+Judge Thoughts: To determine if the generated answer is factually correct, we need to compare it against both the expected answer and the context provided. The key points are: 1) At Level 11, a Fighter can make three attacks per turn due to the Two Extra Attacks feature. 2) The Nick mastery property allows replacing the weapon's mastery with Push, Sap, or Slow but does not increase the number of attacks made. 3) The expected answer suggests that using the Nick mastery property could allow for four attacks by making an extra attack as part of the Attack action instead of a Bonus Action. However, this interpretation seems to misunderstand how the Nick feature works in conjunction with Two Extra Attacks.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A party travels 40 miles entirely through mountainous terrain. Assuming no special movement modes, how many hours does this journey take, and what is the Constitution saving throw DC at the end of the final hour of travel to avoid exhaustion?
+Expected: It takes 20 hours. Mountains restrict the maximum pace to Slow (2 miles per hour). For travel beyond 8 hours, characters must make a Constitution saving throw each additional hour. At 20 hours, it's 12 hours past the limit. The DC is 10 plus 1 per hour past 8 hours, making the final DC 22.
+Generated: The specific distances covered per hour in mountainous terrain at Normal, Fast, or Slow paces are not provided, making it unclear how many hours it takes to travel 40 miles. However, if the journey exceeds 8 hours, Constitution saving throws are required to avoid exhaustion, with a DC of 10 plus 1 for each additional hour beyond 8.
+Judge Thoughts: To determine whether the generated answer is factually correct, we need to analyze both the context provided and compare it against the expected answer. The key points are: (1) determining travel time in mountainous terrain at a Slow pace, which is 2 miles per hour; (2) calculating the number of hours required for a 40-mile journey; and (3) understanding the Constitution saving throw DC after exceeding 8 hours of travel.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A Level 14 Druid (Circle of the Land) attempts to use Wild Shape to turn into a Giant Crocodile. Can they do this, and if so, how many hours can they remain in that form?
+Expected: No, they cannot. While a Level 14 Druid can normally stay in Wild Shape for 7 hours, the Giant Crocodile is a CR 5 Beast. The maximum Challenge Rating for a Druid's Wild Shape form is CR 1.
+Generated: A Level 14 Druid can use Wild Shape to transform into a Giant Crocodile if it is within their eight known forms or permitted by the Game Master. The eligibility of the Giant Crocodile depends on its Challenge Rating (CR), which must be up to 2 for this level. If these criteria are met, the Druid can remain in that form for up to 7 hours, calculated as half their Druid level, or until they use Wild Shape again, become incapacitated, or die. Additionally, the Druid may exit the form early using a bonus action.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it against both the expected answer and the context provided. The expected answer states that a Level 14 Druid cannot transform into a Giant Crocodile because its CR of 5 exceeds the maximum allowable CR for Wild Shape forms at this level, which is CR 1. According to the context, specifically the 'Beast Shapes' table, a Level 14 Druid can only adopt forms with a CR up to 2. The generated answer incorrectly states that a Giant Crocodile could be used if it's within known forms or permitted by the Game Master and mentions an incorrect maximum CR of 2 for this level. Therefore, the generated answer does not align with either the expected answer or the context provided.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: In combat, a Black Pudding is hit by a nonmagical Longsword and then fails its save against a Level 3 Lightning Bolt spell. If it had 50 Hit Points and was Large size, what reactions does it take and what are the effects on the Longsword?
+Expected: The Longsword takes a -1 penalty to its attack rolls due to Corrosive Form. This slashing damage triggers the Pudding's Split reaction, creating two Medium Black Puddings. The Lightning Bolt deals no damage because the Black Pudding has Immunity to Lightning, and since it already used its single Reaction to split from the Longsword hit, it cannot split again.
+Generated: When a nonmagical Longsword hits a Black Pudding, it takes a cumulative -1 penalty to attack rolls. This penalty increases by -1 with each subsequent hit until it reaches -5, at which point the weapon is destroyed. If the Black Pudding splits into two smaller puddings due to damage, each new pudding receives half of the original's Hit Points (25 each). There are no specified effects on the Longsword from being struck by another nonmagical Longsword or failing a save against a Level 3 Lightning Bolt spell.
+Judge Thoughts: To determine if the generated answer is factually correct, we need to compare it with both the expected answer and the context provided. The key points of comparison are: (1) the effect on the Longsword due to Corrosive Form, (2) the Black Pudding's reaction to being hit by a nonmagical weapon or failing a save against Lightning Bolt, and (3) any additional effects from these interactions.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A Level 6 Paladin with a Charisma score of 18 is standing 5 feet from a Level 10 Fighter. An enemy spell forces both to make a Dexterity saving throw. The Fighter rolls a 12 and has a Dexterity modifier of +2. Does the Fighter succeed if the spell's save DC is 16?
+Expected: Yes. The Fighter's base save is 14 (12 + 2). Because the Paladin is within 10 feet, their Aura of Protection grants allies a bonus equal to the Paladin's Charisma modifier (+4). The Fighter's total save is 18, which exceeds the DC 16.
+Generated: The Fighter rolls a 12 on their Dexterity saving throw. With a +2 Dexterity modifier, their total becomes 14 (12 + 2). Since 14 is less than the spell's save DC of 16, the Fighter fails the saving throw. Additionally, while there is a rule that states if a target lacks the ability score used by the saving throw they automatically fail, this does not apply here as neither character lacks their relevant ability score.
+Judge Thoughts: To determine whether the generated answer is factually correct, we need to evaluate both the Fighter's and Paladin's contributions to the Dexterity saving throw. The context provided includes rules about saving throws, bonuses from abilities like Aura of Protection, and how these interact with a spell's save DC. Let's break down the components involved in this scenario:
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: At what Barbarian level does the Rage Damage bonus increase to +3?
+Expected: Level 9.
+Generated: The Rage Damage bonus increases to +3 at Barbarian levels 11 through 18. No additional information beyond this range or context is available.
+Judge Thoughts: To determine if the generated answer is correct, I need to compare it with both the expected answer and the provided context. The expected answer states that the Rage Damage bonus increases to +3 at level 9. However, according to the context from Retrieval Rank 2, the Rage Damage bonus becomes +3 starting at level 11 and remains so through level 18. There is no mention of a +3 bonus at level 9 in any part of the provided context.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: How much extra Radiant or Necrotic damage does a Cleric deal with the Divine Strike option of the Improved Blessed Strikes feature at level 14?
+Expected: 2d8 extra damage.
+Generated: At level 14 with Improved Blessed Strikes, a Cleric's Divine Strike deals an extra 1d10 Radiant or Necrotic damage instead of 1d8.
+Judge Thoughts: To determine if the generated answer is correct, I need to verify whether the context provided supports the claim that Improved Blessed Strikes at level 14 increases Divine Strike's extra damage from 1d8 to 1d10. The context mentions 'Improved Blessed Strikes' and provides details about the 'Divine Strike' option but does not explicitly state the change in damage dice. I will compare this information with the expected answer, which states that the extra damage is 2d8.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What specific action is a Fighter prohibited from taking when using their Action Surge feature?
+Expected: The Magic action.
+Generated: A Fighter is not prohibited from taking any specific action, such as a Magic action, when using their Action Surge feature. Action Surge allows a Fighter to take one additional action on their turn, which can be used twice per short rest. The feature becomes available at levels 2, 6, 8, 12, 14, and 16, with all expended uses regained after a long rest.
+Judge Thoughts: To determine if the Generated Answer is factually correct, I need to compare it against both the Expected Answer and the Context provided. The Expected Answer states that the specific action prohibited by Action Surge is the Magic action. In reviewing the Context, particularly the relevant sections about the Fighter class features, there is an excerpt stating: 'You can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action, except the Magic action.' This directly supports the Expected Answer that the Magic action is prohibited when using Action Surge.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: How many Focus Points does a Level 5 Monk have?
+Expected: 5 Focus Points.
+Generated: A Level 5 Monk has 1d8 Focus Points.
+Judge Thoughts: To determine if the generated answer is correct, I need to compare it with both the expected answer and the context provided. The expected answer states that a Level 5 Monk has 5 Focus Points. According to the context from the 'Monk Features' table in the D&D rulebook snippets, at level 5, Monks have 1d8 Focus Points. This means they roll a d8 die to determine their number of Focus Points, which can range from 1 to 8. The expected answer of 5 is one possible outcome of this roll but not guaranteed for every Level 5 Monk.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: A character is a Level 5 Paladin, Level 4 Ranger, and Level 3 Wizard. According to the Multiclass Spellcaster table, how many Level 3 spell slots do they have available?
+Expected: They have three Level 3 spell slots. Their multiclass spellcaster level is 8, calculated by adding the Wizard level (3) plus half the Paladin levels (5/2 = 2.5, rounds up to 3) plus half the Ranger levels (4/2 = 2). 3 + 3 + 2 = 8.
+Generated: The character has 2 Level 3 spell slots available. However, without access to the specific Multiclass Spellcaster table for a total spellcasting level of 8, it is unclear if this number accurately reflects the correct allocation according to that table.
+Judge Thoughts: To determine whether the generated answer is correct, we need to verify the calculation of the multiclass spellcaster level and compare it with the expected number of Level 3 spell slots. The context provided outlines how to calculate the total spellcasting level for a multiclass character: by adding all levels in certain classes (Wizard) and half the levels in others (Paladin, Ranger), rounded up where necessary. We then need to check if this calculated level corresponds with having three Level 3 spell slots as per the Multiclass Spellcaster table.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: If a player character throws a flask of Alchemist's Fire at an Awakened Tree and the tree fails its saving throw, exactly how much damage does the tree take initially from the fire?
+Expected: The tree takes 2d4 Fire damage. The Alchemist's Fire normally deals 1d4 Fire damage, but the Awakened Tree has Vulnerability to Fire, which doubles the damage.
+Generated: If an Awakened Tree fails its saving throw against Alchemist's Fire, it initially takes 1d4 Fire damage.
+Judge Thoughts: To determine if the Generated Answer is factually correct, I need to compare it with both the Expected Answer and the Context provided. The Expected Answer states that the Awakened Tree should take 2d4 Fire damage due to its Vulnerability to Fire, which doubles the normal 1d4 damage from Alchemist's Fire. The Context confirms that Alchemist’s Fire deals 1d4 Fire damage on a failed saving throw and specifies that an Awakened Tree has Vulnerability to Fire. Therefore, the Expected Answer correctly applies this vulnerability by doubling the damage to 2d4.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What is the casting time of the Feather Fall spell?
+Expected: A Reaction, which you take when you or a creature you can see within 60 feet of you falls.
+Generated: The casting time of the Feather Fall spell is Reaction.
+Judge Thoughts: To determine whether the Generated Answer is factually correct, I need to compare it with both the Expected Answer and the Context provided. The Expected Answer specifies that the casting time for the Feather Fall spell is a 'Reaction, which you take when you or a creature you can see within 60 feet of you falls.' The Generated Answer states simply that the casting time is 'Reaction.' While this captures part of the information (the type of casting time), it omits the specific condition under which the Reaction is taken. Therefore, based on the Expected Answer and Context, the Generated Answer lacks completeness but does not contain incorrect information.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What is the area of effect for a typical Dragonborn's Breath Weapon?
+Expected: Either a 15-foot Cone or a 30-foot Line that is 5 feet wide (the player chooses the shape each time).
+Generated: A typical Dragonborn's Breath Weapon is described under 'Dragon’s Breath (Recharge 5–6).' It has an area of effect that covers a 30-foot cone. A Dragonborn can choose the specific damage type for their Breath Weapon based on their Draconic Origin trait. The Dexterity saving throw DC for this attack is 14, and if a creature fails the save, it takes 28 (8d6) damage of the chosen type.
+Judge Thoughts: To determine whether the generated answer is factually correct, I need to compare it with both the expected answer and the context provided. The expected answer specifies two possible shapes for a Dragonborn's Breath Weapon: either a 15-foot cone or a 30-foot line that is 5 feet wide. The context from 'Draconic Spirit' mentions a 30-foot cone, while the broader section on Character Species indicates that a Dragonborn can choose between these two shapes each time they use their breath weapon. The generated answer only describes a 30-foot cone and does not mention the option of choosing a shape or the alternative 15-foot cone.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What level spell slot must a Cleric expend to cast Greater Restoration?
+Expected: Level 5.
+Generated: A Cleric must expend a level 9 spell slot to cast Greater Restoration.
+Judge Thoughts: To determine if the generated answer is correct, I need to compare it against both the expected answer and the context provided. The expected answer states that a Level 5 spell slot is required for casting Greater Restoration. According to the context from the 'Life Domain Spells' section, Greater Restoration is listed under level 9 spells for Clerics. This indicates that the generated answer aligns with the context but not with the expected answer.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What specific resistance is granted to a character wearing a Belt of Dwarvenkind if they are not a dwarf or duergar?
+Expected: Resistance to Poison damage.
+Generated: The Belt of Dwarvenkind grants non-dwarf or duergar characters Darkvision with a range of 60 feet. It does not provide any additional resistances, such as poison damage resistance, to these characters. Additionally, it offers proficiency in the Dwarvish language, advantage on Charisma checks when interacting with dwarves and duergar, and a boost to Constitution.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it against both the expected answer and the context provided. The expected answer states that non-dwarf or duergar characters gain 'Resistance to Poison damage' from wearing the Belt of Dwarvenkind. However, according to the context given in the user's input, the specific resistance granted by the belt to non-dwarf or duergar characters is actually 'Darkvision with a range of 60 feet.' There are no mentions of poison damage resistance for these characters within the provided context.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What is the save DC to resist the poisoned condition caused by an Ettercap's bite?
+Expected: There is no save for the poisoned condition on an Ettercap's bite; it automatically applies the Poisoned condition until the start of the ettercap's next turn upon hitting.
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the Generated Answer is factually correct, we need to compare it with both the Context and the Expected Answer. The question asks about the save DC for resisting the poisoned condition caused by an Ettercap's bite. According to the provided context, specifically from Retrieval Rank 1, the Ettercap's bite inflicts poison damage and automatically applies the Poisoned condition until the start of the ettercap’s next turn upon hitting. There is no mention of a save DC for resisting this condition in the context. The Expected Answer also states that there is no save for the poisoned condition on an Ettercap's bite; it automatically applies the Poisoned condition. Therefore, the Generated Answer stating 'I do not have enough information to provide an accurate answer' does not align with the provided Context or the Expected Answer.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: What type of damage is dealt by the spiritual weapon created by a Cleric's Spiritual Weapon spell?
+Expected: Force damage.
+Generated: The spiritual weapon created by a Cleric's Spiritual Weapon spell deals both Slashing and Necrotic damage.
+Judge Thoughts: To determine if the generated answer is correct, I need to compare it with the context provided. The expected answer states that the damage type for the spiritual weapon is 'Force damage.' According to the context from the D&D Rulebook Snippet Summary and Exact Excerpt under Retrieval Rank 1, the Spiritual Weapon spell creates a spectral force that deals Force damage equal to 1d8 plus the caster's spellcasting ability modifier. The generated answer mentions Slashing and Necrotic damage, which does not match the context or expected answer.
+
+########################################
+Dataset: golden_dataset_gemini.json
+Question: How much does a Pouch weigh and what is its maximum weight capacity?
+Expected: A Pouch weighs 1 lb. (5 SP cost) and can hold up to 6 pounds within one-fifth of a cubic foot.
+Generated: The provided context specifies that a Pouch has a maximum weight capacity of 6 pounds within one-fifth of a cubic foot but does not state the weight of the Pouch itself.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it with both the expected answer and the provided context. The expected answer states that a Pouch weighs 1 lb. (5 SP cost) and can hold up to 6 pounds within one-fifth of a cubic foot. In the context, there are two mentions of a Pouch: one from Retrieval Rank 3 stating it holds up to 6 pounds within one-fifth of a cubic foot with a cost of 5 SP, and another from Retrieval Rank 2 mentioning a different Pouch that weighs 1 pound and costs 5 SP. The generated answer only mentions the capacity but not the weight or cost, which is crucial for full correctness.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is the base Armor Class calculation for all creatures?
+Expected: Base AC = 10 + the creature’s Dexterity modifier
+Generated: A creature's Armor Class (AC) begins with a base calculation of 10 plus their Dexterity modifier. However, several other modifiers and conditions can further affect AC: 
+
+1. **Equipment**: The use of armor or shields as specified in the "Equipment" rules.
+2. **Class Features**: Some classes offer alternative methods for calculating AC, such as Unarmored Defense.
+3. **Magic Resistance**: While not directly affecting AC, having advantage on saving throws against spells and magical effects can influence combat scenarios involving AC.
+4. **Robes with Special Abilities**: Items like the Robe of the Archmagi provide armor benefits and magic resistance, indirectly impacting AC.
+5. **Armor Training**: This allows a creature to use armor without penalties that might otherwise negatively affect their AC.
+6. **Multiple Calculation Methods**: If multiple methods for calculating AC are available due to class features or items, only one method can be used at a time.
+7. **Draconic Sorcerer Subclass**: For this subclass, the base AC is derived from draconic power and includes both Dexterity and Charisma modifiers.
+Judge Thoughts: The task requires evaluating whether the generated answer aligns with the expected answer based on the provided context. The expected answer specifies that the base Armor Class (AC) calculation for all creatures is '10 + the creature’s Dexterity modifier.' The generated answer begins correctly by stating this formula but then expands to include additional factors and conditions affecting AC, which are not part of the base calculation itself. These additional details, while relevant in a broader discussion about AC, do not pertain directly to the specific question about the 'base' AC calculation.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is the Rage Damage bonus for a Barbarian at level 9?
+Expected: +3
+Generated: I do not have enough information to provide an answer.
+Judge Thoughts: To determine if the Generated Answer is correct, we need to compare it with the Expected Answer and verify against the provided Context. The question asks for the Rage Damage bonus at level 9 for a Barbarian in D&D. According to the context, particularly from [Retrieval Rank 4], the Rage Damage increases as you gain levels, but specific values are not directly listed in the excerpts provided. However, typically in D&D 5e, the Rage Damage bonus is +2 at level 3 and increases by +1 every two levels thereafter (i.e., +3 at level 5, +4 at level 7, and +5 at level 9). The Expected Answer is +3, which does not align with this typical progression. Therefore, based on standard D&D rules, the Rage Damage bonus should be +5 at level 9, not +3. However, since the context provided does not explicitly confirm these values, we cannot definitively say that the Generated Answer is incorrect solely based on the information given in the excerpts.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What Divine Order options does a level 1 Cleric have?
+Expected: Protector or Thaumaturge
+Generated: At level 1, a Cleric who chooses the Thaumaturge Divine Order knows one extra cantrip from their spell list in addition to three cantrips of their choice. The available cantrips for Clerics include Guidance, Light, Mending, Resistance, Sacred Flame, Spare the Dying, and Thaumaturgy. There are no additional benefits or features specifically associated with the Thaumaturge role beyond knowing an extra cantrip.
+Judge Thoughts: The question asks about the Divine Order options available to a level 1 Cleric in D&D, and the expected answer is 'Protector or Thaumaturge.' The generated answer provides details specifically about the Thaumaturge option but does not mention the Protector option. To determine if the generated answer is correct, I need to verify whether it accurately reflects the context provided for level 1 Clerics' Divine Order options.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: How many Channel Divinity uses at level 1 for Cleric?
+Expected: 2
+Generated: Clerics do not have any uses of Channel Divinity at level 1. They gain two uses starting at level 2.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it with both the expected answer and the context provided. The expected answer states that Clerics have 2 Channel Divinity uses at level 1. However, according to the context from Retrieval Rank 2, 3, 4, and 7, Clerics gain two Channel Divinity options starting at Level 2, not Level 1. Therefore, the generated answer aligns with the context provided but contradicts the expected answer.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is the Second Wind HP regain at level 1 for Fighter?
+Expected: 1d10 + Fighter level
+Generated: At level 1, a Fighter can use their Second Wind feature to regain Hit Points equal to 1d10 as a Bonus Action.
+Judge Thoughts: To determine if the Generated Answer is factually correct, I need to compare it with both the Expected Answer and the Context provided. The Expected Answer states that at level 1, a Fighter can regain Hit Points equal to '1d10 + Fighter level' using Second Wind. However, the Context indicates two different pieces of information: one stating '1d10' without adding the Fighter level (Rank 1), and another indicating '1d10 plus your Fighter level' (Rank 2). Since the question specifically asks about level 1, I need to focus on what is applicable at that level.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: How many Focus Points at Monk level 2?
+Expected: 2
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to compare it with both the expected answer and the context provided. The question asks for the number of Focus Points a Monk has at level 2. According to the context, specifically in the 'Monk Features' table mentioned in Retrieval Rank 1, a Monk gains 2 Focus Points at level 2. This matches the expected answer of 2. However, the generated answer states that there is not enough information to provide an accurate answer, which suggests it did not correctly interpret or extract the relevant details from the context provided.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is Deflect Attacks for level 3 Monk?
+Expected: When an attack roll hits you and its damage includes Bludgeoning, Piercing, or Slashing damage, you can take a Reaction to reduce the attack’s total damage against you. The reduction equals 1d10 plus your Dexterity modifier and Monk level.
+Generated: At level 3, Monks gain the 'Deflect Attacks' feature. When an attack roll hits a Monk and includes Bludgeoning, Piercing, or Slashing damage, the Monk can take a Reaction to reduce the attack’s total damage by 1d10 + their Proficiency Bonus. However, once this feature is used, it cannot be used again until the Monk finishes a Long Rest.
+Judge Thoughts: To determine if the Generated Answer is factually correct, we need to compare it with both the Expected Answer and the Context provided. The key points of comparison are: 
+
+1. **Damage Reduction Mechanism**: Both answers mention a Reaction to reduce damage from Bludgeoning, Piercing, or Slashing attacks.
+2. **Reduction Amount**: The Expected Answer specifies that the reduction is 1d10 plus Dexterity modifier and Monk level. The Generated Answer states it's 1d10 plus Proficiency Bonus.
+3. **Cooldown Mechanism**: Both answers agree on the feature being unavailable until after a Long Rest.
+
+The discrepancy lies in the components of the damage reduction calculation (Dexterity modifier vs. Proficiency Bonus). According to the Context, the Expected Answer aligns with the provided excerpt from the D&D Monk Rulebook Snippet, which specifies using the Dexterity modifier and Monk level for the reduction.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: How much is the Lay On Hands pool at level 1?
+Expected: 5 times Paladin level
+Generated: At level 1, a Paladin's Lay On Hands pool is determined by rolling a d10. The result of this roll indicates the number of Hit Points available for healing. This method derives from the rule that states to 'Add together the Hit Dice granted by all your classes to form your pool of Hit Dice.' Since a level 1 Paladin has one d10 Hit Die, they use this die to determine their Lay On Hands pool.
+Judge Thoughts: To evaluate whether the generated answer is correct, I need to compare it with both the expected answer and the context provided. The expected answer states that a level 1 Paladin's Lay On Hands pool is '5 times Paladin level,' which would be 5 Hit Points at level 1. However, the context from the retrieval ranks indicates that the Lay On Hands pool for a level 1 Paladin is determined by rolling a d10, not directly calculated as 5 times their level. The generated answer aligns with this contextual information, stating that the pool is determined by rolling a d10.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is the Sneak Attack damage at level 3 Rogue?
+Expected: 2d6
+Generated: At level 1, Rogues deal an extra 1d6 damage with Sneak Attack. As they gain levels, this damage increases. However, the exact increase at level 3 is not explicitly detailed in the provided context.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to analyze both the expected and generated answers in relation to the provided context. The expected answer states that the Sneak Attack damage at level 3 Rogue is 2d6. In the context, there are several sections detailing the progression of Sneak Attack damage as Rogues gain levels. Specifically, the section with retrieval rank 1 lists the Sneak Attack damage increase per level: 1d6 at level 1, 2d6 at level 3, and so on. This directly supports the expected answer of 2d6 for a level 3 Rogue. The generated answer mentions that the exact increase at level 3 is not explicitly detailed in the provided context, which contradicts the information available in the context. Therefore, the generated answer does not align with the factual details given.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What is the Fly Speed for Goliath Large Form at level 5?
+Expected: No Fly Speed mentioned; Speed increases by 10 ft.
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to compare it with both the expected answer and the context provided. The question asks for the Fly Speed of a Goliath in Large Form at level 5. According to the context, when a Goliath transforms into Large Form starting at character level 5, their speed increases by 10 feet. However, there is no specific mention of an increase or change in Fly Speed due to this transformation. The expected answer states that there is 'No Fly Speed mentioned; Speed increases by 10 ft.' This aligns with the context provided, as it confirms that only the ground movement speed is increased and not the Fly Speed. Therefore, the generated answer stating a lack of sufficient information is incorrect because the context does provide enough details to conclude that no Fly Speed change occurs.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: What does Magic Initiate feat give?
+Expected: Two cantrips from Cleric, Druid, or Wizard list; one level 1 spell from same list, cast once without slot per Long Rest.
+Generated: The Magic Initiate feat allows a character to learn two cantrips of their choice from the Cleric, Druid, or Wizard spell lists. There is no specific benefit mentioned in relation to level 1 spells provided by this feat.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it against both the expected answer and the context provided. The expected answer specifies that Magic Initiate gives two cantrips from specific spell lists and a level 1 spell from the same list, which can be cast once without using a spell slot after a Long Rest. The generated answer only mentions learning two cantrips but omits any mention of the level 1 spell benefit. Therefore, it does not fully align with the expected answer or the context provided in the document.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: Combine the Barbarian level 11 Relentless Rage DC increase rule with level 15 Persistent Rage: what is the DC after first use at level 16?
+Expected: DC starts at 10, increases by 5 after first use to 15; resets on Short/Long Rest. Persistent Rage allows regaining Rage uses on Initiative but doesn't affect DC.
+Generated: At level 16, the initial DC for Relentless Rage after first use is 35. The DC increases by 5 with each subsequent use, making it 40 after the second use and so on. This increase applies regardless of whether Persistent Rage is used to regain uses.
+Judge Thoughts: To determine if the generated answer is correct, I need to analyze both the context provided and compare it with the expected answer. The key points are: 1) Relentless Rage starts at a DC of 10 and increases by 5 after each use; 2) Persistent Rage allows regaining uses on Initiative but does not affect the DC increase mechanism; 3) The generated answer states that the initial DC is 35, which implies multiple prior uses without resetting. I need to verify if this aligns with the rules provided in the context.
+
+########################################
+Dataset: golden_dataset_grok.json
+Question: Using Travel Pace table and Mounted Combat rules, how far can a group on horses travel in a day at Fast pace for 1 hour then Normal?
+Expected: Fast: 60 miles for 1 hour (double Normal 30 miles); then Normal 24 miles for 7 hours (total 84 miles), mounts need Short/Long Rest after doubled pace hour.
+Generated: A group on horses can travel a total of 146 miles in one day if they travel at Fast pace for 1 hour and then switch to Normal pace.
+Judge Thoughts: To determine the correctness of the generated answer, we need to compare it with both the expected answer and the context provided. The Travel Pace table indicates that a group can move twice the distance at Fast pace for 1 hour when on horses or other mounts. According to the table: 
+- Normal pace allows travel of 24 miles in a day (3 miles per hour over 8 hours).
+- Fast pace allows travel of 30 miles in a day (4 miles per hour over 8 hours), but with mounts, this distance is doubled for 1 hour.
+
+Using these rules:
+1. At Fast pace on horses for 1 hour: 2 * 4 miles = 8 miles.
+2. After the first hour at Fast pace, they switch to Normal pace for the remaining 7 hours of travel time: 3 miles/hour * 7 hours = 21 miles.
+
+Adding these distances gives a total of 29 miles (8 + 21) in one day. The expected answer suggests that after traveling at Fast pace for 1 hour, they should switch to Normal pace for the remaining 7 hours and then rest before continuing at an increased pace again. This implies a total travel distance of 84 miles (60 miles from Fast pace and 24 miles from Normal pace), which is different from both the expected answer's calculation and the generated answer.
+
+The generated answer states that they can travel 146 miles, which does not align with any calculations based on the provided context or the expected answer. Therefore, it appears to be incorrect.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the speed of a weasel?
+Expected: 30 ft.
+Generated: The speed of a Giant Weasel is 40 feet on the ground and 30 feet while climbing.
+Judge Thoughts: The question asks for the speed of a 'weasel,' but does not specify which type. There are two types mentioned in the context: a regular Weasel with a speed of 30 ft., and a Giant Weasel with a ground speed of 40 ft. The expected answer is specifically for a regular Weasel, which has a speed of 30 ft. The generated answer refers to the Giant Weasel's speeds, which are different from those of the regular Weasel.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What condition does a Medium Beast with an AC of 12 inflict when its attack hits?
+Expected: Prone, if it's a wolf.
+Generated: The original statement claims that a Medium Beast with an AC of 12 inflicts the Prone condition upon a successful hit. However, there is no additional confirmation or detailed source provided for this specific interaction in the new information available.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it with the context and expected answer. The question asks about a Medium Beast with an AC of 12 inflicting a condition upon a successful hit. In the provided context, there are several creatures listed with their respective actions and conditions they inflict. Specifically, the Wolf has an AC of 12 and its bite attack causes smaller creatures to become prone if hit. This matches the expected answer that states 'Prone' is the condition inflicted by a wolf. The generated answer does not explicitly mention this detail but instead discusses the lack of additional confirmation or detailed source for the interaction. Therefore, it seems to miss acknowledging the specific information provided in the context about the Wolf.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the Wisdom Saving Throw DC for a swarm of venomous snakes' Cacophony attack?
+Expected: 10
+Generated: The Wisdom saving throw DC for a swarm of venomous snakes' Cacophony attack is stated as 15 in the original source. However, there is uncertainty or lack of confirmation regarding this detail, so further verification from an authoritative source may be necessary.
+Judge Thoughts: The task requires comparing the generated answer to the expected answer and determining if the generated answer is factually correct based on the provided context. The expected Wisdom Saving Throw DC for a swarm of venomous snakes' Cacophony attack is 10, as indicated in the broader section context under 'Swarm of Venomous Snakes.' However, the generated answer states that the DC is 15 and mentions uncertainty about this detail. This discrepancy indicates that the generated answer does not match the expected answer or the provided context.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What kind of damage does a creature with an initiative bonus of +3 inflict?
+Expected: It varies; examples include Slashing for Tiger and Piercing for Tyrannosaurus Rex.
+Generated: The Fire Elemental inflicts Fire damage in several ways: 
+1. **Fire Aura**: Creatures and flammable objects within its Emanation take 5 (1d10) Fire damage.
+2. **Burn Attack**: As part of its Multiattack, it makes two Burn attacks, each dealing 10 (2d6 + 3) Fire damage on a hit.
+3. **Touch Attack**: It deals 7 (2d4 + 2) Fire damage with its Touch attack and can cause the target to start burning if it is a creature or flammable object not being worn or carried.
+Judge Thoughts: The question asks about the type of damage inflicted by a creature with an initiative bonus of +3. The context provided includes descriptions of various creatures, including their initiative bonuses and types of damage they inflict. The Fire Elemental is noted to have an initiative bonus of +3 and inflicts Fire damage through its abilities such as Fire Aura, Burn attacks, and Touch attack. However, the expected answer refers to different creatures (Tiger with Slashing damage and Tyrannosaurus Rex with Piercing damage) that also have an initiative bonus of +3 but inflict different types of damage.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the AC of a creature with 11 hit points at level one?
+Expected: 12, as seen with Wolf.
+Generated: The base Armor Class (AC) for a creature with no specific armor is calculated as 10 plus its Dexterity modifier. This base AC can be modified by the application of armor or magical effects. For instance, certain items like the Defender weapon allow transferring attack bonuses to AC, and Demon Armor provides an additional bonus to AC. It's important to note that these modifiers are independent of a creature's hit points.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it with both the expected answer and the context provided. The expected answer for a level one creature with 11 hit points is an AC of 12, as seen with Wolf in the context. The generated answer explains how base AC is calculated (10 + Dexterity modifier) and mentions modifiers from armor or magical effects but does not provide specific numbers or examples that directly relate to the given context about Wolves or other creatures with similar stats.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the condition effect of a creature's bite if it has an AC of 10?
+Expected: No specific condition; it depends on the creature, like a vulture.
+Generated: When a creature fails the Constitution saving throw against the Pit Fiend's Bite attack, it takes 5 (1d4 + 3) Piercing damage plus 10 (3d6) Necrotic damage. Additionally, the target’s Hit Point maximum decreases by an unspecified amount.
+Judge Thoughts: The task is to determine if the generated answer correctly addresses the question about the condition effect of a creature's bite with an AC of 10, based on the provided context. The expected answer suggests that there is no specific condition and depends on the creature, like a vulture. However, the generated answer refers specifically to the Pit Fiend's Bite attack, which involves damage types and effects not mentioned in the expected answer.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the initiative bonus of a creature with a Wisdom Saving Throw DC of 10?
+Expected: +3, as seen with Venomous Snake.
+Generated: The initiative bonus related to a Wisdom Saving Throw DC of 10 cannot be determined from the provided context. However, it is known that the Initiative modifier for the Gibbering Mouther is -1.
+Judge Thoughts: The question asks about the initiative bonus associated with a creature having a Wisdom Saving Throw DC of 10. The expected answer suggests an initiative bonus of +3, referencing a Venomous Snake as an example. However, the provided context does not mention any specific connection between a Wisdom Saving Throw DC and an initiative bonus. Instead, it provides details about the Gibbering Mouther's initiative modifier, which is -1. There is no information in the context that links a Wisdom Saving Throw DC to an initiative bonus directly.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the speed of a creature with an initiative bonus of +1?
+Expected: 60 ft., as seen with Warhorse.
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to assess whether the context provided contains sufficient information about how initiative bonuses affect a creature's speed. The context primarily discusses various aspects of creatures' speeds and special speeds but does not directly link an initiative bonus to changes in movement speed. Therefore, without explicit information connecting initiative bonuses to speed adjustments, it would be incorrect to assume any specific speed value based on the given context.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What kind of damage does a creature inflict if it has an initiative bonus of +2?
+Expected: It varies; examples include Slashing for Tiger.
+Generated: I do not have enough information to provide an answer.
+Judge Thoughts: To determine if the Generated Answer is correct, we need to assess whether the Context provided contains sufficient information about what kind of damage a creature inflicts with an initiative bonus of +2. The context includes various sections from D&D rulebooks and summaries, but none explicitly link an initiative bonus of +2 to specific types of damage like Slashing for a Tiger. Instead, it discusses general rules about attack rolls, damage bonuses, and specific creatures' abilities without directly correlating them with initiative bonuses.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the HP of a creature that moves 50 ft. in one turn?
+Expected: 136, as seen with Tyrannosaurus Rex.
+Generated: The average speed values for creatures based on size categories are as follows: For Tiny creatures, no specific value is explicitly stated. Small creatures, such as a Halfling, have an example speed of 30 feet. Medium-sized creatures typically have speeds around 30 feet unless otherwise specified. Large creatures generally have higher speeds than Medium ones, while Huge creatures have even higher speeds than Large ones. Gargantuan creatures are expected to have the highest speeds among all size categories. However, explicit average speed values for Tiny, Medium, Large, Huge, and Gargantuan sizes beyond what is provided for Small are not explicitly stated in the context.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it against both the expected answer and the information available in the context. The question asks about the HP of a creature that moves 50 ft. in one turn. According to the context provided, creatures' speeds are categorized by size, but specific speed values for each category aren't explicitly given except for Small (30 feet). However, there is an example of a Tyrannosaurus Rex with 136 HP and a movement of 50 ft., which matches the expected answer. The generated answer discusses average speed values based on creature sizes without directly addressing the HP or providing specific examples like the Tyrannosaurus Rex.
+
+########################################
+ERROR on Question 45: What is the Initiative bonus of a Warhorse?
+Exception: 1 validation error for RerankOutput
+  Invalid JSON: EOF while parsing a value at line 44 column 108 [type=json_invalid, input_value='{ "thoughts": "To rank t...2, 23, 24, 25, 26, 27, ', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.11/v/json_invalid
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the initiative bonus of a creature with an AC of 12 and it uses Pack Tactics?
+Expected: +2
+Generated: The initiative score for a creature is calculated as 10 plus its Dexterity modifier. Pack Tactics does not provide any additional initiative bonus or affect the initiative roll in any way.
+Judge Thoughts: To determine if the generated answer is factually correct, we need to analyze both the context provided and the expected answer. The context mentions that a creature's initiative score is calculated as 10 plus its Dexterity modifier. It also states that Pack Tactics grants advantage on attack rolls when allies are nearby but does not mention any effect on initiative scores. The expected answer indicates an additional +2 bonus, which isn't supported by the provided context or standard rules of Dungeons & Dragons regarding initiative and Pack Tactics.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: How many feet can a Large Beast move in one turn according to general rules?
+Expected: 50
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to compare it against both the context provided and the expected answer. The question asks about how many feet a Large Beast can move in one turn according to general rules. The context includes specific details about the Giant Hyena's speed, which is 50 ft., but does not provide explicit general rules for all large beasts. The expected answer is '50', likely based on the example of the Giant Hyena provided in the context.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: How many feet can a Medium Beast move in one turn according to general rules?
+Expected: 40
+Generated: A Medium Beast can move up to 60 feet in one turn if it has a Speed of 30 feet and chooses to Dash.
+Judge Thoughts: To determine the correctness of the generated answer, I need to compare it with both the expected answer and the context provided. The expected answer is '40', which suggests that a Medium Beast can move up to 40 feet in one turn without using Dash. However, the context indicates that if a creature has a Speed of 30 feet and chooses to Dash, it can move up to 60 feet on its turn. Therefore, the generated answer aligns with the context for a Dashing action but does not address the scenario where the beast is not dashing.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the Initiative bonus of a creature with an AC of 13 and it has Stealth +4?
+Expected: +2
+Generated: The context does not provide information on how Armor Class (AC) or Stealth ability affects Initiative bonuses. Initiative scores are typically calculated as 10 plus the Dexterity modifier, with adjustments for Advantage (+5) or Disadvantage (-5), but there is no direct link between AC, Stealth, and Initiative in the provided excerpts.
+Judge Thoughts: To determine if the generated answer is factually correct, we need to compare it against both the expected answer and the context provided. The expected answer is a numerical value of +2 for the Initiative bonus. The generated answer discusses how Initiative scores are typically calculated in D&D: as 10 plus the Dexterity modifier, with adjustments for Advantage or Disadvantage. However, it does not provide any specific calculation or mention an additional +2 bonus related to AC or Stealth.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the Initiative bonus of a creature with an AC of 14 and it has Blindsight?
+Expected: +3
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine whether the generated answer is correct, we need to calculate the Initiative bonus for a creature with an AC of 14 and Blindsight. The context provided does not directly mention how AC or Blindsight affects Initiative, but it does provide information on how Initiative scores are calculated: as 10 plus Dexterity modifier, adjusted for Advantage or Disadvantage. Since neither AC nor Blindsight is mentioned in the context as affecting Initiative, we must assume they do not alter the base calculation of Initiative unless specified elsewhere in the rules.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: How many feet can a Huge Beast move in one turn according to general rules?
+Expected: 40
+Generated: The movement of creatures, including Huge Beasts, is governed by their Speed, which can be used for various actions such as climbing and swimming. Difficult terrain increases the movement cost. The exact number of feet a Huge Beast can move or its specific Speed is not universally defined but is detailed in each creature's stat block found in the 'Monsters' section of the rulebook.
+Judge Thoughts: The question asks for the specific movement capability (in feet) of a Huge Beast per turn according to general D&D rules. The context provided includes information about how Speed is determined and used, but does not specify an exact number for Huge Beasts. Instead, it mentions that creature-specific details like Speed are found in their stat blocks within the 'Monsters' section. The Expected Answer is 40 feet, which suggests a specific value might be commonly associated with Huge Beasts or provided in typical examples of such creatures. However, without explicit confirmation from the context given, we cannot definitively state that all Huge Beasts move exactly 40 feet per turn as this can vary based on individual stat blocks.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the AC of a creature that has Blindsight and an Initiative bonus of +3?
+Expected: 12
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to assess whether the context provided contains sufficient information to calculate the Armor Class (AC) of a creature with Blindsight and an Initiative bonus of +3. The context includes sections on core rules, specific examples of creatures with AC and initiative bonuses, but does not directly explain how to calculate AC for a generic creature based solely on its abilities like Blindsight or Initiative bonuses.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the HP of a creature with an Initiative bonus of +1?
+Expected: Varies based on creature size and AC
+Generated: Hit Points (HP) for a creature are determined by its size category and Constitution modifier. Each size category has an assigned Hit Die, which dictates the die used to calculate HP: Tiny creatures use a d4 with an average of 2½ HP per die, Small creatures use a d6 with an average of 3½ HP per die, Medium creatures use a d8 with an average of 4½ HP per die, Large creatures use a d10 with an average of 5½ HP per die, and Huge creatures use a d12 with an average of 6½ HP per die. The Hit Dice not only determine the creature's maximum hit points but also provide a mechanism for healing during Short Rests. However, there is no information provided about how an Initiative bonus affects Hit Points.
+Judge Thoughts: The question asks about the HP of a creature with an Initiative bonus of +1. The context provided discusses various aspects of D&D stat blocks, including size categories and their corresponding Hit Dice for calculating HP. However, there is no direct information linking an Initiative bonus to changes in HP. The expected answer suggests that HP varies based on creature size and AC, but the generated answer focuses solely on how HP is determined by size category and Constitution modifier without mentioning any impact from Initiative bonuses. Therefore, I need to determine if the lack of connection between Initiative bonuses and HP in the context makes the generated answer correct or incorrect.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: Does a Triceratops have any natural vision abilities?
+Expected: No, it doesn't. Passive Perception is listed.
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to compare it with both the expected answer and the context provided. The expected answer states that a Triceratops does not have any natural vision abilities beyond what is listed as Passive Perception 10 in the context. The generated answer claims there isn't enough information to provide an accurate response. Given the context explicitly lists 'Passive Perception 10' under the senses of the Triceratops, this indicates that it has some level of perception ability, albeit not detailed further. Therefore, the generated answer does not align with the expected answer or the provided context.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the Initiative bonus of a creature with an AC of 13 and it has Stealth +4?
+Expected: +2
+Generated: The context does not provide information on how Armor Class (AC) or Stealth ability affects Initiative bonuses. Initiative scores are typically calculated as 10 plus the Dexterity modifier, with adjustments for Advantage (+5) or Disadvantage (-5), but there is no direct link between AC, Stealth, and Initiative in the provided excerpts.
+Judge Thoughts: To determine if the generated answer is factually correct, we need to compare it against both the expected answer and the context provided. The expected answer is a numerical value of +2 for the Initiative bonus. The generated answer discusses how Initiative scores are typically calculated in D&D: as 10 plus the Dexterity modifier, with adjustments for Advantage or Disadvantage. However, it does not provide any specific calculation or mention an additional +2 bonus related to AC or Stealth.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the HP of a creature with an Initiative bonus of +1?
+Expected: 11
+Generated: Hit Points (HP) for a creature are determined by its size category and Constitution modifier. Each size category has an assigned Hit Die, which dictates the die used to calculate HP: Tiny creatures use a d4 with an average of 2½ HP per die, Small creatures use a d6 with an average of 3½ HP per die, Medium creatures use a d8 with an average of 4½ HP per die, Large creatures use a d10 with an average of 5½ HP per die, and Huge creatures use a d12 with an average of 6½ HP per die. The Hit Dice not only determine the creature's maximum hit points but also provide a mechanism for healing during Short Rests. However, there is no information provided about how an Initiative bonus affects Hit Points.
+Judge Thoughts: To evaluate whether the generated answer is factually correct, I need to determine if it accurately addresses the question regarding the HP of a creature with an Initiative bonus of +1. The context and expected answer focus on how Hit Points are calculated based on size category and Constitution modifier, without mentioning any direct relationship between Initiative bonuses and Hit Points. Therefore, the generated answer should be assessed for its alignment with this understanding.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: How many feet can a Medium Beast move in one turn according to general rules?
+Expected: 40
+Generated: A Medium Beast can move up to 60 feet in one turn if it has a Speed of 30 feet and chooses to Dash.
+Judge Thoughts: To determine the correctness of the generated answer, I need to compare it with both the expected answer and the context provided. The expected answer is '40', which suggests that a Medium Beast can move up to 40 feet in one turn without using Dash. However, the context indicates that if a creature has a Speed of 30 feet and chooses to Dash, it can move up to 60 feet on its turn. Therefore, the generated answer aligns with the context for a Dashing action but does not address the scenario where the beast is not dashing.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: How many feet can a Large Beast move in one turn according to general rules?
+Expected: 30
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to compare it against both the context provided and the expected answer. The question asks about how many feet a Large Beast can move in one turn according to general rules. The context includes specific examples of large beasts (Giant Hyena and Giant Boar) with their respective speeds: 50 ft for the Giant Hyena and 40 ft for the Giant Boar. Additionally, there is a section on core rules that explains how a creature's Speed determines its movement per turn. However, no general rule specifying '30 feet' as the movement capability of all Large Beasts is mentioned in the context provided.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the AC of a creature that has Blindsight and an Initiative bonus of +3?
+Expected: 12 or 13, depending on the specific creature.
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine if the generated answer is correct, we need to assess whether the context provided contains sufficient information to calculate the Armor Class (AC) of a creature with Blindsight and an Initiative bonus of +3. The context includes sections on core rules, specific creatures like Animated Armor and Flying Sword, and general mechanics such as AC calculation methods. However, it does not directly link these elements to provide a clear method for calculating AC based solely on the presence of Blindsight and an Initiative bonus.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: Does a Vulture have any natural vision abilities?
+Expected: No, it doesn't. Passive Perception is listed.
+Generated: Both the Giant Vulture and the medium-sized Vulture possess natural vision abilities known as 'darkvision,' which allows them to see in darkness or dim light up to a distance of 60 feet. Additionally, they have a passive perception score of 13. There is no indication that they have other special senses such as blindsight, tremorsense, or truesight.
+Judge Thoughts: To determine if the generated answer is factually correct, I need to compare it with both the expected answer and the context provided. The expected answer states that the vulture does not have any natural vision abilities beyond passive perception. However, the context reveals that both the Giant Vulture and the medium-sized Vulture possess 'darkvision,' which allows them to see in darkness or dim light up to 60 feet. This is a specific natural vision ability. Additionally, they have a passive perception score of 13, but this alone does not constitute a natural vision ability; it's more about their perceptiveness rather than an innate sensory capability like darkvision.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: How many feet can a Small Beast move in one turn according to general rules?
+Expected: 20 feet.
+Generated: In Dungeons & Dragons, while the base speed of Small creatures is not explicitly defined, Halflings are an example of Small creatures with a Speed of 30 feet. This suggests that 30 feet could be considered a typical base speed for Small creatures in D&D.
+Judge Thoughts: The question asks about the movement capability of a 'Small Beast' per turn according to general rules, with an expected answer of 20 feet. The context provided includes various sections from the D&D Core Rules/Concepts Summary and other related information. However, it does not explicitly define the base speed for Small creatures in general terms but provides specific examples like Halflings having a Speed of 30 feet. This suggests that while 30 feet is typical for some Small creatures (like Halflings), there isn't a universally defined base speed of 20 feet for all Small creatures within the provided context.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: What is the Initiative bonus of a creature with an AC of 14 and it has Blindsight?
+Expected: +2 or +3
+Generated: I do not have enough information to provide an accurate answer.
+Judge Thoughts: To determine whether the generated answer is correct, we need to evaluate if the context provided contains sufficient information to calculate the Initiative bonus for a creature with an AC of 14 and Blindsight. The context mentions that Initiative scores are calculated as 10 plus Dexterity modifier, adjusted for Advantage or Disadvantage on rolls. However, it does not provide specific details about how Blindsight affects Initiative directly. Additionally, there is no mention in the context of any correlation between Armor Class (AC) and Initiative bonus. Therefore, without explicit information linking AC or Blindsight to Initiative calculation, we cannot derive a precise Initiative bonus from the given context.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: How many feet can a Huge Beast move in one turn according to general rules?
+Expected: 30 feet.
+Generated: The movement of creatures, including Huge Beasts, is governed by their Speed, which can be used for various actions such as climbing and swimming. Difficult terrain increases the movement cost. The exact number of feet a Huge Beast can move or its specific Speed is not universally defined but is detailed in each creature's stat block found in the 'Monsters' section of the rulebook.
+Judge Thoughts: The question asks for the specific movement capability (in feet) of a Huge Beast per turn according to general D&D rules. The context provided includes information about how Speed is determined and used, but does not specify an exact number for Huge Beasts. Instead, it mentions that creature-specific details like Speed are found in their stat blocks within the 'Monsters' section.
+
+########################################
+Dataset: golden_dataset_phi.json
+Question: How many feet can a Tiny Beast swim in one turn if applicable?
+Expected: 30
+Generated: A Tiny Beast can swim up to 40 feet in one turn if it is a piranha or wearing a 'Ring of Swimming'. If it is a seahorse, it can swim up to 20 feet. No other Tiny Beasts are specified with a swim speed.
+Judge Thoughts: To determine the correctness of the generated answer, I need to compare it against both the context provided and the expected answer. The question specifically asks about how many feet a Tiny Beast can swim in one turn if applicable. According to the context, the piranha has a Swim Speed of 40 feet, and the seahorse has a Swim Speed of 20 feet. Additionally, wearing a 'Ring of Swimming' grants a Swim Speed of 40 feet. The expected answer is 30 feet, which does not match any specific Tiny Beast's swim speed from the context provided.
+
