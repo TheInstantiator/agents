@@ -1,0 +1,178 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-03-18",
+  "user": "E Man",
+  "daily_nag_mode": "high",
+  "goals": [
+    {
+      "id": "personal_stoicism_listener",
+      "category": "Personal",
+      "title": "Continue Stoicism deep dive on 'The Listener' and labeled voices in my head",
+      "description": "I am the listener/observer. Explore what Stoicism and AI say about this. Practice daily observation of thoughts without attachment.",
+      "priority": "high",
+      "target_date": "2026-04-30",
+      "milestones": [
+        { "id": "s1", "title": "Have dedicated AI conversation on the Listener concept", "done": false, "due": "2026-03-25" },
+        { "id": "s2", "title": "Daily 10-min practice: log voices/thoughts as 'impressions'", "done": false, "due": "ongoing" }
+      ]
+    },
+    {
+      "id": "personal_fitness",
+      "category": "Personal",
+      "title": "Upgrade cardio + maintain lifting routine",
+      "description": "Run + elliptical with Max30-style intervals. Keep consistent gym lifting, experiment with rep ranges.",
+      "priority": "medium",
+      "target_date": "2026-06-30",
+      "milestones": [
+        { "id": "f1", "title": "Run/elliptical 3x per week", "done": false, "due": "weekly" },
+        { "id": "f2", "title": "Adjust lifting rep ranges and track progress weekly", "done": false, "due": "2026-04-15" }
+      ]
+    },
+
+    {
+      "id": "work_sp1460",
+      "category": "Work",
+      "title": "SP-1460 – Monitor, stabilize, and roll in",
+      "description": "Current warehouse system ticket. Must stay on top of this while transitioning to AI.",
+      "priority": "high",
+      "target_date": "2026-04-10",
+      "milestones": [
+        { "id": "w1", "title": "Monitor SP-1460 on Wed/Thu", "done": false, "due": "2026-03-19" },
+        { "id": "w2", "title": "Review Fri & Mon changes on Tuesday", "done": false, "due": "2026-03-25" },
+        { "id": "w3", "title": "Roll in changes if all good", "done": false, "due": "2026-04-01" }
+      ]
+    },
+    {
+      "id": "work_rialto_tote_picking",
+      "category": "Work",
+      "title": "Work with Rialto on Tote Picking Application",
+      "description": "Current collaboration task",
+      "priority": "medium",
+      "target_date": "2026-04-30",
+      "milestones": [
+        { "id": "w4", "title": "Make meaningful progress on Tote Picking app with Rialto", "done": false, "due": "2026-04-15" }
+      ]
+    },
+    {
+      "id": "work_rag_implementation",
+      "category": "Work",
+      "title": "Implement RAG learnings into work projects",
+      "description": "Apply personal RAG knowledge to work tasks (after SP-1460 is stable)",
+      "priority": "medium",
+      "target_date": "2026-05-31",
+      "milestones": [
+        { "id": "w5", "title": "Study Snowflake relationships", "done": false, "due": "2026-04-10" },
+        { "id": "w6", "title": "Study SalesPortal structure and processes", "done": false, "due": "2026-04-20" },
+        { "id": "w7", "title": "Implement RAG patterns in a work ticket", "done": false, "due": "2026-05-15" }
+      ]
+    },
+
+    {
+      "id": "python_godot_mastery",
+      "category": "Python and Godot",
+      "title": "Reconnect with Python + build Godot foundation",
+      "description": "Solid Python skills for AI Engineering + start building Chip the Starship in Godot",
+      "priority": "high",
+      "target_date": "2026-06-30",
+      "milestones": [
+        { "id": "p1", "title": "Create complete Python + Godot learning roadmap", "done": false, "due": "2026-03-25" },
+        { "id": "p2", "title": "Master Python Basics (variables, operators, control flow, lists/dicts/tuples/sets, comprehensions, functions, enums)", "done": false, "due": "2026-04-15" },
+        { "id": "p3", "title": "Master Intermediate Python (OOP, properties, getters/setters, static, inheritance, polymorphism, functional style, Python-specific features)", "done": false, "due": "2026-05-15" },
+        { "id": "p4", "title": "Learn Async + Signals/events equivalent in Python", "done": false, "due": "2026-06-01" }
+      ]
+    },
+
+    {
+      "id": "docker_intermediate",
+      "category": "Docker",
+      "title": "Reach intermediate Docker proficiency",
+      "description": "Containerize Python apps, Ollama, RAG projects, and MeManager",
+      "priority": "medium",
+      "target_date": "2026-05-31",
+      "milestones": [
+        { "id": "d1", "title": "Complete beginner Docker tutorial and run first containers", "done": false, "due": "2026-04-10" },
+        { "id": "d2", "title": "Dockerize MeManager and one RAG project", "done": false, "due": "2026-05-15" }
+      ]
+    },
+
+    {
+      "id": "llm_rag_agents",
+      "category": "LLM / Agents",
+      "title": "Master RAG + Agents for portfolio and capstones",
+      "description": "Deepen RAG understanding and build production-grade agent systems using OpenAI-compatible protocol",
+      "priority": "highest",
+      "target_date": "2026-07-31",
+      "milestones": [
+        { "id": "r1", "title": "Full code review + breakdown of RAG (encoding, retrieval, RRF, rerank, rephrasing, HyDE, critic)", "done": false, "due": "2026-04-05" },
+        { "id": "r2", "title": "Build visible pipeline demo showing every step (rephrasing → HyDE → RRF → rerank → critic → answer)", "done": false, "due": "2026-04-20" },
+        { "id": "r3", "title": "Finish MCP work and make RAG an MCP/tool for DandD Capstone", "done": false, "due": "2026-05-10" },
+        { "id": "r4", "title": "Continue Ollama model tuning course + apply to personal RAG and capstones", "done": false, "due": "2026-06-01" }
+      ]
+    },
+
+    {
+      "id": "memanager_core",
+      "category": "Projects",
+      "title": "Build MeManager – My AI Daily Pusher & Goal System",
+      "description": "JSON-driven goal tracker with agents, memory, orchestrator, and Nagger that pushes me every day",
+      "priority": "highest",
+      "target_date": "2026-08-31",
+      "milestones": [
+        { "id": "m1", "title": "Finalize goals.json and build basic daily planner + Nagger script (OpenAI-compatible)", "done": false, "due": "2026-03-25" },
+        { "id": "m2", "title": "Add agent memory and feedback/brainstorming loop", "done": false, "due": "2026-04-15" },
+        { "id": "m3", "title": "Create Orchestrator agent that generates visual timeline/outline from all goals", "done": false, "due": "2026-05-10" },
+        { "id": "m4", "title": "Build Nagger that can send terminal + future text reminders", "done": false, "due": "2026-06-01" }
+      ]
+    },
+
+    {
+      "id": "finance_portfolio_agent",
+      "category": "Projects",
+      "title": "Finance Portfolio Intelligence Agent",
+      "description": "Tool that checks portfolio, gives feedback, sector analysis, replacement recommendations, and explains tax implications + futures",
+      "priority": "medium",
+      "target_date": "2026-07-31",
+      "milestones": [
+        { "id": "fi1", "title": "Build basic portfolio checker and feedback agent", "done": false, "due": "2026-05-31" }
+      ]
+    },
+
+    {
+      "id": "dandd_capstone",
+      "category": "Projects",
+      "title": "DandD Capstone – Agentic Dungeon Master with RAG",
+      "description": "Full agentic DM for 5-player party. RAG on rules as MCP/tool. On-the-fly scenario generation.",
+      "priority": "high",
+      "target_date": "2026-09-30",
+      "milestones": [
+        { "id": "dd1", "title": "RAG on D&D rules + integrate as tool/MCP", "done": false, "due": "2026-06-15" },
+        { "id": "dd2", "title": "Build GameManager + Agentic DM", "done": false, "due": "2026-08-01" }
+      ]
+    },
+
+    {
+      "id": "chip_the_starship",
+      "category": "Projects",
+      "title": "Chip the Starship – Godot Game",
+      "description": "My main Godot game. Build with agentic game company systems (player investment, world systems like GTA, quests, combat, etc.)",
+      "priority": "medium",
+      "target_date": "2026-10-31",
+      "milestones": [
+        { "id": "chip1", "title": "Set up Godot project and core player controller", "done": false, "due": "2026-06-30" }
+      ]
+    },
+
+    {
+      "id": "ai_video_production",
+      "category": "Projects",
+      "title": "AI Video Empire – Crimson Dessert, AINN, Woke Wars, Sayings, etc.",
+      "description": "Master AI video pipeline. Build multiple channels and integrate into D&D and other projects.",
+      "priority": "medium",
+      "target_date": "2026-09-30",
+      "milestones": [
+        { "id": "v1", "title": "Continue AI video course + flush out full framework (NanoBanana, audio, Davinci Resolve, tools)", "done": false, "due": "2026-05-20" },
+        { "id": "v2", "title": "Launch first Sayings AI videos and Crimson Dessert Fan Channel", "done": false, "due": "2026-06-30" }
+      ]
+    }
+  ]
+}
