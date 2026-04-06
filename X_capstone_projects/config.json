@@ -5,10 +5,11 @@
             "litellm_params": {
                 "model": "xai/grok-3-mini",
                 "api_key": "os.environ/GROK_API_KEY",
-                "max_input_tokens": 3000,
-                "max_tokens": 500,
-                "k_specific": 3,
-                "one_shot_judge": false
+                "max_input_tokens": 16384,
+                "max_tokens": 8192,
+                "k_specific": 10,
+                "one_shot_judge": true,
+                "temperature": 0.0
             }
         },
         {
@@ -16,29 +17,35 @@
             "litellm_params": {
                 "model": "xai/grok-4-0709",
                 "api_key": "os.environ/GROK_API_KEY",
-                "max_input_tokens": 3000,
-                "max_tokens": 500,
-                "k_specific": 3
+                "max_input_tokens": 16384,
+                "max_tokens": 8192,
+                "k_specific": 10,
+                "temperature": 0.0,
+                "one_shot_judge": true
             }
         },
         {
             "model_name": "grok-agent-tier1-think",
             "litellm_params": {
-                "model": "xai/grok-4-1-fast-reasoning",
+                "model": "xai/grok-4.20-0309-reasoning",
                 "api_key": "os.environ/GROK_API_KEY",
-                "max_input_tokens": 3000,
-                "max_tokens": 500,
-                "k_specific": 3
+                "max_input_tokens": 1638400,
+                "max_tokens": 200000,
+                "k_specific": 10,
+                "temperature": 0.0,
+                "one_shot_judge": false
             }
         },
         {
             "model_name": "grok-agent-tier1-nonthink",
             "litellm_params": {
-                "model": "xai/grok-4-1-fast-non-reasoning",
+                "model": "xai/grok-4.20-0309-non-reasoning",
                 "api_key": "os.environ/GROK_API_KEY",
-                "max_input_tokens": 3000,
-                "max_tokens": 500,
-                "k_specific": 3
+                "max_input_tokens": 1638400,
+                "max_tokens": 200000,
+                "k_specific": 10,
+                "temperature": 0.0,
+                "one_shot_judge": false
             }
         },
         {
@@ -46,9 +53,11 @@
             "litellm_params": {
                 "model": "gemini/gemini-2.5-flash",
                 "api_key": "os.environ/GEMINI_API_KEYX",
-                "max_input_tokens": 3000,
-                "max_tokens": 500,
-                "k_specific": 3
+                "max_input_tokens": 1638400,
+                "max_tokens": 200000,
+                "k_specific": 10,
+                "temperature": 0.0,
+                "one_shot_judge": true
             }
         },
         {
@@ -56,9 +65,11 @@
             "litellm_params": {
                 "model": "gemini/gemini-3.1-flash-lite-preview",
                 "api_key": "os.environ/GEMINI_API_KEYX",
-                "max_input_tokens": 3000,
-                "max_tokens": 500,
-                "k_specific": 3
+                "max_input_tokens": 1638400,
+                "max_tokens": 200000,
+                "k_specific": 10,
+                "temperature": 0.0,
+                "one_shot_judge": false
             }
         },
         {
@@ -66,19 +77,21 @@
             "litellm_params": {
                 "model": "gemini/gemini-3.1-pro-preview",
                 "api_key": "os.environ/GEMINI_API_KEYX",
-                "max_input_tokens": 3000,
-                "max_tokens": 500,
-                "k_specific": 3
+                "max_input_tokens": 1638400,
+                "max_tokens": 200000,
+                "k_specific": 10,
+                "temperature": 0.0,
+                "one_shot_judge": false
             }
         },
         {
             "model_name": "qwen-agent",
             "litellm_params": {
-                "model": "ollama/qwen3:32b",
+                "model": "ollama/qwen3:14b",
                 "api_base": "http://localhost:11434",
-                "max_input_tokens": 128000,
-                "num_ctx": 128000,
-                "max_tokens": 2000,
+                "max_input_tokens": 16384,
+                "num_ctx": 16384,
+                "max_tokens": 8192,
                 "k_specific": 10,
                 "one_shot_judge": true,
                 "temperature": 0.0
@@ -87,11 +100,37 @@
         {
             "model_name": "gemma-agent",
             "litellm_params": {
-                "model": "ollama/gemma3:27b",
+                "model": "ollama/gemma4:26b",
                 "api_base": "http://localhost:11434",
-                "max_input_tokens": 128000,
-                "num_ctx": 128000,
-                "max_tokens": 2000,
+                "max_input_tokens": 16384,
+                "num_ctx": 16384,
+                "max_tokens": 8192,
+                "k_specific": 10,
+                "one_shot_judge": true,
+                "temperature": 0.0
+            }
+        },
+        {
+            "model_name": "oss-agent",
+            "litellm_params": {
+                "model": "ollama/gpt-oss:20b",
+                "api_base": "http://localhost:11434",
+                "max_input_tokens": 16384,
+                "num_ctx": 16384,
+                "max_tokens": 8192,
+                "k_specific": 10,
+                "one_shot_judge": true,
+                "temperature": 0.0
+            }
+        },
+        {
+            "model_name": "e-gemma-agent",
+            "litellm_params": {
+                "model": "ollama/gemma4:e4b",
+                "api_base": "http://localhost:11434",
+                "max_input_tokens": 16384,
+                "num_ctx": 16384,
+                "max_tokens": 16384,
                 "k_specific": 10,
                 "one_shot_judge": true,
                 "temperature": 0.0
@@ -100,11 +139,11 @@
         {
             "model_name": "deepseek-agent",
             "litellm_params": {
-                "model": "ollama/deepseek-r1:32b",
+                "model": "ollama/deepseek-r1:14b",
                 "api_base": "http://localhost:11434",
-                "max_input_tokens": 128000,
-                "num_ctx": 128000,
-                "max_tokens": 2000,
+                "max_input_tokens": 16384,
+                "num_ctx": 16384,
+                "max_tokens": 8192,
                 "k_specific": 10,
                 "one_shot_judge": true,
                 "temperature": 0.0
@@ -115,9 +154,9 @@
             "litellm_params": {
                 "model": "ollama/llama3.1:8b",
                 "api_base": "http://localhost:11434",
-                "max_input_tokens": 128000,
-                "num_ctx": 128000,
-                "max_tokens": 2000,
+                "max_input_tokens": 16384,
+                "num_ctx": 16384,
+                "max_tokens": 8192,
                 "k_specific": 10,
                 "one_shot_judge": true,
                 "temperature": 0.0
@@ -130,7 +169,20 @@
                 "api_base": "http://localhost:11434",
                 "max_input_tokens": 16384,
                 "num_ctx": 16384,
-                "max_tokens": 2000,
+                "max_tokens": 8192,
+                "k_specific": 10,
+                "one_shot_judge": false,
+                "temperature": 0.0
+            }
+        },
+        {
+            "model_name": "phi-r-agent",
+            "litellm_params": {
+                "model": "ollama/phi4-reasoning:latest",
+                "api_base": "http://localhost:11434",
+                "max_input_tokens": 16384,
+                "num_ctx": 16384,
+                "max_tokens": 8192,
                 "k_specific": 10,
                 "one_shot_judge": false,
                 "temperature": 0.0

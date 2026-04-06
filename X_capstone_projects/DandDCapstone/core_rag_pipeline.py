@@ -83,21 +83,46 @@ def init_rag_system():
 print("Initializing local AI databases for Streamlit...")
 collection, parent_cursor, encoder, bm25_index, bm25_corpus_docs, bm25_corpus_metas, bm25_corpus_ids = init_rag_system()
 
-# ========================= AGENTS =========================
-phi_kwargs = CoreAgent.load_litellm_kwargs_from_config("phi-agent")
+# ========================= AGENTS CONFIG =========================
+# Assign a specific LLM from your config.json to each agent role here to mix and match!
 
+# Decomposer: Breaks down complex questions into atomic sub-queries. Needs good structure and reasoning.
+decomposer_kwargs = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+
+# HyDE: Generates hypothetical textbook answers to enhance semantic search. Needs creativity.
+hyde_kwargs       = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+
+# Critic: Audits the final answer against the strict context to find missing facts. Needs extreme precision.
+critic_kwargs     = CoreAgent.load_litellm_kwargs_from_config("phi-agent")
+
+# Merger: Edits and combines text into clean Markdown. Needs good formatting and layout skills.
+merger_kwargs     = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+
+# Answer Generator: Synthesizes the exact answer from raw context chunks. Needs strict instruction following.
+answer_kwargs     = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+
+# Classifier: Quickly labels questions as General vs Specific. Best with a small, lightning-fast model.
+classifier_kwargs = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+
+# Reranker: Ranks chunks based on relevance. Heaviest prompt. Needs a massive context window and high logic.
+reranker_kwargs   = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+
+# Router: Analyzes chat history to see if the user is asking a follow-up. Needs conversational awareness.
+router_kwargs     = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+
+# ========================= AGENT INSTANCES =========================
 decomposer = CoreAgent(
     agent_id="decomposer",
     system_prompt="You are a D&D rules expert. Break complex questions into 2-4 atomic sub-queries. For questions about class features, attributes, or costs, ensure one sub-query specifically targets the relevant table or level-progression section. Keep your sub-queries purely factual and literal; do not assume the user's question contains a mistake. You MUST output valid JSON with exactly two fields: 'thoughts' and 'sub_queries'.",
-    litellm_kwargs=phi_kwargs,
+    litellm_kwargs=decomposer_kwargs,
     response_model=DecomposedQueries,
     one_shot=True
 )
 
 hyde_agent = CoreAgent(
     agent_id="hyde_agent",
-    system_prompt="Generate a short, plausible excerpt from an official D&D rulebook. This excerpt should look like a rules section containing the facts needed to answer the question. You MUST output valid JSON with exactly two fields: 'thoughts' and 'hyde_text'.",
-    litellm_kwargs=phi_kwargs,
+    system_prompt="Generate a short, plausible excerpt from an official D&D rulebook. This excerpt should look like a rules section containing the facts needed to answer the question. CRITICAL: Keep both 'thoughts' and 'hyde_text' incredibly concise (2-3 sentences maximum). Do not write an entire page, and do not use repetitive emojis. You MUST output valid JSON with exactly two fields: 'thoughts' and 'hyde_text'.",
+    litellm_kwargs=hyde_kwargs,
     response_model=HyDEAnswer,
     one_shot=True
 )
@@ -105,7 +130,7 @@ hyde_agent = CoreAgent(
 critic = CoreAgent(
     agent_id="critic",
     system_prompt="You are a strict D&D rules auditor. Compare the Original Question and the provided Context with the Generated Answer. If the Context contains specific facts (like numbers, dice types, or costs) that are missing from the Answer, provide ONE focused follow-up query. Do NOT use any external D&D knowledge. If the answer is already fully supported by the Context, mark it as complete. You MUST output valid JSON with exactly four fields: 'thoughts', 'is_complete', 'missing_aspects', and 'follow_up_query'.",
-    litellm_kwargs=phi_kwargs,
+    litellm_kwargs=critic_kwargs,
     response_model=CritiqueResult,
     one_shot=True
 )
@@ -113,7 +138,7 @@ critic = CoreAgent(
 merger = CoreAgent(
     agent_id="merger",
     system_prompt="You are an expert editor. Combine the original answer and the supplemental answer into one clear, factual final answer. Use Markdown formatting (bullet points, bold text, line breaks) to make the final answer highly readable. Do NOT add meta-commentary (e.g. 'according to the context' or 'the text mentions'). If the supplemental answer does not contain new facts or says 'I don't know', ignore it entirely and just return the original answer.",
-    litellm_kwargs=phi_kwargs,
+    litellm_kwargs=merger_kwargs,
     response_model=StandardAnswer,
     one_shot=True
 )
@@ -121,7 +146,7 @@ merger = CoreAgent(
 answer_agent = CoreAgent(
     agent_id="answer_generator",
     system_prompt="Answer the question using ONLY the provided context. Do not use your own knowledge. Provide your answer concisely, but ALWAYS begin your answer with a self-contained introductory sentence that explicitly restates the subject of the question (e.g. 'Here is the information regarding the Owlbear:'). If your answer involves a list, progression, or multiple items, you MUST format it using Markdown bullet points and line breaks for readability—do not output a giant text blob. Be incredibly precise: do not mix up table rows, do not alter 'start' vs 'end' of turn timings, and do not perform math unless explicitly instructed by the text. Quote the text directly when determining specific effects or limits. If the context lacks the answer, say 'I don't know'.",
-    litellm_kwargs=phi_kwargs,
+    litellm_kwargs=answer_kwargs,
     response_model=StandardAnswer,
     one_shot=True
 )
@@ -129,15 +154,15 @@ answer_agent = CoreAgent(
 classifier = CoreAgent(
     agent_id="classifier",
     system_prompt="Classify the user's D&D question as either 'General' or 'Specific'. A 'Specific' question asks for a defined rule, stat, class ability, or cost (e.g. 'What is the gold cost of a Longsword?', 'How does Fireball work?'). A 'General' question is broad, open-ended, and requires explanation of multiple systems (e.g. 'How do I play D&D?', 'How does combat work?'). You MUST output valid JSON with exactly two distinct fields: 'thoughts' (your reasoning) and 'category' (strictly the exact string 'General' or 'Specific'). Do not create any extra fields.",
-    litellm_kwargs=phi_kwargs,
+    litellm_kwargs=classifier_kwargs,
     response_model=QuestionClassification,
     one_shot=True
 )
 
 reranker = CoreAgent(
     agent_id="reranker",
-    system_prompt="You are an expert search reranker. Rank the given search results by relevance to the question. Output a list of the integer indices representing the original position of each document, ordered from most relevant to least relevant. You MUST output valid JSON with exactly two fields: 'thoughts' and 'ranked_indices'.",
-    litellm_kwargs=phi_kwargs,
+    system_prompt="You are an expert search reranker. Rank the given search results by relevance to the question. Output a list of the integer indices representing the original position of each document, ordered from most relevant to least relevant. CRITICAL: Keep your 'thoughts' field incredibly concise (1-2 sentences maximum). Do not write an essay and do not evaluate every chunk. Just output the array. You MUST output valid JSON with exactly two fields: 'thoughts' and 'ranked_indices'.",
+    litellm_kwargs=reranker_kwargs,
     response_model=RerankOutput,
     one_shot=True
 )
@@ -145,7 +170,7 @@ reranker = CoreAgent(
 lazy_router = CoreAgent(
     agent_id="router",
     system_prompt="You are a conversational routing agent. Review the Chat History and the User Prompt. If the prompt can be answered instantly using ONLY the facts explicitly stated in the Chat History, set 'needs_swarm' to false and provide the 'cached_answer'. Ensure 'cached_answer' is a self-contained, grammatically complete sentence that explicitly restates the subject of the query. If the prompt requires searching the D&D rulebook for new facts, set 'needs_swarm' to true. CRITICAL: If setting needs_swarm to true, you MUST look at the Chat History to see what Class, Spell, Monster, Topic, etc., the user was currently talking about, and rewrite the User Prompt to explicitly include that context. Only do this if you feel this is a followup question in need of clarification.",
-    litellm_kwargs=phi_kwargs,
+    litellm_kwargs=router_kwargs,
     response_model=RouterDecision,
     one_shot=True
 )
@@ -156,9 +181,33 @@ def reset_agent_metrics():
         agent.cost = 0.0
 
 def get_agent_metrics():
-    tokens = sum(agent.tokens_used for agent in [classifier, decomposer, hyde_agent, reranker, answer_agent, critic, merger, lazy_router])
-    cost = sum(agent.cost for agent in [classifier, decomposer, hyde_agent, reranker, answer_agent, critic, merger, lazy_router])
-    return tokens, cost
+    agents = [classifier, decomposer, hyde_agent, reranker, answer_agent, critic, merger, lazy_router]
+    tokens = sum(agent.tokens_used for agent in agents)
+    cost = sum(agent.cost for agent in agents)
+    
+    breakdown = {}
+    mapping = {
+        "classifier": "Classifier",
+        "decomposer": "Decomposer",
+        "hyde_agent": "HYDE",
+        "reranker": "Reranker",
+        "answer_generator": "Answer",
+        "critic": "Critic",
+        "merger": "Merger",
+        "router": "Router"
+    }
+    for agent in agents:
+        mod = getattr(agent, "config_model_name", "unknown")
+        if mod not in breakdown:
+            breakdown[mod] = {"tokens": 0, "cost": 0.0, "roles": []}
+        breakdown[mod]["tokens"] += agent.tokens_used
+        breakdown[mod]["cost"] += agent.cost
+        
+        role = mapping.get(agent.agent_id, agent.agent_id.capitalize())
+        if role not in breakdown[mod]["roles"]:
+            breakdown[mod]["roles"].append(role)
+            
+    return tokens, cost, breakdown
 
 # ========================= HELPERS =========================
 def reciprocal_rank_fusion(vector_results: dict, bm25_results: dict, k: int = 25) -> List[Tuple]:
@@ -209,7 +258,8 @@ async def execute_full_retrieval_pipeline(query: str, yield_event=None):
     rrf_merged = reciprocal_rank_fusion(vector_results, bm25_results, k=30)
     
     if yield_event:
-        await yield_event({"type": "status", "message": f"Retrieved {len(rrf_merged)} RRF chunks. Asking local phi4 Agent to rerank..."})
+        model_name = reranker_kwargs.get("model", "local").split("/")[-1]
+        await yield_event({"type": "status", "message": f"Retrieved {len(rrf_merged)} RRF chunks. Asking {model_name} to rerank..."})
 
     rerank_prompt = f"Original Question: {query}\n\nRank these chunks from most to least relevant. Return only ordered indices (0-based):\n"
     rerank_lines = []
@@ -285,8 +335,13 @@ async def answer_dnd_question(question: str):
     context = retrieval_task.result()
     yield {"type": "status", "message": "Drafting initial answer based on context window..."}
     
+    if is_general:
+        answer_instruction = "This is a General question. Provide a highly detailed, comprehensive explanation covering all aspects of the rules found in the context. Stay within 16k tokens."
+    else:
+        answer_instruction = "This is a Specific question. Give a highly specific, extremely concise answer focusing only on the exact core facts requested."
+
     answer_obj = await answer_agent.ask(
-        f"Question: {question}\n\nContext:\n{context}\n\nAnswer concisely using only the context. Do not make up info."
+        f"Question: {question}\n\nContext:\n{context}\n\n{answer_instruction}"
     )
     
     final_answer_text = answer_obj.answer
@@ -360,8 +415,8 @@ async def route_query_with_history(query: str, chat_history: str):
     decision = await lazy_router.ask(prompt)
     
     if not decision.needs_swarm:
-        tokens, cost = get_agent_metrics()
-        yield {"type": "done_from_cache", "final_answer": decision.cached_answer, "thoughts": decision.thoughts, "tokens": tokens, "cost": cost}
+        tokens, cost, breakdown = get_agent_metrics()
+        yield {"type": "done_from_cache", "final_answer": decision.cached_answer, "thoughts": decision.thoughts, "tokens": tokens, "cost": cost, "breakdown": breakdown}
     else:
         # Route to full swarm with rewritten isolated query
         standalone_query = decision.rewritten_query if decision.rewritten_query else query
@@ -370,9 +425,10 @@ async def route_query_with_history(query: str, chat_history: str):
         
         async for event in answer_dnd_question(standalone_query):
             if event["type"] == "done":
-                tokens, cost = get_agent_metrics()
+                tokens, cost, breakdown = get_agent_metrics()
                 event["tokens"] = tokens
                 event["cost"] = cost
+                event["breakdown"] = breakdown
             yield event
 
 if __name__ == "__main__":

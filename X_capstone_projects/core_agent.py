@@ -41,6 +41,9 @@ class CoreAgent:
         self.agent_id = agent_id
         self.system_prompt = system_prompt
         self.litellm_kwargs = litellm_kwargs.copy()
+        
+        self.config_model_name = self.litellm_kwargs.pop("_config_model_name", self.litellm_kwargs.get("model", "unknown"))
+        
         self.one_shot = one_shot
         self.response_model = response_model
         
@@ -68,11 +71,15 @@ class CoreAgent:
                         if isinstance(v, str) and v.startswith("os.environ/"):
                             env_var = v.split("/")[1]
                             params[k] = os.getenv(env_var, "")
+                    params["_config_model_name"] = agent_name
                     return params
         raise ValueError(f"Agent {agent_name} not found in config {abs_config_path}")
 
     def _clean_json_output(self, text: str) -> str:
         """Extract JSON from potential markdown blocks or surrounding text."""
+        # 0. Strip deepseek <think> blocks if present
+        text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL | re.IGNORECASE)
+        
         # 1. Try stripping markdown blocks
         json_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, re.DOTALL | re.IGNORECASE)
         if json_match:
@@ -94,41 +101,65 @@ class CoreAgent:
         # Determine which response model to use (specific call vs default)
         active_model = response_model if response_model is not None else self.response_model
 
+        # 0. Manage Working Memory Context Window (Memory Pruning)
+        max_working_memory_items = 20  # Keep the last 20 messages (e.g. 10 user/10 assistant)
+        if len(self.working_memory) >= max_working_memory_items:
+            self.working_memory = self.working_memory[-max_working_memory_items:]
+
         # 1. Update Working Memory
         self.working_memory.append({"role": "user", "content": user_input})
         
-        # Inject strict JSON schema adherence directly into the core system prompt
-        dynamic_prompt = self.system_prompt
-        if active_model:
-            schema_str = json.dumps(active_model.model_json_schema())
-            dynamic_prompt += f"\n\nYou MUST output valid JSON that strictly conforms to this JSON schema. Do not deviate from the field types (e.g., if it asks for a list of strings, do NOT output a list of objects). Do not add any extra fields or text:\n{schema_str}"
-        
         # 2. Build the Payload
+        dynamic_prompt = self.system_prompt
         payload = [{"role": "system", "content": dynamic_prompt}] + self.working_memory
 
         # 3. Prepare Litellm Arguments
-        generate_kwargs = self.litellm_kwargs.copy()
-        generate_kwargs["messages"] = payload
+        base_generate_kwargs = self.litellm_kwargs.copy()
         
         # Enforce JSON structure if a Pydantic model was provided
         if active_model:
-            generate_kwargs["response_format"] = { "type": "json_object" }
+            model_name = base_generate_kwargs.get("model", "").lower()
+            if "deepseek" in model_name:
+                # DeepSeek MUST use <think> blocks and breaks under Ollama's strict JSON schema mode.
+                # Fallback to prompt-injected JSON instructions so it can think freely before outputting JSON.
+                schema_str = json.dumps(active_model.model_json_schema())
+                dynamic_prompt += f"\n\nYou MUST output valid JSON that strictly conforms to this JSON schema. Output the JSON inside a ```json block after your thoughts:\n{schema_str}"
+                payload[0]["content"] = dynamic_prompt
+            else:
+                # Native Structured Outputs: Pass the Pydantic model directly.
+                # LiteLLM translates this to a valid JSON Schema engine enforcement
+                base_generate_kwargs["response_format"] = active_model
+
+        # Initialize messages for potentially multiple attempts
+        current_messages = payload.copy()
             
         # 4. Call the LLM (Async)
         for attempt in range(max_retries):
+            # Build current arguments safely
+            generate_kwargs = base_generate_kwargs.copy()
+            generate_kwargs["messages"] = current_messages
+            
             print(f"[{generate_kwargs['model']}] Thinking..." + (f" (Attempt {attempt+1}/{max_retries})" if attempt > 0 else ""))
             
             start_time = time.time()
             response = await litellm.acompletion(**generate_kwargs)
             self.total_response_time += (time.time() - start_time)
             
-            # Accumulate Tokens and Cost
+            # Accumulate Tokens
+            try:
+                if response.usage:
+                    if hasattr(response.usage, 'total_tokens'):
+                        self.tokens_used += response.usage.total_tokens
+                    elif isinstance(response.usage, dict) and 'total_tokens' in response.usage:
+                        self.tokens_used += response.usage.get('total_tokens', 0)
+            except Exception as e:
+                print(f"Token accumulation error: {e}")
+
+            # Accumulate Cost
             try:
                 run_cost = litellm.completion_cost(completion_response=response)
                 if run_cost:
                     self.cost += run_cost
-                if response.usage and hasattr(response.usage, 'total_tokens'):
-                    self.tokens_used += response.usage.total_tokens
             except Exception:
                 pass
                 
@@ -150,9 +181,16 @@ class CoreAgent:
                         raise e
                     else:
                         print(f"Retrying {self.agent_id} JSON generation...")
-                        # Append the failure to the context so it corrects itself
-                        generate_kwargs["messages"].append({"role": "assistant", "content": raw_output})
-                        generate_kwargs["messages"].append({"role": "user", "content": f"You output invalid JSON. Error: {e}. Please strictly adhere to the JSON schema."})
+                        # Append the failure to the context so it corrects itself without permanent mutation
+                        current_messages.append({"role": "assistant", "content": raw_output})
+                        
+                        if "response_format" in base_generate_kwargs:
+                            print(f"[{self.agent_id}] Disabling Native Structured Outputs and falling back to prompt injection...")
+                            del base_generate_kwargs["response_format"]
+                            schema_str = json.dumps(active_model.model_json_schema())
+                            current_messages.append({"role": "user", "content": f"Your strict JSON engine failed. Error: {e}. \n\nI have disabled strict JSON mode. You MUST now output valid JSON that strictly conforms to this JSON schema. Put it inside a ```json block:\n{schema_str}"})
+                        else:
+                            current_messages.append({"role": "user", "content": f"You output invalid JSON. Error: {e}. Please strictly adhere to the schema."})
                         continue
             
             else:

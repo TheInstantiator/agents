@@ -62,7 +62,15 @@ if query:
                             st.success("The answer was found instantly in the chat memory! No database search needed.")
                         st.markdown("### Answer from Memory")
                         st.markdown(f'<div class="final-answer">\n\n{event["final_answer"]}\n\n</div>', unsafe_allow_html=True)
-                        st.caption(f"**Metrics:** Tokens: {event.get('tokens', 0)} | Cost: ${event.get('cost', 0.0):.6f}")
+                        metrics_str = f"**Swarm Total Metrics:** Tokens: {event.get('tokens', 0)} | Cost: ${event.get('cost', 0.0):.6f}"
+                        if 'breakdown' in event:
+                            metrics_str += "\n\n"
+                            for model_name, stats in event['breakdown'].items():
+                                metrics_str += f"**{model_name}**: Tokens {stats['tokens']} | Cost: ${stats['cost']:.6f}\n"
+                                for role in stats['roles']:
+                                    metrics_str += f"- {role}\n"
+                                metrics_str += "\n"
+                        st.info(metrics_str.strip())
                         final_ans = event["final_answer"]
                         
                     elif event["type"] == "classification":
@@ -104,7 +112,15 @@ if query:
                         st.success("🎉 Swarm process completed successfully!")
                         st.markdown("### Final Official Answer")
                         st.markdown(f'<div class="final-answer">\n\n{event["final_answer"]}\n\n</div>', unsafe_allow_html=True)
-                        st.caption(f"**Swarm Metrics:** Tokens: {event.get('tokens', 0)} | Cost: ${event.get('cost', 0.0):.6f}")
+                        metrics_str = f"**Swarm Total Metrics:** Tokens: {event.get('tokens', 0)} | Cost: ${event.get('cost', 0.0):.6f}"
+                        if 'breakdown' in event:
+                            metrics_str += "\n\n"
+                            for model_name, stats in event['breakdown'].items():
+                                metrics_str += f"**{model_name}**: Tokens {stats['tokens']} | Cost: ${stats['cost']:.6f}\n"
+                                for role in stats['roles']:
+                                    metrics_str += f"- {role}\n"
+                                metrics_str += "\n"
+                        st.info(metrics_str.strip())
                         final_ans = event["final_answer"]
                         
             # Save assistant's answer to memory
