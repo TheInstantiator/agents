@@ -126,7 +126,7 @@
         {
             "model_name": "e-gemma-agent",
             "litellm_params": {
-                "model": "ollama/gemma4:e4b",
+                "model": "ollama/gemma4:e2b",
                 "api_base": "http://localhost:11434",
                 "max_input_tokens": 16384,
                 "num_ctx": 16384,

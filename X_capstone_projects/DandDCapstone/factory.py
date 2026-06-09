@@ -30,12 +30,18 @@ class CharacterIdentity(BaseModel):
     actual_class: str  # e.g., "Cleric", "Fighter"
     backstory: str = Field(description="A 1-3 sentence origin story.")
 
+class SlotReplacement(BaseModel):
+    """Specific character replacement details for an invalid party slot."""
+    slot_index: int = Field(description="The 0-based index of the character to replace (0 to 4).")
+    reason: str = Field(description="Why this character needs to be replaced.")
+    suggested_role: str = Field(description="The D&D role or class (e.g. Healer, Arcane, Frontline, Stealth/Utility) that should fill this slot.")
+
 class EvaluationResult(BaseModel):
     """The format the 'Judge Agent' uses to tell us if a party is balanced."""
     thoughts: str = Field(default="", description="Step by step reasoning evaluating the party balance.")
     is_valid: bool
     feedback: str
-    suggested_replacements: list[str] | None = None
+    replacements: list[SlotReplacement] = Field(default_factory=list, description="List of specific slot replacements needed. Leave empty if is_valid is True.")
 
 class PlayerCharacter(BaseModel):
     """The final completed character object, including both stats and identity."""

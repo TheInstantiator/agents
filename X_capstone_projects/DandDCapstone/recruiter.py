@@ -12,7 +12,7 @@ if os.getenv("GROK_API_KEY") and not os.getenv("XAI_API_KEY"):
     os.environ["XAI_API_KEY"] = os.getenv("GROK_API_KEY")
 
 # We import our own custom modules here
-from factory import CharacterIdentity, create_pc_from_choice, EvaluationResult, save_party, load_party
+from factory import CharacterIdentity, create_pc_from_choice, EvaluationResult, SlotReplacement, save_party, load_party
 from constants import CLASS_ATTRIBUTES
 
 # Get the absolute path to this script's directory for robust file loading
@@ -107,7 +107,7 @@ async def evaluate_party(agent_name: str, party_list: list) -> EvaluationResult:
     This is the 'Critic' step. A second AI agent looks at the final team of 5 
     and decides if it's actually balanced.
     """
-    party_str = "\n".join([f"- {p.identity.name}: {p.identity.actual_class}" for p in party_list])
+    party_str = "\n".join([f"- Slot {idx}: {p.identity.name} ({p.identity.actual_class})" for idx, p in enumerate(party_list)])
     
     litellm_kwargs = get_litellm_params(agent_name)
     litellm_kwargs["temperature"] = 0.1
@@ -115,9 +115,17 @@ async def evaluate_party(agent_name: str, party_list: list) -> EvaluationResult:
     agent = CoreAgent(
         agent_id=f"judge_{agent_name}",
         system_prompt=(
-            "You are a D&D Party Judge. Strictly evaluate the party against the Balanced Party Standard. "
-            "If the party is perfectly balanced, set is_valid to True. "
-            "If it is missing a core role (Healer, Frontline, Stealth, Arcane), set is_valid to False."
+            "You are a D&D Party Judge. Strictly evaluate the party against the Balanced Party Standard.\n"
+            "Balanced Party Standard:\n"
+            "1. HEALER: Cleric (Allowed Replacements: Bard, Druid)\n"
+            "2. FRONTLINE: Fighter (Allowed Replacements: Barbarian, Monk, Paladin, Ranger)\n"
+            "3. STEALTH/UTILITY: Rogue (Allowed Replacements: Bard, Ranger)\n"
+            "4. ARCANE: Wizard (Allowed Replacements: Bard, Sorcerer, Warlock)\n"
+            "5. FLEX PATH: Any class that adds redundancy or utility.\n\n"
+            "If the party is perfectly balanced, set is_valid to True and leave the replacements list empty.\n"
+            "If it is missing any core roles, set is_valid to False and specify EXACTLY which slot index (0 to 4) "
+            "needs to be replaced, why, and what role/class should fill it in the 'replacements' list. "
+            "If there are multiple duplicates or issues, suggest replacing multiple slots in the list."
         ),
         litellm_kwargs=litellm_kwargs,
         one_shot=True,
@@ -149,7 +157,6 @@ async def main():
     # If no party file, start recruitment
     max_attempts = 10
     attempt = 1
-    judge_feedback = None
     party = []
     party_summary = "Empty Party"
     
@@ -195,39 +202,57 @@ async def main():
             break
         else:
             print(f"\n❌ JUDGE REJECTED: {eval_result.feedback}")
-            judge_feedback = eval_result.feedback
             attempt += 1
             
             if attempt > max_attempts:
                 print("\n❌ Max attempts reached. Could not form a valid party.")
                 break
                 
-            # Kick the last member
-            kicked_member = party.pop()
+            replacements = eval_result.replacements
+            if not replacements:
+                # If Judge didn't specify replacements, default fallback to replacing the last member
+                print("No targeted slot replacements specified. Defaulting to replacing last member.")
+                replacements = [SlotReplacement(
+                    slot_index=4,
+                    reason="No specific slot replacements provided. Default fallback.",
+                    suggested_role="Any missing party role"
+                )]
+            
             print(f"\n--- ATTEMPT {attempt} ---")
-            print(f"Kicking the last member: {kicked_member.identity.name} the {kicked_member.identity.actual_class}.")
-            party_summary = "\n".join([f"- {p.identity.name}: {p.identity.actual_class}" for p in party])
             
-            # Re-recruit the 5th member
-            current_agent = agent_roster[agent_index % len(agent_roster)]
-            print(f"\n--- RE-RECRUITING PLAYER 5 ---")
-            print(f"Assigning this task to: {current_agent}")
-            agent_index += 1
-            
-            choice = await recruit_member(current_agent, party_summary, judge_feedback)
-            print(f"\n[THOUGHTS]: {choice.thoughts}\n")
-            stats = CLASS_ATTRIBUTES.get(choice.actual_class)
-            
-            if stats is None:
-                print(f"❌ HALLUCINATION DETECTED: Agent chose '{choice.actual_class}' which is not a valid class. Skipping this attempt.")
-                # We don't append anything, forcing the Judge to evaluate a 4-man party, which guarantees a rejection and triggers another clean loop.
-                continue
+            # Apply all requested replacements
+            for rep in replacements:
+                idx = rep.slot_index
+                if idx < 0 or idx >= len(party):
+                    print(f"⚠️ Warning: Judge returned out-of-bounds slot index: {idx}. Skipping.")
+                    continue
+                    
+                kicked_member = party[idx]
+                print(f"Kicking slot {idx}: {kicked_member.identity.name} the {kicked_member.identity.actual_class}. Reason: {rep.reason}")
                 
-            new_hero = create_pc_from_choice(choice, stats, played_by=current_agent)
-            party.append(new_hero)
-            
-            print(f"SUCCESS: {new_hero.identity.name} the {new_hero.identity.actual_class} has joined!")
-            party_summary = "\n".join([f"- {p.identity.name}: {p.identity.actual_class}" for p in party])
+                # Re-recruit for this specific slot index in-place
+                current_agent = agent_roster[agent_index % len(agent_roster)]
+                print(f"\n--- RE-RECRUITING FOR SLOT {idx} ---")
+                print(f"Assigning this task to: {current_agent}")
+                agent_index += 1
+                
+                # Exclude the slot currently being replaced from the summary so the recruiter can fill the gap
+                party_summary = "\n".join([f"- Slot {i}: {p.identity.name} ({p.identity.actual_class})" for i, p in enumerate(party) if i != idx])
+                slot_feedback = f"Replace slot {idx} (previously a {kicked_member.identity.actual_class}). The Judge rejected the party: '{eval_result.feedback}'. Goal for this slot: '{rep.suggested_role}'."
+                
+                choice = await recruit_member(current_agent, party_summary, slot_feedback)
+                print(f"\n[THOUGHTS]: {choice.thoughts}\n")
+                
+                stats = CLASS_ATTRIBUTES.get(choice.actual_class)
+                if stats is None:
+                    print(f"❌ HALLUCINATION DETECTED: Agent chose '{choice.actual_class}' which is not a valid class. Skipping slot replacement for this attempt.")
+                    continue
+                    
+                new_hero = create_pc_from_choice(choice, stats, played_by=current_agent)
+                party[idx] = new_hero
+                print(f"SUCCESS: {new_hero.identity.name} the {new_hero.identity.actual_class} has joined in slot {idx}!")
+                
+            party_summary = "\n".join([f"- Slot {i}: {p.identity.name} ({p.identity.actual_class})" for i, p in enumerate(party)])
 
     print("\n--- FINAL PARTY ASSEMBLED ---")
     for p in party:

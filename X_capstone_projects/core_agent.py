@@ -216,14 +216,51 @@ if __name__ == "__main__":
 
     async def main():
         # Load kwargs dynamically from config.json to ensure litellm has the correct provider routing
-        use_llm = "phi-agent"
+        use_llm = "phi-agent"  # Default fallback
+        model_override = None
+        try:
+            from show_available_models import get_available_models
+            available = get_available_models()
+            
+            # Prioritize local gemma4 / gemma model as requested
+            if "ollama" in available and available["ollama"]:
+                ollama_models = available["ollama"]
+                
+                # Find the exact local name (e.g. gemma:latest or gemma4:e4b)
+                gemma_match = [m for m in ollama_models if "gemma" in m.lower()]
+                phi_match = [m for m in ollama_models if "phi" in m.lower()]
+                qwen_match = [m for m in ollama_models if "qwen" in m.lower()]
+                llama_match = [m for m in ollama_models if "llama" in m.lower()]
+                
+                if gemma_match:
+                    use_llm = "e-gemma-agent"
+                    model_override = "ollama/" + gemma_match[0]
+                elif phi_match:
+                    use_llm = "phi-agent"
+                    model_override = "ollama/" + phi_match[0]
+                elif qwen_match:
+                    use_llm = "qwen-agent"
+                    model_override = "ollama/" + qwen_match[0]
+                elif llama_match:
+                    use_llm = "llama-agent"
+                    model_override = "ollama/" + llama_match[0]
+            elif "gemini" in available and available["gemini"]:
+                use_llm = "gemini-agent-vanilla"
+        except Exception as e:
+            print(f"Note: Dynamic model lookup failed, defaulting to phi-agent. Error: {e}")
+
+        print(f"Selected test agent configuration: {use_llm}")
         test_kwargs = CoreAgent.load_litellm_kwargs_from_config(use_llm)
+        if model_override:
+            print(f"Overriding model string to match actual running version: {model_override}")
+            test_kwargs["model"] = model_override
+            
         test_kwargs["temperature"] = 0.0
 
         # Initialize Phase 1 Agent
         agent = CoreAgent(
             agent_id=f"test_agent - {use_llm}",
-            system_prompt="You are an advisor.",
+            system_prompt="You are a strategic combat advisor in the area of air to air space superiority.  You are also a tactician and strategist with an emphasis on unconventional thinking and solutions.  You are also a historian with an emphasis on military history and tactics.  You are also a psychologist with an emphasis on group dynamics and decision making under pressure.",
             litellm_kwargs=test_kwargs,
             one_shot=True # We don't save memory to disk yet
         )
