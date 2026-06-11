@@ -1,33 +1,9 @@
 {
     "model_list": [
         {
-            "model_name": "grok-agent-legacy",
+            "model_name": "grok-main",
             "litellm_params": {
-                "model": "xai/grok-3-mini",
-                "api_key": "os.environ/GROK_API_KEY",
-                "max_input_tokens": 16384,
-                "max_tokens": 8192,
-                "k_specific": 10,
-                "one_shot_judge": true,
-                "temperature": 0.0
-            }
-        },
-        {
-            "model_name": "grok-agent-vanilla",
-            "litellm_params": {
-                "model": "xai/grok-4-0709",
-                "api_key": "os.environ/GROK_API_KEY",
-                "max_input_tokens": 16384,
-                "max_tokens": 8192,
-                "k_specific": 10,
-                "temperature": 0.0,
-                "one_shot_judge": true
-            }
-        },
-        {
-            "model_name": "grok-agent-tier1-think",
-            "litellm_params": {
-                "model": "xai/grok-4.20-0309-reasoning",
+                "model": "xai/grok-4.3",
                 "api_key": "os.environ/GROK_API_KEY",
                 "max_input_tokens": 1638400,
                 "max_tokens": 200000,
@@ -37,19 +13,7 @@
             }
         },
         {
-            "model_name": "grok-agent-tier1-nonthink",
-            "litellm_params": {
-                "model": "xai/grok-4.20-0309-non-reasoning",
-                "api_key": "os.environ/GROK_API_KEY",
-                "max_input_tokens": 1638400,
-                "max_tokens": 200000,
-                "k_specific": 10,
-                "temperature": 0.0,
-                "one_shot_judge": false
-            }
-        },
-        {
-            "model_name": "gemini-agent-vanilla",
+            "model_name": "gemini-low",
             "litellm_params": {
                 "model": "gemini/gemini-2.5-flash",
                 "api_key": "os.environ/GEMINI_API_KEYX",
@@ -61,9 +25,9 @@
             }
         },
         {
-            "model_name": "gemini-agent-tier1-nonthink",
+            "model_name": "gemini-main",
             "litellm_params": {
-                "model": "gemini/gemini-3.1-flash-lite-preview",
+                "model": "gemini/gemini-pro-latest",
                 "api_key": "os.environ/GEMINI_API_KEYX",
                 "max_input_tokens": 1638400,
                 "max_tokens": 200000,
@@ -73,9 +37,9 @@
             }
         },
         {
-            "model_name": "gemini-agent-tier1-think",
+            "model_name": "gemini-flash",
             "litellm_params": {
-                "model": "gemini/gemini-3.1-pro-preview",
+                "model": "gemini/gemini-flash-latest",
                 "api_key": "os.environ/GEMINI_API_KEYX",
                 "max_input_tokens": 1638400,
                 "max_tokens": 200000,
@@ -100,7 +64,7 @@
         {
             "model_name": "gemma-agent",
             "litellm_params": {
-                "model": "ollama/gemma4:26b",
+                "model": "ollama/gemma4:e4b",
                 "api_base": "http://localhost:11434",
                 "max_input_tokens": 16384,
                 "num_ctx": 16384,
@@ -111,20 +75,7 @@
             }
         },
         {
-            "model_name": "oss-agent",
-            "litellm_params": {
-                "model": "ollama/gpt-oss:20b",
-                "api_base": "http://localhost:11434",
-                "max_input_tokens": 16384,
-                "num_ctx": 16384,
-                "max_tokens": 8192,
-                "k_specific": 10,
-                "one_shot_judge": true,
-                "temperature": 0.0
-            }
-        },
-        {
-            "model_name": "e-gemma-agent",
+            "model_name": "gemma-agent-low",
             "litellm_params": {
                 "model": "ollama/gemma4:e2b",
                 "api_base": "http://localhost:11434",
@@ -179,6 +130,19 @@
             "model_name": "phi-r-agent",
             "litellm_params": {
                 "model": "ollama/phi4-reasoning:latest",
+                "api_base": "http://localhost:11434",
+                "max_input_tokens": 16384,
+                "num_ctx": 16384,
+                "max_tokens": 8192,
+                "k_specific": 10,
+                "one_shot_judge": false,
+                "temperature": 0.0
+            }
+        },
+        {
+            "model_name": "gpt-oss-agent",
+            "litellm_params": {
+                "model": "ollama/gpt-oss:20b",
                 "api_base": "http://localhost:11434",
                 "max_input_tokens": 16384,
                 "num_ctx": 16384,

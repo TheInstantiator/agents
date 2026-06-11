@@ -87,28 +87,28 @@ collection, parent_cursor, encoder, bm25_index, bm25_corpus_docs, bm25_corpus_me
 # Assign a specific LLM from your config.json to each agent role here to mix and match!
 
 # Decomposer: Breaks down complex questions into atomic sub-queries. Needs good structure and reasoning.
-decomposer_kwargs = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+decomposer_kwargs = CoreAgent.load_litellm_kwargs_from_config("gemma-agent")
 
 # HyDE: Generates hypothetical textbook answers to enhance semantic search. Needs creativity.
-hyde_kwargs       = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+hyde_kwargs       = CoreAgent.load_litellm_kwargs_from_config("gemma-agent")
 
 # Critic: Audits the final answer against the strict context to find missing facts. Needs extreme precision.
 critic_kwargs     = CoreAgent.load_litellm_kwargs_from_config("phi-agent")
 
 # Merger: Edits and combines text into clean Markdown. Needs good formatting and layout skills.
-merger_kwargs     = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+merger_kwargs     = CoreAgent.load_litellm_kwargs_from_config("gemma-agent")
 
 # Answer Generator: Synthesizes the exact answer from raw context chunks. Needs strict instruction following.
-answer_kwargs     = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+answer_kwargs     = CoreAgent.load_litellm_kwargs_from_config("gemma-agent")
 
 # Classifier: Quickly labels questions as General vs Specific. Best with a small, lightning-fast model.
-classifier_kwargs = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+classifier_kwargs = CoreAgent.load_litellm_kwargs_from_config("gemma-agent")
 
 # Reranker: Ranks chunks based on relevance. Heaviest prompt. Needs a massive context window and high logic.
-reranker_kwargs   = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+reranker_kwargs   = CoreAgent.load_litellm_kwargs_from_config("gemma-agent")
 
 # Router: Analyzes chat history to see if the user is asking a follow-up. Needs conversational awareness.
-router_kwargs     = CoreAgent.load_litellm_kwargs_from_config("e-gemma-agent")
+router_kwargs     = CoreAgent.load_litellm_kwargs_from_config("gemma-agent")
 
 # ========================= AGENT INSTANCES =========================
 decomposer = CoreAgent(

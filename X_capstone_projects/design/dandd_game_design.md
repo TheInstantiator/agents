@@ -94,3 +94,15 @@ At the conclusion of each combat turn, the DM passes narrative updates to the St
 }
 ```
 
+## 7. Web Application & Visual Generation Interface
+
+To provide an immersive, visual gaming experience, the system will support a frontend interface integrated with AI-driven image and video generation:
+
+*   **Intro & Portrait Generation:**
+    *   **Character Portraits:** The details generated in `party_state.json` (such as names, classes, races, and backstories) are fed into an AI image generator to render unique character portraits for each party member.
+    *   **Cinematic Intro Video:** The full party compilation is translated into a structured prompt for video generation models (e.g., Runway, Sora, or Luma) to compile a dramatic introductory video introducing the fellowship of five heroes entering the magical gladiator arena.
+*   **Streamlit/Web Dashboard:**
+    *   **Visual Interface:** The game loop will be hosted in a web application (e.g., Streamlit, React, or Next.js) displaying the active state of the party and arena.
+    *   **Live Portrait Displays:** The generated character portraits are displayed alongside their active stats (HP, AC, and resource meters).
+    *   **Visual Turn Log:** As the Storyboard Agent outputs cinematic camera and image prompts for combat actions, the web app can showcase these generated images/videos directly in a running log of the battle history.
+

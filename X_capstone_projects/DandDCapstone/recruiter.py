@@ -70,12 +70,17 @@ async def recruit_member(agent_name: str, current_party_summary: str, judge_feed
     )
 
     recruiter_instructions = (
+        "You are an experienced D&D 5e player about to start a new campaign. "
+        "You have a deep understanding of party composition, role balance, class mechanics, "
+        "and how different races/species and backgrounds synergize with classes to create highly optimized and flavorfully coherent characters.\n\n"
         f"{guidelines}\n"
-        "You are a D&D character recruiter. Review the current party and "
-        "choose a Name, Class, and Backstory for a new Level 1 character that fills a missing role.\n"
-        "IMPORTANT: You MUST select an actual_class EXACTLY as it appears in the Available Classes list below.\n"
+        "Your task is to review the current party and recruit a new Level 1 character to fill a missing role or satisfy the Flex path.\n"
+        "When designing the character, select a species/race and background that have excellent synergy (both mechanically and narratively) with the class you choose.\n"
+        "For example, a Dwarf or Half-Orc makes a fantastic hardy Cleric or Frontline fighter, an Elf or Halfling makes a nimble Rogue, and a High Elf or Tiefling synergizes beautifully with Arcane classes.\n\n"
+        "IMPORTANT: You MUST select an `actual_class` EXACTLY as it appears in the Available Classes list below.\n"
         f"Available Classes: {available_classes}\n"
-        f"Current Party: {current_party_summary}"
+        f"Current Party Composition:\n{current_party_summary}\n\n"
+        "In your response, explain your tactical reasoning in the 'thoughts' field: why you chose this class for the party, and why the race/species and background synergize well with it."
     )
     
     if judge_feedback:
@@ -116,16 +121,16 @@ async def evaluate_party(agent_name: str, party_list: list) -> EvaluationResult:
         agent_id=f"judge_{agent_name}",
         system_prompt=(
             "You are a D&D Party Judge. Strictly evaluate the party against the Balanced Party Standard.\n"
+            "IMPORTANT: Do NOT evaluate based on the order of the list. Look at the party holistically to verify all 4 core roles are covered somewhere in the group.\n"
             "Balanced Party Standard:\n"
             "1. HEALER: Cleric (Allowed Replacements: Bard, Druid)\n"
             "2. FRONTLINE: Fighter (Allowed Replacements: Barbarian, Monk, Paladin, Ranger)\n"
             "3. STEALTH/UTILITY: Rogue (Allowed Replacements: Bard, Ranger)\n"
             "4. ARCANE: Wizard (Allowed Replacements: Bard, Sorcerer, Warlock)\n"
             "5. FLEX PATH: Any class that adds redundancy or utility.\n\n"
-            "If the party is perfectly balanced, set is_valid to True and leave the replacements list empty.\n"
-            "If it is missing any core roles, set is_valid to False and specify EXACTLY which slot index (0 to 4) "
-            "needs to be replaced, why, and what role/class should fill it in the 'replacements' list. "
-            "If there are multiple duplicates or issues, suggest replacing multiple slots in the list."
+            "If the party has all 4 core roles covered (regardless of order), set is_valid to True and leave the replacements list empty.\n"
+            "If it is genuinely missing a core role, set is_valid to False. Specify the index of a redundant or overlapping character "
+            "to kick, and explain what role/class should fill it in the 'replacements' list."
         ),
         litellm_kwargs=litellm_kwargs,
         one_shot=True,
@@ -162,11 +167,10 @@ async def main():
     
     # The list of agents to cycle through for character creation
     agent_roster = [
-        "llama-agent",
-        "phi-agent",
-        "qwen-agent",
         "gemma-agent",
-        "deepseek-agent"
+        "qwen-agent",
+        "gpt-oss-agent",
+        "phi-r-agent"
     ]
     agent_index = 0
 
@@ -192,7 +196,7 @@ async def main():
 
     while attempt <= max_attempts:
         # Evaluate the full party of 5
-        eval_result = await evaluate_party("grok-agent-tier1-think", party)
+        eval_result = await evaluate_party("gemma-agent", party)
         print(f"\n[JUDGE THOUGHTS]: {eval_result.thoughts}")
         
         if eval_result.is_valid:

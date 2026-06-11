@@ -227,13 +227,13 @@ if __name__ == "__main__":
                 ollama_models = available["ollama"]
                 
                 # Find the exact local name (e.g. gemma:latest or gemma4:e4b)
-                gemma_match = [m for m in ollama_models if "gemma" in m.lower()]
+                gemma_match = [m for m in ollama_models if "e4b" in m.lower()]
                 phi_match = [m for m in ollama_models if "phi" in m.lower()]
                 qwen_match = [m for m in ollama_models if "qwen" in m.lower()]
                 llama_match = [m for m in ollama_models if "llama" in m.lower()]
                 
                 if gemma_match:
-                    use_llm = "e-gemma-agent"
+                    use_llm = "gemma-agent"
                     model_override = "ollama/" + gemma_match[0]
                 elif phi_match:
                     use_llm = "phi-agent"
@@ -245,7 +245,7 @@ if __name__ == "__main__":
                     use_llm = "llama-agent"
                     model_override = "ollama/" + llama_match[0]
             elif "gemini" in available and available["gemini"]:
-                use_llm = "gemini-agent-vanilla"
+                use_llm = "gemini-low"
         except Exception as e:
             print(f"Note: Dynamic model lookup failed, defaulting to phi-agent. Error: {e}")
 
@@ -260,7 +260,12 @@ if __name__ == "__main__":
         # Initialize Phase 1 Agent
         agent = CoreAgent(
             agent_id=f"test_agent - {use_llm}",
-            system_prompt="You are a strategic combat advisor in the area of air to air space superiority.  You are also a tactician and strategist with an emphasis on unconventional thinking and solutions.  You are also a historian with an emphasis on military history and tactics.  You are also a psychologist with an emphasis on group dynamics and decision making under pressure.",
+            system_prompt= """
+            You are a strategic combat advisor in the area of air to air space superiority.  
+            You are also a tactician and strategist with an emphasis on unconventional thinking and solutions.  
+            You are also a historian with an emphasis on military history and tactics.  
+            You are also a psychologist with an emphasis on group dynamics and decision making under pressure.
+            """,
             litellm_kwargs=test_kwargs,
             one_shot=True # We don't save memory to disk yet
         )

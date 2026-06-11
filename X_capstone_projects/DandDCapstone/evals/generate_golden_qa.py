@@ -40,7 +40,7 @@ async def generate_questions():
     
     # Initialize a high-tier Agent for question generation
     # We use Gemini 3.1 Pro for high-fidelity rule understanding
-    agent_kwargs = CoreAgent.load_litellm_kwargs_from_config("gemini-agent-tier1-think")
+    agent_kwargs = CoreAgent.load_litellm_kwargs_from_config("gemini-main")
     generator = CoreAgent(
         agent_id="golden_gen",
         system_prompt=(
