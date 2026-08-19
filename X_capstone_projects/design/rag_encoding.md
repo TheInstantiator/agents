@@ -260,3 +260,37 @@ def parse_markdown_table_to_prose(table_text):
 *   **Vulnerability:** Calculating BM25 scores dynamically against the entire unindexed text corpus (`bm25_corpus.pkl`) during a live query can block CPU execution for larger document libraries.
 *   **Potential Solution:** Move the lexical lookup to a dedicated search index engine or pre-index the corpus structure during the build stage to speed up keyword query retrieval times.
 
+---
+
+## 5. Future Roadmap: Custom Monster & Community Addon Ingestion
+
+To expand the gladiatorial arena's enemy pool beyond standard monsters, a pipeline must be designed to ingest custom, third-party, and homebrew creatures into the vector database, enabling players to select and toggle community rules expansions.
+
+### 1. Ingestion Sources & Addon Packages
+*   **Structured SRD APIs:** Connect to open-source portals like Open5e or 5e SRD to download standardized JSON monster files.
+*   **Community Addon Packs:** Support importing open-license/Creative Commons rulesets (e.g. Kobold Press's *Tome of Beasts* SRD data or user homebrew JSON files).
+*   **Local Homebrew files:** Maintain a local `/homebrew/` folder containing user-created JSON templates for custom monsters.
+
+### 2. Processing & Prose Generation
+Unlike standard prose rules, monster stat blocks consist of specific keys (Strength, Dexterity, Actions, Armor Class). To search and retrieve these accurately:
+1.  **JSON Parser:** A custom script `ingest_custom_monsters.py` will read the monster's schema fields.
+2.  **Structured Prose Assembly:** Construct semantic sentences for the embeddings:
+    *   *Core Stats:* `"Creature [Name] has Armor Class [AC], Hit Points [HP], Speed [Speed] feet, and Challenge Rating [CR]."`
+    *   *Attribute Block:* `"[Name]'s Strength is [STR] (+[Mod]), Dexterity is [DEX] (+[Mod])..."`
+    *   *Action / Attacks Prose:* For each attack action, generate a descriptive sentence: `"Action: [Attack Name] has +[Bonus] to hit, range [Range], and deals [Damage] [Damage Type] damage."`
+
+### 3. Vector Registration & Metadata Filtering
+To allow players to toggle specific community packages on and off in their game settings lobby:
+*   **Metadata Tagging:** Upsert each chunk into ChromaDB with an explicit `addon_pack` label (e.g. `addon_pack: "srd_5.1"` or `addon_pack: "tome_of_beasts"`).
+*   **Runtime Filtering:** When queries are executed, the retrieval pipeline applies a ChromaDB metadata filter using the list of enabled lobby packs:
+    ```python
+    # Filter search by selected packages
+    results = collection.query(
+        query_embeddings=query_embeddings,
+        where={"addon_pack": {"$in": ["srd_5.1", "tome_of_beasts"]}}
+    )
+    ```
+    This ensures the DM Agent only retrieves and spawns creatures from authorized, selected community expansions.
+
+
+
