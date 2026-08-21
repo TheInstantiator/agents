@@ -15,9 +15,9 @@ class VectorVisualizer:
     
     def __init__(self):
         # Setup paths specifically for DandDCapstone
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        self.db_path = os.path.join(script_dir, "chroma_db")
-        self.collection_name = "dnd_rules_multi_v1"
+        from rag_config import DB_DIR, COLLECTION_NAME
+        self.db_path = DB_DIR
+        self.collection_name = COLLECTION_NAME
         
         print(f"Connecting to ChromaDB at: {self.db_path}")
         self.client = chromadb.PersistentClient(path=self.db_path)

@@ -29,7 +29,7 @@
     {
         "identity": {
             "thoughts": "The current party has a Paladin, so the next step is to fill the other roles. The core roles needed are Healer, Frontline, Stealth/Utility, and Arcane. Since the Paladin is already a frontline, we need to fill the other three roles. However, the user is asking to choose a character to join the party, so we need to see which role is missing. The user hasn't specified which role is missing, so I'll assume the first missing role. The first missing role is Healer, so the next character should be a Healer, which can be a Cleric, Bard, or Druid. The user hasn't specified any other characters, so I'll go with the first missing role. The best choice for a Healer is a Cleric, as they are the primary Healer class. A Cleric with a Life domain would be excellent for healing. A Half-Elf would be a good choice for a Cleric, as they have the Fey Ancestry trait, which gives them advantage on saving throws against charm spells, which is useful for a Healer. The background should be a Cleric, as it provides the necessary skills and abilities for a Healer. The background should be a Cleric, as it provides the necessary skills and abilities for a Healer. The background should be a Cleric, as it provides the necessary skills and abilities for a Healer.",
-            "name": "Elara the Healer",
+            "name": "Elara Windsong",
             "species": "Half-Elf",
             "background": "Cleric",
             "classic_role": "Healer",
@@ -110,7 +110,7 @@
     {
         "identity": {
             "thoughts": "The party currently has a Paladin (Frontline), Cleric (Healer), Rogue (Stealth/Utility), and Wizard (Arcane). The missing role is the second frontline or utility. Since the Flex path allows for a second Fighter or Paladin, but Paladin is already present, the best fit would be a second Fighter. A Goliath Fighter with a Tavernier background would provide additional frontline support and utility through the Tavernier background's ability to gain proficiency in Performance and Persuasion, which can be useful for social interactions and role-playing.",
-            "name": "Thrain Stoneheart",
+            "name": "Bramir Skybreaker",
             "species": "Goliath",
             "background": "Tavernier",
             "classic_role": "Frontline",

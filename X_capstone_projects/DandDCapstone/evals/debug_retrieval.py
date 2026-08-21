@@ -12,18 +12,19 @@ from rank_bm25 import BM25Okapi
 
 # ========================= PATHS =========================
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(SCRIPT_DIR, ".."))
 sys.path.append(os.path.join(SCRIPT_DIR, "..", ".."))
+from rag_config import COLLECTION_NAME, EMBED_MODEL, DB_DIR, SQLITE_DB_PATH, BM25_CORPUS_PATH, get_rag_device
 
-DB_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "chroma_db")
-SQLITE_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "parent_chunks.db")
-BM25_CORPUS_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "bm25_corpus.pkl")
+DB_PATH = DB_DIR
+SQLITE_PATH = SQLITE_DB_PATH
 
 # ========================= SETUP =========================
 print("Initializing databases...")
 client = chromadb.PersistentClient(path=DB_PATH)
-collection = client.get_collection(name="dnd_rules_multi_v2")
+collection = client.get_collection(name=COLLECTION_NAME)
 
-encoder = SentenceTransformer("BAAI/bge-large-en-v1.5", device="cpu")
+encoder = SentenceTransformer(EMBED_MODEL, device=get_rag_device())
 
 with open(BM25_CORPUS_PATH, "rb") as f:
     bm25_data = pickle.load(f)
@@ -31,7 +32,7 @@ bm25_corpus_docs = bm25_data["documents"]
 bm25_corpus_metas = bm25_data["metadatas"]
 bm25_corpus_ids = bm25_data["ids"]
 
-_tokenized = [re.findall(r'\w+', (meta.get('parent_summary', '') + " " + doc).lower())
+_tokenized = [re.findall(r'\w+', f"{meta.get('header_path', '')} {doc}".lower())
               for doc, meta in zip(bm25_corpus_docs, bm25_corpus_metas)]
 bm25_index = BM25Okapi(_tokenized)
 

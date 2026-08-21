@@ -6,24 +6,43 @@ import sqlite3
 import sys
 import os
 import pickle
-from typing import List, Dict, Tuple, AsyncGenerator
+from dataclasses import dataclass, field
+from typing import List, Dict, Tuple, AsyncGenerator, Optional
 from pydantic import BaseModel, Field
 
-from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer, CrossEncoder
 from rank_bm25 import BM25Okapi
 
-# ========================= PATHS =========================
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.join(SCRIPT_DIR, ".."))
 from core_agent import CoreAgent
-
-DB_PATH = os.path.join(SCRIPT_DIR, "chroma_db")
-SQLITE_PATH = os.path.join(SCRIPT_DIR, "parent_chunks.db")
-BM25_CORPUS_PATH = os.path.join(SCRIPT_DIR, "bm25_corpus.pkl")
-
-# ========================= SETTINGS =========================
-MAX_PASSES_GENERAL = 8
-MAX_PASSES_SPECIFIC = 3
+from rag_config import (
+    DB_DIR,
+    SQLITE_DB_PATH,
+    BM25_CORPUS_PATH,
+    COLLECTION_NAME,
+    EMBED_MODEL,
+    RERANK_MODEL,
+    RRF_CANDIDATES,
+    CE_TOP_K,
+    CE_SCORE_FLOOR,
+    CE_MIN_CHUNKS,
+    CE_AMBIGUOUS_GAP,
+    MAX_CHILDREN_PER_PARENT,
+    TABLE_CE_BOOST,
+    TABLE_SKIP_EXPAND_CE,
+    MIN_TABLE_ROWS,
+    PARENT_WINDOW_BEFORE,
+    PARENT_WINDOW_AFTER,
+    PARENT_WINDOW_CAP,
+    MAX_PASSES_GENERAL,
+    MAX_PASSES_SPECIFIC,
+    FOLLOWUP_OVERLAP_ABORT,
+    TABLE_TYPES,
+    get_rag_device,
+    get_ce_device,
+    prefers_tables,
+)
 
 # ========================= MODELS =========================
 class DecomposedQueries(BaseModel):
@@ -58,30 +77,59 @@ class RouterDecision(BaseModel):
     cached_answer: str = Field(description="The direct answer if needs_swarm is False. Otherwise empty string.")
     rewritten_query: str = Field(description="If needs_swarm is True, rewrite the User Prompt so that it is a highly specific, standalone D&D question that includes ALL relevant context from the Chat History (e.g. adding the specific Class, Monster, or Spell being discussed). If the prompt is already highly specific, return it unchanged.")
 
+
+@dataclass
+class RetrievalResult:
+    context: str
+    parent_ids: set = field(default_factory=set)
+    ce_top_score: Optional[float] = None
+
+
 # ========================= SETUP =========================
 def init_rag_system():
-    client = chromadb.PersistentClient(path=DB_PATH)
-    collection = client.get_collection(name="dnd_rules_multi_v2")
+    client = chromadb.PersistentClient(path=DB_DIR)
+    try:
+        collection = client.get_collection(name=COLLECTION_NAME)
+    except Exception:
+        collection = client.get_collection(name="dnd_rules_multi_v2")
 
-    parent_db = sqlite3.connect(SQLITE_PATH, check_same_thread=False)
+    parent_db = sqlite3.connect(SQLITE_DB_PATH, check_same_thread=False)
     parent_cursor = parent_db.cursor()
 
-    encoder = SentenceTransformer("BAAI/bge-large-en-v1.5", device="cpu")
+    device = get_rag_device()
+    encoder = SentenceTransformer(EMBED_MODEL, device=device)
+
+    try:
+        cross_encoder = CrossEncoder(RERANK_MODEL, device=get_ce_device())
+    except Exception as e:
+        print(f"Cross-encoder load failed ({e}). Falling back to LLM rerank.")
+        cross_encoder = None
 
     with open(BM25_CORPUS_PATH, "rb") as f:
         bm25_data = pickle.load(f)
     bm25_corpus_docs = bm25_data["documents"]
     bm25_corpus_metas = bm25_data["metadatas"]
     bm25_corpus_ids = bm25_data["ids"]
+    bm25_id_to_idx = {cid: i for i, cid in enumerate(bm25_corpus_ids)}
 
-    _tokenized = [re.findall(r'\w+', (meta.get('parent_summary', '') + " " + doc).lower())
-                  for doc, meta in zip(bm25_corpus_docs, bm25_corpus_metas)]
+    _tokenized = [
+        re.findall(r"\w+", f"{meta.get('header_path', '')} {doc}".lower())
+        for doc, meta in zip(bm25_corpus_docs, bm25_corpus_metas)
+    ]
     bm25_index = BM25Okapi(_tokenized)
-    
-    return collection, parent_cursor, encoder, bm25_index, bm25_corpus_docs, bm25_corpus_metas, bm25_corpus_ids
+
+    return (
+        collection, parent_cursor, encoder, bm25_index,
+        bm25_corpus_docs, bm25_corpus_metas, bm25_corpus_ids,
+        cross_encoder, bm25_id_to_idx,
+    )
 
 print("Initializing local AI databases for Streamlit...")
-collection, parent_cursor, encoder, bm25_index, bm25_corpus_docs, bm25_corpus_metas, bm25_corpus_ids = init_rag_system()
+(
+    collection, parent_cursor, encoder, bm25_index,
+    bm25_corpus_docs, bm25_corpus_metas, bm25_corpus_ids,
+    cross_encoder, bm25_id_to_idx,
+) = init_rag_system()
 
 # ========================= AGENTS CONFIG =========================
 # Assign a specific LLM from your config.json to each agent role here to mix and match!
@@ -145,7 +193,7 @@ merger = CoreAgent(
 
 answer_agent = CoreAgent(
     agent_id="answer_generator",
-    system_prompt="Answer the question using ONLY the provided context. Do not use your own knowledge. Provide your answer concisely, but ALWAYS begin your answer with a self-contained introductory sentence that explicitly restates the subject of the question (e.g. 'Here is the information regarding the Owlbear:'). If your answer involves a list, progression, or multiple items, you MUST format it using Markdown bullet points and line breaks for readability—do not output a giant text blob. Be incredibly precise: do not mix up table rows, do not alter 'start' vs 'end' of turn timings, and do not perform math unless explicitly instructed by the text. Quote the text directly when determining specific effects or limits. If the context lacks the answer, say 'I don't know'.",
+    system_prompt="Answer the question using ONLY the provided context. Do not use your own knowledge. Provide your answer concisely, but ALWAYS begin your answer with a self-contained introductory sentence that explicitly restates the subject of the question (e.g. 'Here is the information regarding the Owlbear:'). If your answer involves a list, progression, or multiple items, you MUST format it using Markdown bullet points and line breaks for readability—do not output a giant text blob. Be incredibly precise: do not mix up table rows, do not alter 'start' vs 'end' of turn timings, and do not perform math unless explicitly instructed by the text. Quote the text directly when determining specific effects or limits. If the context lacks the answer, say 'I don't know'. If the context is thin or contradictory, say so explicitly and list which fact is missing. Do not fill gaps.",
     litellm_kwargs=answer_kwargs,
     response_model=StandardAnswer,
     one_shot=True
@@ -222,11 +270,225 @@ def reciprocal_rank_fusion(vector_results: dict, bm25_results: dict, k: int = 25
             scores[cid] = scores.get(cid, 0) + 1.0 / (rank + 60)
     return sorted(scores.items(), key=lambda x: x[1], reverse=True)[:k]
 
+
+def _lookup(cid: str) -> Tuple[str, dict]:
+    idx = bm25_id_to_idx.get(cid)
+    if idx is None:
+        return "", {}
+    return bm25_corpus_docs[idx], bm25_corpus_metas[idx]
+
+
+def _raw_text(doc: str, meta: dict) -> str:
+    return meta.get("raw_text") or doc
+
+
+def _token_overlap(a: str, b: str) -> float:
+    ta = set(re.findall(r"\w+", a.lower()))
+    tb = set(re.findall(r"\w+", b.lower()))
+    if not ta or not tb:
+        return 0.0
+    return len(ta & tb) / len(ta | tb)
+
+
+def _snap_window(parent_text: str, start: int, raw_len: int) -> str:
+    lo = max(0, start - PARENT_WINDOW_BEFORE)
+    hi = min(len(parent_text), start + raw_len + PARENT_WINDOW_AFTER)
+    if lo > 0:
+        nl = parent_text.rfind("\n", 0, lo)
+        if nl != -1:
+            lo = nl + 1
+    if hi < len(parent_text):
+        nl = parent_text.find("\n", hi)
+        if nl != -1:
+            hi = nl
+    window = parent_text[lo:hi]
+    if len(window) > PARENT_WINDOW_CAP:
+        mid = start + raw_len // 2
+        half = PARENT_WINDOW_CAP // 2
+        lo2 = max(0, mid - half)
+        hi2 = min(len(parent_text), lo2 + PARENT_WINDOW_CAP)
+        window = parent_text[lo2:hi2]
+    return window
+
+
+def _merge_parent_windows(parent_text: str, spans: List[Tuple[int, int]]) -> str:
+    ranges = []
+    for start, end in spans:
+        lo = max(0, start - PARENT_WINDOW_BEFORE)
+        hi = min(len(parent_text), end + PARENT_WINDOW_AFTER)
+        ranges.append([lo, hi])
+    ranges.sort()
+    merged = []
+    for lo, hi in ranges:
+        if not merged or lo > merged[-1][1]:
+            merged.append([lo, hi])
+        else:
+            merged[-1][1] = max(merged[-1][1], hi)
+    pieces = []
+    for lo, hi in merged:
+        if lo > 0:
+            nl = parent_text.rfind("\n", 0, lo)
+            if nl != -1:
+                lo = nl + 1
+        if hi < len(parent_text):
+            nl = parent_text.find("\n", hi)
+            if nl != -1:
+                hi = nl
+        pieces.append(parent_text[lo:hi])
+    text = "\n".join(pieces)
+    cap = PARENT_WINDOW_CAP * max(1, len(merged))
+    return text[:cap]
+
+
+def _cross_encoder_rank(query: str, rrf_merged: List[Tuple]) -> List[Tuple[str, float]]:
+    kept = []
+    pairs = []
+    for cid, _ in rrf_merged:
+        doc, meta = _lookup(cid)
+        raw = _raw_text(doc, meta)
+        if not raw:
+            continue
+        kept.append(cid)
+        pairs.append((query, raw))
+    if not pairs:
+        return []
+    if cross_encoder is None:
+        return [(cid, 0.0) for cid in kept]
+    scores = cross_encoder.predict(pairs)
+    ranked = list(zip(kept, [float(s) for s in scores]))
+    ranked.sort(key=lambda x: x[1], reverse=True)
+    return ranked
+
+
+def _apply_ce_floor(ranked: List[Tuple[str, float]]) -> List[Tuple[str, float]]:
+    above = [x for x in ranked if x[1] >= CE_SCORE_FLOOR]
+    if len(above) < CE_MIN_CHUNKS:
+        return ranked[:max(CE_MIN_CHUNKS, min(len(ranked), CE_TOP_K * 2))]
+    return above
+
+
+def _apply_table_boost(query: str, ranked: List[Tuple[str, float]]) -> List[Tuple[str, float]]:
+    if not prefers_tables(query):
+        return ranked
+    boosted = []
+    for cid, score in ranked:
+        _, meta = _lookup(cid)
+        if meta.get("type") in TABLE_TYPES:
+            score = score * TABLE_CE_BOOST
+        boosted.append((cid, score))
+    boosted.sort(key=lambda x: x[1], reverse=True)
+    return boosted
+
+
+def _diversity_cap(ranked: List[Tuple[str, float]]) -> List[Tuple[str, float]]:
+    counts = {}
+    out = []
+    for cid, score in ranked:
+        _, meta = _lookup(cid)
+        pid = meta.get("parent_id") or cid
+        if counts.get(pid, 0) >= MAX_CHILDREN_PER_PARENT:
+            continue
+        counts[pid] = counts.get(pid, 0) + 1
+        out.append((cid, score))
+        if len(out) >= CE_TOP_K:
+            break
+    return out
+
+
+def _ensure_table_rows(selected: List[Tuple[str, float]], ranked: List[Tuple[str, float]], query: str) -> List[Tuple[str, float]]:
+    if not prefers_tables(query):
+        return selected
+    table_n = sum(1 for cid, _ in selected if _lookup(cid)[1].get("type") in TABLE_TYPES)
+    if table_n >= MIN_TABLE_ROWS:
+        return selected
+    selected_ids = {cid for cid, _ in selected}
+    extras = []
+    for cid, score in ranked:
+        if cid in selected_ids:
+            continue
+        if _lookup(cid)[1].get("type") in TABLE_TYPES:
+            extras.append((cid, score))
+            if len(extras) >= MIN_TABLE_ROWS - table_n:
+                break
+    if not extras:
+        return selected
+    out = list(selected)
+    for extra in extras:
+        replaced = False
+        for i in range(len(out) - 1, -1, -1):
+            if _lookup(out[i][0])[1].get("type") not in TABLE_TYPES:
+                out[i] = extra
+                replaced = True
+                break
+        if not replaced:
+            out.append(extra)
+    out.sort(key=lambda x: x[1], reverse=True)
+    return out[:CE_TOP_K]
+
+
+def _build_context(selected: List[Tuple[str, float]]) -> Tuple[str, set]:
+    spans_by_parent = {}
+    for cid, ce_score in selected:
+        doc, meta = _lookup(cid)
+        pid = meta.get("parent_id", "")
+        if not pid:
+            continue
+        raw = _raw_text(doc, meta)
+        if meta.get("type") == "table_row_prose" and ce_score >= TABLE_SKIP_EXPAND_CE:
+            continue
+        start = int(meta.get("child_char_start") or 0)
+        spans_by_parent.setdefault(pid, []).append((start, start + len(raw)))
+
+    merged_text = {}
+    for pid, spans in spans_by_parent.items():
+        parent_cursor.execute("SELECT content FROM parent_chunks WHERE id=?", (pid,))
+        row = parent_cursor.fetchone()
+        if not row or not row[0]:
+            continue
+        parent_text = row[0]
+        any_start = any(
+            "child_char_start" in _lookup(cid)[1]
+            for cid, _ in selected
+            if _lookup(cid)[1].get("parent_id") == pid
+        )
+        if any_start:
+            merged_text[pid] = _merge_parent_windows(parent_text, spans)
+        else:
+            merged_text[pid] = parent_text[:1500]
+
+    seen_parents = set()
+    parent_ids = set()
+    context_parts = []
+    for rank_pos, (cid, _) in enumerate(selected):
+        doc, meta = _lookup(cid)
+        if not doc and not meta:
+            continue
+        pid = meta.get("parent_id", "")
+        raw = _raw_text(doc, meta)
+        chunk_context = f"[Retrieval Rank {rank_pos+1}]\n"
+        header_bits = []
+        if meta.get("header_path"):
+            header_bits.append(meta["header_path"])
+        if meta.get("parent_summary"):
+            header_bits.append(meta["parent_summary"])
+        if header_bits:
+            chunk_context += f"Section: {' | '.join(header_bits)}\n"
+        if meta.get("table_summary"):
+            chunk_context += f"Table Focus: {meta['table_summary']}\n"
+        chunk_context += f"Exact Excerpt: {raw}\n"
+        if pid:
+            parent_ids.add(pid)
+            if pid in merged_text and pid not in seen_parents:
+                seen_parents.add(pid)
+                chunk_context += f"\nBroader Section Context:\n{merged_text[pid]}\n"
+        context_parts.append(chunk_context)
+    return "\n\n---\n\n".join(context_parts), parent_ids
+
 # ========================= MAIN PIPELINE =========================
-async def execute_full_retrieval_pipeline(query: str, yield_event=None):
+async def execute_full_retrieval_pipeline(query: str, yield_event=None, is_general: bool = False) -> RetrievalResult:
     if yield_event:
         await yield_event({"type": "status", "message": f"Expanding query using Decomposer & HyDE..."})
-    
+
     decomp = await decomposer.ask(query)
     hyde = await hyde_agent.ask(query)
 
@@ -255,58 +517,47 @@ async def execute_full_retrieval_pipeline(query: str, yield_event=None):
         'ids': [[bm25_corpus_ids[mi] for mi in top_bm25_idx]]
     }
 
-    rrf_merged = reciprocal_rank_fusion(vector_results, bm25_results, k=30)
-    
+    rrf_merged = reciprocal_rank_fusion(vector_results, bm25_results, k=RRF_CANDIDATES)
+
     if yield_event:
-        model_name = reranker_kwargs.get("model", "local").split("/")[-1]
-        await yield_event({"type": "status", "message": f"Retrieved {len(rrf_merged)} RRF chunks. Asking {model_name} to rerank..."})
+        await yield_event({"type": "status", "message": f"Retrieved {len(rrf_merged)} RRF chunks. Cross-encoder reranking..."})
 
-    rerank_prompt = f"Original Question: {query}\n\nRank these chunks from most to least relevant. Return only ordered indices (0-based):\n"
-    rerank_lines = []
-    for idx, (cid, _) in enumerate(rrf_merged):
-        try:
-            corpus_idx = bm25_corpus_ids.index(cid)
-            doc = bm25_corpus_docs[corpus_idx]
-        except ValueError:
-            doc = ""
-        rerank_lines.append(f"[{idx}] {doc[:500]}...")
-        
-    rerank_prompt += "\n".join(rerank_lines)
-    
-    reranked = await reranker.ask(rerank_prompt)
-    valid_indices = [idx for idx in reranked.ranked_indices if 0 <= idx < len(rrf_merged)]
-    top_indices = valid_indices[:12]
-    
+    ranked = _cross_encoder_rank(query, rrf_merged)
+    ranked = _apply_table_boost(query, ranked)
+    ranked = _apply_ce_floor(ranked)
+    selected = _diversity_cap(ranked)
+    selected = _ensure_table_rows(selected, ranked, query)
+    ce_top = selected[0][1] if selected else None
+
+    use_llm_rerank = False
+    if selected and is_general and cross_encoder is not None:
+        tail = selected[min(len(selected), CE_TOP_K) - 1][1]
+        if (selected[0][1] - tail) < CE_AMBIGUOUS_GAP:
+            use_llm_rerank = True
+    if selected and cross_encoder is None:
+        use_llm_rerank = True
+
+    if use_llm_rerank:
+        if yield_event:
+            model_name = reranker_kwargs.get("model", "local").split("/")[-1]
+            await yield_event({"type": "status", "message": f"Ambiguous set — asking {model_name} to rerank..."})
+        pool = selected if selected else ranked[:RRF_CANDIDATES]
+        rerank_prompt = f"Original Question: {query}\n\nRank these chunks from most to least relevant. Return only ordered indices (0-based):\n"
+        rerank_lines = []
+        for idx, (cid, _) in enumerate(pool):
+            doc, meta = _lookup(cid)
+            rerank_lines.append(f"[{idx}] {_raw_text(doc, meta)[:500]}...")
+        rerank_prompt += "\n".join(rerank_lines)
+        reranked = await reranker.ask(rerank_prompt)
+        valid_indices = [idx for idx in reranked.ranked_indices if 0 <= idx < len(pool)]
+        if valid_indices:
+            selected = [pool[idx] for idx in valid_indices[:CE_TOP_K]]
+
     if yield_event:
-        await yield_event({"type": "status", "message": f"Parsing full rulebook parent context for top {len(top_indices)} chunks..."})
+        await yield_event({"type": "status", "message": f"Parsing parent windows for top {len(selected)} chunks..."})
 
-    seen_parents = set()
-    context_parts = []
-    for rank_pos, idx in enumerate(top_indices):
-        cid = rrf_merged[idx][0]
-        try:
-            meta_idx = bm25_corpus_ids.index(cid)
-            meta = bm25_corpus_metas[meta_idx]
-            doc = bm25_corpus_docs[meta_idx]
-        except ValueError:
-            continue
-        
-        parent_id = meta.get("parent_id", "")
-        chunk_context = f"[Retrieval Rank {rank_pos+1}]\n"
-        if meta.get('parent_summary'): chunk_context += f"Section: {meta['parent_summary']}\n"
-        if meta.get('table_summary'): chunk_context += f"Table Focus: {meta['table_summary']}\n"
-        chunk_context += f"Exact Excerpt: {doc}\n"
-        
-        if parent_id and parent_id not in seen_parents:
-            seen_parents.add(parent_id)
-            parent_cursor.execute("SELECT content FROM parent_chunks WHERE id=?", (parent_id,))
-            row = parent_cursor.fetchone()
-            if row and row[0]:
-                chunk_context += f"\nBroader Section Context:\n{row[0][:1500]}\n"
-                
-        context_parts.append(chunk_context)
-
-    return "\n\n---\n\n".join(context_parts)
+    context, parent_ids = _build_context(selected)
+    return RetrievalResult(context=context, parent_ids=parent_ids, ce_top_score=ce_top)
 
 async def answer_dnd_question(question: str):
     """Async generator that yields JSON events for a Streamlit UI"""
@@ -322,19 +573,23 @@ async def answer_dnd_question(question: str):
         await queue.put(data)
         
     # Start retrieval as a background task
-    retrieval_task = asyncio.create_task(execute_full_retrieval_pipeline(question, yield_event=yield_callback))
-    
+    retrieval_task = asyncio.create_task(
+        execute_full_retrieval_pipeline(question, yield_event=yield_callback, is_general=is_general)
+    )
+
     while not retrieval_task.done() or not queue.empty():
         try:
-            # Poll the queue to pass status UI updates upstream
             event = await asyncio.wait_for(queue.get(), timeout=0.1)
             yield event
         except asyncio.TimeoutError:
             pass
 
-    context = retrieval_task.result()
+    retrieval = retrieval_task.result()
+    context = retrieval.context
+    seen_parent_ids = set(retrieval.parent_ids)
+    ce_top_score = retrieval.ce_top_score
     yield {"type": "status", "message": "Drafting initial answer based on context window..."}
-    
+
     if is_general:
         answer_instruction = "This is a General question. Provide a highly detailed, comprehensive explanation covering all aspects of the rules found in the context. Stay within 16k tokens."
     else:
@@ -343,54 +598,72 @@ async def answer_dnd_question(question: str):
     answer_obj = await answer_agent.ask(
         f"Question: {question}\n\nContext:\n{context}\n\n{answer_instruction}"
     )
-    
+
     final_answer_text = answer_obj.answer
     yield {"type": "initial_answer", "answer": final_answer_text, "thoughts": answer_obj.thoughts}
 
-    # Critic + Refinement Pass
-    # max_passes is already set above during classification
+    if "i don't know" in final_answer_text.lower() and (
+        ce_top_score is None or ce_top_score < CE_SCORE_FLOOR
+    ):
+        yield {"type": "status", "message": "Context too weak for a grounded answer. Stopping critic loop."}
+        yield {"type": "done", "final_answer": "The retrieved rules do not contain enough information to answer this."}
+        return
+
     current_pass = 0
-    
-    previous_follow_up = ""
+    previous_follow_ups = []
+    refine_context = ""
     while current_pass < max_passes:
         yield {"type": "status", "message": f"Critic Pass {current_pass+1}/{max_passes} evaluating for missing facts..."}
-        
+
         if current_pass == 0:
             critic_prompt = f"Original Question: {question}\n\nExisting Context:\n{context}\n\nGenerated Answer: {final_answer_text}\n\nIs this answer robust and complete based on the Question and Context? If it is a broad question, are there major D&D rules completely missing from the explanation?"
         else:
-            critic_prompt = f"Original Question: {question}\n\nPrevious Follow-up Request: {previous_follow_up}\n\nNew Supplemental Context:\n{refine_context}\n\nMerged Answer so Far: {final_answer_text}\n\nEvaluate if the New Supplemental Context successfully supplied the missing facts you requested. Does the Merged Answer now feel complete? If facts are STILL missing, provide ONE focused follow-up query. Otherwise, mark as complete."
-            
+            critic_prompt = f"Original Question: {question}\n\nPrevious Follow-up Request: {previous_follow_ups[-1]}\n\nNew Supplemental Context:\n{refine_context}\n\nMerged Answer so Far: {final_answer_text}\n\nEvaluate if the New Supplemental Context successfully supplied the missing facts you requested. Does the Merged Answer now feel complete? If facts are STILL missing, provide ONE focused follow-up query. Otherwise, mark as complete."
+
         critique = await critic.ask(critic_prompt)
 
         yield {
-            "type": "critic_eval", 
-            "pass": current_pass+1, 
-            "thoughts": critique.thoughts, 
+            "type": "critic_eval",
+            "pass": current_pass+1,
+            "thoughts": critique.thoughts,
             "follow_up": critique.follow_up_query,
             "is_complete": critique.is_complete
         }
 
         if critique.is_complete or not critique.follow_up_query.strip():
             break
-            
-        if critique.follow_up_query.strip().lower() == previous_follow_up.strip().lower():
+
+        follow_up = critique.follow_up_query.strip()
+        follow_norm = " ".join(follow_up.lower().split())
+        if any(" ".join(prev.lower().split()) == follow_norm for prev in previous_follow_ups):
             yield {"type": "status", "message": "Critic is looping on the same missing facts. Aborting research."}
+            break
+        if any(_token_overlap(follow_up, prev) > FOLLOWUP_OVERLAP_ABORT for prev in previous_follow_ups):
+            yield {"type": "status", "message": "Critic follow-up overlaps a prior query. Aborting research."}
             break
 
         yield {"type": "status", "message": f"Pass {current_pass+1} Retrieval: Fetching full pipeline context..."}
-        
-        refine_task = asyncio.create_task(execute_full_retrieval_pipeline(critique.follow_up_query, yield_event=yield_callback))
+
+        refine_task = asyncio.create_task(
+            execute_full_retrieval_pipeline(follow_up, yield_event=yield_callback, is_general=is_general)
+        )
         while not refine_task.done() or not queue.empty():
             try:
                 event = await asyncio.wait_for(queue.get(), timeout=0.1)
                 yield event
             except asyncio.TimeoutError:
                 pass
-        refine_context = refine_task.result()
+        refine_result = refine_task.result()
+        refine_context = refine_result.context
+        new_parents = refine_result.parent_ids - seen_parent_ids
+        if not new_parents:
+            yield {"type": "status", "message": "Follow-up retrieval added no new sections. Stopping critic."}
+            break
+        seen_parent_ids.update(refine_result.parent_ids)
 
         yield {"type": "status", "message": f"Pass {current_pass+1}: Extracting precise supplemental info..."}
         supplemental_obj = await answer_agent.ask(
-            f"Original Question: {question}\nFollow-up: {critique.follow_up_query}\n\nContext:\n{refine_context}\n\nProvide the missing information."
+            f"Original Question: {question}\nFollow-up: {follow_up}\n\nContext:\n{refine_context}\n\nProvide the missing information."
         )
 
         yield {"type": "status", "message": f"Pass {current_pass+1}: Merger Agent stitching answers..."}
@@ -398,13 +671,12 @@ async def answer_dnd_question(question: str):
             f"Original Answer: {final_answer_text}\n\nNew Information: {supplemental_obj.answer}\n\nCombine them into one clear, complete final answer."
         )
         final_answer_text = merged.answer
-        
+
         yield {"type": "merge_update", "pass": current_pass+1, "answer": final_answer_text}
-        
-        # Pass the context sliding variables forward instead of blowing up the context payload
-        previous_follow_up = critique.follow_up_query
+
+        previous_follow_ups.append(follow_up)
         current_pass += 1
-        
+
     yield {"type": "done", "final_answer": final_answer_text}
 
 async def route_query_with_history(query: str, chat_history: str):

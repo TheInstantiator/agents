@@ -11,7 +11,9 @@ from sentence_transformers import SentenceTransformer
 
 # Setup paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(SCRIPT_DIR, ".."))
 sys.path.append(os.path.join(SCRIPT_DIR, "..", ".."))
+from rag_config import COLLECTION_NAME, EMBED_MODEL, DB_DIR, SQLITE_DB_PATH, get_rag_device
 
 # Create logger
 class Logger(object):
@@ -30,8 +32,8 @@ class Logger(object):
 sys.stdout = Logger(os.path.join(SCRIPT_DIR, "eval_output_log.txt"))
 from core_agent import CoreAgent
 
-DB_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "chroma_db")
-SQLITE_PATH = os.path.join(os.path.dirname(SCRIPT_DIR), "parent_chunks.db")
+DB_PATH = DB_DIR
+SQLITE_PATH = SQLITE_DB_PATH
 DATASET_PATH = os.path.join(SCRIPT_DIR, "golden_dataset.json")
 
 # --- LLM Judge Models ---
@@ -45,7 +47,7 @@ class JudgeVerdict(BaseModel):
 print("Initializing Vector Database connection...", flush=True)
 client = chromadb.PersistentClient(path=DB_PATH)
 try:
-    collection = client.get_collection(name="dnd_rules_multi_v2")
+    collection = client.get_collection(name=COLLECTION_NAME)
 except Exception as e:
     print(f"Error accessing collection: {e}. Has build_rag_db.py finished?", flush=True)
     exit()
@@ -54,8 +56,8 @@ print("Initializing SQLite (Parent Chunk Store)...", flush=True)
 parent_db = sqlite3.connect(SQLITE_PATH)
 parent_cursor = parent_db.cursor()
 
-print("Loading Local Native Encoder (BAAI/bge-large-en-v1.5)...", flush=True)
-encoder = SentenceTransformer("BAAI/bge-large-en-v1.5", device="cpu")
+print(f"Loading Local Native Encoder ({EMBED_MODEL})...", flush=True)
+encoder = SentenceTransformer(EMBED_MODEL, device=get_rag_device())
 
 print("Initializing LLM Judge (phi-agent)...", flush=True)
 phi_kwargs = CoreAgent.load_litellm_kwargs_from_config("phi-agent")

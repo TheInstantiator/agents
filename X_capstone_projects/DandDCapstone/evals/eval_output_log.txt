@@ -10,47 +10,2376 @@ Initializing LLM Judge (phi-agent)...
 
 --- Running LLM-as-Judge Evaluation (K=10, Judge: phi-agent) ---
 
-Q1: How much does a Longsword cost and what damage does it deal?
+Q1: How do I play D&D?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 9.9s
+    Topic: Core Rules of Actions in D&D: In D&D, players take one action per turn from a pr
+    Judge: The question asks for an overview of how to play D&D, specifically mentioning the core loop of DM narration, player acti
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 2.9s
+    Topic: Core Rules of Actions in D&D: In D&D, players take one action per turn from a pr
+    Judge: The question asks for an overview of how to play D&D, specifically mentioning the core loop of DM narration, player acti
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 3.4s
+    Topic: Core Rules of Actions in D&D: In D&D, players take one action per turn from a pr
+    Judge: The question asks for an overview of how to play D&D, specifically mentioning the core loop of DM narration, player acti
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.4s
+    Topic: Core Rules of Actions in D&D: In D&D, players take one action per turn from a pr
+    Judge: To determine if the retrieved text contains enough information to answer the question about how to play D&D, I need to i
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 2.8s
+    Topic: Core Rules of D&D Combat: In D&D, combat is organized into rounds and turns, wit
+    Judge: The question asks for an overview of how to play D&D, specifically mentioning the core loop of DM narration, player acti
+[ollama/phi4:latest] Thinking...
+  [Window 3] ✅ FOUND VIA WINDOWING | 3.7s
+    Topic: Core Rules of D&D Combat: In D&D, combat is organized into rounds and turns, wit
+    Judge: To determine if the expanded context contains enough information to answer the question 'How do I play D&D?', I need to 
+    Judge Evidence: "The game organizes combat into a cycle of rounds and turns. A round represents about 6 seconds in the game world. During a round, each participant in a battle takes a turn. The order of turns is determined at the beginning of combat when everyone rolls Initiative."
+  ✅ SUCCESS (Windowing): Answer at rank 3 (MRR+: 0.33)
+     Reasoning: To determine if the expanded context contains enough information to answer the question 'How do I play D&D?', I need to 
+
+Q2: How much does a Longsword cost and what damage does it deal?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.5s
+    Topic: D&D Weapon Summary: The D&D rulebook snippet outlines various melee and ranged w
+    Judge: The question asks for the cost and damage of a Longsword. The retrieved chunk contains a section specifically about the 
+    Judge Evidence: "The Longsword deals 1d8 Slashing damage or 1d10 damage when used with the Versatile property, has a Sap property, weighs 3 lb., and costs 15 GP."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the cost and damage of a Longsword. The retrieved chunk contains a section specifically about the 
+
+Q3: If my ability score is 18, what is my modifier?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.5s
+    Topic: The Six Abilities in D&D: In D&D, creatures have six abilities—Strength, Dexteri
+    Judge: The question asks for the modifier of an ability score of 18. The retrieved chunk contains a table under 'Ability Modifi
+    Judge Evidence: "18–19 +4"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the modifier of an ability score of 18. The retrieved chunk contains a table under 'Ability Modifi
+
+Q4: What modifier do I get for an ability score of 1 or 11?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.8s
+    Topic: The Six Abilities in D&D: In D&D, creatures have six abilities—Strength, Dexteri
+    Judge: The question asks for the modifiers for ability scores of 1 and 11. The retrieved chunk contains a section titled 'Abili
+    Judge Evidence: "Score -5
+10–11 +0"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the modifiers for ability scores of 1 and 11. The retrieved chunk contains a section titled 'Abili
+
+Q5: Does an Adult Red Dragon have Legendary Resistance? How many times?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.2s
+    Topic: Adult Red Dragon Core Rules and Concepts: The Adult Red Dragon is a formidable, 
+    Judge: The question asks whether an Adult Red Dragon has Legendary Resistance and how many times it can use it per day, specifi
+    Judge Evidence: "_Legendary Resistance (3/Day, or 4/Day in Lair)._"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks whether an Adult Red Dragon has Legendary Resistance and how many times it can use it per day, specifi
+
+Q6: Can I cast two spells in the same turn?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.2s
+    Topic: D&D Spellcasting Rules Summary: In D&D, a spellcaster cannot use multiple spell 
+    Judge: The question asks whether you can cast two spells in the same turn and specifies that the answer should confirm you can 
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 2.7s
+    Topic: D&D Spellcasting Rules Summary: In D&D, a spellcaster cannot use multiple spell 
+    Judge: The question asks whether you can cast two spells in the same turn, with the expected answer being that you can cast mul
+    Judge Evidence: "a spell with a spell slot using the Magic action and another one using a Bonus Action on the same turn."
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks whether you can cast two spells in the same turn, with the expected answer being that you can cast mul
+
+Q7: What does the 'Invisibility' spell do?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.1s
+    Topic: D&D Spell Summary: The first spell allows a bonus action attack causing fire dam
+    Judge: The question asks for specific details about the 'Invisibility' spell, including what it does and the conditions under w
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.6s
+    Topic: D&D Spell Summary: The first spell allows a bonus action attack causing fire dam
+    Judge: The task is to determine if the provided text contains the exact, verbatim information needed to answer the question abo
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 2.8s
+    Topic: D&D Spell Summary: The 'Illusory Duplicate' spell creates an intangible, damage-
+    Judge: The question asks for specific details about the 'Invisibility' spell, including what it does and the conditions under w
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.4s
+    Topic: D&D Spell Summary: The 'Illusory Duplicate' spell creates an intangible, damage-
+    Judge: The task requires identifying whether the provided text contains a verbatim description of the 'Invisibility' spell, spe
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 3.2s
+    Topic: D&D Spell Summary: The spells 'Chill Touch,' 'Chromatic Orb,' 'Circle of Death,'
+    Judge: The question asks for specific details about the 'Invisibility' spell, including what it does and its effects. The retri
+[ollama/phi4:latest] Thinking...
+  [Window 3] ✅ FOUND VIA WINDOWING | 3.3s
+    Topic: D&D Spell Summary: The spells 'Chill Touch,' 'Chromatic Orb,' 'Circle of Death,'
+    Judge: To determine if the retrieved text contains the answer to the question about the 'Invisibility' spell, I need to look fo
+    Judge Evidence: "A creature you touch becomes invisible until the spell ends. The spell ends if the target attacks or casts a spell."
+  ✅ SUCCESS (Windowing): Answer at rank 3 (MRR+: 0.33)
+     Reasoning: To determine if the retrieved text contains the answer to the question about the 'Invisibility' spell, I need to look fo
+
+Q8: How do death saving throws work?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.8s
+    Topic: Core Rules on Damage, Healing, and 0 Hit Points in D&D: In D&D, immunity to a da
+    Judge: The question asks for a specific explanation of how death saving throws work, including the mechanics of rolling a d20, 
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 4.5s
+    Topic: Core Rules on Damage, Healing, and 0 Hit Points in D&D: In D&D, immunity to a da
+    Judge: To determine if the retrieved text contains the answer to the question about how death saving throws work, I need to ide
+    Judge Evidence: "Whenever you start your turn with 0 Hit Points, you must make a special saving throw. Roll a d20: 10 or higher is a success, 9 or lower is a failure. On your third success, you become stable. On your third failure, you die."
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: To determine if the retrieved text contains the answer to the question about how death saving throws work, I need to ide
+
+Q9: If I am a level 4 Ranger and level 3 Sorcerer multiclass character, how many level 3 spell slots do I have?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.2s
+    Topic: D&D Multiclass Spellcasting Rules: In D&D, multiclass spellcasting involves prep
+    Judge: The question asks for the number of level 3 spell slots a character with a level 4 Ranger and level 3 Sorcerer multiclas
+    Judge Evidence: "you count as a level 5 character when determining your spell slots, counting all your levels as a Sorcerer and half your Ranger levels. As shown in the Multiclass Spellcaster table, you have four level 1 spell slots, three level 2 slots, and two level 3 slots."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the number of level 3 spell slots a character with a level 4 Ranger and level 3 Sorcerer multiclas
+
+Q10: How long does it take to don and doff Medium Armor?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.8s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the specific time it takes to don and doff Medium Armor. The retrieved chunk includes a section ti
+    Judge Evidence: "Medium Armor (5 Minutes to Don and 1 Minute to Doff)"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific time it takes to don and doff Medium Armor. The retrieved chunk includes a section ti
+
+Q11: What happens if a creature reaches Exhaustion level 6?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.0s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The Dodge action grants advan
+    Judge: The question asks specifically about what happens when a creature reaches Exhaustion level 6. The retrieved chunk contai
+    Judge Evidence: "You die if your Exhaustion level is 6."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about what happens when a creature reaches Exhaustion level 6. The retrieved chunk contai
+
+Q12: What is the effect of the Sap weapon mastery property?
 [ollama/phi4:latest] Thinking...
   [Chunk 1] ✅ FOUND HERE | 3.3s
-    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The snippet outlines weapon u
-    Judge: The task requires determining whether the retrieved text chunk contains a verbatim quote that answers the specific quest
-    Judge Evidence: "The Longsword costs 15 gp, deals 1d8 slashing damage, weighs 3 lbs, and has the Versatile (1d10) and Sap properties."
+    Topic: D&D Weapon Mechanics and Properties: In D&D, weapons can be used with one or two
+    Judge: The question asks for the effect of the Sap weapon mastery property. The retrieved chunk contains a section specifically
+    Judge Evidence: "If you hit a creature with this weapon, that creature has Disadvantage on its next attack roll before the start of your next turn."
   ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
-     Reasoning: The task requires determining whether the retrieved text chunk contains a verbatim quote that answers the specific quest
+     Reasoning: The question asks for the effect of the Sap weapon mastery property. The retrieved chunk contains a section specifically
 
-Q2: If my ability score is 18, what is my modifier?
+Q13: At what level does a Barbarian gain the Relentless Rage feature, and what is the starting DC for its saving throw?
 [ollama/phi4:latest] Thinking...
-  [Chunk 1] ✅ FOUND HERE | 2.2s
-    Topic: The Six Abilities in D&D: In Dungeons & Dragons, creatures possess six abilities
-    Judge: The task requires determining whether the retrieved text chunk contains a verbatim quote that answers the specific quest
-    Judge Evidence: "**Score** **Modifier** 
-16–17 +3
-18–19 +4
-20–21 +5"
+  [Chunk 1] ✅ FOUND HERE | 2.9s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The question asks for two specific pieces of information: the level at which a Barbarian gains the Relentless Rage featu
+    Judge Evidence: "Your Rage can keep you fighting despite grievous wounds. If you drop to 0 Hit Points while your Rage is active and don’t die outright, you can make a DC 10 Constitution saving throw."
   ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
-     Reasoning: The task requires determining whether the retrieved text chunk contains a verbatim quote that answers the specific quest
+     Reasoning: The question asks for two specific pieces of information: the level at which a Barbarian gains the Relentless Rage featu
 
-Q3: What modifier do I get for an ability score of 1 or 11?
+Q14: What is the effect of the Indigo layer of a Prismatic Wall, and what can destroy it?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.6s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: The question asks for specific information about the Indigo layer of a Prismatic Wall, including its effects and what ca
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.9s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: To determine if the retrieved text contains the answer, I need to identify specific information about the Indigo layer o
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 5.2s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: The question asks for the effect of the Indigo layer of a Prismatic Wall and what can destroy it. The retrieved chunk co
+    Judge Evidence: "6 **Indigo.** _Failed Save:_ The target has the Restrained condition and makes a Constitution saving throw at the end of each of its turns. If it successfully saves three times, the condition ends. If it fails three times, it has the Petrified condition until it is freed by an effect like the _Greater Restoration_ spell. The successes and failures needn’t be consecutive; keep track of both until the target collects three of a kind. _Additional Effects:_ Spells can’t be cast through this layer, which is destroyed by Bright Light shed by the _Daylight_ spell."
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the effect of the Indigo layer of a Prismatic Wall and what can destroy it. The retrieved chunk co
+
+Q15: What happens if you roll a 96-00 on the Bag of Beans effect table?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.0s
+    Topic: D&D Rulebook Snippet Summary: The 'Armor of Vulnerability' grants resistance to 
+    Judge: The question asks about the specific outcome of rolling a 96-00 on the Bag of Beans effect table. The retrieved chunk pr
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.8s
+    Topic: D&D Rulebook Snippet Summary: The 'Armor of Vulnerability' grants resistance to 
+    Judge: The task requires identifying whether the retrieved text contains a verbatim answer to the question about the Bag of Bea
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 2.9s
+    Topic: Summary of D&D Robes: The robes provide various magical benefits such as enhance
+    Judge: The question asks about the specific outcome of rolling a 96-00 on the Bag of Beans effect table, expecting an answer re
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.3s
+    Topic: Summary of D&D Robes: The robes provide various magical benefits such as enhance
+    Judge: To determine if the answer to the question is present in the provided text, I need to identify if there is a specific me
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 3.0s
+    Topic: D&D Card Game Effects Summary: The cards in this D&D rulebook snippet impose var
+    Judge: The question asks about the specific outcome of rolling a 96-00 on the Bag of Beans effect table, expecting an answer re
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.4s
+    Topic: D&D Card Game Effects Summary: The cards in this D&D rulebook snippet impose var
+    Judge: The question asks about the specific outcome of rolling a 96-00 on the Bag of Beans effect table, expecting a detailed d
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 3.0s
+    Topic: D&D Card Game Effects Summary: The cards in this D&D rulebook snippet impose var
+    Judge: The question asks about the specific outcome of rolling a 96-00 on the Bag of Beans effect table, expecting an answer re
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 3.4s
+    Topic: D&D Card Game Effects Summary: The cards in this D&D rulebook snippet impose var
+    Judge: The question asks about the specific outcome of rolling a 96-00 on the Bag of Beans effect table, expecting an answer re
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ❌ Not in this chunk | 3.4s
+    Topic: D&D Wondrous Items Summary: The Bag of Tricks summons creatures based on its col
+    Judge: The question asks about the specific outcome of rolling a 96-00 on the Bag of Beans effect table, expecting a giant bean
+[ollama/phi4:latest] Thinking...
+  [Window 5] ✅ FOUND VIA WINDOWING | 5.3s
+    Topic: D&D Wondrous Items Summary: The Bag of Tricks summons creatures based on its col
+    Judge: The task requires determining if the retrieved text contains a verbatim quote that answers the question about the effect
+    Judge Evidence: "96–00 A giant beanstalk sprouts, growing to a height of the GM's choice. The top leads where the GM chooses, such as to a great view, a cloud giant’s castle, or another plane of existence."
+  ✅ SUCCESS (Windowing): Answer at rank 5 (MRR+: 0.20)
+     Reasoning: The task requires determining if the retrieved text contains a verbatim quote that answers the question about the effect
+
+Q16: How does the Tarrasque's Reflective Carapace interact with the Magic Missile spell?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.2s
+    Topic: Tarrasque Core Rules and Concepts: The Tarrasque is a gargantuan, unaligned mons
+    Judge: The question asks specifically about how the Tarrasque's Reflective Carapace interacts with the Magic Missile spell. The
+    Judge Evidence: "If the tarrasque is targeted by a _Magic Missile_ spell or a spell that requires a ranged attack roll, roll 1d6. On a **1–5**, the tarrasque is unaffected. On a **6**, the tarrasque is unaffected and reflects the spell, turning the caster into the target."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about how the Tarrasque's Reflective Carapace interacts with the Magic Missile spell. The
+
+Q17: How many Exhaustion levels does a creature automatically gain after eating nothing for 5 days?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.2s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks for the specific number of Exhaustion levels a creature gains after eating nothing for 5 days, and the
+    Judge Evidence: "A creature that eats nothing for 5 days automatically gains 1 Exhaustion level at the end of the fifth day as well as an additional level at the end of each subsequent day without food."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific number of Exhaustion levels a creature gains after eating nothing for 5 days, and the
+
+Q18: How many Focus Points does a level 15 Monk have?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.4s
+    Topic: D&D Monk Progression Summary: Monks gain enhanced unarmed combat abilities, impr
+    Judge: The question asks for the number of Focus Points a level 15 Monk has. The retrieved chunk includes information about the
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 2.8s
+    Topic: D&D Monk Progression Summary: Monks gain enhanced unarmed combat abilities, impr
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a specific statement that directl
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 2.9s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: The question asks for the specific number of Focus Points a level 15 Monk has. The retrieved chunk mentions that a Monk'
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 4.3s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a verbatim statement that specifi
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 2.8s
+    Topic: D&D Monk Progression Summary: Monks gain enhanced unarmed combat abilities, impr
+    Judge: The question asks for the number of Focus Points a level 15 Monk has. The retrieved chunk provides information about var
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.8s
+    Topic: D&D Monk Progression Summary: Monks gain enhanced unarmed combat abilities, impr
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a specific statement that directl
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 3.0s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: The question asks for the number of Focus Points a level 15 Monk has. The retrieved chunk mentions that a Monk's level d
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 3.3s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a verbatim statement that specifi
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ❌ Not in this chunk | 3.4s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks in D&D rely on Dexterity
+    Judge: The question asks for the number of Focus Points a level 15 Monk has, specifically expecting the answer to be 'A level 1
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 3.2s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks in D&D rely on Dexterity
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a verbatim statement that specifi
+[ollama/phi4:latest] Thinking...
+  [Chunk 6] ❌ Not in this chunk | 3.0s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks in D&D rely on Dexterity
+    Judge: The question asks for the number of Focus Points a level 15 Monk has. The retrieved chunk mentions that a Monk's level d
+[ollama/phi4:latest] Thinking...
+  [Window 6] ❌ Not in this window | 4.1s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks in D&D rely on Dexterity
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a verbatim statement that specifi
+[ollama/phi4:latest] Thinking...
+  [Chunk 7] ❌ Not in this chunk | 3.8s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: To determine if the retrieved chunk contains the answer to the question, I need to find a verbatim statement that specif
+[ollama/phi4:latest] Thinking...
+  [Window 7] ❌ Not in this window | 3.9s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a verbatim statement that specifi
+[ollama/phi4:latest] Thinking...
+  [Chunk 8] ❌ Not in this chunk | 3.8s
+    Topic: D&D Monk Progression Summary: Monks gain enhanced unarmed combat abilities, impr
+    Judge: To determine if the retrieved chunk contains the answer to the question about how many Focus Points a level 15 Monk has,
+[ollama/phi4:latest] Thinking...
+  [Window 8] ❌ Not in this window | 3.2s
+    Topic: D&D Monk Progression Summary: Monks gain enhanced unarmed combat abilities, impr
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a verbatim statement that specifi
+[ollama/phi4:latest] Thinking...
+  [Chunk 9] ❌ Not in this chunk | 2.9s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: The question asks for the number of Focus Points a level 15 Monk has. The retrieved chunk mentions that a Monk's level d
+[ollama/phi4:latest] Thinking...
+  [Window 9] ❌ Not in this window | 3.5s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a verbatim statement that specifi
+[ollama/phi4:latest] Thinking...
+  [Chunk 10] ❌ Not in this chunk | 3.9s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: The question asks for the number of Focus Points a level 15 Monk has. The retrieved chunk mentions that a Monk's level d
+[ollama/phi4:latest] Thinking...
+  [Window 10] ❌ Not in this window | 4.9s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a verbatim statement that specifi
+  ❌ FAILURE (Judge): No valid chunk found in top 10 searches.
+
+Q19: What does the Discord effect of the Symbol spell do to a target that fails its saving throw?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.7s
+    Topic: D&D Rulebook Snippet Summary: The glyph spell activates under certain conditions
+    Judge: The question asks for the specific effects of the Discord effect of the Symbol spell on a target that fails its saving t
+    Judge Evidence: "On a failed save, a target argues with other creatures for 1 minute. During this time, it is incapable of meaningful communication and has Disadvantage on attack rolls and ability checks."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific effects of the Discord effect of the Symbol spell on a target that fails its saving t
+
+Q20: What is the requirement to use the Iron Horn of Valhalla without being attacked by the summoned spirits?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.7s
+    Topic: D&D Rulebook Snippet Summary: The Helm of Teleportation allows teleportation wit
+    Judge: The question asks for the specific requirement to use the Iron Horn of Valhalla without being attacked by the summoned s
+    Judge Evidence: "91–00 Iron 5 Proficiency with all Martial weapons"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific requirement to use the Iron Horn of Valhalla without being attacked by the summoned s
+
+Q21: What is the Dexterity saving throw DC to avoid the effects of Caltrops, and what happens on a failure?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.4s
+    Topic: D&D Rulebook Item Summary: The snippet outlines items such as Antitoxin for pois
+    Judge: The question asks for the Dexterity saving throw DC to avoid the effects of Caltrops and the consequences of failing thi
+    Judge Evidence: "On a character's first turn, they must succeed on a DC 15 Dexterity saving throw or take 1 Piercing damage and have their Speed reduced to 0 until the start of their next turn;"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the Dexterity saving throw DC to avoid the effects of Caltrops and the consequences of failing thi
+
+Q22: What are the four Vampire Weaknesses listed in the vampire stat block?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.8s
+    Topic: Vampire Core Rules and Concepts: The Vampire is a Lawful Evil Medium or Small Un
+    Judge: The question asks for the four Vampire Weaknesses listed in the vampire stat block. The retrieved chunk contains a secti
+    Judge Evidence: "The vampire has these weaknesses: **Forbiddance.** The vampire can’t enter a residence without an invitation from an occupant. **Running Water.** The vampire takes 20 Acid damage if it ends its turn in running water. **Stake to the Heart.** If a weapon that deals Piercing damage is driven into the vampire’s heart while the vampire has the Incapacitated condition in its resting place, the vampire has the Paralyzed condition until the weapon is removed. **Sunlight.** The vampire takes 20 Radiant damage if it starts its turn in sunlight. While in sunlight, it has Disadvantage on attack rolls and ability checks."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the four Vampire Weaknesses listed in the vampire stat block. The retrieved chunk contains a secti
+
+Q23: How does the Paralyzed condition affect incoming attack rolls and hits?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.1s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks for specific effects of the Paralyzed condition on incoming attack rolls and hits. The retrieved chunk
+    Judge Evidence: "Attack rolls against you have Advantage.
+**Automatic Critical Hits.** Any attack roll that hits you is a Critical Hit if the attacker is within 5 feet of you."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific effects of the Paralyzed condition on incoming attack rolls and hits. The retrieved chunk
+
+Q24: What is the Sneak Attack die cost for the Rogue's Knock Out Cunning Strike effect?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.4s
+    Topic: D&D Rogue Class Features Summary: At level 2, Rogues gain Cunning Action for qui
+    Judge: The question asks for the Sneak Attack die cost for the Rogue's Knock Out Cunning Strike effect. The retrieved chunk con
+    Judge Evidence: "Knock Out (Cost: 6d6)."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the Sneak Attack die cost for the Rogue's Knock Out Cunning Strike effect. The retrieved chunk con
+
+Q25: What is the maximum Challenge Rating of a creature you can turn an object into using True Polymorph?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.9s
+    Topic: D&D Spell Summary: 'Plant Growth' can overgrow or enrich plants, 'Poison Spray' 
+    Judge: The question asks about the maximum Challenge Rating of a creature you can turn an object into using True Polymorph. The
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.3s
+    Topic: D&D Spell Summary: 'Plant Growth' can overgrow or enrich plants, 'Poison Spray' 
+    Judge: The question asks about the maximum Challenge Rating of a creature you can turn an object into using True Polymorph. The
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 4.6s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines transformation spells that al
+    Judge: The question asks for the maximum Challenge Rating of a creature that can be created using the True Polymorph spell. The
+    Judge Evidence: "You can turn an object into any kind of creature, as long as the creature’s size is no larger than the object’s size and the creature has a Challenge Rating of 9 or lower."
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the maximum Challenge Rating of a creature that can be created using the True Polymorph spell. The
+
+Q26: What activities will interrupt a Long Rest?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.2s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The snippet details rules for
+    Judge: The question asks for specific activities that will interrupt a Long Rest in D&D. The retrieved chunk contains a section
+    Judge Evidence: "- Rolling Initiative
+- Casting a spell other than a cantrip
+- Taking any damage
+- 1 hour of walking or other physical exertion"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific activities that will interrupt a Long Rest in D&D. The retrieved chunk contains a section
+
+Q27: How much acid damage does a creature swallowed by a Kraken take at the start of each of the Kraken's turns?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.1s
+    Topic: Kraken Core Rules and Concepts: The kraken is a gargantuan, chaotic evil monstro
+    Judge: The question asks for the specific amount of acid damage a creature takes at the start of each of the Kraken's turns whe
+    Judge Evidence: "takes 24 (7d6) Acid damage at the start of each of its turns."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific amount of acid damage a creature takes at the start of each of the Kraken's turns whe
+
+Q28: What are the limitations on the spell slots a Wizard can recover using Arcane Recovery during a Short Rest?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.8s
+    Topic: Core Rules for Wizard Spellcasting in D&D: Wizards start with six level 1 spells
+    Judge: The question asks for the limitations on the spell slots a Wizard can recover using Arcane Recovery during a Short Rest.
+    Judge Evidence: "The spell slots can have a combined level equal to no more than half your Wizard level (round up), and none of the slots can be level 6 or higher."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the limitations on the spell slots a Wizard can recover using Arcane Recovery during a Short Rest.
+
+Q29: What does moving Lever 1 up on the Apparatus of the Crab do?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 4.0s
+    Topic: D&D Rulebook Snippet Summary: The Animated Shield allows a bonus action to anima
+    Judge: The retrieved chunk provides a description of the Apparatus of the Crab, including its features and how it operates. It 
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 4.0s
+    Topic: D&D Rulebook Snippet Summary: The Animated Shield allows a bonus action to anima
+    Judge: To determine if the retrieved text contains the answer, I need to identify if there is a verbatim quote that specifies w
+    Judge Evidence: "6 The apparatus walks or swims forward provided its legs are extended."
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: To determine if the retrieved text contains the answer, I need to identify if there is a verbatim quote that specifies w
+
+Q30: What bonus does a Portable Ram provide when breaking down doors, and how can another character assist?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.0s
+    Topic: D&D Item Mechanics and Effects: The snippet describes items like Oil for dousing
+    Judge: The question asks for specific information about the bonus provided by a Portable Ram when breaking down doors and how a
+    Judge Evidence: "Using the ram grants a +4 bonus to the Strength check, and another character can assist, providing Advantage on this check, with the cost being 5 SP for rations."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific information about the bonus provided by a Portable Ram when breaking down doors and how a
+
+Q31: Under what specific conditions does the Time Stop spell end early?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.2s
+    Topic: D&D Rulebook Snippet Summary: The snippet explains how to create and use permane
+    Judge: The question asks for specific conditions under which the Time Stop spell ends early. The retrieved chunk contains a sec
+    Judge Evidence: "This spell ends if one of the actions you use during this period, or any effects that you create during it, affects a creature other than you or an object being worn or carried by someone other than you. In addition, the spell ends if you move to a place more than 1,000 feet from the location where you cast it."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific conditions under which the Time Stop spell ends early. The retrieved chunk contains a sec
+
+Q32: How does an Aboleth's Mucus Cloud affect a creature's ability to regain Hit Points?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.3s
+    Topic: Aboleth Core Rules and Concepts: The Aboleth is a large, lawfully evil aberratio
+    Judge: The question asks specifically about how an Aboleth's Mucus Cloud affects a creature's ability to regain Hit Points. The
+    Judge Evidence: "Until the curse ends, the target’s skin becomes slimy, the target can breathe air and water, and it can’t regain Hit Points unless it is underwater."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about how an Aboleth's Mucus Cloud affects a creature's ability to regain Hit Points. The
+
+Q33: How many Hit Points must a Paladin expend from their Lay on Hands pool to remove the Poisoned condition?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 4.1s
+    Topic: Paladin Progression Features in D&D: Paladins gain new abilities at specific lev
+    Judge: The question asks for the specific number of Hit Points a Paladin must expend from their Lay on Hands pool to remove the
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.6s
+    Topic: Paladin Progression Features in D&D: Paladins gain new abilities at specific lev
+    Judge: The question asks for the specific number of Hit Points a Paladin must expend from their Lay on Hands pool to remove the
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 3.8s
+    Topic: Core Rules and Concepts of the Paladin Class in D&D: Paladins primarily use Stre
+    Judge: The question asks for the specific number of Hit Points a Paladin must expend from their Lay on Hands pool to remove the
+    Judge Evidence: "you can also expend 5 Hit Points from the pool of healing power to remove the Poisoned condition from the creature;"
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the specific number of Hit Points a Paladin must expend from their Lay on Hands pool to remove the
+
+Q34: What is the starting DC for the Constitution saving throw when exposed to Extreme Heat without water, and how does it scale?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.2s
+    Topic: Environmental Effects in D&D: In D&D, environmental conditions such as deep wate
+    Judge: The question asks for the starting DC for the Constitution saving throw when exposed to Extreme Heat without water, and 
+    Judge Evidence: "The DC is 5 for the first hour and increases by 1 for each additional hour."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the starting DC for the Constitution saving throw when exposed to Extreme Heat without water, and 
+
+Q35: How many charges does it cost to cast Plane Shift using a Cubic Gate?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 7.5s
+    Topic: D&D Magical Items Summary: The Cloak of the Bat enables shape-shifting into a ba
+    Judge: The question asks for the number of charges it costs to cast Plane Shift using a Cubic Gate, specifically expecting the 
+    Judge Evidence: "As a Magic action, you can expend 1 of the cube’s charges to cast one of the following spells using the cube."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the number of charges it costs to cast Plane Shift using a Cubic Gate, specifically expecting the 
+
+Q36: At what Druid level can you adopt a Wild Shape form with a Fly Speed, and what is the maximum Challenge Rating for that form?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.6s
+    Topic: Core Druid Spellcasting Rules in D&D: Druids regain spell slots after a Long Res
+    Judge: The question asks for specific information about the Druid level at which a Druid can adopt a Wild Shape form with a Fly
+    Judge Evidence: "starting at level 8, you can adopt a form that has a Fly Speed.
+
+**Beast Shapes**
+**Druid** **Known** **Max** **Fly**
+**Level** **Forms** **CR** **Speed**  
+2 4 1/4 No  
+4 6 1/2 No
+8 8 1 Yes"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific information about the Druid level at which a Druid can adopt a Wild Shape form with a Fly
+
+Q37: What specific immunities and HP benefits does a creature gain after consuming a Heroes' Feast?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.2s
+    Topic: D&D Spell Mechanics Summary: The snippet describes the spells 'Heroes’ Feast,' '
+    Judge: The question asks for specific immunities and HP benefits gained from consuming a Heroes' Feast. The retrieved chunk mus
+    Judge Evidence: "A creature that partakes gains several benefits, which last for 24 hours. The creature has Resistance to Poison damage, and it has Immunity to the Frightened and Poisoned conditions. Its Hit Point maximum also increases by 2d10, and it gains the same number of Hit Points."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific immunities and HP benefits gained from consuming a Heroes' Feast. The retrieved chunk mus
+
+Q38: What is the range and damage of a Treant's Hail of Bark attack?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.8s
+    Topic: Treant Core Rules and Concepts: The Treant is a Huge Plant, Chaotic Good creatur
+    Judge: The question asks for the range and damage of a Treant's Hail of Bark attack, specifically looking for a range of 180 fe
+    Judge Evidence: "_**Hail of Bark.**_ _Ranged Attack Roll:_ +10, range 180 ft. _Hit:_ 28 (4d10 + 6) Piercing damage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the range and damage of a Treant's Hail of Bark attack, specifically looking for a range of 180 fe
+
+Q39: How much does a Spyglass cost, and what is its mechanical effect?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.9s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the mechanics of a pressure p
+    Judge: The question asks for the cost and mechanical effect of a Spyglass. The retrieved chunk discusses a Magnifying Glass, no
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.3s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the mechanics of a pressure p
+    Judge: The question asks for the cost and mechanical effect of a Spyglass. The retrieved text mentions a Magnifying Glass, whic
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 3.3s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the mechanics of a pressure p
+    Judge: The question asks for the cost and mechanical effect of a Spyglass. The retrieved chunk mentions a 'Magnifying Glass' wi
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.7s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the mechanics of a pressure p
+    Judge: The question asks for the cost and mechanical effect of a Spyglass. The retrieved text mentions a 'Magnifying Glass' wit
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ✅ FOUND HERE | 2.8s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the functionalities and condi
+    Judge: The question asks for the cost of a Spyglass and its mechanical effect. The retrieved chunk must contain both pieces of 
+    Judge Evidence: "A Spyglass is available for 1,000 GP. Objects viewed through a Spyglass are magnified to twice their size."
+  ✅ SUCCESS (Judge): Answer at rank 3 (MRR+: 0.33)
+     Reasoning: The question asks for the cost of a Spyglass and its mechanical effect. The retrieved chunk must contain both pieces of 
+
+Q40: How many Sorcery Points does it cost for a Sorcerer to use the Heightened Spell Metamagic option?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.0s
+    Topic: Sorcerer Progression and Metamagic Options in D&D: As a Sorcerer levels up, they
+    Judge: The question asks for the specific cost in Sorcery Points for the 'Heightened Spell' Metamagic option. The retrieved chu
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.1s
+    Topic: Sorcerer Progression and Metamagic Options in D&D: As a Sorcerer levels up, they
+    Judge: The task requires identifying whether the provided text contains a verbatim quote that specifies the cost in Sorcery Poi
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 4.1s
+    Topic: Sorcerer Progression and Metamagic Options in D&D: As a Sorcerer levels up, they
+    Judge: The question asks for the cost in Sorcery Points for a Sorcerer to use the Heightened Spell Metamagic option. The retrie
+    Judge Evidence: "**Heightened Spell**\n_Cost: 2 Sorcery Points_"
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the cost in Sorcery Points for a Sorcerer to use the Heightened Spell Metamagic option. The retrie
+
+Q41: What illusion is created if you roll a 70-72 on the Deck of Illusions table?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.5s
+    Topic: Summary of D&D Rulebook Snippet: The Dancing Sword allows a bonus action to atta
+    Judge: The question asks for the specific illusion created when rolling a 70-72 on the Deck of Illusions table, expecting the a
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 4.8s
+    Topic: Summary of D&D Rulebook Snippet: The Dancing Sword allows a bonus action to atta
+    Judge: The task requires identifying whether the retrieved text contains a verbatim answer to the question about the illusion c
+    Judge Evidence: "70–72 Medusa"
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The task requires identifying whether the retrieved text contains a verbatim answer to the question about the illusion c
+
+Q42: If a creature is Invisible, how does it affect their Initiative roll?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.5s
+    Topic: D&D Rulebook Snippet Summary: The Incapacitated condition renders a character in
+    Judge: The question asks whether a creature that is Invisible has Advantage on their Initiative roll. To determine if the retri
+    Judge Evidence: "If you’re Invisible when you roll Initiative, you have Advantage on the roll."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks whether a creature that is Invisible has Advantage on their Initiative roll. To determine if the retri
+
+Q43: What benefits does the Inscrutable trait grant a Sphinx?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.6s
+    Topic: Sphinx of Lore Core Rules and Concepts: The Sphinx of Lore is a large celestial 
+    Judge: The question asks for the specific benefits granted by the Inscrutable trait to a Sphinx. The retrieved chunk contains a
+    Judge Evidence: "No magic can observe the sphinx remotely or detect its thoughts without its permission. Wisdom (Insight) checks made to ascertain its intentions or sincerity are made with Disadvantage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific benefits granted by the Inscrutable trait to a Sphinx. The retrieved chunk contains a
+
+Q44: If you cast Animal Messenger using a level 4 spell slot, how much is the spell's duration increased?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.3s
+    Topic: D&D Spell Descriptions: The spells 'Animal Friendship' charms a beast within ran
+    Judge: The question asks about the increase in duration when casting 'Animal Messenger' using a level 4 spell slot. The retriev
+    Judge Evidence: "The spell’s duration increases by 48 hours for each spell slot level above 2."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks about the increase in duration when casting 'Animal Messenger' using a level 4 spell slot. The retriev
+
+Q45: What does the Fighter's Tactical Mind feature allow them to do when failing an ability check?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.0s
+    Topic: D&D Fighter Class Core Rules and Concepts: The Fighter class gains abilities lik
+    Judge: The question asks about the Fighter's Tactical Mind feature, specifically what it allows a Fighter to do when failing an
+    Judge Evidence: "You have a mind for tactics on and off the battlefield. When you fail an ability check, you can expend a use of your Second Wind to push yourself toward success. Rather than regaining Hit Points, you roll 1d10 and add the number rolled to the ability check, potentially turning it into a success. If the check still fails, this use of Second Wind isn’t expended."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks about the Fighter's Tactical Mind feature, specifically what it allows a Fighter to do when failing an
+
+Q46: When climbing or crawling in Difficult Terrain, how much does each foot of movement cost?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.5s
+    Topic: D&D Rulebook Item Summary: The snippet outlines items such as Antitoxin for pois
+    Judge: The question asks for specific information regarding the cost of movement in Difficult Terrain in D&D, specifically that
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.6s
+    Topic: D&D Rulebook Item Summary: The snippet outlines items such as Antitoxin for pois
+    Judge: The question asks for specific information regarding the cost of movement in Difficult Terrain in D&D, specifically that
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 4.7s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: In D&D, a character's movemen
+    Judge: The question asks for the specific cost of movement in Difficult Terrain, specifically how many extra feet each foot of 
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.2s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: In D&D, a character's movemen
+    Judge: The question asks for the specific cost of movement in Difficult Terrain, specifically when climbing or crawling. The re
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 2.8s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines various D&D items, detailing 
+    Judge: The question asks for specific information regarding the cost of movement in Difficult Terrain in D&D, specifically that
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.9s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines various D&D items, detailing 
+    Judge: The task requires identifying whether the provided text contains a verbatim answer to the question about the cost of mov
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 3.3s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines various D&D items, detailing 
+    Judge: The question asks for specific information regarding the cost of movement in Difficult Terrain in D&D, specifically that
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 3.8s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines various D&D items, detailing 
+    Judge: The task requires identifying whether the provided text contains a verbatim answer to the question about the cost of mov
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ❌ Not in this chunk | 3.7s
+    Topic: D&D Core Rules Summary: In D&D, players can choose to take actions like opening 
+    Judge: The question asks for the specific cost of movement in Difficult Terrain when climbing or crawling. The expected answer 
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 3.4s
+    Topic: D&D Core Rules Summary: In D&D, players can choose to take actions like opening 
+    Judge: The question asks for the specific cost of movement in Difficult Terrain when climbing or crawling. The retrieved text m
+[ollama/phi4:latest] Thinking...
+  [Chunk 6] ❌ Not in this chunk | 2.8s
+    Topic: D&D Rulebook Item Summary: The snippet outlines items such as Antitoxin for pois
+    Judge: The question asks for specific information regarding the cost of movement in Difficult Terrain in D&D, specifically that
+[ollama/phi4:latest] Thinking...
+  [Window 6] ❌ Not in this window | 3.4s
+    Topic: D&D Rulebook Item Summary: The snippet outlines items such as Antitoxin for pois
+    Judge: The question asks for specific information regarding the cost of movement in Difficult Terrain when climbing or crawling
+[ollama/phi4:latest] Thinking...
+  [Chunk 7] ❌ Not in this chunk | 2.9s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: In D&D, a character's movemen
+    Judge: The question asks for specific information regarding the cost of movement in Difficult Terrain in D&D, specifically that
+[ollama/phi4:latest] Thinking...
+  [Window 7] ❌ Not in this window | 3.9s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: In D&D, a character's movemen
+    Judge: The task requires determining if the provided text contains a verbatim answer to the question about the movement cost in
+[ollama/phi4:latest] Thinking...
+  [Chunk 8] ✅ FOUND HERE | 2.9s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The snippet describes climbin
+    Judge: The question asks for the specific cost of movement when climbing or crawling in Difficult Terrain. The retrieved chunk 
+    Judge Evidence: "While you’re crawling, each foot of movement costs 2 extra feet (2 extra feet in Difficult Terrain)."
+  ✅ SUCCESS (Judge): Answer at rank 8 (MRR+: 0.12)
+     Reasoning: The question asks for the specific cost of movement when climbing or crawling in Difficult Terrain. The retrieved chunk 
+
+Q47: What is the cost and weight multiplier for purchasing armor as Barding for a mount?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.5s
+    Topic: Mounts and Vehicles in D&D: Mounts and vehicles in D&D serve to transport player
+    Judge: The question asks for the cost and weight multiplier for purchasing armor as barding for a mount. The retrieved chunk co
+    Judge Evidence: "The cost is four times the normal cost, and it weighs twice as much."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the cost and weight multiplier for purchasing armor as barding for a mount. The retrieved chunk co
+
+Q48: What benefit does the Ioun Stone of Mastery provide, and what is its rarity?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.0s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes magical items including hors
+    Judge: The question asks for specific information about the Ioun Stone of Mastery, including its benefit and rarity. The retrie
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.6s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes magical items including hors
+    Judge: The question asks for the specific benefit and rarity of the Ioun Stone of Mastery. The retrieved text mentions various 
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 3.0s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes magical items including hors
+    Judge: The question asks for specific information about the Ioun Stone of Mastery, specifically its benefit and rarity. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.1s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes magical items including hors
+    Judge: The question asks for the specific benefit and rarity of the Ioun Stone of Mastery. The retrieved text does not mention 
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 3.4s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes magical items including hors
+    Judge: The question asks for specific information about the Ioun Stone of Mastery, specifically its benefit and rarity. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 3] ✅ FOUND VIA WINDOWING | 4.4s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes magical items including hors
+    Judge: The task is to determine if the provided text contains the exact information needed to answer the question about the Iou
+    Judge Evidence: "_**Mastery (Legendary).**_ Your Proficiency Bonus increases by 1 while this pale green prism orbits your head."
+  ✅ SUCCESS (Windowing): Answer at rank 3 (MRR+: 0.33)
+     Reasoning: The task is to determine if the provided text contains the exact information needed to answer the question about the Iou
+
+Q49: What are the material components for the Awaken spell, and what kind of target can it affect?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.2s
+    Topic: D&D Spell Summary: 'Aura of Life' grants resistance to necrotic damage and heali
+    Judge: The retrieved chunk contains the necessary information to answer the question about the material components and target t
+    Judge Evidence: "Components: V, S, M (an agate worth 1,000+ GP, which the spell consumes)
+The target must be either a Beast or Plant creature with an Intelligence of 3 or less or a natural plant that isn’t a creature."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The retrieved chunk contains the necessary information to answer the question about the material components and target t
+
+Q50: What happens if a Behir takes 30 or more damage on a single turn from a swallowed creature?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.4s
+    Topic: Behir Core Rules and Concepts: The Behir is a large, neutral evil monstrosity wi
+    Judge: The question asks for specific information about what happens if a Behir takes 30 or more damage on a single turn from a
+    Judge Evidence: "If the behir takes 30 damage or more on a single turn from the swallowed creature, the behir must succeed on a DC 14 Constitution saving throw at the end of that turn or regurgitate the creature, which falls in a space within 10 feet of the behir and has the Prone condition."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific information about what happens if a Behir takes 30 or more damage on a single turn from a
+
+Q51: What are the prerequisites for a Warlock to learn the Devouring Blade Eldritch Invocation?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.2s
+    Topic: D&D Warlock Features and Rules: Warlocks can replace spells at each level, gain 
+    Judge: The question asks for the prerequisites for a Warlock to learn the Devouring Blade Eldritch Invocation. The retrieved ch
+    Judge Evidence: "**Devouring Blade**
+_Prerequisite: Level 12+ Warlock, Thirsting Blade Invocation_"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the prerequisites for a Warlock to learn the Devouring Blade Eldritch Invocation. The retrieved ch
+
+Q52: How many patches does a Robe of Useful Items have in total when originally found?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.6s
+    Topic: Summary of D&D Robes: The robes provide various magical benefits such as enhance
+    Judge: The question asks for the total number of patches on a Robe of Useful Items when originally found, specifying that it sh
+    Judge Evidence: "The robe has two of each of the following patches: 
+- Bullseye Lantern (filled and lit) 
+- Dagger 
+- Mirror 
+- Pole 
+- Rope (coiled) 
+- Sack 
+In addition, the robe has 4d4 other patches."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the total number of patches on a Robe of Useful Items when originally found, specifying that it sh
+
+Q53: How does the Restrained condition affect a creature's saving throws?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.7s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes spells that manipulate eleme
+    Judge: The question asks specifically about how the Restrained condition affects a creature's saving throws, expecting the answ
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.6s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes spells that manipulate eleme
+    Judge: The question asks specifically about how the Restrained condition affects a creature's saving throws, expecting the answ
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 3.6s
+    Topic: D&D Rulebook Snippet Summary: The snippet explains the structure of a monster's 
+    Judge: The question asks specifically about how the Restrained condition affects a creature's saving throws, expecting the answ
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.5s
+    Topic: D&D Rulebook Snippet Summary: The snippet explains the structure of a monster's 
+    Judge: The question asks about the specific effect of the Restrained condition on a creature's saving throws, specifically look
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 2.9s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The snippet describes conditi
+    Judge: The question asks specifically about how the Restrained condition affects a creature's saving throws, expecting the answ
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.3s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The snippet describes conditi
+    Judge: The question asks for specific information about how the Restrained condition affects a creature's saving throws in D&D.
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 2.8s
+    Topic: D&D Rulebook Snippet Summary: In D&D, the Frightened condition imposes disadvant
+    Judge: The question asks about the effects of the Restrained condition on a creature's saving throws, specifically looking for 
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 2.7s
+    Topic: D&D Rulebook Snippet Summary: In D&D, the Frightened condition imposes disadvant
+    Judge: To determine if the retrieved text contains the answer, I need to identify if there is a verbatim quote that specifies h
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ❌ Not in this chunk | 2.9s
+    Topic: D&D Rulebook Snippet Summary: In D&D, the Frightened condition imposes disadvant
+    Judge: The question asks about the effects of the Restrained condition on a creature's saving throws, specifically looking for 
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 3.6s
+    Topic: D&D Rulebook Snippet Summary: In D&D, the Frightened condition imposes disadvant
+    Judge: The question asks about the specific effect of the Restrained condition on a creature's saving throws, specifically look
+[ollama/phi4:latest] Thinking...
+  [Chunk 6] ❌ Not in this chunk | 3.0s
+    Topic: D&D Rulebook Snippet Summary: In D&D, the Frightened condition imposes disadvant
+    Judge: The question asks about the effects of the Restrained condition on a creature's saving throws, specifically looking for 
+[ollama/phi4:latest] Thinking...
+  [Window 6] ❌ Not in this window | 3.6s
+    Topic: D&D Rulebook Snippet Summary: In D&D, the Frightened condition imposes disadvant
+    Judge: The question asks about the specific effect of the Restrained condition on a creature's saving throws, specifically look
+[ollama/phi4:latest] Thinking...
+  [Chunk 7] ❌ Not in this chunk | 3.3s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes spells that manipulate eleme
+    Judge: The question asks specifically about how the Restrained condition affects a creature's saving throws, expecting the answ
+[ollama/phi4:latest] Thinking...
+  [Window 7] ❌ Not in this window | 3.6s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes spells that manipulate eleme
+    Judge: The task requires identifying whether the provided text contains a verbatim quote that answers the question about how th
+[ollama/phi4:latest] Thinking...
+  [Chunk 8] ❌ Not in this chunk | 3.1s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks about the effect of the Restrained condition on a creature's saving throws, specifically looking for t
+[ollama/phi4:latest] Thinking...
+  [Window 8] ❌ Not in this window | 3.3s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks about the specific effect of the Restrained condition on a creature's saving throws. The retrieved tex
+[ollama/phi4:latest] Thinking...
+  [Chunk 9] ❌ Not in this chunk | 3.2s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks about the effects of the Restrained condition on a creature's saving throws, specifically looking for 
+[ollama/phi4:latest] Thinking...
+  [Window 9] ❌ Not in this window | 3.6s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks specifically about the Restrained condition and its effect on a creature's saving throws. The retrieve
+[ollama/phi4:latest] Thinking...
+  [Chunk 10] ❌ Not in this chunk | 3.4s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks about the effects of the Restrained condition on a creature's saving throws, specifically if it causes
+[ollama/phi4:latest] Thinking...
+  [Window 10] ❌ Not in this window | 3.2s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks about the effects of the Restrained condition on a creature's saving throws. The retrieved text does n
+  ❌ FAILURE (Judge): No valid chunk found in top 10 searches.
+
+Q54: What is the DC to pull a creature out of a Gelatinous Cube, and what happens to the puller?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.8s
+    Topic: Gelatinous Cube Core Rules and Concepts: The Gelatinous Cube is a large, unalign
+    Judge: The question asks for the DC to pull a creature out of a Gelatinous Cube and the consequences for the puller. The retrie
+    Judge Evidence: "As an action, a creature within 5 feet of the cube can pull a creature or an object out of the cube by succeeding on a DC 12 Strength (Athletics) check, and the puller takes 10 (3d6) Acid damage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the DC to pull a creature out of a Gelatinous Cube and the consequences for the puller. The retrie
+
+Q55: What is the difference in casting time between the Overgrowth and Enrichment effects of the Plant Growth spell?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.4s
+    Topic: D&D Spell Summary: 'Plant Growth' can overgrow or enrich plants, 'Poison Spray' 
+    Judge: The question asks for the difference in casting time between the Overgrowth and Enrichment effects of the Plant Growth s
+    Judge Evidence: "Casting Time: Action (Overgrowth) or 8 hours (Enrichment)"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the difference in casting time between the Overgrowth and Enrichment effects of the Plant Growth s
+
+Q56: How many uses does a Healer's Kit have, and what is its mechanical function?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.2s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines various D&D items, detailing 
+    Judge: The question asks for two specific pieces of information about the Healer's Kit: the number of uses it has and its mecha
+    Judge Evidence: "A Healer’s Kit has ten uses. As a Utilize action, you can expend one of its uses to stabilize an Unconscious creature that has 0 Hit Points without needing to make a Wisdom (Medicine) check."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for two specific pieces of information about the Healer's Kit: the number of uses it has and its mecha
+
+Q57: At what level does a Bard's Bardic Inspiration die increase to a d10?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.6s
+    Topic: Bard Class Summary: The Bard is a Charisma-based class proficient in simple weap
+    Judge: The question asks for the specific level at which a Bard's Bardic Inspiration die increases to a d10. The retrieved chun
+    Judge Evidence: "The die becomes a d8 at level 5, a d10 at level 10, and a d12 at level 15."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific level at which a Bard's Bardic Inspiration die increases to a d10. The retrieved chun
+
+Q58: What happens if a bearer refuses to comply with a sentient magic item's demands and fails the Charisma saving throw when the item attempts to take control?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.9s
+    Topic: Sentient Magic Items in D&D: Sentient magic items in D&D have specific goals suc
+    Judge: The question asks specifically about the consequences when a bearer refuses to comply with a sentient magic item's deman
+    Judge Evidence: "On a failed save, the bearer has the Charmed condition for 1d12 hours. While Charmed in this way, the bearer must try to follow the item’s commands."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about the consequences when a bearer refuses to comply with a sentient magic item's deman
+
+Q59: What types of movement or actions allow a creature to leave an enemy's reach without provoking an Opportunity Attack?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.1s
+    Topic: Core Rules for Making an Attack in D&D: An attack in D&D consists of choosing a 
+    Judge: The question asks for specific types of movement or actions that allow a creature to leave an enemy's reach without prov
+    Judge Evidence: "You can avoid provoking an Opportunity Attack by taking the Disengage action. You also don’t provoke an Opportunity Attack when you Teleport or when you are moved without using your movement, action, Bonus Action, or Reaction."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific types of movement or actions that allow a creature to leave an enemy's reach without prov
+
+Q60: What is the Armor Class of an object made of Mithral?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.0s
+    Topic: D&D Rulebook Snippet Summary: The mirror enables communication with trapped crea
+    Judge: The question asks for the Armor Class of an object made of Mithral. The retrieved chunk contains information about Mithr
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.6s
+    Topic: D&D Rulebook Snippet Summary: The mirror enables communication with trapped crea
+    Judge: To determine if the retrieved text contains the answer, I need to find a verbatim quote that specifies the Armor Class o
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 2.9s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the Armor Class of an object made of Mithral, specifically expecting an Armor Class of 21. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.6s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The task is to determine if the retrieved text contains the specific information about the Armor Class of an object made
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 3.2s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the Armor Class of an object made of Mithral, specifically expecting an Armor Class of 21. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.3s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The task is to determine if the provided text contains the specific information about the Armor Class of an object made 
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 3.3s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the Armor Class of an object made of Mithral, specifically expecting an Armor Class of 21. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 3.4s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The task requires determining if the provided text contains a verbatim quote that specifies the Armor Class of an object
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ❌ Not in this chunk | 2.9s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the Armor Class of an object made of Mithral, specifically expecting an Armor Class of 21. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 3.3s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The task is to determine if the provided text contains the specific information about the Armor Class of an object made 
+[ollama/phi4:latest] Thinking...
+  [Chunk 6] ❌ Not in this chunk | 3.3s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the Armor Class of an object made of Mithral, specifically expecting an Armor Class of 21. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 6] ❌ Not in this window | 3.6s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The task is to determine if the provided text contains the specific information about the Armor Class of an object made 
+[ollama/phi4:latest] Thinking...
+  [Chunk 7] ❌ Not in this chunk | 3.2s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the Armor Class of an object made of Mithral, specifically expecting an Armor Class of 21. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 7] ❌ Not in this window | 3.5s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The task is to determine if the provided text contains the specific information about the Armor Class of an object made 
+[ollama/phi4:latest] Thinking...
+  [Chunk 8] ❌ Not in this chunk | 3.0s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the Armor Class of an object made of Mithral, specifically expecting an Armor Class of 21. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 8] ❌ Not in this window | 3.3s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The task is to determine if the retrieved text contains the specific information about the Armor Class of an object made
+[ollama/phi4:latest] Thinking...
+  [Chunk 9] ❌ Not in this chunk | 3.2s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the Armor Class of an object made of Mithral, specifically expecting an Armor Class of 21. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 9] ❌ Not in this window | 3.4s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The task is to determine if the provided text contains the specific information about the Armor Class of an object made 
+[ollama/phi4:latest] Thinking...
+  [Chunk 10] ❌ Not in this chunk | 3.6s
+    Topic: D&D Rulebook Snippet Summary: The Animated Shield allows a bonus action to anima
+    Judge: The question asks for the Armor Class of an object made of Mithral, specifically expecting an Armor Class of 21. The ret
+[ollama/phi4:latest] Thinking...
+  [Window 10] ❌ Not in this window | 3.4s
+    Topic: D&D Rulebook Snippet Summary: The Animated Shield allows a bonus action to anima
+    Judge: The task is to determine if the retrieved text contains the exact information about the Armor Class of an object made of
+  ❌ FAILURE (Judge): No valid chunk found in top 10 searches.
+
+Q61: What are the mechanical effects of the Hamstring Blow option for a Barbarian's Brutal Strike?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.0s
+    Topic: D&D Barbarian Class Features Summary: At Level 1, Barbarians gain Unarmored Defe
+    Judge: The question asks for the mechanical effects of the Hamstring Blow option for a Barbarian's Brutal Strike. The retrieved
+    Judge Evidence: "The target’s Speed is reduced by 15 feet until the start of your next turn. A target can be affected by only one Hamstring Blow at a time—the most recent one."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the mechanical effects of the Hamstring Blow option for a Barbarian's Brutal Strike. The retrieved
+
+Q62: At what Cleric level does a Life Domain Cleric always have the spells Mass Cure Wounds and Greater Restoration prepared?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.8s
+    Topic: Life Domain Cleric Abilities in D&D: Clerics in the Life Domain gain enhanced he
+    Judge: The question asks for the specific Cleric level at which a Life Domain Cleric always has the spells Mass Cure Wounds and
+    Judge Evidence: "9 _Greater Restoration_, _Mass Cure Wounds_"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific Cleric level at which a Life Domain Cleric always has the spells Mass Cure Wounds and
+
+Q63: What is the Sneak Attack die cost for a Rogue's Obscure Cunning Strike effect, and what saving throw does it force the target to make?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.1s
+    Topic: D&D Rogue Class Features Summary: At level 2, Rogues gain Cunning Action for qui
+    Judge: The question asks for specific information about the 'Obscure Cunning Strike' effect for a Rogue's Sneak Attack: the die
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 3.9s
+    Topic: D&D Rogue Class Features Summary: At level 2, Rogues gain Cunning Action for qui
+    Judge: To determine if the retrieved text contains the answer, I need to find a verbatim quote that specifies both the die cost
+    Judge Evidence: "_**Obscure (Cost: 3d6).**_ The target must succeed on a Dexterity saving throw, or it has the Blinded condition until the end of its next turn."
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: To determine if the retrieved text contains the answer, I need to find a verbatim quote that specifies both the die cost
+
+Q64: What material component is required to cast the Contingency spell, and is it consumed?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.9s
+    Topic: D&D Rulebook Snippet Summary: The 'Poisoned' condition persists until a Constitu
+    Judge: The question asks for the material component required to cast the Contingency spell and whether it is consumed. The retr
+    Judge Evidence: "Components: V, S, M (a gem-encrusted statuette of yourself worth 1,500+ GP)"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the material component required to cast the Contingency spell and whether it is consumed. The retr
+
+Q65: How does the Heroes' Feast spell affect a creature's Hit Points?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.7s
+    Topic: D&D Spell Mechanics Summary: The snippet describes the spells 'Heroes’ Feast,' '
+    Judge: The question asks for specific information about how the Heroes' Feast spell affects a creature's Hit Points. The retrie
+    Judge Evidence: "A creature that partakes gains several benefits, which last for 24 hours. The creature has Resistance to Poison damage, and it has Immunity to the Frightened and Poisoned conditions. Its Hit Point maximum also increases by 2d10, and it gains the same number of Hit Points."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific information about how the Heroes' Feast spell affects a creature's Hit Points. The retrie
+
+Q66: What happens if you roll a 01 on the Potion Miscibility table when mixing two potions?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.2s
+    Topic: Magic Item Categories in D&D: Magic items in D&D are categorized into nine types
+    Judge: The question asks for the specific outcome when rolling a 01 on the Potion Miscibility table. The retrieved chunk includ
+    Judge Evidence: "01 Both potions lose their effects, and the mixture creates a magical explosion in a 5-foot-radius Sphere centered on itself, and Each creature in that area takes 4d10 Force damage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific outcome when rolling a 01 on the Potion Miscibility table. The retrieved chunk includ
+
+Q67: What is the Dexterity saving throw DC and damage for an Ancient Black Dragon's Acid Breath?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.9s
+    Topic: Ancient Black Dragon Core Rules and Concepts: The Ancient Black Dragon is a Garg
+    Judge: The question asks for the Dexterity saving throw DC and damage for an Ancient Black Dragon's Acid Breath. The retrieved 
+    Judge Evidence: "_Dexterity Saving Throw: DC 22, each creature in a 90-foot-long, 10-foot-wide Line. _Failure:_ 67 (15d8) Acid damage. _Success:_ Half damage._"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the Dexterity saving throw DC and damage for an Ancient Black Dragon's Acid Breath. The retrieved 
+
+Q68: If a Balor dies outside the Abyss, what happens to its body, and what is the damage of its Death Throes?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.7s
+    Topic: Balor Core Rules and Concepts: The Balor is a Huge Fiend with high AC, initiativ
+    Judge: The question asks for specific details about what happens to a Balor's body if it dies outside the Abyss and the damage 
+    Judge Evidence: "If the balor dies outside the Abyss, it gains a new body instantly, reviving with all its Hit Points somewhere in the Abyss. _Dex- terity Saving Throw:_ DC 20, each creature in a 30-foot Emanation originating from the balor. _Failure:_ 31 (9d6) Fire damage plus 31 (9d6) Force damage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific details about what happens to a Balor's body if it dies outside the Abyss and the damage 
+
+Q69: How much does a single dose of Purple Worm Poison cost, and what is the DC for its Constitution saving throw?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.4s
+    Topic: Summary of D&D Poison Effects: The poisons in the D&D rulebook snippet impose th
+    Judge: The question asks for the cost of a single dose of Purple Worm Poison and the DC for its Constitution saving throw. The 
+    Judge Evidence: "Purple Worm Poison (2,000 GP)
+_Injury Poison_
+A creature subjected to Purple Worm Poison makes a DC 21 Constitution saving throw, taking 35 (10d6) Poison damage on a failed save or half as much damage on a successful one."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the cost of a single dose of Purple Worm Poison and the DC for its Constitution saving throw. The 
+
+Q70: According to the Control Weather spell, what weather conditions correspond to stage 5 of Precipitation?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.9s
+    Topic: D&D Rulebook Snippet Summary: The Whirlpool spell creates a dangerous water vort
+    Judge: The question asks for the weather conditions corresponding to stage 5 of Precipitation according to the Control Weather 
+    Judge Evidence: "5 Torrential rain, driving hail, or blizzard"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the weather conditions corresponding to stage 5 of Precipitation according to the Control Weather 
+
+Q71: What three ability scores are increased by the Acolyte background?
 [ollama/phi4:latest] Thinking...
   [Chunk 1] ✅ FOUND HERE | 2.7s
-    Topic: The Six Abilities in D&D: In Dungeons & Dragons, creatures possess six abilities
-    Judge: The task requires determining whether the retrieved text chunk contains a verbatim quote that answers the specific quest
-    Judge Evidence: "**Ability Modifiers**\n**Score** **Modifier**\n1 −5\n2–3 −4\n4–5 −3\n6–7 −2\n8–9 −1\n10–11 +0"
+    Topic: D&D Character Origins and Backgrounds: In D&D, character backgrounds provide for
+    Judge: The question asks for the three ability scores increased by the Acolyte background. The retrieved chunk contains a secti
+    Judge Evidence: "**Ability Scores:** Intelligence, Wisdom, Charisma"
   ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
-     Reasoning: The task requires determining whether the retrieved text chunk contains a verbatim quote that answers the specific quest
+     Reasoning: The question asks for the three ability scores increased by the Acolyte background. The retrieved chunk contains a secti
 
-Q4: Does an Adult Red Dragon have Legendary Resistance? How many times?
+Q72: What tool proficiency is required to craft a basic Potion of Healing, and how much does it cost in raw materials?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.2s
+    Topic: Brewing Potions of Healing: A character proficient with the Herbalism Kit can cr
+    Judge: The question asks for two specific pieces of information: the tool proficiency required to craft a basic Potion of Heali
+    Judge Evidence: "A character with proficiency in the Herbalism Kit can create a Potion of Healing by using the kit and spending 25 GP on raw materials."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for two specific pieces of information: the tool proficiency required to craft a basic Potion of Heali
+
+Q73: How much weight does a Block and Tackle allow a character to hoist compared to their normal lifting capacity?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.5s
+    Topic: D&D Rulebook Item Summary: The snippet outlines items such as Antitoxin for pois
+    Judge: The question asks for specific information about how much weight a Block and Tackle allows a character to hoist compared
+    Judge Evidence: "A Block and Tackle allows you to hoist up to four times the weight you can normally lift."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific information about how much weight a Block and Tackle allows a character to hoist compared
+
+Q74: What happens when a creature whose name is on the page of a Warlock's Book of Shadows (with the Gift of the Protectors invocation) drops to 0 Hit Points?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.7s
+    Topic: D&D Warlock Invocations Summary: Warlocks can invoke abilities like casting spel
+    Judge: The question asks about the specific effect of the 'Gift of the Protectors' invocation on a creature whose name is on th
+    Judge Evidence: "When any creature whose name is on the page is reduced to 0 Hit Points but not killed outright, the creature magically drops to 1 Hit Point instead. Once this magic is triggered, no creature can benefit from it until you finish a Long Rest."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks about the specific effect of the 'Gift of the Protectors' invocation on a creature whose name is on th
+
+Q75: What does the Evoker Wizard's level 14 feature 'Overchannel' allow them to do, and what happens if they use it a second time before a Long Rest?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.3s
+    Topic: D&D Wizard Spells and Evoker Subclass Overview: Wizards at levels 7, 8, and 9 ha
+    Judge: The question asks for specific details about the 'Overchannel' feature of the Evoker Wizard at level 14, including what 
+    Judge Evidence: "You can increase the power of your spells. When you cast a Wizard spell with a spell slot of levels 1–5 that deals damage, you can deal maximum damage with that spell on the turn you cast it. The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a Long Rest, you take 2d12 Necrotic damage for each level of the spell slot immediately after you cast it."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific details about the 'Overchannel' feature of the Evoker Wizard at level 14, including what 
+
+Q76: Which creature type automatically succeeds on its saving throw against the Flesh to Stone spell?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.7s
+    Topic: D&D Rulebook Spell Summary: The unnamed spell creates a fire sphere causing dama
+    Judge: The question asks which creature type automatically succeeds on its saving throw against the Flesh to Stone spell. The e
+    Judge Evidence: "Constructs automatically succeed on the save."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks which creature type automatically succeeds on its saving throw against the Flesh to Stone spell. The e
+
+Q77: What effect does moving Lever 8 on the Apparatus of the Crab have?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.5s
+    Topic: D&D Rulebook Snippet Summary: The Animated Shield allows a bonus action to anima
+    Judge: The retrieved chunk provides a general description of the Apparatus of the Crab, including its features and how it opera
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 3.8s
+    Topic: D&D Rulebook Snippet Summary: The Animated Shield allows a bonus action to anima
+    Judge: The task requires identifying whether the provided text contains a verbatim quote that answers the question about the ef
+    Judge Evidence: "8 Eyelike fixtures emit Bright Light in a 30-foot radius and Dim Light for an additional 30 feet. The light turns off."
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The task requires identifying whether the provided text contains a verbatim quote that answers the question about the ef
+
+Q78: What is the recharge rate, shape, and damage of an Adult Bronze Dragon's Lightning Breath?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.7s
+    Topic: Adult Bronze Dragon Core Rules and Concepts: The Adult Bronze Dragon is a Huge L
+    Judge: The question asks for specific details about the Adult Bronze Dragon's Lightning Breath: its recharge rate, shape, and d
+    Judge Evidence: "Lightning Breath (Recharge 5–6) . Dexterity Saving Throw: DC 19, each creature in a 90-foot-long, 5-foot-wide Line. Failure: 55 (10d10) Lightning damage. Success: Half damage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific details about the Adult Bronze Dragon's Lightning Breath: its recharge rate, shape, and d
+
+Q79: What happens to a Troll Limb if it is not destroyed within 24 hours?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.4s
+    Topic: D&D Rulebook Snippet Summary: The demiplane heals visitors and halts aging but l
+    Judge: The question asks about the specific outcome for a Troll Limb if it is not destroyed within 24 hours, expecting a detail
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.9s
+    Topic: D&D Rulebook Snippet Summary: The demiplane heals visitors and halts aging but l
+    Judge: The task requires identifying whether the provided text contains a verbatim answer to the question about what happens to
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 2.9s
+    Topic: D&D Rulebook Snippet: Magical Contagions: Cackle Fever affects Humanoids with fe
+    Judge: The question asks about the specific outcome for a Troll Limb if it is not destroyed within 24 hours. The expected answe
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.7s
+    Topic: D&D Rulebook Snippet: Magical Contagions: Cackle Fever affects Humanoids with fe
+    Judge: The task requires determining if the provided text contains a verbatim answer to the question about what happens to a Tr
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 3.1s
+    Topic: D&D Rulebook Snippet Summary: The 'Armor of Vulnerability' grants resistance to 
+    Judge: The question asks about the specific outcome for a Troll Limb if it is not destroyed within 24 hours. The expected answe
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 4.3s
+    Topic: D&D Rulebook Snippet Summary: The 'Armor of Vulnerability' grants resistance to 
+    Judge: The task requires determining if the provided text contains a verbatim answer to the question about what happens to a Tr
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 3.4s
+    Topic: D&D Rulebook Snippet: Magical Contagions: Cackle Fever affects Humanoids with fe
+    Judge: The question asks about the specific outcome for a Troll Limb if it is not destroyed within 24 hours. The retrieved chun
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 3.4s
+    Topic: D&D Rulebook Snippet: Magical Contagions: Cackle Fever affects Humanoids with fe
+    Judge: The task is to determine if the provided text contains the specific information about what happens to a Troll Limb if it
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ❌ Not in this chunk | 3.1s
+    Topic: D&D Rulebook Snippet: Magical Contagions: Cackle Fever affects Humanoids with fe
+    Judge: The question asks about the specific outcome for a Troll Limb if it is not destroyed within 24 hours. The retrieved chun
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 3.6s
+    Topic: D&D Rulebook Snippet: Magical Contagions: Cackle Fever affects Humanoids with fe
+    Judge: The task is to determine if the provided text contains the specific information about what happens to a Troll Limb if it
+[ollama/phi4:latest] Thinking...
+  [Chunk 6] ❌ Not in this chunk | 3.0s
+    Topic: D&D Wand Rules Summary: The wands have 7 charges, regain 1d6 + 1 charges daily, 
+    Judge: The question asks about the specific outcome for a Troll Limb if it is not destroyed within 24 hours. The retrieved chun
+[ollama/phi4:latest] Thinking...
+  [Window 6] ❌ Not in this window | 4.0s
+    Topic: D&D Wand Rules Summary: The wands have 7 charges, regain 1d6 + 1 charges daily, 
+    Judge: The task requires determining if the provided text contains the specific information about what happens to a Troll Limb 
+[ollama/phi4:latest] Thinking...
+  [Chunk 7] ❌ Not in this chunk | 3.0s
+    Topic: D&D Wand Rules Summary: The wands have 7 charges, regain 1d6 + 1 charges daily, 
+    Judge: The question asks about the specific outcome for a Troll Limb if it is not destroyed within 24 hours. The retrieved chun
+[ollama/phi4:latest] Thinking...
+  [Window 7] ❌ Not in this window | 4.0s
+    Topic: D&D Wand Rules Summary: The wands have 7 charges, regain 1d6 + 1 charges daily, 
+    Judge: The task requires determining if the provided text contains the specific information about what happens to a Troll Limb 
+[ollama/phi4:latest] Thinking...
+  [Chunk 8] ❌ Not in this chunk | 2.6s
+    Topic: D&D Spell Mechanics Summary: The spells 'Conjure Fey Spirit,' 'Conjure Minor Ele
+    Judge: The retrieved chunk does not contain any information related to the question about what happens to a Troll Limb if it is
+[ollama/phi4:latest] Thinking...
+  [Window 8] ❌ Not in this window | 4.2s
+    Topic: D&D Spell Mechanics Summary: The spells 'Conjure Fey Spirit,' 'Conjure Minor Ele
+    Judge: The task requires identifying whether the provided text contains a verbatim answer to the question about what happens to
+[ollama/phi4:latest] Thinking...
+  [Chunk 9] ❌ Not in this chunk | 3.9s
+    Topic: D&D Rulebook Snippet Summary: The haversack is destroyed if torn, losing its con
+    Judge: The question asks about the specific outcome for a Troll Limb if it is not destroyed within 24 hours, expecting a detail
+[ollama/phi4:latest] Thinking...
+  [Window 9] ❌ Not in this window | 4.2s
+    Topic: D&D Rulebook Snippet Summary: The haversack is destroyed if torn, losing its con
+    Judge: The task requires identifying whether the provided text contains a verbatim answer to the question about what happens to
+[ollama/phi4:latest] Thinking...
+  [Chunk 10] ❌ Not in this chunk | 2.9s
+    Topic: D&D Ghost Creature Summary: The Ghost is a Medium Undead with resistances to var
+    Judge: The question asks about the fate of a Troll Limb if it is not destroyed within 24 hours. The retrieved chunk discusses v
+[ollama/phi4:latest] Thinking...
+  [Window 10] ❌ Not in this window | 4.0s
+    Topic: D&D Ghost Creature Summary: The Ghost is a Medium Undead with resistances to var
+    Judge: The question asks about the specific outcome for a Troll Limb if it is not destroyed within 24 hours. The expected answe
+  ❌ FAILURE (Judge): No valid chunk found in top 10 searches.
+
+Q80: According to the rules on flying, what happens to a flying creature if it is subjected to the Prone condition and cannot hover?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.7s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The Dodge action grants advan
+    Judge: The question asks specifically about what happens to a flying creature if it is subjected to the Prone condition and can
+    Judge Evidence: "While flying, you fall if you have the Incapacitated or Prone condition or your Fly Speed is reduced to 0. You can stay aloft in those circumstances if you can hover."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about what happens to a flying creature if it is subjected to the Prone condition and can
+
+Q81: How much water per day does a Large creature require to avoid the Dehydration hazard?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.8s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: In D&D, a character's movemen
+    Judge: The question asks for the specific amount of water a Large creature requires per day to avoid the Dehydration hazard. Th
+    Judge Evidence: "Large 4 gallons"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific amount of water a Large creature requires per day to avoid the Dehydration hazard. Th
+
+Q82: What is the saving throw and DC required to avoid gaining an Exhaustion level after an hour of swimming in deep water?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.5s
+    Topic: Environmental Effects in D&D: In D&D, environmental conditions such as deep wate
+    Judge: The question asks for the specific saving throw and DC required to avoid gaining an Exhaustion level after an hour of sw
+    Judge Evidence: "After each hour of swimming in deep water, a creature that lacks a Swim Speed must succeed on a DC 10 Constitution saving throw or gain 1 Exhaustion level."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific saving throw and DC required to avoid gaining an Exhaustion level after an hour of sw
+
+Q83: What is the radius of a Paladin's Aura of Protection at level 18?
 [ollama/phi4:latest] Thinking...
   [Chunk 1] ❌ Not in this chunk | 2.7s
-    Topic: Ancient Bronze Dragon Overview: The Ancient Bronze Dragon is a gargantuan, lawfu
-    Judge: The retrieved chunk contains detailed information about an Ancient Bronze Dragon's Legendary Resistance ability, specify
+    Topic: D&D Paladin Spells and Oath of Devotion: Paladins have access to a range of spel
+    Judge: The question asks for the radius of a Paladin's Aura of Protection at level 18. The retrieved chunk provides information
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.2s
+    Topic: D&D Paladin Spells and Oath of Devotion: Paladins have access to a range of spel
+    Judge: To determine if the retrieved text contains the answer to the question about the radius of a Paladin's Aura of Protectio
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 3.7s
+    Topic: Paladin Progression Features in D&D: Paladins gain new abilities at specific lev
+    Judge: The question asks for the radius of a Paladin's Aura of Protection at level 18. The retrieved chunk contains a section t
+    Judge Evidence: "Your Aura of Protection is now a 30-foot Emanation."
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the radius of a Paladin's Aura of Protection at level 18. The retrieved chunk contains a section t
+
+Q84: How many levels' worth of spell slots can a level 6 Circle of the Land Druid recover using the Natural Recovery feature?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.6s
+    Topic: D&D Druid Abilities Summary: At Level 3, Druids can use 'Land’s Aid' to damage a
+    Judge: The question asks for the specific number of levels' worth of spell slots a level 6 Circle of the Land Druid can recover
+    Judge Evidence: "if you’re a level 6 Druid, you can recover up to three levels’ worth of spell slots."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific number of levels' worth of spell slots a level 6 Circle of the Land Druid can recover
+
+Q85: What specific items does a Diplomat's Pack contain?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.0s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines various D&D items, detailing 
+    Judge: The question asks for the specific items contained in a Diplomat's Pack. The retrieved chunk includes a section titled '
+    Judge Evidence: "A Diplomat’s Pack contains the following items: Chest, Fine Clothes, Ink, 5 Ink Pens, Lamp, 2 Map or Scroll Cases, 4 flasks of Oil, 5 sheets of Paper, 5 sheets of Parchment, Perfume, and Tinderbox."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific items contained in a Diplomat's Pack. The retrieved chunk includes a section titled '
+
+Q86: What happens if a caster casts the Forbiddance spell in the same location every day for 30 days?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.3s
+    Topic: Summary of D&D Rulebook Snippet: Fog Cloud creates an expanding fog that obscure
+    Judge: The question asks about the effects of casting the Forbiddance spell in the same location every day for 30 days. The ret
+    Judge Evidence: "If you cast _Forbiddance_ every day for 30 days in the same location, the spell lasts until it is dispelled, and the Material components are consumed on the last casting."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks about the effects of casting the Forbiddance spell in the same location every day for 30 days. The ret
+
+Q87: What material components are required to cast the True Polymorph spell?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.7s
+    Topic: D&D Rulebook Spell Summary: The spells 'Emanation' creates a protective, opaque 
+    Judge: The question asks for the material components required to cast the True Polymorph spell. The retrieved chunk contains th
+    Judge Evidence: "Components: V, S, M (a drop of mercury, a dollop of gum arabic, and a wisp of smoke)"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the material components required to cast the True Polymorph spell. The retrieved chunk contains th
+
+Q88: What is the maximum number of spell levels a Rod of Absorption can absorb over its entire existence?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.4s
+    Topic: D&D Rulebook Snippet Summary: The Rod of Absorption allows a Reaction to absorb 
+    Judge: The question asks for the maximum number of spell levels a Rod of Absorption can absorb over its entire existence. The r
+    Judge Evidence: "The rod can absorb and store up to 50 levels of energy over the course of its existence."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the maximum number of spell levels a Rod of Absorption can absorb over its entire existence. The r
+
+Q89: What happens if a Humanoid is reduced to 0 Hit Points by a Shadow's Draining Swipe attack?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.5s
+    Topic: Shadow Creature Summary: The Shadow is a Medium Undead with Chaotic Evil alignme
+    Judge: The question asks specifically about the consequences of a Humanoid being reduced to 0 Hit Points by a Shadow's Draining
+    Judge Evidence: "The target dies if this reduces that score to 0. If a Humanoid is slain by this attack, a **Shadow** rises from the corpse 1d4 hours later."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about the consequences of a Humanoid being reduced to 0 Hit Points by a Shadow's Draining
+
+Q90: What is the Armor Class of an Iron Golem?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.2s
+    Topic: Iron Golem Core Rules and Concepts: The Iron Golem is a neutral Medium or Small 
+    Judge: The question asks for the Armor Class (AC) of an Iron Golem, specifically expecting an AC of 20. The retrieved chunk pro
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 4.4s
+    Topic: Iron Golem Core Rules and Concepts: The Iron Golem is a neutral Medium or Small 
+    Judge: The task requires identifying whether the retrieved text chunks contain the exact Armor Class (AC) of an Iron Golem as s
+    Judge Evidence: "AC 20"
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The task requires identifying whether the retrieved text chunks contain the exact Armor Class (AC) of an Iron Golem as s
+
+Q91: What does the Colossus Slayer option for the Ranger's Hunter subclass do?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.7s
+    Topic: D&D Rulebook Snippet Summary: At Level 3, players choose between 'Colossus Slaye
+    Judge: The question asks for specific details about the Colossus Slayer option for the Ranger's Hunter subclass. The retrieved 
+    Judge Evidence: "When you hit a creature with a weapon, the weapon deals an extra 1d8 damage to the target if it’s missing any of its Hit Points. You can deal this extra damage only once per turn."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific details about the Colossus Slayer option for the Ranger's Hunter subclass. The retrieved 
+
+Q92: How much does a Galley cost, and what is the minimum crew required to operate it?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.9s
+    Topic: Mounts and Vehicles in D&D: Mounts and vehicles in D&D serve to transport player
+    Judge: The question asks for the cost and minimum crew required to operate a Galley. The retrieved chunk provides information a
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 7.0s
+    Topic: Mounts and Vehicles in D&D: Mounts and vehicles in D&D serve to transport player
+    Judge: To determine if the expanded context contains the answer, I need to find specific information about the cost and minimum
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 5.3s
+    Topic: Mounts and Vehicles in D&D: Mounts and vehicles in D&D serve to transport player
+    Judge: The question asks for the cost of a Galley and the minimum crew required to operate it. The retrieved chunk provides spe
+    Judge Evidence: "A galley moves at 4 mph, needs a crew of 80, can carry 150 passengers, has a cargo capacity of 15 tons, an AC of 500, 20 HP, a damage threshold of 20, and costs 30,000 GP."
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the cost of a Galley and the minimum crew required to operate it. The retrieved chunk provides spe
+
+Q93: How is a creature's Passive Perception score calculated?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.1s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks for the specific method of calculating a creature's Passive Perception score in D&D. The retrieved chu
+    Judge Evidence: "A creature’s Passive Perception equals 10 plus the creature’s Wisdom (Perception) check bonus. If the creature has Advantage on such checks, increase the score by 5. If the creature has Disadvantage on them, decrease the score by 5."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific method of calculating a creature's Passive Perception score in D&D. The retrieved chu
+
+Q94: What happens if a creature trapped inside a Forcecage tries to use teleportation or interplanar travel to leave, but fails the required Charisma saving throw?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.6s
+    Topic: Summary of D&D Rulebook Snippet: Fog Cloud creates an expanding fog that obscure
+    Judge: The question asks about the specific outcome when a creature inside a Forcecage fails a Charisma saving throw while atte
+    Judge Evidence: "On a failed save, the creature doesn’t exit the cage and wastes the spell or effect."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks about the specific outcome when a creature inside a Forcecage fails a Charisma saving throw while atte
+
+Q95: What is required to destroy the Blue layer of a Prismatic Wall?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.5s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: The question asks for the specific condition required to destroy the Blue layer of a Prismatic Wall, specifically that i
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.2s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: To determine if the retrieved text contains the answer, I need to find a verbatim quote that specifies the condition for
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 3.5s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: The question asks for the specific condition required to destroy the Blue layer of a Prismatic Wall, specifically that i
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 5.9s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: To determine if the retrieved text contains the answer to the question, I need to find a verbatim quote that specifies t
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 3.2s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: The question asks for the specific condition required to destroy the Blue layer of a Prismatic Wall. The retrieved chunk
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.7s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: The task requires determining if the provided text contains the exact information needed to answer the question about de
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 3.0s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: The question asks for the specific requirement to destroy the Blue layer of a Prismatic Wall, specifically that it must 
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 5.7s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: The task requires identifying whether the provided text contains the exact information needed to answer the question abo
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ✅ FOUND HERE | 4.5s
+    Topic: Prismatic Wall Spell Summary: The 'Prismatic Wall' spell creates a multicolored 
+    Judge: The question asks for the specific requirement to destroy the Blue layer of a Prismatic Wall, specifically that it must 
+    Judge Evidence: "5 **Blue.** _Failed Save:_ 12d6 Cold damage. _Successful Save:_ Half as much damage. _Additional Effects:_ The layer is destroyed if it takes at least 25 Fire damage."
+  ✅ SUCCESS (Judge): Answer at rank 5 (MRR+: 0.20)
+     Reasoning: The question asks for the specific requirement to destroy the Blue layer of a Prismatic Wall, specifically that it must 
+
+Q96: What is the recharge rate, range, and damage of a Giant Ape's Boulder Toss action?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.5s
+    Topic: Giant Ape Core Rules and Concepts: The Giant Ape is a formidable creature with h
+    Judge: To determine if the retrieved chunk contains the answer, I need to verify if it includes the specific details about the 
+    Judge Evidence: "_**Boulder Toss (Recharge 6).**_ The ape hurls a boulder at a point it can see within 90 feet. _Dexterity Saving_ _Throw:_ DC 17, each creature in a 5-foot-radius Sphere centered on that point. _Failure:_ 24 (7d6) Bludgeoning damage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: To determine if the retrieved chunk contains the answer, I need to verify if it includes the specific details about the 
+
+Q97: What mechanical benefit does a character gain after applying Perfume to themselves?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.8s
+    Topic: D&D Item Mechanics and Effects: The snippet describes items like Oil for dousing
+    Judge: The question asks for the mechanical benefit a character gains after applying Perfume to themselves. The expected answer
+    Judge Evidence: "For 1 hour after applying Perfume to yourself, you have Advantage on Charisma (Persuasion) checks made to influence an Indifferent Humanoid within 5 feet of yourself."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the mechanical benefit a character gains after applying Perfume to themselves. The expected answer
+
+Q98: How many uses of the Indomitable feature does a Fighter have available before a Long Rest when they reach level 17?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.9s
+    Topic: D&D Fighter Class Core Rules and Concepts: The Fighter class gains abilities lik
+    Judge: The question asks for the number of uses of the Indomitable feature a Fighter has available before a Long Rest when they
+    Judge Evidence: "You can use this feature twice before a Long Rest starting at level 13 and three times before a Long Rest starting at level 17."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the number of uses of the Indomitable feature a Fighter has available before a Long Rest when they
+
+Q99: When a Monk uses the Warrior of the Open Hand subclass 'Addle' option from Open Hand Technique, what effect does it impose?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.7s
+    Topic: D&D Monk Progression Summary: Monks gain enhanced unarmed combat abilities, impr
+    Judge: The question asks for the specific effect imposed by the 'Addle' option from the Open Hand Technique for the Warrior of 
+    Judge Evidence: "The target can’t make Opportunity Attacks until the start of its next turn."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific effect imposed by the 'Addle' option from the Open Hand Technique for the Warrior of 
+
+Q100: Which specific conditions are automatically ended on a creature when it is healed by the Power Word Heal spell?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.6s
+    Topic: D&D Spell Summary: 'Plant Growth' can overgrow or enrich plants, 'Poison Spray' 
+    Judge: The question asks for specific conditions that are automatically ended when a creature is healed by the Power Word Heal 
+    Judge Evidence: "If the creature has the Charmed, Frightened, Paralyzed, Poisoned, or Stunned condition, the condition ends."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific conditions that are automatically ended when a creature is healed by the Power Word Heal 
+
+Q101: What happens when the last charge of a Staff of the Magi is expended and you roll a 1 on the 1d20 check?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 4.1s
+    Topic: D&D Wand Mechanics and Features: Wands in D&D have varying charges and spellcast
+    Judge: The question asks about the specific behavior of a Staff of the Magi when its last charge is expended and a 1 is rolled 
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.3s
+    Topic: D&D Wand Mechanics and Features: Wands in D&D have varying charges and spellcast
+    Judge: The question asks about the specific outcome when the last charge of a Staff of the Magi is expended and a 1 is rolled o
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 5.5s
+    Topic: D&D Rulebook Snippet Summary: The 'Staff of Swarming Insects' allows the creatio
+    Judge: The question asks about the specific outcome when the last charge of a Staff of the Magi is expended and a 1 is rolled o
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.8s
+    Topic: D&D Rulebook Snippet Summary: The 'Staff of Swarming Insects' allows the creatio
+    Judge: To determine if the expanded context contains the answer, I need to find a verbatim quote that specifies what happens wh
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ✅ FOUND HERE | 4.5s
+    Topic: D&D Rulebook Snippet Summary: The 'Staff of Swarming Insects' allows the creatio
+    Judge: The question asks about the specific outcome when the last charge of a Staff of the Magi is expended and a 1 is rolled o
+    Judge Evidence: "On a 1, a swarm of insects consumes and destroys the staff, then disperses."
+  ✅ SUCCESS (Judge): Answer at rank 3 (MRR+: 0.33)
+     Reasoning: The question asks about the specific outcome when the last charge of a Staff of the Magi is expended and a 1 is rolled o
+
+Q102: What is the specific mechanical effect of a Vampire's 'Stake to the Heart' weakness?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.5s
+    Topic: Vampire Core Rules and Concepts: The Vampire is a Lawful Evil Medium or Small Un
+    Judge: The question asks for the specific mechanical effect of a Vampire's 'Stake to the Heart' weakness. The expected answer i
+    Judge Evidence: "If a weapon that deals Piercing damage is driven into the vampire’s heart while the vampire has the Incapacitated condition in its resting place, the vampire has the Paralyzed condition until the weapon is removed."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific mechanical effect of a Vampire's 'Stake to the Heart' weakness. The expected answer i
+
+Q103: How many arrows can a standard Quiver hold?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.0s
+    Topic: D&D Item Mechanics and Effects: The snippet describes items like Oil for dousing
+    Judge: The question asks for the specific capacity of a standard Quiver in terms of the number of arrows it can hold. The retri
+    Judge Evidence: "A quiver can hold up to 20 arrows."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific capacity of a standard Quiver in terms of the number of arrows it can hold. The retri
+
+Q104: When casting the Earthquake spell, what type of saving throw must a creature make to avoid falling into a newly opened fissure?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.5s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes spells with diverse effects,
+    Judge: The question asks for the specific type of saving throw a creature must make to avoid falling into a fissure caused by t
+    Judge Evidence: "A creature in the same space as a fissure must succeed on a Dexterity saving throw or fall in."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific type of saving throw a creature must make to avoid falling into a fissure caused by t
+
+Q105: What happens to a creature that draws the 'Skull' card from the Mysterious Deck?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.8s
+    Topic: D&D Card Game Effects Summary: The cards in this D&D rulebook snippet impose var
+    Judge: The question asks about the specific effects of drawing the 'Skull' card from the Mysterious Deck. The retrieved chunk c
+    Judge Evidence: "_**Skull.**_ An **Avatar of Death** (see the accompanying stat block) appears in an unoccupied space as close to you as possible. The avatar targets only you with its attacks, appearing as a ghostly skeleton clad in a tattered black robe and carrying a spectral scythe. The avatar disappears when it drops to 0 Hit Points or you die. If an ally of yours deals damage to the avatar, that ally summons another **Avatar of Death**. The new avatar appears in an unoccupied space as close to that ally as possible and targets only that"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks about the specific effects of drawing the 'Skull' card from the Mysterious Deck. The retrieved chunk c
+
+Q106: What spells are added to a Draconic Sorcerer's prepared list at level 9 due to their Draconic Spells feature?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.1s
+    Topic: D&D Sorcerer Spells and Draconic Subclass Overview: The D&D rulebook snippet lis
+    Judge: The question asks for the specific spells added to a Draconic Sorcerer's prepared list at level 9 due to their Draconic 
+    Judge Evidence: "9 _Legend Lore_, _Summon Dragon_"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific spells added to a Draconic Sorcerer's prepared list at level 9 due to their Draconic 
+
+Q107: What languages does a Sphinx of Lore know and speak?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.5s
+    Topic: Sphinx of Lore Core Rules and Concepts: The Sphinx of Lore is a large celestial 
+    Judge: The question asks for the languages a Sphinx of Lore knows and speaks. The retrieved chunk must contain a verbatim state
+    Judge Evidence: "Languages Celestial, Common"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the languages a Sphinx of Lore knows and speaks. The retrieved chunk must contain a verbatim state
+
+Q108: What happens to a creature's weight while they are under the effects of the Petrified condition?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.6s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks specifically about the effect of the Petrified condition on a creature's weight. The retrieved chunk c
+    Judge Evidence: "Your weight increases by a factor of ten, and you cease aging."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about the effect of the Petrified condition on a creature's weight. The retrieved chunk c
+
+=============================================
+📊 EVALUATION METRICS: golden_dataset_original.json
+=============================================
+Total Queries   : 108
+Judge Model     : phi-agent (ollama/phi4)
+MRR+            : 0.8814  (Target: ~1.0) *Window-Inclusive
+Recall@10      : 96.3%
+Overall Success : (96.30%) 104 / 108 (including windowing)
+Windowing Hits  : 11 fallback retrievals
+Judge API Cost  : $0.0000 (335831 tokens)
+=============================================
+
+============================================================
+🚀 EVALUATING DATASET: golden_dataset_gemini.json
+============================================================
+
+
+--- Running LLM-as-Judge Evaluation (K=10, Judge: phi-agent) ---
+
+Q1: A Level 11 Fighter with the Two Extra Attacks feature wields two Shortswords and uses the Nick mastery property. How many attacks can they make in one turn when taking the Attack action, without using a Bonus Action?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 4.8s
+    Topic: D&D Multiclassing Rules: Multiclassing in D&D allows characters to gain levels i
+    Judge: The question asks about the number of attacks a Level 11 Fighter with the Two Extra Attacks feature can make in one turn
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.6s
+    Topic: D&D Multiclassing Rules: Multiclassing in D&D allows characters to gain levels i
+    Judge: To determine if the retrieved text contains the answer, I need to identify if it explicitly states how many attacks a Le
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 4.0s
+    Topic: D&D Fighter Class Core Rules and Concepts: The Fighter class gains abilities lik
+    Judge: To determine if the retrieved chunk contains enough information to answer the question, we need to verify two key points
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 4.0s
+    Topic: D&D Fighter Class Core Rules and Concepts: The Fighter class gains abilities lik
+    Judge: To determine if the retrieved text contains the answer, I need to verify if it explicitly states that a Level 11 Fighter
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ✅ FOUND HERE | 4.7s
+    Topic: D&D Weapon Mechanics and Properties: In D&D, weapons can be used with one or two
+    Judge: To determine if the retrieved chunk contains enough information to answer the question, we need to verify if it explicit
+    Judge Evidence: "When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+  ✅ SUCCESS (Judge): Answer at rank 3 (MRR+: 0.33)
+     Reasoning: To determine if the retrieved chunk contains enough information to answer the question, we need to verify if it explicit
+
+Q2: A party travels 40 miles entirely through mountainous terrain. Assuming no special movement modes, how many hours does this journey take, and what is the Constitution saving throw DC at the end of the final hour of travel to avoid exhaustion?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 4.2s
+    Topic: D&D Travel Pace Rules: In D&D, travel pace is determined by terrain and can be m
+    Judge: To determine if the retrieved chunk contains enough information to answer the question, we need to verify two main point
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 5.2s
+    Topic: D&D Travel Pace Rules: In D&D, travel pace is determined by terrain and can be m
+    Judge: To determine if the expanded context contains the necessary information to answer the question, I need to verify two key
+    Judge Evidence: "Characters can push themselves to travel for more than 8 hours per day, at the risk of tiring. At the end of each additional hour of travel beyond 8 hours, each character must succeed on a Constitution saving throw or gain 1 Exhaustion level. The DC is 10 plus 1 for each hour past 8 hours."
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: To determine if the expanded context contains the necessary information to answer the question, I need to verify two key
+
+Q3: A Level 14 Druid (Circle of the Land) attempts to use Wild Shape to turn into a Giant Crocodile. Can they do this, and if so, how many hours can they remain in that form?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.9s
+    Topic: D&D Druid Wild Shape Rules: Druids can shape-shift into beasts, gaining temporar
+    Judge: To determine if the retrieved chunk contains enough information to answer the question, I need to verify two key points:
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 5.0s
+    Topic: D&D Druid Wild Shape Rules: Druids can shape-shift into beasts, gaining temporar
+    Judge: To determine if the retrieved text contains the answer, I need to identify specific information regarding the limitation
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 3.4s
+    Topic: D&D Druid Wild Shape Rules: Druids can shape-shift into beasts, gaining temporar
+    Judge: The question asks whether a Level 14 Druid (Circle of the Land) can use Wild Shape to turn into a Giant Crocodile and, i
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 21.1s
+    Topic: D&D Druid Wild Shape Rules: Druids can shape-shift into beasts, gaining temporar
+    Judge: To determine if the retrieved text contains the answer, I need to identify specific information regarding the limitation
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 4.3s
+    Topic: D&D Druid Wild Shape Rules: Druids can shape-shift into beasts, gaining temporar
+    Judge: The question asks whether a Level 14 Druid can use Wild Shape to turn into a Giant Crocodile and, if so, how long they c
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.9s
+    Topic: D&D Druid Wild Shape Rules: Druids can shape-shift into beasts, gaining temporar
+    Judge: To determine if the retrieved text contains enough information to answer the question, I need to verify two key points: 
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 3.8s
+    Topic: D&D Druid Wild Shape Rules: Druids can shape-shift into beasts, gaining temporar
+    Judge: The question asks whether a Level 14 Druid (Circle of the Land) can use Wild Shape to turn into a Giant Crocodile and, i
+[ollama/phi4:latest] Thinking...
+  [Window 4] ✅ FOUND VIA WINDOWING | 6.9s
+    Topic: D&D Druid Wild Shape Rules: Druids can shape-shift into beasts, gaining temporar
+    Judge: To determine if the retrieved text contains the answer, I need to verify two key points: whether a Level 14 Druid can Wi
+    Judge Evidence: "The text contains the relevant information under the section 'Beast Shapes' where it states: 'You have dedicate... adopt a form that has a Fly Speed. When choosing known forms, you may look in other sources for eligible Beasts if the Game Master permits you to do so.' This implies that there is a CR limit for forms, and the 'Druid Known Max CR' section lists: '2 4 1/4 No', '4 6 1/2 No', '8 8 1 Yes'. This confirms that the maximum CR for a Druid's Wild Shape form is CR 1. Additionally, the text states: 'While in a form, you retain your personality, memories, and ability to speak, and the following rules apply: ... You can remain in Wild Shape for a number of hours equal to your Druid level divided by 3, rounded down.' For a Level 14 Druid, this would be 4 hours."
+  ✅ SUCCESS (Windowing): Answer at rank 4 (MRR+: 0.25)
+     Reasoning: To determine if the retrieved text contains the answer, I need to verify two key points: whether a Level 14 Druid can Wi
+
+Q4: In combat, a Black Pudding is hit by a nonmagical Longsword and then fails its save against a Level 3 Lightning Bolt spell. If it had 50 Hit Points and was Large size, what reactions does it take and what are the effects on the Longsword?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 8.3s
+    Topic: Black Pudding Core Rules: The Black Pudding is an amorphous, acid-immune ooze th
+    Judge: To determine if the retrieved chunk contains enough information to answer the question, I need to verify the following p
+    Judge Evidence: "The armor is destroyed if the penalty reduces its AC to 10. The penalty can be removed by casting the _Mending_ spell on the armor.
+
+_**Split.**_ _Trigger:_ While the pudding is Large or Medium and has 10+ Hit Points, it becomes Bloodied or is subjected to Lightning or Slashing damage. _Response:_ The pudding splits into two new **Black Puddings** . Each new pudding is one size smaller than the original pudding and acts on its Initiative. The original pudding’s Hit Points are divided evenly between the new puddings (round down).
+
+_**Corrosive Form.**_ A creature that hits the pudding with a melee attack roll takes 4 (1d8) Acid damage. Nonmagical ammunition is destroyed immediately after hitting the pudding and dealing any damage. Any nonmagical weapon takes a cumulative −1 penalty to attack rolls immediately after dealing damage to the pudding and coming into contact with it. The weapon is destroyed if the penalty reaches −5. The penalty can be removed by casting the _Mending_ spell on the weapon.
+
+_**Immunities** Acid, Cold, Lightning, Slashing; Charmed, Deafened, Exhaustion, Frightened, Grappled, Prone, Restrained"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: To determine if the retrieved chunk contains enough information to answer the question, I need to verify the following p
+
+Q5: A Level 6 Paladin with a Charisma score of 18 is standing 5 feet from a Level 10 Fighter. An enemy spell forces both to make a Dexterity saving throw. The Fighter rolls a 12 and has a Dexterity modifier of +2. Does the Fighter succeed if the spell's save DC is 16?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.2s
+    Topic: Core Rules and Concepts in D&D Rulebook Snippet: The snippet details task diffic
+    Judge: The question asks whether a Level 10 Fighter succeeds on a Dexterity saving throw against a spell with a DC of 16, consi
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.6s
+    Topic: Core Rules and Concepts in D&D Rulebook Snippet: The snippet details task diffic
+    Judge: To determine if the retrieved text contains enough information to answer the question, I need to verify if it includes d
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 2.9s
+    Topic: Core Rules and Concepts in D&D Rulebook Snippet: The snippet details task diffic
+    Judge: The retrieved chunk primarily discusses the mechanics of saving throws, including how they are named, the ability modifi
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.8s
+    Topic: Core Rules and Concepts in D&D Rulebook Snippet: The snippet details task diffic
+    Judge: To determine if the retrieved text contains enough information to answer the question, I need to verify if it includes d
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 3.6s
+    Topic: Core Rules of Spellcasting in D&D: In D&D, spells have a specified duration, aff
+    Judge: The question asks whether a Level 10 Fighter succeeds on a Dexterity saving throw against a spell with a DC of 16, consi
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.0s
+    Topic: Core Rules of Spellcasting in D&D: In D&D, spells have a specified duration, aff
+    Judge: To determine if the retrieved text contains enough information to answer the question, I need to verify if it includes d
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 3.8s
+    Topic: D&D Core Rules and Concepts: D&D skills are linked to abilities and have specifi
+    Judge: The question asks about a specific scenario involving a Level 6 Paladin and a Level 10 Fighter making a Dexterity saving
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 3.5s
+    Topic: D&D Core Rules and Concepts: D&D skills are linked to abilities and have specifi
+    Judge: To determine if the retrieved text contains the answer, I need to verify if it includes specific information about the P
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ❌ Not in this chunk | 2.7s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: In D&D, spells can be cast as
+    Judge: The question asks whether a Level 10 Fighter succeeds on a Dexterity saving throw against a spell with a DC of 16, consi
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 3.5s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: In D&D, spells can be cast as
+    Judge: To determine if the retrieved text contains enough information to answer the question, I need to verify if it includes d
+[ollama/phi4:latest] Thinking...
+  [Chunk 6] ❌ Not in this chunk | 3.1s
+    Topic: Core Rules of Spellcasting in D&D: In D&D, spells have a specified duration, aff
+    Judge: The question asks whether a Level 10 Fighter succeeds on a Dexterity saving throw against a spell with a DC of 16, consi
+[ollama/phi4:latest] Thinking...
+  [Window 6] ❌ Not in this window | 2.8s
+    Topic: Core Rules of Spellcasting in D&D: In D&D, spells have a specified duration, aff
+    Judge: To determine if the retrieved text contains the answer, I need to identify if there is any mention of a Paladin's Aura o
+[ollama/phi4:latest] Thinking...
+  [Chunk 7] ❌ Not in this chunk | 3.3s
+    Topic: Core Rules and Concepts of the Paladin Class in D&D: Paladins primarily use Stre
+    Judge: The question asks about a specific scenario involving a Paladin's Aura of Protection and its effect on a Dexterity savin
+[ollama/phi4:latest] Thinking...
+  [Window 7] ❌ Not in this window | 3.6s
+    Topic: Core Rules and Concepts of the Paladin Class in D&D: Paladins primarily use Stre
+    Judge: To determine if the retrieved text contains enough information to answer the question, I need to verify if it includes d
+[ollama/phi4:latest] Thinking...
+  [Chunk 8] ❌ Not in this chunk | 4.7s
+    Topic: D&D Level 18 Abilities: At Level 18, players gain 'Defy Death,' offering advanta
+    Judge: The question asks about a specific scenario involving a Level 6 Paladin and a Level 10 Fighter making a Dexterity saving
+[ollama/phi4:latest] Thinking...
+  [Window 8] ❌ Not in this window | 3.9s
+    Topic: D&D Level 18 Abilities: At Level 18, players gain 'Defy Death,' offering advanta
+    Judge: The question asks whether a Level 10 Fighter succeeds on a Dexterity saving throw against a spell with a DC of 16, consi
+[ollama/phi4:latest] Thinking...
+  [Chunk 9] ❌ Not in this chunk | 3.8s
+    Topic: Core Rules/Concepts in D&D Rulebook Snippet: Armor Class is determined by base A
+    Judge: The question asks whether a Level 10 Fighter succeeds on a Dexterity saving throw against a spell with a DC of 16, consi
+[ollama/phi4:latest] Thinking...
+  [Window 9] ❌ Not in this window | 3.0s
+    Topic: Core Rules/Concepts in D&D Rulebook Snippet: Armor Class is determined by base A
+    Judge: To determine if the retrieved text contains enough information to answer the question, I need to verify if it includes d
+[ollama/phi4:latest] Thinking...
+  [Chunk 10] ❌ Not in this chunk | 3.9s
+    Topic: D&D Core Rules and Concepts: D&D skills are linked to abilities and have specifi
+    Judge: The question asks about a specific scenario involving a Level 6 Paladin and a Level 10 Fighter making a Dexterity saving
+[ollama/phi4:latest] Thinking...
+  [Window 10] ❌ Not in this window | 4.0s
+    Topic: D&D Core Rules and Concepts: D&D skills are linked to abilities and have specifi
+    Judge: The question asks whether a Level 10 Fighter succeeds on a Dexterity saving throw against a spell with a DC of 16, consi
+  ❌ FAILURE (Judge): No valid chunk found in top 10 searches.
+
+Q6: What are the three main pillars of D&D play according to the Rhythm of Play section?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.7s
+    Topic: Rhythm of Play in D&D: D&D play revolves around a cyclical pattern where the GM 
+    Judge: The question asks for the three main pillars of D&D play according to the 'Rhythm of Play' section. The retrieved chunk 
+    Judge Evidence: "The three main pillars of D&D play are social interaction, exploration, and combat."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the three main pillars of D&D play according to the 'Rhythm of Play' section. The retrieved chunk 
+
+Q7: How is a creature's base Armor Class calculated if they are not wearing any armor?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.7s
+    Topic: Core Rules and Concepts in D&D Rulebook Snippet: The snippet details task diffic
+    Judge: The question asks for the base Armor Class calculation for a creature not wearing any armor. The retrieved chunk contain
+    Judge Evidence: "Base AC = 10 + the creature’s Dexterity modifier"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the base Armor Class calculation for a creature not wearing any armor. The retrieved chunk contain
+
+Q8: What happens if a D20 Test is affected by both Advantage and Disadvantage?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.3s
+    Topic: Core Rules for Combat and Skill Checks in D&D: In D&D, a natural 1 on an attack 
+    Judge: The question asks about the specific outcome when a D20 Test is affected by both Advantage and Disadvantage. The retriev
+    Judge Evidence: "If circumstances cause a roll to have both Advantage and Disadvantage, the roll has neither of them, and you roll one d20. This is true even if multiple circumstances impose Disadvantage and only one grants Advantage or vice versa. In such a situation, you have neither Advantage nor Disadvantage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks about the specific outcome when a D20 Test is affected by both Advantage and Disadvantage. The retriev
+
+Q9: What is the minimum ability score required in both your current class and the new class to qualify for multiclassing?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.6s
+    Topic: D&D Multiclassing Rules: Multiclassing in D&D allows characters to gain levels i
+    Judge: The question asks for the minimum ability score required in both the current class and the new class to qualify for mult
+    Judge Evidence: "To qualify for a new class, you must have a score of at least 13 in the primary ability of the new class and your current classes."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the minimum ability score required in both the current class and the new class to qualify for mult
+
+Q10: What type of action is an Opportunity Attack?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.8s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The snippet describes conditi
+    Judge: The question asks for the type of action an Opportunity Attack is, specifically expecting the answer to be 'A Reaction.'
+    Judge Evidence: "The Opportunity Attack is a Reaction available to all creatures."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the type of action an Opportunity Attack is, specifically expecting the answer to be 'A Reaction.'
+
+Q11: Can a creature benefit from multiple instances of Resistance to the same damage type?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.0s
+    Topic: Damage and Healing in D&D: In D&D, hit points measure a creature's durability, d
+    Judge: The question asks whether a creature can benefit from multiple instances of Resistance to the same damage type, expectin
 [ollama/phi4:latest] Thinking...
   [Window 1] ❌ Not in this window | 3.1s
-    Topic: Ancient Bronze Dragon Overview: The Ancient Bronze Dragon is a gargantuan, lawfu
-    Judge: The task requires determining whether the provided text contains specific information about an Adult Red Dragon's Legend
+    Topic: Damage and Healing in D&D: In D&D, hit points measure a creature's durability, d
+    Judge: The question asks whether a creature can benefit from multiple instances of Resistance to the same damage type, expectin
 [ollama/phi4:latest] Thinking...
-  [Chunk 2] ❌ Not in this chunk | 2.4s
-    Topic: Adult Bronze Dragon Overview: The Adult Bronze Dragon is a powerful Lawful Good 
-    Judge: The task requires determining whether the retrieved text contains a verbatim quote that answers the specific question ab
+  [Chunk 2] ✅ FOUND HERE | 3.8s
+    Topic: Damage and Healing in D&D: In D&D, hit points measure a creature's durability, d
+    Judge: The question asks whether a creature can benefit from multiple instances of Resistance to the same damage type. The expe
+    Judge Evidence: "Multiple instances of Resistance or Vulnerability that affect the same damage type count as only one instance."
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks whether a creature can benefit from multiple instances of Resistance to the same damage type. The expe
+
+Q12: What specific defensive benefits does Three-Quarters Cover provide to a target?
 [ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.8s
+    Topic: Core Rules for Making an Attack in D&D: An attack in D&D consists of choosing a 
+    Judge: The question asks for specific defensive benefits provided by Three-Quarters Cover, specifically a +5 bonus to AC and De
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 3.5s
+    Topic: Core Rules for Making an Attack in D&D: An attack in D&D consists of choosing a 
+    Judge: The question asks for the specific defensive benefits provided by Three-Quarters Cover. The retrieved text includes a se
+    Judge Evidence: "Three- +5 bonus to AC and Dexterity saving throws"
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific defensive benefits provided by Three-Quarters Cover. The retrieved text includes a se
+
+Q13: What are the six ability scores provided by the Standard Array method during character creation?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.7s
+    Topic: D&D Ability Score Generation and Assignment: In D&D, players can generate abilit
+    Judge: The question asks for the six ability scores provided by the Standard Array method during character creation. The retrie
+    Judge Evidence: "Use the following six scores for your abilities: 15, 14, 13, 12, 10, 8."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the six ability scores provided by the Standard Array method during character creation. The retrie
+
+Q14: At what character level does a party reach Tier 3 of play?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.5s
+    Topic: D&D Character Progression Tiers: In D&D, characters progress through four tiers:
+    Judge: The question asks for the specific character level at which a party reaches Tier 3 of play. The expected answer is Level
+    Judge Evidence: "At level 11, many spellcasters learn reality-altering spells."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific character level at which a party reaches Tier 3 of play. The expected answer is Level
+
+Q15: What is the exact formula used to calculate the saving throw Difficulty Class (DC) for a character's spells?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.6s
+    Topic: D20 Tests in D&D Rulebook: D20 Tests in D&D involve rolling a d20, adding releva
+    Judge: The question asks for the exact formula used to calculate the saving throw Difficulty Class (DC) for a character's spell
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.6s
+    Topic: D20 Tests in D&D Rulebook: D20 Tests in D&D involve rolling a d20, adding releva
+    Judge: The question asks for the exact formula used to calculate the saving throw Difficulty Class (DC) for a character's spell
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 3.3s
+    Topic: Core Rules of Spellcasting in D&D: In D&D, spells have a specified duration, aff
+    Judge: The question asks for the exact formula used to calculate the saving throw Difficulty Class (DC) for a character's spell
+    Judge Evidence: "Spell save DC = 8 + your spellcasting ability modifier + your Proficiency Bonus"
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the exact formula used to calculate the saving throw Difficulty Class (DC) for a character's spell
+
+Q16: How is a character's Passive Perception score calculated if they do not have Advantage or Disadvantage?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.9s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks for the calculation of a character's Passive Perception score when they do not have Advantage or Disad
+    Judge Evidence: "A creature’s Passive Perception equals 10 plus the creature’s Wisdom (Perception) check bonus."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the calculation of a character's Passive Perception score when they do not have Advantage or Disad
+
+Q17: What type of damage resistance does a Tiefling with the Abyssal Fiendish Legacy gain at level 1?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.6s
+    Topic: Core Rules and Concepts for Human, Orc, and Tiefling Races in D&D: Humans gain i
+    Judge: The question asks for the specific type of damage resistance a Tiefling with the Abyssal Fiendish Legacy gains at level 
+    Judge Evidence: "Abyssal You have Resistance to Poison damage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific type of damage resistance a Tiefling with the Abyssal Fiendish Legacy gains at level 
+
+Q18: Which character background grants the Savage Attacker feat?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.7s
+    Topic: D&D Feats Overview: Feats in D&D are categorized into Origin, General, Fighting 
+    Judge: The question asks which character background grants the Savage Attacker feat. The retrieved chunk contains a description
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.1s
+    Topic: D&D Feats Overview: Feats in D&D are categorized into Origin, General, Fighting 
+    Judge: The task is to determine if the provided text contains the information that the Savage Attacker feat is granted by the S
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 3.3s
+    Topic: D&D Character Origins and Backgrounds: In D&D, character backgrounds provide for
+    Judge: The question asks whether the 'Soldier' character background grants the 'Savage Attacker' feat. The retrieved chunk cont
+    Judge Evidence: "Feat: Savage Attacker (see “Feats”)"
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks whether the 'Soldier' character background grants the 'Savage Attacker' feat. The retrieved chunk cont
+
+Q19: What is the weight of fifty standard coins in the game?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.3s
+    Topic: D&D Equipment: Coins: In D&D, characters earn and spend coins of different denom
+    Judge: The question asks for the weight of fifty standard coins in the game, with the expected answer being 'One pound.' The re
+    Judge Evidence: "A coin weighs about a third of an ounce, so fifty coins weigh a pound."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the weight of fifty standard coins in the game, with the expected answer being 'One pound.' The re
+
+Q20: At what Barbarian level does the Rage Damage bonus increase to +3?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.5s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved chunk l
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.0s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The task requires identifying whether the provided text contains a verbatim quote that specifies at which Barbarian leve
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 3.3s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved chunk d
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.3s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: To determine if the retrieved text contains the answer to the question, I need to identify if there is a specific mentio
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 2.7s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved chunk d
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.0s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The task requires identifying whether the retrieved text contains a verbatim quote that specifies at which Barbarian lev
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 3.3s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved chunk p
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 4.0s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved text do
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ❌ Not in this chunk | 2.6s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved chunk d
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 3.4s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The task requires identifying whether the provided text contains a verbatim quote that specifies at which Barbarian leve
+[ollama/phi4:latest] Thinking...
+  [Chunk 6] ❌ Not in this chunk | 3.2s
+    Topic: D&D Barbarian Class Features Summary: At Level 1, Barbarians gain Unarmored Defe
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved chunk d
+[ollama/phi4:latest] Thinking...
+  [Window 6] ❌ Not in this window | 3.5s
+    Topic: D&D Barbarian Class Features Summary: At Level 1, Barbarians gain Unarmored Defe
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved text pr
+[ollama/phi4:latest] Thinking...
+  [Chunk 7] ❌ Not in this chunk | 3.2s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved chunk p
+[ollama/phi4:latest] Thinking...
+  [Window 7] ❌ Not in this window | 3.6s
+    Topic: D&D Barbarian Rage and Combat Enhancements: As a Barbarian progresses, they gain
+    Judge: The task requires determining if the provided text contains a verbatim answer to the question about when the Rage Damage
+[ollama/phi4:latest] Thinking...
+  [Chunk 8] ✅ FOUND HERE | 3.0s
+    Topic: D&D Barbarian Class Overview: The Barbarian class in D&D is characterized by its
+    Judge: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved chunk p
+    Judge Evidence: "5 +3"
+  ✅ SUCCESS (Judge): Answer at rank 8 (MRR+: 0.12)
+     Reasoning: The question asks for the specific Barbarian level at which the Rage Damage bonus increases to +3. The retrieved chunk p
+
+Q21: Which Bard class feature allows them to regain all expended uses of Bardic Inspiration when finishing a Short or Long Rest?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.1s
+    Topic: D&D Bard Class Features and Spell List Summary: As Bards advance in levels, they
+    Judge: The question asks for the specific Bard class feature that allows them to regain all expended uses of Bardic Inspiration
+    Judge Evidence: "You now regain all your expended uses of Bardic Inspiration when you finish a Short or Long Rest."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific Bard class feature that allows them to regain all expended uses of Bardic Inspiration
+
+Q22: How much extra Radiant or Necrotic damage does a Cleric deal with the Divine Strike option of the Improved Blessed Strikes feature at level 14?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.7s
+    Topic: D&D Cleric Progression Features: At Level 3, Clerics choose a subclass and gain 
+    Judge: The question asks for the specific amount of extra Radiant or Necrotic damage a Cleric deals with the Divine Strike opti
+    Judge Evidence: "The extra damage of your Divine Strike increases to 2d8."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific amount of extra Radiant or Necrotic damage a Cleric deals with the Divine Strike opti
+
+Q23: What is the maximum Challenge Rating (CR) for a Druid's Wild Shape Beast form at level 4?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.0s
+    Topic: D&D Druid Wild Shape Rules: Druids can shape-shift into beasts, gaining temporar
+    Judge: The question asks for the maximum Challenge Rating (CR) for a Druid's Wild Shape Beast form at level 4. The retrieved ch
+    Judge Evidence: "4 6 1/2 No"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the maximum Challenge Rating (CR) for a Druid's Wild Shape Beast form at level 4. The retrieved ch
+
+Q24: What specific action is a Fighter prohibited from taking when using their Action Surge feature?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.6s
+    Topic: Core Rules of Actions in D&D: In D&D, players take one action per turn from a pr
+    Judge: The question asks for a specific action that a Fighter is prohibited from taking when using their Action Surge feature. 
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.4s
+    Topic: Core Rules of Actions in D&D: In D&D, players take one action per turn from a pr
+    Judge: The question asks for a specific action that a Fighter is prohibited from taking when using their Action Surge feature, 
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 3.0s
+    Topic: Core Rules and Concepts in D&D: In D&D, players use ability checks to overcome c
+    Judge: The question asks for a specific action that a Fighter is prohibited from taking when using their Action Surge feature, 
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.5s
+    Topic: Core Rules and Concepts in D&D: In D&D, players use ability checks to overcome c
+    Judge: The question asks for a specific action that a Fighter is prohibited from taking when using their Action Surge feature, 
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 3.0s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The Dodge action grants advan
+    Judge: The question asks for a specific action that a Fighter is prohibited from taking when using their Action Surge feature, 
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 3.2s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The Dodge action grants advan
+    Judge: The question asks for a specific action that a Fighter is prohibited from taking when using their Action Surge feature, 
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ✅ FOUND HERE | 3.2s
+    Topic: D&D Fighter Class Summary: The Fighter class in D&D is defined by its primary re
+    Judge: The question asks for a specific action that a Fighter is prohibited from taking when using their Action Surge feature. 
+    Judge Evidence: "On your turn, you can take one additional action, except the Magic action."
+  ✅ SUCCESS (Judge): Answer at rank 4 (MRR+: 0.25)
+     Reasoning: The question asks for a specific action that a Fighter is prohibited from taking when using their Action Surge feature. 
+
+Q25: How many Focus Points does a Level 5 Monk have?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.7s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: The question asks for the number of Focus Points a Level 5 Monk has. The retrieved chunk mentions that the number of Foc
+[ollama/phi4:latest] Thinking...
+  [Window 1] ✅ FOUND VIA WINDOWING | 3.2s
+    Topic: Core Rules and Concepts of the Monk Class in D&D: Monks use Focus Points, determ
+    Judge: To determine if the retrieved text contains the answer to the question 'How many Focus Points does a Level 5 Monk have?'
+    Judge Evidence: "5 +10 ft."
+  ✅ SUCCESS (Windowing): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: To determine if the retrieved text contains the answer to the question 'How many Focus Points does a Level 5 Monk have?'
+
+Q26: How many Hit Points from their healing pool must a Paladin expend to cure the Poisoned condition using Lay On Hands?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.4s
+    Topic: Core Rules and Concepts of the Paladin Class in D&D: Paladins primarily use Stre
+    Judge: The question asks for the specific number of Hit Points a Paladin must expend from their healing pool to cure the Poison
+    Judge Evidence: "You can also expend 5 Hit Points from the pool of healing power to remove the Poisoned condition from the creature; those points don’t also restore Hit Points to the creature."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific number of Hit Points a Paladin must expend from their healing pool to cure the Poison
+
+Q27: What is the Sneak Attack die cost for the Rogue's Trip Cunning Strike option?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.8s
+    Topic: D&D Rogue Class Features Summary: At level 2, Rogues gain Cunning Action for qui
+    Judge: The question asks for the Sneak Attack die cost for the Rogue's Trip Cunning Strike option. The retrieved chunk mentions
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.4s
+    Topic: D&D Rogue Class Features Summary: At level 2, Rogues gain Cunning Action for qui
+    Judge: The question asks for the Sneak Attack die cost for the Rogue's Trip Cunning Strike option. The retrieved text does not 
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 2.9s
+    Topic: D&D Rogue Class Features Summary: At level 2, Rogues gain Cunning Action for qui
+    Judge: The question asks for the Sneak Attack die cost for the Rogue's Trip Cunning Strike option. The retrieved chunk includes
+    Judge Evidence: "Trip (Cost: 1d6)."
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the Sneak Attack die cost for the Rogue's Trip Cunning Strike option. The retrieved chunk includes
+
+Q28: How many combined levels' worth of spell slots can a Level 4 Wizard recover using the Arcane Recovery feature?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.6s
+    Topic: Core Rules for Wizard Spellcasting in D&D: Wizards start with six level 1 spells
+    Judge: The question asks for the specific number of combined levels' worth of spell slots a Level 4 Wizard can recover using th
+    Judge Evidence: "if you’re a level 4 Wizard, you can recover up to two levels’ worth of spell slots"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific number of combined levels' worth of spell slots a Level 4 Wizard can recover using th
+
+Q29: Under what condition is a character unable to use the Initiative Swap benefit of the Alert feat?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 2.9s
+    Topic: D&D Rulebook Snippet Summary: The Incapacitated condition renders a character in
+    Judge: The question asks about the condition under which a character cannot use the Initiative Swap benefit of the Alert feat. 
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.2s
+    Topic: D&D Rulebook Snippet Summary: The Incapacitated condition renders a character in
+    Judge: The task requires identifying whether the provided text contains a verbatim quote that answers the question about the co
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 3.0s
+    Topic: D&D Feats Overview: Feats in D&D are categorized into Origin, General, Fighting 
+    Judge: The question asks for the specific condition under which a character cannot use the Initiative Swap benefit of the Alert
+    Judge Evidence: "You can’t make this swap if you or the ally has the Incapacitated condition."
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the specific condition under which a character cannot use the Initiative Swap benefit of the Alert
+
+Q30: What benefit does the Grappler feat grant when you hit a creature with an Unarmed Strike as part of the Attack action?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.3s
+    Topic: D&D Rulebook Snippet Summary: The snippet covers perception mechanics in various
+    Judge: The question asks about the specific benefit the Grappler feat provides when hitting a creature with an Unarmed Strike a
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.0s
+    Topic: D&D Rulebook Snippet Summary: The snippet covers perception mechanics in various
+    Judge: To determine if the retrieved text contains the answer, I need to identify if there is a verbatim quote that specifies t
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 4.0s
+    Topic: D&D Feats Overview: Feats in D&D are categorized into Origin, General, Fighting 
+    Judge: The question asks for the specific benefit of the Grappler feat when hitting a creature with an Unarmed Strike as part o
+    Judge Evidence: "Unarmed Strike as part of the Attack action on your turn, you can use both the Damage and the Grapple option. You can use this benefit only once per turn."
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for the specific benefit of the Grappler feat when hitting a creature with an Unarmed Strike as part o
+
+Q31: What specific sensory benefit does the Epic Boon of Truesight grant?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 2.7s
+    Topic: D&D Rulebook Snippet Summary: The snippet describes the 'Shadowy Form' ability g
+    Judge: The question asks for the specific sensory benefit granted by the Epic Boon of Truesight, specifically looking for 'True
+    Judge Evidence: "You have Truesight with a range of 60 feet."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific sensory benefit granted by the Epic Boon of Truesight, specifically looking for 'True
+
+Q32: Which weapon mastery property deals damage equal to your ability modifier even if your attack roll misses the creature?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.9s
+    Topic: D&D Weapon Mechanics and Properties: In D&D, weapons can be used with one or two
+    Judge: The question asks for the weapon mastery property that deals damage equal to the ability modifier even if the attack rol
+    Judge Evidence: "If your attack roll with this weapon misses a creature, you can deal damage to that creature equal to the ability modifier you used to make the attack roll."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the weapon mastery property that deals damage equal to the ability modifier even if the attack rol
+
+Q33: What are the penalties for wearing Heavy armor if a character lacks training with it?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.5s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for specific penalties for wearing Heavy armor without training, which includes having Disadvantage on
+    Judge Evidence: "If you wear Light, Medium, or Heavy armor and lack training with it, you have Disadvantage on any D20 Test that involves Strength or Dexterity, and you can’t cast spells."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for specific penalties for wearing Heavy armor without training, which includes having Disadvantage on
+
+Q34: What specific tool proficiency is required to brew a Potion of Healing?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.6s
+    Topic: Brewing Potions of Healing: A character proficient with the Herbalism Kit can cr
+    Judge: The question asks for the specific tool proficiency required to brew a Potion of Healing, with the expected answer being
+    Judge Evidence: "A character with proficiency in the Herbalism Kit can create a Potion of Healing by using the kit and spending 25 GP on raw materials."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific tool proficiency required to brew a Potion of Healing, with the expected answer being
+
+Q35: How much time is required to don a suit of Plate Armor?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.1s
+    Topic: D&D Armor Rules Summary: In D&D, armor is categorized as Light, Medium, or Heavy
+    Judge: The question asks for the specific time required to don a suit of Plate Armor, expecting the answer to be '10 Minutes.' 
+    Judge Evidence: "Heavy Armor (10 Minutes to Don and 5 Minutes to Doff)"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific time required to don a suit of Plate Armor, expecting the answer to be '10 Minutes.' 
+
+Q36: What is the purchase cost of a Spyglass?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.1s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the mechanics of a pressure p
+    Judge: The question asks for the purchase cost of a Spyglass, which is expected to be 1,000 GP. The retrieved chunk does not me
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.4s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the mechanics of a pressure p
+    Judge: The task is to determine if the expanded context contains the specific information about the purchase cost of a Spyglass
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ❌ Not in this chunk | 3.5s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the mechanics of a pressure p
+    Judge: The question asks for the purchase cost of a Spyglass, specifically expecting an answer of 1,000 GP. The retrieved chunk
+[ollama/phi4:latest] Thinking...
+  [Window 2] ❌ Not in this window | 3.7s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the mechanics of a pressure p
+    Judge: The task is to determine if the retrieved text chunks contain the exact purchase cost of a Spyglass, which is expected t
+[ollama/phi4:latest] Thinking...
+  [Chunk 3] ❌ Not in this chunk | 4.1s
+    Topic: D&D Tools and Proficiency: Tools in D&D aid in ability checks and crafting, with
+    Judge: The question asks for the purchase cost of a Spyglass, specifically expecting an answer of 1,000 GP. The retrieved chunk
+[ollama/phi4:latest] Thinking...
+  [Window 3] ❌ Not in this window | 5.2s
+    Topic: D&D Tools and Proficiency: Tools in D&D aid in ability checks and crafting, with
+    Judge: The task is to determine if the retrieved text contains the exact purchase cost of a Spyglass, which is expected to be 1
+[ollama/phi4:latest] Thinking...
+  [Chunk 4] ❌ Not in this chunk | 4.0s
+    Topic: D&D Tools and Proficiency: Tools in D&D aid in ability checks and crafting, with
+    Judge: The question asks for the purchase cost of a Spyglass, specifically expecting an answer of 1,000 GP. The retrieved chunk
+[ollama/phi4:latest] Thinking...
+  [Window 4] ❌ Not in this window | 4.6s
+    Topic: D&D Tools and Proficiency: Tools in D&D aid in ability checks and crafting, with
+    Judge: The task is to determine if the provided text contains the specific information about the purchase cost of a Spyglass, w
+[ollama/phi4:latest] Thinking...
+  [Chunk 5] ❌ Not in this chunk | 3.7s
+    Topic: D&D Tools and Proficiency: Tools in D&D aid in ability checks and crafting, with
+    Judge: The question asks for the purchase cost of a Spyglass, specifically expecting an answer of 1,000 GP. The retrieved chunk
+[ollama/phi4:latest] Thinking...
+  [Window 5] ❌ Not in this window | 4.8s
+    Topic: D&D Tools and Proficiency: Tools in D&D aid in ability checks and crafting, with
+    Judge: The task is to determine if the provided text contains the specific information about the purchase cost of a Spyglass, w
+[ollama/phi4:latest] Thinking...
+  [Chunk 6] ✅ FOUND HERE | 3.2s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the functionalities and condi
+    Judge: The question asks for the purchase cost of a Spyglass, specifically expecting the answer to be '1,000 GP.' To determine 
+    Judge Evidence: "Spyglass (1,000 GP)"
+  ✅ SUCCESS (Judge): Answer at rank 6 (MRR+: 0.17)
+     Reasoning: The question asks for the purchase cost of a Spyglass, specifically expecting the answer to be '1,000 GP.' To determine 
+
+Q37: What is the maximum number of magic items a character can be attuned to at one time?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.1s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the costs for food, drink, an
+    Judge: The question asks for the maximum number of magic items a character can be attuned to at one time, with the expected ans
+    Judge Evidence: "Any attempt to attune to a fourth item fails; you must end your Attunement to an item first."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the maximum number of magic items a character can be attuned to at one time, with the expected ans
+
+Q38: What happens if a Bag of Holding is placed inside an extradimensional space created by a Portable Hole?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.5s
+    Topic: D&D Rulebook Snippet Summary: The Portable Hole is a lightweight extradimensiona
+    Judge: The question asks about the specific consequences of placing a Bag of Holding inside an extradimensional space created b
+    Judge Evidence: "Placing a _Portable Hole_ inside an extradimensional space created by a _Bag of Holding_, _Handy Haversack_, or similar item instantly destroys both items and opens a gate to the Astral Plane. The gate originates where the one item was placed inside the other. Any creature within 10 feet of the gate and not behind Total Cover is sucked through it and deposited in a random location on the Astral Plane."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks about the specific consequences of placing a Bag of Holding inside an extradimensional space created b
+
+Q39: What information does the Identify spell reveal if it is cast by touching a creature instead of an object?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 3.3s
+    Topic: D&D Spell Descriptions: The 'Sense Thoughts' spell detects thinking creatures wi
+    Judge: The question asks for specific information about what the Identify spell reveals when cast on a creature. The retrieved 
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 4.0s
+    Topic: D&D Spell Descriptions: The 'Sense Thoughts' spell detects thinking creatures wi
+    Judge: The task is to determine if the provided text contains the specific information about what the Identify spell reveals wh
+[ollama/phi4:latest] Thinking...
+  [Chunk 2] ✅ FOUND HERE | 4.2s
+    Topic: D&D Rulebook Snippet Summary: The snippet outlines the mechanics of cold damage,
+    Judge: The question asks for specific information about what the Identify spell reveals when cast by touching a creature instea
+    Judge Evidence: "If you instead touch a creature throughout the casting, you learn which ongoing spells, if any, are currently affecting it."
+  ✅ SUCCESS (Judge): Answer at rank 2 (MRR+: 0.50)
+     Reasoning: The question asks for specific information about what the Identify spell reveals when cast by touching a creature instea
+
+Q40: How much extra time is added to a spell's normal casting time when it is cast as a Ritual?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.7s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: In D&D, spells can be cast as
+    Judge: The question asks for the specific amount of extra time added to a spell's normal casting time when it is cast as a Ritu
+    Judge Evidence: "The Ritual version of a spell takes 10 minutes longer to cast than normal."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific amount of extra time added to a spell's normal casting time when it is cast as a Ritu
+
+Q41: What is the maximum weight the spectral hand from the Mage Hand cantrip can carry?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.4s
+    Topic: D&D Spell Summary: Longstrider increases a creature's speed, Mage Armor boosts a
+    Judge: The question asks for the maximum weight the spectral hand from the Mage Hand cantrip can carry. To determine if the ret
+    Judge Evidence: "The hand can’t attack, activate magic items, or carry more than 10 pounds."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the maximum weight the spectral hand from the Mage Hand cantrip can carry. To determine if the ret
+
+Q42: What happens when a player rolls a 20 on the d20 for a Death Saving Throw?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.9s
+    Topic: Core Rules on Damage, Healing, and 0 Hit Points in D&D: In D&D, immunity to a da
+    Judge: The question asks specifically about the outcome when a player rolls a 20 on the d20 for a Death Saving Throw. The retri
+    Judge Evidence: "If you roll a 20 on the d20, you regain 1 Hit Point."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about the outcome when a player rolls a 20 on the d20 for a Death Saving Throw. The retri
+
+Q43: How much water does a Medium size creature require per day to avoid gaining exhaustion from Dehydration?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.0s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: In D&D, a character's movemen
+    Judge: The question asks for the specific amount of water a Medium size creature requires per day to avoid gaining exhaustion f
+    Judge Evidence: "Medium 1 gallon"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific amount of water a Medium size creature requires per day to avoid gaining exhaustion f
+
+Q44: How does gaining the Exhaustion condition affect a creature's Speed?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.9s
+    Topic: Core Rules and Concepts from D&D Rulebook Snippet: The Dodge action grants advan
+    Judge: The question asks specifically about how the Exhaustion condition affects a creature's Speed, expecting the answer to be
+    Judge Evidence: "Your Speed is reduced by a number of feet equal to 5 times your Exhaustion level."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about how the Exhaustion condition affects a creature's Speed, expecting the answer to be
+
+Q45: What type of action must a creature take to attempt to escape a Grapple by making a Strength (Athletics) or Dexterity (Acrobatics) check?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 5.1s
+    Topic: D&D Rulebook Snippet Summary: In D&D, the Frightened condition imposes disadvant
+    Judge: The question asks for the type of action a creature must take to attempt to escape a Grapple by making a Strength (Athle
+    Judge Evidence: "A Grappled creature can use its action to make a Strength (Athletics) or Dexterity (Acrobatics) check against the grapple’s escape DC, ending the condition on itself on a success."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the type of action a creature must take to attempt to escape a Grapple by making a Strength (Athle
+
+Q46: Which two saving throws does a creature automatically fail while under the Paralyzed condition?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.6s
+    Topic: D&D Rulebook Snippet Summary: Creatures must succeed on a DC 10 Constitution sav
+    Judge: The question asks which two saving throws a creature automatically fails while under the Paralyzed condition. The retrie
+    Judge Evidence: "You automatically fail Strength and Dexterity saving throws."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks which two saving throws a creature automatically fails while under the Paralyzed condition. The retrie
+
+Q47: How many Hit Points does an Awakened Shrub typically have according to its stat block?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.3s
+    Topic: Awakened Shrub: The Awakened Shrub is a small, neutral plant with AC 9, -1 initi
+    Judge: The question asks for the specific number of Hit Points an Awakened Shrub typically has according to its stat block, exp
+    Judge Evidence: "**HP** 10 (3d6)"
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks for the specific number of Hit Points an Awakened Shrub typically has according to its stat block, exp
+
+Q48: What type of damage does the breath weapon of a Green Dragon Wyrmling deal?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.6s
+    Topic: Green Dragon Wyrmling Core Rules and Concepts: The Green Dragon Wyrmling is a Me
+    Judge: The question asks about the type of damage dealt by the breath weapon of a Green Dragon Wyrmling. The retrieved chunk pr
+    Judge Evidence: "21 (6d6) Poison damage."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks about the type of damage dealt by the breath weapon of a Green Dragon Wyrmling. The retrieved chunk pr
+
+Q49: Which trait allows a destroyed Lich to reform a new body in 1d10 days?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 4.7s
+    Topic: Lich Core Rules and Concepts: A Lich is a powerful undead wizard with high AC, H
+    Judge: The question asks which trait allows a destroyed Lich to reform a new body in 1d10 days. The expected answer is 'Spirit 
+    Judge Evidence: "_**Spirit Jar.**_ If destroyed, the lich reforms in 1d10 days if it has a spirit jar, reviving with all its Hit Points."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks which trait allows a destroyed Lich to reform a new body in 1d10 days. The expected answer is 'Spirit 
+
+Q50: What happens if the Tarrasque rolls a 6 for its Reflective Carapace trait when targeted by a Magic Missile?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ✅ FOUND HERE | 3.9s
+    Topic: Tarrasque Core Rules and Concepts: The Tarrasque is a gargantuan, unaligned mons
+    Judge: The question asks specifically about the outcome when the Tarrasque rolls a 6 for its Reflective Carapace trait when tar
+    Judge Evidence: "On a **6**, the tarrasque is unaffected and reflects the spell, turning the caster into the target."
+  ✅ SUCCESS (Judge): Answer at rank 1 (MRR+: 1.00)
+     Reasoning: The question asks specifically about the outcome when the Tarrasque rolls a 6 for its Reflective Carapace trait when tar
+
+Q51: A creature wearing a Ring of Free Action walks into the area of a Sleet Storm spell. How is its movement affected by the ground, and what happens if it fails the spell's saving throw?
+[ollama/phi4:latest] Thinking...
+  [Chunk 1] ❌ Not in this chunk | 4.2s
+    Topic: D&D Spell Descriptions: Simulacrum creates a construct copy of a creature that o
+    Judge: The question asks about the effects of a Sleet Storm spell on a creature wearing a Ring of Free Action, specifically reg
+[ollama/phi4:latest] Thinking...
+  [Window 1] ❌ Not in this window | 3.1s
+    Topic: D&D Spell Descriptions: Simulacrum creates a construct copy of a creature that o
+    Judge: To determine if the retrieved text contains the answer, I need to identify specific information about the interaction be
